@@ -3,18 +3,29 @@ import { DndContext, DragOverlay, useDraggable } from '@dnd-kit/core';
 import { dataManager } from '../data/characterData';
 import { CharacterCard } from './CharacterCard';
 import { FleetSlot } from './FleetSlot';
+import { CharacterSearchModal } from './CharacterSearchModal';
 import { Character, Fleet } from '../types';
-import { Users, Download, Sparkles } from 'lucide-react';
+import { Users, Download, Sparkles, PlusCircle, Database } from 'lucide-react';
 
 export const FleetSimulator: React.FC = () => {
-  const [currentFleet, setCurrentFleet] = useState<Fleet>(() => 
+  const [currentFleet, setCurrentFleet] = useState<Fleet>(() =>
     dataManager.createFleet('我的阵容')
   );
   const [activeCharacter, setActiveCharacter] = useState<Character | null>(null);
   const [showRecommendations, setShowRecommendations] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const [localCharacters, setLocalCharacters] = useState<Character[]>(
+    dataManager.getCharacters()
+  );
 
-  const characters = dataManager.searchCharacters(searchQuery);
+  const characters = localCharacters.filter(char => {
+    const q = searchQuery.toLowerCase();
+    return char.name.toLowerCase().includes(q) ||
+      char.nameCn.includes(searchQuery) ||
+      char.type.includes(searchQuery) ||
+      char.faction.includes(searchQuery);
+  });
 
   const handleDragStart = (event: any) => {
     const { active } = event;
@@ -31,21 +42,16 @@ export const FleetSimulator: React.FC = () => {
       const slotId = over.id;
       const slotIndex = parseInt(slotId.replace('slot-', '')) - 1;
 
-      const character = dataManager.getCharacterById(characterId);
+      const character = localCharacters.find(c => c.id === characterId);
       if (character) {
         const newFleet = { ...currentFleet };
         newFleet.characters = [...newFleet.characters];
-        
-        // 检查该位置是否已有角色
+
         const existingChar = newFleet.characters[slotIndex];
-        
-        // 找到角色原来所在的位置
         const oldIndex = newFleet.characters.findIndex(c => c?.id === characterId);
-        
-        // 放置新角色
+
         newFleet.characters[slotIndex] = character;
-        
-        // 如果原来位置有角色，清空它（交换逻辑）
+
         if (oldIndex !== -1 && oldIndex !== slotIndex) {
           newFleet.characters[oldIndex] = existingChar;
         }
@@ -80,9 +86,19 @@ export const FleetSimulator: React.FC = () => {
   };
 
   const getRecommendations = () => {
-    const recs = dataManager.recommendFleet('平衡');
+    const recs = dataManager.recommendFleet('平衡', localCharacters);
     return recs;
   };
+
+  const handleAddCharacter = (character: Character) => {
+    if (!localCharacters.find(c => c.id === character.id)) {
+      const newCharacters = [...localCharacters, character];
+      setLocalCharacters(newCharacters);
+      dataManager.addCharacters([character]);
+    }
+  };
+
+  const existingCharacterIds = localCharacters.map(c => c.id);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-azur-dark to-azur p-6">
@@ -106,6 +122,13 @@ export const FleetSimulator: React.FC = () => {
             className="flex-1 min-w-[200px] bg-azur-dark border border-azur rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
           />
           <button
+            onClick={() => setShowSearchModal(true)}
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            <PlusCircle className="w-4 h-4" />
+            添加角色
+          </button>
+          <button
             onClick={() => setShowRecommendations(!showRecommendations)}
             className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
           >
@@ -114,11 +137,16 @@ export const FleetSimulator: React.FC = () => {
           </button>
           <button
             onClick={exportFleet}
-            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
           >
             <Download className="w-4 h-4" />
             导出阵容
           </button>
+          <div className="bg-azur-dark rounded-lg px-4 py-2 text-white flex items-center gap-2">
+            <Database className="w-4 h-4" />
+            <span>角色池：</span>
+            <span className="font-bold text-yellow-400">{localCharacters.length}</span>
+          </div>
           <div className="bg-azur-dark rounded-lg px-4 py-2 text-white">
             总战力：<span className="font-bold text-yellow-400">{calculatePower()}</span>
           </div>
@@ -147,7 +175,6 @@ export const FleetSimulator: React.FC = () => {
                   {currentFleet.name}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  {/* 先锋舰队 */}
                   {[0, 1, 2].map(i => (
                     <FleetSlot
                       key={`slot-${i + 1}`}
@@ -159,7 +186,6 @@ export const FleetSimulator: React.FC = () => {
                   ))}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {/* 主力舰队 */}
                   {[3, 4, 5].map(i => (
                     <FleetSlot
                       key={`slot-${i + 1}`}
@@ -208,6 +234,15 @@ export const FleetSimulator: React.FC = () => {
             )}
           </DragOverlay>
         </DndContext>
+
+        {/* 角色搜索模态框 */}
+        <CharacterSearchModal
+          isOpen={showSearchModal}
+          onClose={() => setShowSearchModal(false)}
+          onAddCharacter={handleAddCharacter}
+          existingCharacterIds={existingCharacterIds}
+          allCharacters={dataManager.getAllCharacters()}
+        />
       </div>
     </div>
   );

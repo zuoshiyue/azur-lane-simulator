@@ -1,0 +1,402 @@
+[
+  {
+    "id": "char_003",
+    "name": "Akagi",
+    "nameCn": "赤城",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1100,
+      "fire": 60,
+      "torpedo": 0,
+      "aviation": 100,
+      "reload": 45,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 60,
+      "antiAir": 75,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "航空母舰",
+        "description": "航空值提高 20%，但受到的伤害增加 5%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭支援",
+        "description": "空袭冷却时间减少 20%",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_006",
+    "name": "Kaga",
+    "nameCn": "加贺",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1150,
+      "fire": 62,
+      "torpedo": 0,
+      "aviation": 98,
+      "reload": 48,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 58,
+      "antiAir": 78,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 18%，舰载机耐久提高 10%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机强化",
+        "description": "舰载机伤害提高 15%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_011",
+    "name": "Shikishima",
+    "nameCn": "骏河",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1520,
+      "fire": 94,
+      "torpedo": 0,
+      "aviation": 0,
+      "reload": 41,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 56,
+      "antiAir": 84,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "高速战列",
+        "description": "航速提高 5，机动提高 10%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮连射",
+        "description": "有 25% 概率连续射击两次",
+        "type": "active",
+        "cooldown": 26
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_012",
+    "name": "Musashi",
+    "nameCn": "武藏",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1650,
+      "fire": 100,
+      "torpedo": 0,
+      "aviation": 0,
+      "reload": 36,
+      "armor": "重型",
+      "speed": 26,
+      "luck": 50,
+      "antiAir": 90,
+      "detection": 47
+    },
+    "skills": [
+      {
+        "name": "大和级",
+        "description": "火力提高 20%，耐久提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "超弩级炮击",
+        "description": "主炮暴击伤害提高 50%",
+        "type": "active",
+        "cooldown": 32
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 150
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_013",
+    "name": "Yamato",
+    "nameCn": "大和",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1640,
+      "fire": 99,
+      "torpedo": 0,
+      "aviation": 0,
+      "reload": 37,
+      "armor": "重型",
+      "speed": 26,
+      "luck": 51,
+      "antiAir": 89,
+      "detection": 48
+    },
+    "skills": [
+      {
+        "name": "旗舰",
+        "description": "提高全队火力 10%",
+        "type": "passive"
+      },
+      {
+        "name": "大和炮击",
+        "description": "主炮伤害提高 25%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_015",
+    "name": "Taihou",
+    "nameCn": "大凤",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1220,
+      "fire": 66,
+      "torpedo": 0,
+      "aviation": 102,
+      "reload": 47,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 64,
+      "antiAir": 76,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "装母",
+        "description": "航空值提高 25%，但装填减少 10%",
+        "type": "passive"
+      },
+      {
+        "name": "精锐航空队",
+        "description": "舰载机伤害提高 20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_016",
+    "name": "Zuikaku",
+    "nameCn": "瑞鹤",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1170,
+      "fire": 61,
+      "torpedo": 0,
+      "aviation": 96,
+      "reload": 49,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 63,
+      "antiAir": 77,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "瑞翔",
+        "description": "与翔鹤在同一舰队时，航空提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭强化",
+        "description": "空袭伤害提高 18%",
+        "type": "active",
+        "cooldown": 21
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 124
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_017",
+    "name": "Zuikaku",
+    "nameCn": "翔鹤",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1165,
+      "fire": 60,
+      "torpedo": 0,
+      "aviation": 95,
+      "reload": 50,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 62,
+      "antiAir": 76,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "瑞翔",
+        "description": "与瑞鹤在同一舰队时，装填提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "熟练舰载机",
+        "description": "舰载机效率提高 12%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 123
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 113
+      }
+    ]
+  }
+]

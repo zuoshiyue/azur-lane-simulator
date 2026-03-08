@@ -1,0 +1,352 @@
+[
+  {
+    "id": "char_002",
+    "name": "Belfast",
+    "nameCn": "贝尔法斯特",
+    "rarity": 5,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 800,
+      "fire": 55,
+      "torpedo": 60,
+      "aviation": 0,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 32,
+      "luck": 65,
+      "antiAir": 70,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "完美女仆",
+        "description": "装填提高 10%，战斗开始时使自身机动提高 20%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "战斗开始 10 秒后生成烟雾屏障，持续 8 秒",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 130
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 110
+      }
+    ]
+  },
+  {
+    "id": "char_004",
+    "name": "Prince of Wales",
+    "nameCn": "威尔士亲王",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1500,
+      "fire": 95,
+      "torpedo": 0,
+      "aviation": 0,
+      "reload": 40,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 55,
+      "antiAir": 85,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15%，对轻甲目标额外提高 10%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时，伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_005",
+    "name": "Javelin",
+    "nameCn": "拉菲",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 400,
+      "fire": 35,
+      "torpedo": 75,
+      "aviation": 0,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 38,
+      "luck": 60,
+      "antiAir": 55,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20%，鱼雷散布范围减小",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "每隔 20 秒生成烟雾，持续 5 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_014",
+    "name": "Unicorn",
+    "nameCn": "独角兽",
+    "rarity": 4,
+    "type": "轻母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 750,
+      "fire": 45,
+      "torpedo": 0,
+      "aviation": 75,
+      "reload": 55,
+      "armor": "轻型",
+      "speed": 25,
+      "luck": 62,
+      "antiAir": 65,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "支援",
+        "description": "战斗开始时回复先锋舰队耐久",
+        "type": "passive"
+      },
+      {
+        "name": "空袭支援",
+        "description": "空袭冷却减少 15%",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 110
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_018",
+    "name": "Illustrious",
+    "nameCn": "光辉",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1250,
+      "fire": 58,
+      "torpedo": 0,
+      "aviation": 88,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 29,
+      "luck": 67,
+      "antiAir": 85,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "装甲航母",
+        "description": "受到的伤害减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "皇家方舟",
+        "description": "提高全队防空 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 114
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_019",
+    "name": "Formidable",
+    "nameCn": "可畏",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1240,
+      "fire": 57,
+      "torpedo": 0,
+      "aviation": 87,
+      "reload": 47,
+      "armor": "中型",
+      "speed": 29,
+      "luck": 66,
+      "antiAir": 84,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "铁底湾",
+        "description": "在夜战时航空提高 20%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 16%",
+        "type": "active",
+        "cooldown": 23
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 113
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_020",
+    "name": "Victorious",
+    "nameCn": "胜利",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1235,
+      "fire": 56,
+      "torpedo": 0,
+      "aviation": 86,
+      "reload": 48,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 65,
+      "antiAir": 83,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "空袭引导",
+        "description": "空袭伤害提高 14%",
+        "type": "passive"
+      },
+      {
+        "name": "皇家舰队",
+        "description": "与皇家航母在同一舰队时，航空提高 10%",
+        "type": "active",
+        "cooldown": 24
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 112
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 106
+      }
+    ]
+  }
+]

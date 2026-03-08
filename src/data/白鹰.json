@@ -1,0 +1,252 @@
+[
+  {
+    "id": "char_001",
+    "name": "Enterprise",
+    "nameCn": "企业",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "白鹰",
+    "stats": {
+      "hp": 1200,
+      "fire": 65,
+      "torpedo": 0,
+      "aviation": 95,
+      "reload": 50,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 70,
+      "antiAir": 80,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "航空先锋",
+        "description": "航空值提高 15%，每 20 秒触发一次空袭",
+        "type": "passive"
+      },
+      {
+        "name": "致命空袭",
+        "description": "空袭伤害提高 20%，并有 40% 概率再次发动空袭",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 110
+      }
+    ]
+  },
+  {
+    "id": "char_007",
+    "name": "Yorktown",
+    "nameCn": "约克城",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "白鹰",
+    "stats": {
+      "hp": 1180,
+      "fire": 63,
+      "torpedo": 0,
+      "aviation": 93,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 68,
+      "antiAir": 82,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "空中优势",
+        "description": "制空值提高 20%，战斗机效率提高 10%",
+        "type": "passive"
+      },
+      {
+        "name": "舰队防空",
+        "description": "提高全队防空 15%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 110
+      }
+    ]
+  },
+  {
+    "id": "char_008",
+    "name": "Hornet",
+    "nameCn": "大黄蜂",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "白鹰",
+    "stats": {
+      "hp": 1190,
+      "fire": 64,
+      "torpedo": 0,
+      "aviation": 94,
+      "reload": 51,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 66,
+      "antiAir": 81,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "空袭强化",
+        "description": "空袭伤害提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "特殊空袭",
+        "description": "每 3 次空袭触发一次特殊空袭",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 123
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_009",
+    "name": "South Dakota",
+    "nameCn": "南达科他",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "白鹰",
+    "stats": {
+      "hp": 1580,
+      "fire": 98,
+      "torpedo": 0,
+      "aviation": 0,
+      "reload": 38,
+      "armor": "重型",
+      "speed": 27,
+      "luck": 52,
+      "antiAir": 88,
+      "detection": 48
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮伤害提高 18%",
+        "type": "passive"
+      },
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_010",
+    "name": "North Carolina",
+    "nameCn": "北卡罗来纳",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "白鹰",
+    "stats": {
+      "hp": 1560,
+      "fire": 96,
+      "torpedo": 0,
+      "aviation": 0,
+      "reload": 39,
+      "armor": "重型",
+      "speed": 27,
+      "luck": 54,
+      "antiAir": 86,
+      "detection": 49
+    },
+    "skills": [
+      {
+        "name": "主炮精通",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 20%",
+        "type": "active",
+        "cooldown": 28
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  }
+]

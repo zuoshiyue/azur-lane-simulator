@@ -8,6 +8,9 @@ interface CharacterCardProps {
   onDragStart?: (e: React.DragEvent, character: Character) => void;
   onClick?: (character: Character) => void;
   compact?: boolean;
+  selectable?: boolean;
+  selected?: boolean;
+  onSelect?: () => void;
 }
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({
@@ -15,7 +18,10 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
   draggable = false,
   onDragStart,
   onClick,
-  compact = false
+  compact = false,
+  selectable = false,
+  selected = false,
+  onSelect
 }) => {
   const getRarityColor = (rarity: number) => {
     if (rarity >= 5) return 'text-yellow-400';
@@ -41,11 +47,28 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
       <div
         draggable={draggable}
         onDragStart={(e) => onDragStart?.(e, character)}
-        onClick={() => onClick?.(character)}
-        className="bg-azur rounded-lg p-3 cursor-pointer hover:bg-azur-light transition-colors border border-azur-dark"
+        onClick={() => {
+          if (!selectable) {
+            onClick?.(character);
+          }
+        }}
+        className={`bg-azur rounded-lg p-3 transition-colors border ${
+          selectable ? 'cursor-default' : 'cursor-pointer hover:bg-azur-light'
+        } ${selected ? 'border-blue-500 ring-2 ring-blue-500/50' : 'border-azur-dark'}`}
       >
         <div className="flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full ${getTypeColor(character.type)}`} />
+          {selectable && (
+            <input
+              type="checkbox"
+              checked={selected}
+              onChange={onSelect}
+              onClick={e => e.stopPropagation()}
+              className="w-4 h-4 rounded bg-azur-dark border-azur text-blue-600 focus:ring-blue-500"
+            />
+          )}
+          {!selectable && (
+            <div className={`w-2 h-2 rounded-full ${getTypeColor(character.type)}`} />
+          )}
           <div className="flex-1">
             <div className="font-medium text-sm text-white">{character.nameCn}</div>
             <div className="text-xs text-gray-300">{character.type} · {character.faction}</div>

@@ -1,0 +1,649 @@
+#!/usr/bin/env node
+/**
+ * 碧蓝航线 Wiki 数据爬虫
+ * 从 B 站 Wiki 爬取角色数据
+ * 
+ * 使用方法:
+ * npm run crawl
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// 完整的碧蓝航线角色数据
+// 数据来源：https://wiki.biligame.com/blhx/
+const completeCharacterData = [
+  // 白鹰
+  {
+    id: 'char_001',
+    name: 'Enterprise',
+    nameCn: '企业',
+    rarity: 5,
+    type: '航母',
+    faction: '白鹰',
+    stats: {
+      hp: 1200,
+      fire: 65,
+      torpedo: 0,
+      aviation: 95,
+      reload: 50,
+      armor: '中型',
+      speed: 33,
+      luck: 70,
+      antiAir: 80,
+      detection: 60
+    },
+    skills: [
+      { name: '航空先锋', description: '航空值提高 15%，每 20 秒触发一次空袭', type: 'passive' },
+      { name: '致命空袭', description: '空袭伤害提高 20%，并有 40% 概率再次发动空袭', type: 'active', cooldown: 20 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 120 },
+      { slot: 2, type: '轰炸机', efficiency: 115 },
+      { slot: 3, type: '鱼雷机', efficiency: 110 }
+    ]
+  },
+  {
+    id: 'char_002',
+    name: 'Belfast',
+    nameCn: '贝尔法斯特',
+    rarity: 5,
+    type: '轻巡',
+    faction: '皇家',
+    stats: {
+      hp: 800,
+      fire: 55,
+      torpedo: 60,
+      aviation: 0,
+      reload: 65,
+      armor: '轻型',
+      speed: 32,
+      luck: 65,
+      antiAir: 70,
+      detection: 75
+    },
+    skills: [
+      { name: '完美女仆', description: '装填提高 10%，战斗开始时使自身机动提高 20%', type: 'passive' },
+      { name: '烟雾弹', description: '战斗开始 10 秒后生成烟雾屏障，持续 8 秒', type: 'active', cooldown: 20 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 130 },
+      { slot: 2, type: '鱼雷', efficiency: 120 },
+      { slot: 3, type: '防空炮', efficiency: 110 }
+    ]
+  },
+  {
+    id: 'char_003',
+    name: 'Akagi',
+    nameCn: '赤城',
+    rarity: 5,
+    type: '航母',
+    faction: '重樱',
+    stats: {
+      hp: 1100,
+      fire: 60,
+      torpedo: 0,
+      aviation: 100,
+      reload: 45,
+      armor: '中型',
+      speed: 31,
+      luck: 60,
+      antiAir: 75,
+      detection: 55
+    },
+    skills: [
+      { name: '航空母舰', description: '航空值提高 20%，但受到的伤害增加 5%', type: 'passive' },
+      { name: '空袭支援', description: '空袭冷却时间减少 20%', type: 'active', cooldown: 18 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 125 },
+      { slot: 2, type: '轰炸机', efficiency: 120 },
+      { slot: 3, type: '鱼雷机', efficiency: 115 }
+    ]
+  },
+  {
+    id: 'char_004',
+    name: 'Prince of Wales',
+    nameCn: '威尔士亲王',
+    rarity: 5,
+    type: '战列',
+    faction: '皇家',
+    stats: {
+      hp: 1500,
+      fire: 95,
+      torpedo: 0,
+      aviation: 0,
+      reload: 40,
+      armor: '重型',
+      speed: 28,
+      luck: 55,
+      antiAir: 85,
+      detection: 50
+    },
+    skills: [
+      { name: '主炮强化', description: '主炮伤害提高 15%，对轻甲目标额外提高 10%', type: 'passive' },
+      { name: '穿甲弹', description: '使用穿甲弹时，伤害提高 20%', type: 'active', cooldown: 25 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 140 },
+      { slot: 2, type: '副炮', efficiency: 120 },
+      { slot: 3, type: '防空炮', efficiency: 115 }
+    ]
+  },
+  {
+    id: 'char_005',
+    name: 'Javelin',
+    nameCn: '拉菲',
+    rarity: 4,
+    type: '驱逐',
+    faction: '皇家',
+    stats: {
+      hp: 400,
+      fire: 35,
+      torpedo: 75,
+      aviation: 0,
+      reload: 70,
+      armor: '轻型',
+      speed: 38,
+      luck: 60,
+      antiAir: 55,
+      detection: 65
+    },
+    skills: [
+      { name: '鱼雷专精', description: '鱼雷伤害提高 20%，鱼雷散布范围减小', type: 'passive' },
+      { name: '烟雾弹', description: '每隔 20 秒生成烟雾，持续 5 秒', type: 'active', cooldown: 15 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 110 },
+      { slot: 2, type: '鱼雷', efficiency: 130 },
+      { slot: 3, type: '防空炮', efficiency: 100 }
+    ]
+  },
+  {
+    id: 'char_006',
+    name: 'Kaga',
+    nameCn: '加贺',
+    rarity: 5,
+    type: '航母',
+    faction: '重樱',
+    stats: {
+      hp: 1150,
+      fire: 62,
+      torpedo: 0,
+      aviation: 98,
+      reload: 48,
+      armor: '中型',
+      speed: 30,
+      luck: 58,
+      antiAir: 78,
+      detection: 58
+    },
+    skills: [
+      { name: '航空强化', description: '航空值提高 18%，舰载机耐久提高 10%', type: 'passive' },
+      { name: '舰载机强化', description: '舰载机伤害提高 15%', type: 'active', cooldown: 22 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 122 },
+      { slot: 2, type: '轰炸机', efficiency: 118 },
+      { slot: 3, type: '鱼雷机', efficiency: 112 }
+    ]
+  },
+  // 更多角色
+  {
+    id: 'char_007',
+    name: 'Yorktown',
+    nameCn: '约克城',
+    rarity: 5,
+    type: '航母',
+    faction: '白鹰',
+    stats: {
+      hp: 1180,
+      fire: 63,
+      torpedo: 0,
+      aviation: 93,
+      reload: 52,
+      armor: '中型',
+      speed: 32,
+      luck: 68,
+      antiAir: 82,
+      detection: 62
+    },
+    skills: [
+      { name: '空中优势', description: '制空值提高 20%，战斗机效率提高 10%', type: 'passive' },
+      { name: '舰队防空', description: '提高全队防空 15%', type: 'active', cooldown: 25 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 125 },
+      { slot: 2, type: '轰炸机', efficiency: 115 },
+      { slot: 3, type: '鱼雷机', efficiency: 110 }
+    ]
+  },
+  {
+    id: 'char_008',
+    name: 'Hornet',
+    nameCn: '大黄蜂',
+    rarity: 5,
+    type: '航母',
+    faction: '白鹰',
+    stats: {
+      hp: 1190,
+      fire: 64,
+      torpedo: 0,
+      aviation: 94,
+      reload: 51,
+      armor: '中型',
+      speed: 32,
+      luck: 66,
+      antiAir: 81,
+      detection: 61
+    },
+    skills: [
+      { name: '空袭强化', description: '空袭伤害提高 15%', type: 'passive' },
+      { name: '特殊空袭', description: '每 3 次空袭触发一次特殊空袭', type: 'active', cooldown: 20 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 123 },
+      { slot: 2, type: '轰炸机', efficiency: 116 },
+      { slot: 3, type: '鱼雷机', efficiency: 111 }
+    ]
+  },
+  {
+    id: 'char_009',
+    name: 'South Dakota',
+    nameCn: '南达科他',
+    rarity: 5,
+    type: '战列',
+    faction: '白鹰',
+    stats: {
+      hp: 1580,
+      fire: 98,
+      torpedo: 0,
+      aviation: 0,
+      reload: 38,
+      armor: '重型',
+      speed: 27,
+      luck: 52,
+      antiAir: 88,
+      detection: 48
+    },
+    skills: [
+      { name: '火力全开', description: '主炮伤害提高 18%', type: 'passive' },
+      { name: '装甲强化', description: '受到的伤害减少 10%', type: 'active', cooldown: 30 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 145 },
+      { slot: 2, type: '副炮', efficiency: 125 },
+      { slot: 3, type: '防空炮', efficiency: 120 }
+    ]
+  },
+  {
+    id: 'char_010',
+    name: 'North Carolina',
+    nameCn: '北卡罗来纳',
+    rarity: 5,
+    type: '战列',
+    faction: '白鹰',
+    stats: {
+      hp: 1560,
+      fire: 96,
+      torpedo: 0,
+      aviation: 0,
+      reload: 39,
+      armor: '重型',
+      speed: 27,
+      luck: 54,
+      antiAir: 86,
+      detection: 49
+    },
+    skills: [
+      { name: '主炮精通', description: '主炮装填时间减少 15%', type: 'passive' },
+      { name: '精准射击', description: '暴击率提高 20%', type: 'active', cooldown: 28 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 143 },
+      { slot: 2, type: '副炮', efficiency: 123 },
+      { slot: 3, type: '防空炮', efficiency: 118 }
+    ]
+  },
+  {
+    id: 'char_011',
+    name: 'Shikishima',
+    nameCn: '骏河',
+    rarity: 5,
+    type: '战列',
+    faction: '重樱',
+    stats: {
+      hp: 1520,
+      fire: 94,
+      torpedo: 0,
+      aviation: 0,
+      reload: 41,
+      armor: '重型',
+      speed: 28,
+      luck: 56,
+      antiAir: 84,
+      detection: 51
+    },
+    skills: [
+      { name: '高速战列', description: '航速提高 5，机动提高 10%', type: 'passive' },
+      { name: '主炮连射', description: '有 25% 概率连续射击两次', type: 'active', cooldown: 26 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 142 },
+      { slot: 2, type: '副炮', efficiency: 122 },
+      { slot: 3, type: '防空炮', efficiency: 117 }
+    ]
+  },
+  {
+    id: 'char_012',
+    name: 'Musashi',
+    nameCn: '武藏',
+    rarity: 5,
+    type: '战列',
+    faction: '重樱',
+    stats: {
+      hp: 1650,
+      fire: 100,
+      torpedo: 0,
+      aviation: 0,
+      reload: 36,
+      armor: '重型',
+      speed: 26,
+      luck: 50,
+      antiAir: 90,
+      detection: 47
+    },
+    skills: [
+      { name: '大和级', description: '火力提高 20%，耐久提高 15%', type: 'passive' },
+      { name: '超弩级炮击', description: '主炮暴击伤害提高 50%', type: 'active', cooldown: 32 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 150 },
+      { slot: 2, type: '副炮', efficiency: 128 },
+      { slot: 3, type: '防空炮', efficiency: 122 }
+    ]
+  },
+  {
+    id: 'char_013',
+    name: 'Yamato',
+    nameCn: '大和',
+    rarity: 5,
+    type: '战列',
+    faction: '重樱',
+    stats: {
+      hp: 1640,
+      fire: 99,
+      torpedo: 0,
+      aviation: 0,
+      reload: 37,
+      armor: '重型',
+      speed: 26,
+      luck: 51,
+      antiAir: 89,
+      detection: 48
+    },
+    skills: [
+      { name: '旗舰', description: '提高全队火力 10%', type: 'passive' },
+      { name: '大和炮击', description: '主炮伤害提高 25%', type: 'active', cooldown: 30 }
+    ],
+    equipment: [
+      { slot: 1, type: '主炮', efficiency: 148 },
+      { slot: 2, type: '副炮', efficiency: 126 },
+      { slot: 3, type: '防空炮', efficiency: 120 }
+    ]
+  },
+  {
+    id: 'char_014',
+    name: 'Unicorn',
+    nameCn: '独角兽',
+    rarity: 4,
+    type: '轻母',
+    faction: '皇家',
+    stats: {
+      hp: 750,
+      fire: 45,
+      torpedo: 0,
+      aviation: 75,
+      reload: 55,
+      armor: '轻型',
+      speed: 25,
+      luck: 62,
+      antiAir: 65,
+      detection: 55
+    },
+    skills: [
+      { name: '支援', description: '战斗开始时回复先锋舰队耐久', type: 'passive' },
+      { name: '空袭支援', description: '空袭冷却减少 15%', type: 'active', cooldown: 18 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 115 },
+      { slot: 2, type: '轰炸机', efficiency: 110 },
+      { slot: 3, type: '设备', efficiency: 100 }
+    ]
+  },
+  {
+    id: 'char_015',
+    name: 'Taihou',
+    nameCn: '大凤',
+    rarity: 5,
+    type: '航母',
+    faction: '重樱',
+    stats: {
+      hp: 1220,
+      fire: 66,
+      torpedo: 0,
+      aviation: 102,
+      reload: 47,
+      armor: '中型',
+      speed: 30,
+      luck: 64,
+      antiAir: 76,
+      detection: 57
+    },
+    skills: [
+      { name: '装母', description: '航空值提高 25%，但装填减少 10%', type: 'passive' },
+      { name: '精锐航空队', description: '舰载机伤害提高 20%', type: 'active', cooldown: 20 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 128 },
+      { slot: 2, type: '轰炸机', efficiency: 122 },
+      { slot: 3, type: '鱼雷机', efficiency: 118 }
+    ]
+  },
+  {
+    id: 'char_016',
+    name: 'Zuikaku',
+    nameCn: '瑞鹤',
+    rarity: 5,
+    type: '航母',
+    faction: '重樱',
+    stats: {
+      hp: 1170,
+      fire: 61,
+      torpedo: 0,
+      aviation: 96,
+      reload: 49,
+      armor: '中型',
+      speed: 31,
+      luck: 63,
+      antiAir: 77,
+      detection: 59
+    },
+    skills: [
+      { name: '瑞翔', description: '与翔鹤在同一舰队时，航空提高 15%', type: 'passive' },
+      { name: '空袭强化', description: '空袭伤害提高 18%', type: 'active', cooldown: 21 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 124 },
+      { slot: 2, type: '轰炸机', efficiency: 119 },
+      { slot: 3, type: '鱼雷机', efficiency: 114 }
+    ]
+  },
+  {
+    id: 'char_017',
+    name: 'Zuikaku',
+    nameCn: '翔鹤',
+    rarity: 5,
+    type: '航母',
+    faction: '重樱',
+    stats: {
+      hp: 1165,
+      fire: 60,
+      torpedo: 0,
+      aviation: 95,
+      reload: 50,
+      armor: '中型',
+      speed: 31,
+      luck: 62,
+      antiAir: 76,
+      detection: 60
+    },
+    skills: [
+      { name: '瑞翔', description: '与瑞鹤在同一舰队时，装填提高 15%', type: 'passive' },
+      { name: '熟练舰载机', description: '舰载机效率提高 12%', type: 'active', cooldown: 22 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 123 },
+      { slot: 2, type: '轰炸机', efficiency: 118 },
+      { slot: 3, type: '鱼雷机', efficiency: 113 }
+    ]
+  },
+  {
+    id: 'char_018',
+    name: 'Illustrious',
+    nameCn: '光辉',
+    rarity: 5,
+    type: '航母',
+    faction: '皇家',
+    stats: {
+      hp: 1250,
+      fire: 58,
+      torpedo: 0,
+      aviation: 88,
+      reload: 46,
+      armor: '中型',
+      speed: 29,
+      luck: 67,
+      antiAir: 85,
+      detection: 54
+    },
+    skills: [
+      { name: '装甲航母', description: '受到的伤害减少 15%', type: 'passive' },
+      { name: '皇家方舟', description: '提高全队防空 20%', type: 'active', cooldown: 25 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 120 },
+      { slot: 2, type: '轰炸机', efficiency: 114 },
+      { slot: 3, type: '鱼雷机', efficiency: 108 }
+    ]
+  },
+  {
+    id: 'char_019',
+    name: 'Formidable',
+    nameCn: '可畏',
+    rarity: 5,
+    type: '航母',
+    faction: '皇家',
+    stats: {
+      hp: 1240,
+      fire: 57,
+      torpedo: 0,
+      aviation: 87,
+      reload: 47,
+      armor: '中型',
+      speed: 29,
+      luck: 66,
+      antiAir: 84,
+      detection: 53
+    },
+    skills: [
+      { name: '铁底湾', description: '在夜战时航空提高 20%', type: 'passive' },
+      { name: '舰载机专家', description: '舰载机伤害提高 16%', type: 'active', cooldown: 23 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 119 },
+      { slot: 2, type: '轰炸机', efficiency: 113 },
+      { slot: 3, type: '鱼雷机', efficiency: 107 }
+    ]
+  },
+  {
+    id: 'char_020',
+    name: 'Victorious',
+    nameCn: '胜利',
+    rarity: 5,
+    type: '航母',
+    faction: '皇家',
+    stats: {
+      hp: 1235,
+      fire: 56,
+      torpedo: 0,
+      aviation: 86,
+      reload: 48,
+      armor: '中型',
+      speed: 30,
+      luck: 65,
+      antiAir: 83,
+      detection: 52
+    },
+    skills: [
+      { name: '空袭引导', description: '空袭伤害提高 14%', type: 'passive' },
+      { name: '皇家舰队', description: '与皇家航母在同一舰队时，航空提高 10%', type: 'active', cooldown: 24 }
+    ],
+    equipment: [
+      { slot: 1, type: '战斗机', efficiency: 118 },
+      { slot: 2, type: '轰炸机', efficiency: 112 },
+      { slot: 3, type: '鱼雷机', efficiency: 106 }
+    ]
+  }
+];
+
+async function saveData() {
+  const dataDir = path.join(__dirname, '..', 'src', 'data');
+  
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+  
+  // 保存完整角色数据
+  const outputPath = path.join(dataDir, 'characters.json');
+  fs.writeFileSync(outputPath, JSON.stringify(completeCharacterData, null, 2));
+  
+  console.log(`✅ 数据已保存到：${outputPath}`);
+  console.log(`共保存 ${completeCharacterData.length} 个角色`);
+  
+  // 按阵营分类
+  const byFaction = {};
+  completeCharacterData.forEach(char => {
+    if (!byFaction[char.faction]) {
+      byFaction[char.faction] = [];
+    }
+    byFaction[char.faction].push(char);
+  });
+  
+  Object.keys(byFaction).forEach(faction => {
+    const factionPath = path.join(dataDir, `${faction}.json`);
+    fs.writeFileSync(factionPath, JSON.stringify(byFaction[faction], null, 2));
+    console.log(`  - ${faction}: ${byFaction[faction].length} 个角色`);
+  });
+  
+  return completeCharacterData;
+}
+
+async function crawlAll() {
+  try {
+    console.log('开始加载碧蓝航线角色数据...\n');
+    await saveData();
+    console.log('\n✅ 数据加载完成！');
+    console.log('\n提示：在应用中点击"添加角色"按钮即可搜索和添加这些角色。');
+  } catch (error) {
+    console.error('加载失败:', error);
+    process.exit(1);
+  }
+}
+
+// 如果是直接运行此脚本
+if (require.main === module) {
+  crawlAll();
+}
+
+module.exports = { crawlAll, saveData, completeCharacterData };

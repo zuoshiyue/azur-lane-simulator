@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "crawl": "node scripts/crawler.js",
+    "crawl": "node scripts/crawler.cjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

@@ -175,7 +175,7 @@ const CharacterDetailModal: React.FC<{
               <h2 className="text-2xl font-bold text-white mb-1">
                 {character.nameCn}
               </h2>
-              <p className="text-gray-300">{character.name}</p>
+              <p className="text-gray-400 text-xs">{character.type} · {character.faction}</p>
             </div>
             <button
               onClick={onClose}

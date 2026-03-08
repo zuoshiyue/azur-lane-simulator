@@ -136,7 +136,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
               <CheckCircle className="w-5 h-5 text-green-400" />
             )}
           </div>
-          <p className="text-sm text-gray-300">{character.name}</p>
+          <p className="text-sm text-gray-400 text-xs">类型：{character.type} | 阵营：{character.faction}</p>
         </div>
         <div className="flex flex-col items-end gap-2">
           <div className="flex">

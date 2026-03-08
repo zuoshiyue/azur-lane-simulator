@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { FleetSimulator } from './components/FleetSimulator';
 import { CharacterDatabase } from './components/CharacterDatabase';
-import { Users, BookOpen, Anchor } from 'lucide-react';
+import { CharacterPoolManager } from './components/CharacterPoolManager';
+import { Users, BookOpen, Anchor, Database } from 'lucide-react';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'simulator' | 'database'>('simulator');
+  const [currentView, setCurrentView] = useState<'simulator' | 'database' | 'pool'>('simulator');
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -47,6 +48,17 @@ function App() {
                 <BookOpen className="w-4 h-4" />
                 <span className="hidden sm:inline">角色数据库</span>
               </button>
+              <button
+                onClick={() => setCurrentView('pool')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  currentView === 'pool'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-300 hover:bg-azur-dark hover:text-white'
+                }`}
+              >
+                <Database className="w-4 h-4" />
+                <span className="hidden sm:inline">角色池管理</span>
+              </button>
             </div>
           </div>
         </div>
@@ -56,6 +68,8 @@ function App() {
       <main>
         {currentView === 'simulator' ? (
           <FleetSimulator />
+        ) : currentView === 'pool' ? (
+          <CharacterPoolManager />
         ) : (
           <CharacterDatabase />
         )}

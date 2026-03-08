@@ -869,6 +869,11 @@ export class DataManager {
     this.saveAllCharactersToStorage();
   }
 
+  // 获取已拥有角色 IDs（所有在 allCharacters 中的都算已拥有）
+  getOwnedCharacterIds(): string[] {
+    return this.allCharacters.map(c => c.id);
+  }
+
   // 改：更新角色
   updateCharacter(character: Character): void {
     const index = this.allCharacters.findIndex(c => c.id === character.id);

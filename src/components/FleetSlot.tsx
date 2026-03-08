@@ -1,0 +1,89 @@
+import React from 'react';
+import { useDroppable } from '@dnd-kit/core';
+import { Character } from '../types';
+import { Anchor, X } from 'lucide-react';
+
+interface FleetSlotProps {
+  id: string;
+  position: number;
+  character: Character | null;
+  onRemove: () => void;
+  onClick?: () => void;
+}
+
+export const FleetSlot: React.FC<FleetSlotProps> = ({
+  id,
+  position,
+  character,
+  onRemove,
+  onClick
+}) => {
+  const { setNodeRef, isOver } = useDroppable({
+    id
+  });
+
+  const getPositionLabel = (pos: number) => {
+    const labels = ['先锋 1', '先锋 2', '先锋 3', '主力 1', '主力 2', '主力 3'];
+    return labels[pos - 1] || `位置${pos}`;
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      onClick={onClick}
+      className={`
+        relative rounded-xl border-2 border-dashed transition-all min-h-[180px]
+        ${character 
+          ? 'border-azur bg-azur/20' 
+          : isOver 
+            ? 'border-blue-400 bg-blue-500/20' 
+            : 'border-gray-600 bg-gray-800/30'
+        }
+      `}
+    >
+      <div className="absolute top-2 left-2 text-xs text-gray-400">
+        {getPositionLabel(position)}
+      </div>
+
+      {character ? (
+        <div className="p-4 h-full">
+          <div className="flex items-start justify-between mb-2">
+            <div>
+              <div className="font-bold text-white">{character.nameCn}</div>
+              <div className="text-xs text-gray-300">{character.type} · {character.faction}</div>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onRemove();
+              }}
+              className="p-1 hover:bg-red-500/20 rounded transition-colors"
+            >
+              <X className="w-4 h-4 text-gray-400 hover:text-red-400" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-3 gap-1 text-xs mt-3">
+            <div className="text-center bg-azur-dark/50 rounded p-1">
+              <div className="text-gray-400 text-[10px]">HP</div>
+              <div className="text-white font-medium">{character.stats.hp}</div>
+            </div>
+            <div className="text-center bg-azur-dark/50 rounded p-1">
+              <div className="text-gray-400 text-[10px]">火力</div>
+              <div className="text-white font-medium">{character.stats.fire}</div>
+            </div>
+            <div className="text-center bg-azur-dark/50 rounded p-1">
+              <div className="text-gray-400 text-[10px]">航空</div>
+              <div className="text-white font-medium">{character.stats.aviation}</div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center h-full text-gray-500">
+          <Anchor className="w-8 h-8 mb-2 opacity-50" />
+          <div className="text-sm">拖拽角色至此</div>
+        </div>
+      )}
+    </div>
+  );
+};

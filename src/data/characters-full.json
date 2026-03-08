@@ -7,7 +7,7 @@
     {
       "id": "char_001",
       "name": "Enterprise",
-      "nameCn": "Enterprise",
+      "nameCn": "企业",
       "rarity": 5,
       "type": "航母",
       "faction": "白鹰",
@@ -57,7 +57,7 @@
     {
       "id": "char_002",
       "name": "Yorktown",
-      "nameCn": "Enterprise",
+      "nameCn": "约克城",
       "rarity": 5,
       "type": "航母",
       "faction": "白鹰",
@@ -106,7 +106,7 @@
     {
       "id": "char_003",
       "name": "Hornet",
-      "nameCn": "Yorktown",
+      "nameCn": "大黄蜂",
       "rarity": 5,
       "type": "航母",
       "faction": "白鹰",
@@ -155,7 +155,7 @@
     {
       "id": "char_004",
       "name": "Wasp",
-      "nameCn": "Hornet",
+      "nameCn": "黄蜂",
       "rarity": 5,
       "type": "航母",
       "faction": "白鹰",
@@ -204,7 +204,7 @@
     {
       "id": "char_005",
       "name": "Lexington",
-      "nameCn": "Wasp",
+      "nameCn": "列克星敦",
       "rarity": 5,
       "type": "航母",
       "faction": "白鹰",
@@ -255,7 +255,7 @@
     {
       "id": "char_006",
       "name": "Saratoga",
-      "nameCn": "Lexington",
+      "nameCn": "萨拉托加",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -304,7 +304,7 @@
     {
       "id": "char_007",
       "name": "Ranger",
-      "nameCn": "Saratoga",
+      "nameCn": "游骑兵",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -354,7 +354,7 @@
     {
       "id": "char_008",
       "name": "Essex",
-      "nameCn": "Ranger",
+      "nameCn": "埃塞克斯",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -403,7 +403,7 @@
     {
       "id": "char_009",
       "name": "Intrepid",
-      "nameCn": "Essex",
+      "nameCn": "无畏",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -452,7 +452,7 @@
     {
       "id": "char_010",
       "name": "Ticonderoga",
-      "nameCn": "Intrepid",
+      "nameCn": "提康德罗加",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -503,7 +503,7 @@
     {
       "id": "char_011",
       "name": "Bunker Hill",
-      "nameCn": "Ticonderoga",
+      "nameCn": "邦克山",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -552,7 +552,7 @@
     {
       "id": "char_012",
       "name": "Shangri-La",
-      "nameCn": "Bunker Hill",
+      "nameCn": "香格里拉",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -602,7 +602,7 @@
     {
       "id": "char_013",
       "name": "Yorktown II",
-      "nameCn": "Shangri-La",
+      "nameCn": "约克城 II",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -799,7 +799,7 @@
     {
       "id": "char_017",
       "name": "Independence",
-      "nameCn": "Bon Homme Richard",
+      "nameCn": "独立",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -848,7 +848,7 @@
     {
       "id": "char_018",
       "name": "Princeton",
-      "nameCn": "Independence",
+      "nameCn": "普林斯顿",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -946,7 +946,7 @@
     {
       "id": "char_020",
       "name": "Cowpens",
-      "nameCn": "Belleau Wood",
+      "nameCn": "考彭斯",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -1045,7 +1045,7 @@
     {
       "id": "char_022",
       "name": "Langley",
-      "nameCn": "Monterey",
+      "nameCn": "兰利",
       "rarity": 4,
       "type": "航母",
       "faction": "白鹰",
@@ -1144,7 +1144,7 @@
     {
       "id": "char_024",
       "name": "South Dakota",
-      "nameCn": "Cabot",
+      "nameCn": "南达科他",
       "rarity": 5,
       "type": "战列",
       "faction": "白鹰",
@@ -1195,7 +1195,7 @@
     {
       "id": "char_025",
       "name": "North Carolina",
-      "nameCn": "South Dakota",
+      "nameCn": "北卡罗来纳",
       "rarity": 5,
       "type": "战列",
       "faction": "白鹰",
@@ -1246,7 +1246,7 @@
     {
       "id": "char_026",
       "name": "Massachusetts",
-      "nameCn": "North Carolina",
+      "nameCn": "马萨诸塞",
       "rarity": 5,
       "type": "战列",
       "faction": "白鹰",
@@ -1295,7 +1295,7 @@
     {
       "id": "char_027",
       "name": "Alabama",
-      "nameCn": "Massachusetts",
+      "nameCn": "阿拉巴马",
       "rarity": 5,
       "type": "战列",
       "faction": "白鹰",
@@ -1345,7 +1345,7 @@
     {
       "id": "char_028",
       "name": "Washington",
-      "nameCn": "Alabama",
+      "nameCn": "华盛顿",
       "rarity": 5,
       "type": "战列",
       "faction": "白鹰",
@@ -1447,7 +1447,7 @@
     {
       "id": "char_030",
       "name": "New Jersey",
-      "nameCn": "Iowa",
+      "nameCn": "新泽西",
       "rarity": 5,
       "type": "战列",
       "faction": "白鹰",
@@ -1698,7 +1698,7 @@
     {
       "id": "char_035",
       "name": "Colorado",
-      "nameCn": "Kentucky",
+      "nameCn": "科罗拉多",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -1747,7 +1747,7 @@
     {
       "id": "char_036",
       "name": "Maryland",
-      "nameCn": "Colorado",
+      "nameCn": "马里兰",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -1798,7 +1798,7 @@
     {
       "id": "char_037",
       "name": "West Virginia",
-      "nameCn": "Maryland",
+      "nameCn": "西弗吉尼亚",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -1848,7 +1848,7 @@
     {
       "id": "char_038",
       "name": "Nevada",
-      "nameCn": "West Virginia",
+      "nameCn": "内华达",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -1897,7 +1897,7 @@
     {
       "id": "char_039",
       "name": "Oklahoma",
-      "nameCn": "Nevada",
+      "nameCn": "俄克拉荷马",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -1946,7 +1946,7 @@
     {
       "id": "char_040",
       "name": "Pennsylvania",
-      "nameCn": "Oklahoma",
+      "nameCn": "宾夕法尼亚",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -1996,7 +1996,7 @@
     {
       "id": "char_041",
       "name": "Arizona",
-      "nameCn": "Pennsylvania",
+      "nameCn": "亚利桑那",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -2197,7 +2197,7 @@
     {
       "id": "char_045",
       "name": "California",
-      "nameCn": "Idaho",
+      "nameCn": "加利福尼亚",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -2247,7 +2247,7 @@
     {
       "id": "char_046",
       "name": "Tennessee",
-      "nameCn": "California",
+      "nameCn": "田纳西",
       "rarity": 4,
       "type": "战列",
       "faction": "白鹰",
@@ -2449,7 +2449,7 @@
     {
       "id": "char_050",
       "name": "Indianapolis",
-      "nameCn": "Arizona II",
+      "nameCn": "印第安纳波利斯",
       "rarity": 4,
       "type": "轻巡",
       "faction": "白鹰",
@@ -2500,7 +2500,7 @@
     {
       "id": "char_051",
       "name": "Portland",
-      "nameCn": "Indianapolis",
+      "nameCn": "波特兰",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2550,7 +2550,7 @@
     {
       "id": "char_052",
       "name": "Astoria",
-      "nameCn": "Portland",
+      "nameCn": "阿斯托利亚",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2600,7 +2600,7 @@
     {
       "id": "char_053",
       "name": "Minneapolis",
-      "nameCn": "Astoria",
+      "nameCn": "明尼阿波利斯",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2651,7 +2651,7 @@
     {
       "id": "char_054",
       "name": "San Francisco",
-      "nameCn": "Minneapolis",
+      "nameCn": "旧金山",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2700,7 +2700,7 @@
     {
       "id": "char_055",
       "name": "Quincy",
-      "nameCn": "San Francisco",
+      "nameCn": "昆西",
       "rarity": 4,
       "type": "轻巡",
       "faction": "白鹰",
@@ -2751,7 +2751,7 @@
     {
       "id": "char_056",
       "name": "Vincennes",
-      "nameCn": "Quincy",
+      "nameCn": "文森斯",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2801,7 +2801,7 @@
     {
       "id": "char_057",
       "name": "Wichita",
-      "nameCn": "Vincennes",
+      "nameCn": "威奇塔",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2851,7 +2851,7 @@
     {
       "id": "char_058",
       "name": "Baltimore",
-      "nameCn": "Wichita",
+      "nameCn": "巴尔的摩",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -2953,7 +2953,7 @@
     {
       "id": "char_060",
       "name": "Helena",
-      "nameCn": "Boston",
+      "nameCn": "海伦娜",
       "rarity": 4,
       "type": "轻巡",
       "faction": "白鹰",
@@ -3002,7 +3002,7 @@
     {
       "id": "char_061",
       "name": "St. Louis",
-      "nameCn": "Helena",
+      "nameCn": "圣路易斯",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -3053,7 +3053,7 @@
     {
       "id": "char_062",
       "name": "Brooklyn",
-      "nameCn": "St. Louis",
+      "nameCn": "布鲁克林",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -3102,7 +3102,7 @@
     {
       "id": "char_063",
       "name": "Phoenix",
-      "nameCn": "Brooklyn",
+      "nameCn": "菲尼克斯",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -3151,7 +3151,7 @@
     {
       "id": "char_064",
       "name": "Honolulu",
-      "nameCn": "Phoenix",
+      "nameCn": "檀香山",
       "rarity": 4,
       "type": "重巡",
       "faction": "白鹰",
@@ -3200,7 +3200,7 @@
     {
       "id": "char_065",
       "name": "Boise",
-      "nameCn": "Honolulu",
+      "nameCn": "博伊西",
       "rarity": 3,
       "type": "轻巡",
       "faction": "白鹰",
@@ -3245,7 +3245,7 @@
     {
       "id": "char_066",
       "name": "Atlanta",
-      "nameCn": "Boise",
+      "nameCn": "亚特兰大",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3290,7 +3290,7 @@
     {
       "id": "char_067",
       "name": "Juneau",
-      "nameCn": "Atlanta",
+      "nameCn": "朱诺",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3334,7 +3334,7 @@
     {
       "id": "char_068",
       "name": "San Diego",
-      "nameCn": "Juneau",
+      "nameCn": "圣地亚哥",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3378,7 +3378,7 @@
     {
       "id": "char_069",
       "name": "Reno",
-      "nameCn": "San Diego",
+      "nameCn": "里诺",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3557,7 +3557,7 @@
     {
       "id": "char_073",
       "name": "Cleveland",
-      "nameCn": "Spokane",
+      "nameCn": "克利夫兰",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3601,7 +3601,7 @@
     {
       "id": "char_074",
       "name": "Columbia",
-      "nameCn": "Cleveland",
+      "nameCn": "哥伦比亚",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3645,7 +3645,7 @@
     {
       "id": "char_075",
       "name": "Montpelier",
-      "nameCn": "Columbia",
+      "nameCn": "蒙彼利埃",
       "rarity": 3,
       "type": "轻巡",
       "faction": "白鹰",
@@ -3689,7 +3689,7 @@
     {
       "id": "char_076",
       "name": "Denver",
-      "nameCn": "Montpelier",
+      "nameCn": "丹佛",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3734,7 +3734,7 @@
     {
       "id": "char_077",
       "name": "Birmingham",
-      "nameCn": "Denver",
+      "nameCn": "伯明翰",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3822,7 +3822,7 @@
     {
       "id": "char_079",
       "name": "Biloxi",
-      "nameCn": "Mobile",
+      "nameCn": "比洛克西",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3911,7 +3911,7 @@
     {
       "id": "char_081",
       "name": "Houston",
-      "nameCn": "Newark",
+      "nameCn": "休斯顿",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -3999,7 +3999,7 @@
     {
       "id": "char_083",
       "name": "Marblehead",
-      "nameCn": "Augusta",
+      "nameCn": "大理石头",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -4043,7 +4043,7 @@
     {
       "id": "char_084",
       "name": "Omaha",
-      "nameCn": "Marblehead",
+      "nameCn": "奥马哈",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -4087,7 +4087,7 @@
     {
       "id": "char_085",
       "name": "Concord",
-      "nameCn": "Omaha",
+      "nameCn": "康科德",
       "rarity": 3,
       "type": "轻巡",
       "faction": "白鹰",
@@ -4219,7 +4219,7 @@
     {
       "id": "char_088",
       "name": "Richmond",
-      "nameCn": "Detroit",
+      "nameCn": "里士满",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -4264,7 +4264,7 @@
     {
       "id": "char_089",
       "name": "Raleigh",
-      "nameCn": "Richmond",
+      "nameCn": "罗利",
       "rarity": 3,
       "type": "重巡",
       "faction": "白鹰",
@@ -4308,7 +4308,7 @@
     {
       "id": "char_090",
       "name": "Fletcher",
-      "nameCn": "Raleigh",
+      "nameCn": "弗莱彻",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4358,7 +4358,7 @@
     {
       "id": "char_091",
       "name": "Radford",
-      "nameCn": "Fletcher",
+      "nameCn": "拉德福德",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4408,7 +4408,7 @@
     {
       "id": "char_092",
       "name": "Jenkins",
-      "nameCn": "Radford",
+      "nameCn": "詹金斯",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4457,7 +4457,7 @@
     {
       "id": "char_093",
       "name": "Nicholas",
-      "nameCn": "Jenkins",
+      "nameCn": "尼古拉斯",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4507,7 +4507,7 @@
     {
       "id": "char_094",
       "name": "Charles Ausburne",
-      "nameCn": "Nicholas",
+      "nameCn": "查尔斯·奥斯本",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4557,7 +4557,7 @@
     {
       "id": "char_095",
       "name": "Aulick",
-      "nameCn": "Charles Ausburne",
+      "nameCn": "奥里克",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4606,7 +4606,7 @@
     {
       "id": "char_096",
       "name": "Stanly",
-      "nameCn": "Aulick",
+      "nameCn": "斯坦利",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4656,7 +4656,7 @@
     {
       "id": "char_097",
       "name": "Spence",
-      "nameCn": "Stanly",
+      "nameCn": "斯彭斯",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4706,7 +4706,7 @@
     {
       "id": "char_098",
       "name": "Shirayuki",
-      "nameCn": "Spence",
+      "nameCn": "白雪",
       "rarity": 4,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4804,7 +4804,7 @@
     {
       "id": "char_100",
       "name": "Miyuki",
-      "nameCn": "Hatsuyuki",
+      "nameCn": "深雪",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -4981,7 +4981,7 @@
     {
       "id": "char_104",
       "name": "Gridley",
-      "nameCn": "Glenville",
+      "nameCn": "格里德利",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -5157,7 +5157,7 @@
     {
       "id": "char_108",
       "name": "Downes",
-      "nameCn": "Patterson",
+      "nameCn": "唐斯",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -5201,7 +5201,7 @@
     {
       "id": "char_109",
       "name": "Cassin",
-      "nameCn": "Downes",
+      "nameCn": "卡辛",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -5290,7 +5290,7 @@
     {
       "id": "char_111",
       "name": "Dewey",
-      "nameCn": "Mahán",
+      "nameCn": "杜威",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -5863,7 +5863,7 @@
     {
       "id": "char_124",
       "name": "Hammann",
-      "nameCn": "Monssen",
+      "nameCn": "哈曼",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6085,7 +6085,7 @@
     {
       "id": "char_129",
       "name": "Sims",
-      "nameCn": "Chevalier",
+      "nameCn": "西姆斯",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6217,7 +6217,7 @@
     {
       "id": "char_132",
       "name": "Hammann II",
-      "nameCn": "Anderson",
+      "nameCn": "哈曼 II",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6349,7 +6349,7 @@
     {
       "id": "char_135",
       "name": "Craven",
-      "nameCn": "Clark",
+      "nameCn": "克雷文",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6394,7 +6394,7 @@
     {
       "id": "char_136",
       "name": "McCall",
-      "nameCn": "Craven",
+      "nameCn": "麦考尔",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6438,7 +6438,7 @@
     {
       "id": "char_137",
       "name": "Maury",
-      "nameCn": "McCall",
+      "nameCn": "莫里",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6837,7 +6837,7 @@
     {
       "id": "char_146",
       "name": "Laffey",
-      "nameCn": "Wilson II",
+      "nameCn": "拉菲",
       "rarity": 3,
       "type": "驱逐",
       "faction": "白鹰",
@@ -6926,7 +6926,7 @@
     {
       "id": "char_148",
       "name": "Illustrious",
-      "nameCn": "Bartlett",
+      "nameCn": "光辉",
       "rarity": 5,
       "type": "航母",
       "faction": "皇家",
@@ -6976,7 +6976,7 @@
     {
       "id": "char_149",
       "name": "Formidable",
-      "nameCn": "Illustrious",
+      "nameCn": "可畏",
       "rarity": 5,
       "type": "航母",
       "faction": "皇家",
@@ -7025,7 +7025,7 @@
     {
       "id": "char_150",
       "name": "Victorious",
-      "nameCn": "Formidable",
+      "nameCn": "胜利",
       "rarity": 5,
       "type": "航母",
       "faction": "皇家",
@@ -7075,7 +7075,7 @@
     {
       "id": "char_151",
       "name": "Indomitable",
-      "nameCn": "Victorious",
+      "nameCn": "不屈",
       "rarity": 5,
       "type": "航母",
       "faction": "皇家",
@@ -7125,7 +7125,7 @@
     {
       "id": "char_152",
       "name": "Ark Royal",
-      "nameCn": "Indomitable",
+      "nameCn": "皇家方舟",
       "rarity": 5,
       "type": "航母",
       "faction": "皇家",
@@ -7174,7 +7174,7 @@
     {
       "id": "char_153",
       "name": "Eagle",
-      "nameCn": "Ark Royal",
+      "nameCn": "鹰",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7223,7 +7223,7 @@
     {
       "id": "char_154",
       "name": "Glorious",
-      "nameCn": "Eagle",
+      "nameCn": "光荣",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7371,7 +7371,7 @@
     {
       "id": "char_157",
       "name": "Hermes",
-      "nameCn": "Furious",
+      "nameCn": "赫尔墨斯",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7420,7 +7420,7 @@
     {
       "id": "char_158",
       "name": "Unicorn",
-      "nameCn": "Hermes",
+      "nameCn": "独角兽",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7469,7 +7469,7 @@
     {
       "id": "char_159",
       "name": "Perseus",
-      "nameCn": "Unicorn",
+      "nameCn": "珀尔修斯",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7519,7 +7519,7 @@
     {
       "id": "char_160",
       "name": "Theseus",
-      "nameCn": "Perseus",
+      "nameCn": "忒修斯",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7569,7 +7569,7 @@
     {
       "id": "char_161",
       "name": "Centaur",
-      "nameCn": "Theseus",
+      "nameCn": "半人马",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7618,7 +7618,7 @@
     {
       "id": "char_162",
       "name": "Albion",
-      "nameCn": "Centaur",
+      "nameCn": "阿尔比恩",
       "rarity": 4,
       "type": "航母",
       "faction": "皇家",
@@ -7817,7 +7817,7 @@
     {
       "id": "char_166",
       "name": "Prince of Wales",
-      "nameCn": "Victorious II",
+      "nameCn": "威尔士亲王",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -7866,7 +7866,7 @@
     {
       "id": "char_167",
       "name": "King George V",
-      "nameCn": "Prince of Wales",
+      "nameCn": "英王乔治五世",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -7916,7 +7916,7 @@
     {
       "id": "char_168",
       "name": "Duke of York",
-      "nameCn": "King George V",
+      "nameCn": "约克公爵",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -7967,7 +7967,7 @@
     {
       "id": "char_169",
       "name": "Howe",
-      "nameCn": "Duke of York",
+      "nameCn": "豪",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -8067,7 +8067,7 @@
     {
       "id": "char_171",
       "name": "Rodney",
-      "nameCn": "Anson",
+      "nameCn": "罗德尼",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -8117,7 +8117,7 @@
     {
       "id": "char_172",
       "name": "Nelson",
-      "nameCn": "Rodney",
+      "nameCn": "纳尔逊",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -8167,7 +8167,7 @@
     {
       "id": "char_173",
       "name": "Queen Elizabeth",
-      "nameCn": "Nelson",
+      "nameCn": "伊丽莎白女王",
       "rarity": 5,
       "type": "战列",
       "faction": "皇家",
@@ -8218,7 +8218,7 @@
     {
       "id": "char_174",
       "name": "Warspite",
-      "nameCn": "Queen Elizabeth",
+      "nameCn": "厌战",
       "rarity": 4,
       "type": "战列",
       "faction": "皇家",
@@ -8317,7 +8317,7 @@
     {
       "id": "char_176",
       "name": "Valiant",
-      "nameCn": "Barham",
+      "nameCn": "勇敢",
       "rarity": 4,
       "type": "战列",
       "faction": "皇家",
@@ -8465,7 +8465,7 @@
     {
       "id": "char_179",
       "name": "Renown",
-      "nameCn": "Resolution",
+      "nameCn": "声望",
       "rarity": 4,
       "type": "战列",
       "faction": "皇家",
@@ -8515,7 +8515,7 @@
     {
       "id": "char_180",
       "name": "Repulse",
-      "nameCn": "Renown",
+      "nameCn": "反击",
       "rarity": 4,
       "type": "战列",
       "faction": "皇家",
@@ -8565,7 +8565,7 @@
     {
       "id": "char_181",
       "name": "Hood",
-      "nameCn": "Repulse",
+      "nameCn": "胡德",
       "rarity": 4,
       "type": "战列",
       "faction": "皇家",
@@ -8614,7 +8614,7 @@
     {
       "id": "char_182",
       "name": "Royal Oak",
-      "nameCn": "Hood",
+      "nameCn": "皇家橡树",
       "rarity": 4,
       "type": "战列",
       "faction": "皇家",
@@ -8767,7 +8767,7 @@
     {
       "id": "char_185",
       "name": "Belfast",
-      "nameCn": "Howe II",
+      "nameCn": "贝尔法斯特",
       "rarity": 4,
       "type": "轻巡",
       "faction": "皇家",
@@ -8818,7 +8818,7 @@
     {
       "id": "char_186",
       "name": "Edinburgh",
-      "nameCn": "Belfast",
+      "nameCn": "爱丁堡",
       "rarity": 4,
       "type": "重巡",
       "faction": "皇家",
@@ -8868,7 +8868,7 @@
     {
       "id": "char_187",
       "name": "Gloucester",
-      "nameCn": "Edinburgh",
+      "nameCn": "格洛斯特",
       "rarity": 4,
       "type": "轻巡",
       "faction": "皇家",
@@ -8919,7 +8919,7 @@
     {
       "id": "char_188",
       "name": "Liverpool",
-      "nameCn": "Gloucester",
+      "nameCn": "利物浦",
       "rarity": 4,
       "type": "重巡",
       "faction": "皇家",
@@ -8970,7 +8970,7 @@
     {
       "id": "char_189",
       "name": "Manchester",
-      "nameCn": "Liverpool",
+      "nameCn": "曼彻斯特",
       "rarity": 4,
       "type": "轻巡",
       "faction": "皇家",
@@ -9020,7 +9020,7 @@
     {
       "id": "char_190",
       "name": "Newcastle",
-      "nameCn": "Manchester",
+      "nameCn": "纽卡斯尔",
       "rarity": 4,
       "type": "重巡",
       "faction": "皇家",
@@ -9070,7 +9070,7 @@
     {
       "id": "char_191",
       "name": "Sheffield",
-      "nameCn": "Newcastle",
+      "nameCn": "谢菲尔德",
       "rarity": 4,
       "type": "轻巡",
       "faction": "皇家",
@@ -9120,7 +9120,7 @@
     {
       "id": "char_192",
       "name": "Southampton",
-      "nameCn": "Sheffield",
+      "nameCn": "南安普顿",
       "rarity": 4,
       "type": "重巡",
       "faction": "皇家",
@@ -9171,7 +9171,7 @@
     {
       "id": "char_193",
       "name": "Birmingham",
-      "nameCn": "Southampton",
+      "nameCn": "伯明翰",
       "rarity": 4,
       "type": "轻巡",
       "faction": "皇家",
@@ -9221,7 +9221,7 @@
     {
       "id": "char_194",
       "name": "London",
-      "nameCn": "Birmingham",
+      "nameCn": "伦敦",
       "rarity": 4,
       "type": "重巡",
       "faction": "皇家",
@@ -9272,7 +9272,7 @@
     {
       "id": "char_195",
       "name": "Devonshire",
-      "nameCn": "London",
+      "nameCn": "德文郡",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9317,7 +9317,7 @@
     {
       "id": "char_196",
       "name": "Sussex",
-      "nameCn": "Devonshire",
+      "nameCn": "萨塞克斯",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9361,7 +9361,7 @@
     {
       "id": "char_197",
       "name": "Shropshire",
-      "nameCn": "Sussex",
+      "nameCn": "什罗普郡",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9406,7 +9406,7 @@
     {
       "id": "char_198",
       "name": "Norfolk",
-      "nameCn": "Shropshire",
+      "nameCn": "诺福克",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9450,7 +9450,7 @@
     {
       "id": "char_199",
       "name": "Dorsetshire",
-      "nameCn": "Norfolk",
+      "nameCn": "多塞特郡",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9495,7 +9495,7 @@
     {
       "id": "char_200",
       "name": "Exeter",
-      "nameCn": "Dorsetshire",
+      "nameCn": "埃克塞特",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9539,7 +9539,7 @@
     {
       "id": "char_201",
       "name": "York",
-      "nameCn": "Exeter",
+      "nameCn": "约克",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9584,7 +9584,7 @@
     {
       "id": "char_202",
       "name": "Kent",
-      "nameCn": "York",
+      "nameCn": "肯特",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9629,7 +9629,7 @@
     {
       "id": "char_203",
       "name": "Suffolk",
-      "nameCn": "Kent",
+      "nameCn": "萨福克",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9717,7 +9717,7 @@
     {
       "id": "char_205",
       "name": "Arethusa",
-      "nameCn": "Cornwall",
+      "nameCn": "阿瑞托莎",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9761,7 +9761,7 @@
     {
       "id": "char_206",
       "name": "Galatea",
-      "nameCn": "Arethusa",
+      "nameCn": "加拉蒂亚",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9806,7 +9806,7 @@
     {
       "id": "char_207",
       "name": "Aurora",
-      "nameCn": "Galatea",
+      "nameCn": "曙光女神",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9851,7 +9851,7 @@
     {
       "id": "char_208",
       "name": "Penelope",
-      "nameCn": "Aurora",
+      "nameCn": "佩内洛珀",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9895,7 +9895,7 @@
     {
       "id": "char_209",
       "name": "Leander",
-      "nameCn": "Penelope",
+      "nameCn": "利安得",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -9939,7 +9939,7 @@
     {
       "id": "char_210",
       "name": "Achilles",
-      "nameCn": "Leander",
+      "nameCn": "阿基里斯",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -9983,7 +9983,7 @@
     {
       "id": "char_211",
       "name": "Ajax",
-      "nameCn": "Achilles",
+      "nameCn": "埃阿斯",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -10116,7 +10116,7 @@
     {
       "id": "char_214",
       "name": "Fiji",
-      "nameCn": "Neptune",
+      "nameCn": "斐济",
       "rarity": 3,
       "type": "重巡",
       "faction": "皇家",
@@ -10161,7 +10161,7 @@
     {
       "id": "char_215",
       "name": "Jamaica",
-      "nameCn": "Fiji",
+      "nameCn": "牙买加",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -10337,7 +10337,7 @@
     {
       "id": "char_219",
       "name": "Trinidad",
-      "nameCn": "Mauritius",
+      "nameCn": "特立尼达",
       "rarity": 3,
       "type": "轻巡",
       "faction": "皇家",
@@ -10470,7 +10470,7 @@
     {
       "id": "char_222",
       "name": "Javelin",
-      "nameCn": "Belfast II",
+      "nameCn": "标枪",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -10520,7 +10520,7 @@
     {
       "id": "char_223",
       "name": "Acasta",
-      "nameCn": "Javelin",
+      "nameCn": "阿卡司塔",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -10668,7 +10668,7 @@
     {
       "id": "char_226",
       "name": "Ardent",
-      "nameCn": "Anthony",
+      "nameCn": "热情",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -10766,7 +10766,7 @@
     {
       "id": "char_228",
       "name": "Echo",
-      "nameCn": "Arrow",
+      "nameCn": "回声",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -10815,7 +10815,7 @@
     {
       "id": "char_229",
       "name": "Fortune",
-      "nameCn": "Echo",
+      "nameCn": "命运女神",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -10864,7 +10864,7 @@
     {
       "id": "char_230",
       "name": "Foxhound",
-      "nameCn": "Fortune",
+      "nameCn": "猎狐犬",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -10914,7 +10914,7 @@
     {
       "id": "char_231",
       "name": "Glowworm",
-      "nameCn": "Foxhound",
+      "nameCn": "萤火虫",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -11013,7 +11013,7 @@
     {
       "id": "char_233",
       "name": "Grenville",
-      "nameCn": "Greyhound",
+      "nameCn": "格伦维尔",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -11062,7 +11062,7 @@
     {
       "id": "char_234",
       "name": "Hardy",
-      "nameCn": "Grenville",
+      "nameCn": "哈代",
       "rarity": 4,
       "type": "驱逐",
       "faction": "皇家",
@@ -11111,7 +11111,7 @@
     {
       "id": "char_235",
       "name": "Hunter",
-      "nameCn": "Hardy",
+      "nameCn": "猎人",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -11155,7 +11155,7 @@
     {
       "id": "char_236",
       "name": "Icarus",
-      "nameCn": "Hunter",
+      "nameCn": "伊卡洛斯",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -11199,7 +11199,7 @@
     {
       "id": "char_237",
       "name": "Janus",
-      "nameCn": "Icarus",
+      "nameCn": "雅努斯",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -11243,7 +11243,7 @@
     {
       "id": "char_238",
       "name": "Juno",
-      "nameCn": "Janus",
+      "nameCn": "朱诺",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -11287,7 +11287,7 @@
     {
       "id": "char_239",
       "name": "Jupiter",
-      "nameCn": "Juno",
+      "nameCn": "朱庇特",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -11642,7 +11642,7 @@
     {
       "id": "char_247",
       "name": "Matchless",
-      "nameCn": "Maori",
+      "nameCn": "无敌",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -11686,7 +11686,7 @@
     {
       "id": "char_248",
       "name": "Nubian",
-      "nameCn": "Matchless",
+      "nameCn": "努比亚人",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -12216,7 +12216,7 @@
     {
       "id": "char_260",
       "name": "Eskimo",
-      "nameCn": "Zulu",
+      "nameCn": "爱斯基摩人",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -12524,7 +12524,7 @@
     {
       "id": "char_267",
       "name": "Intrepid",
-      "nameCn": "Gurkha",
+      "nameCn": "无畏",
       "rarity": 3,
       "type": "驱逐",
       "faction": "皇家",
@@ -12833,7 +12833,7 @@
     {
       "id": "char_274",
       "name": "Akagi",
-      "nameCn": "Acasta II",
+      "nameCn": "赤城",
       "rarity": 5,
       "type": "航母",
       "faction": "重樱",
@@ -12883,7 +12883,7 @@
     {
       "id": "char_275",
       "name": "Kaga",
-      "nameCn": "Akagi",
+      "nameCn": "加贺",
       "rarity": 5,
       "type": "航母",
       "faction": "重樱",
@@ -13079,7 +13079,7 @@
     {
       "id": "char_279",
       "name": "Zuikaku",
-      "nameCn": "Shokaku",
+      "nameCn": "瑞鹤",
       "rarity": 5,
       "type": "航母",
       "faction": "重樱",
@@ -13228,7 +13228,7 @@
     {
       "id": "char_282",
       "name": "Amagi",
-      "nameCn": "Unryu",
+      "nameCn": "天城",
       "rarity": 4,
       "type": "航母",
       "faction": "重樱",
@@ -13277,7 +13277,7 @@
     {
       "id": "char_283",
       "name": "Katsuragi",
-      "nameCn": "Amagi",
+      "nameCn": "葛城",
       "rarity": 4,
       "type": "航母",
       "faction": "重樱",
@@ -13426,7 +13426,7 @@
     {
       "id": "char_286",
       "name": "Shinano",
-      "nameCn": "Kasagi",
+      "nameCn": "信浓",
       "rarity": 4,
       "type": "航母",
       "faction": "重樱",
@@ -13872,7 +13872,7 @@
     {
       "id": "char_295",
       "name": "Musashi",
-      "nameCn": "Yamato",
+      "nameCn": "武藏",
       "rarity": 5,
       "type": "战列",
       "faction": "重樱",
@@ -13922,7 +13922,7 @@
     {
       "id": "char_296",
       "name": "Shinano",
-      "nameCn": "Musashi",
+      "nameCn": "信浓",
       "rarity": 5,
       "type": "战列",
       "faction": "重樱",
@@ -13973,7 +13973,7 @@
     {
       "id": "char_297",
       "name": "Kii",
-      "nameCn": "Shinano",
+      "nameCn": "纪伊",
       "rarity": 5,
       "type": "战列",
       "faction": "重樱",
@@ -14022,7 +14022,7 @@
     {
       "id": "char_298",
       "name": "Suruga",
-      "nameCn": "Kii",
+      "nameCn": "骏河",
       "rarity": 5,
       "type": "战列",
       "faction": "重樱",
@@ -14171,7 +14171,7 @@
     {
       "id": "char_301",
       "name": "Mikasa",
-      "nameCn": "Echizen",
+      "nameCn": "三笠",
       "rarity": 5,
       "type": "战列",
       "faction": "重樱",
@@ -14271,7 +14271,7 @@
     {
       "id": "char_303",
       "name": "Yamashiro",
-      "nameCn": "Fuso",
+      "nameCn": "山城",
       "rarity": 4,
       "type": "战列",
       "faction": "重樱",
@@ -14320,7 +14320,7 @@
     {
       "id": "char_304",
       "name": "Ise",
-      "nameCn": "Yamashiro",
+      "nameCn": "伊势",
       "rarity": 4,
       "type": "战列",
       "faction": "重樱",
@@ -14420,7 +14420,7 @@
     {
       "id": "char_306",
       "name": "Nagato",
-      "nameCn": "Hyuga",
+      "nameCn": "长门",
       "rarity": 4,
       "type": "战列",
       "faction": "重樱",
@@ -14470,7 +14470,7 @@
     {
       "id": "char_307",
       "name": "Mutsu",
-      "nameCn": "Nagato",
+      "nameCn": "陆奥",
       "rarity": 4,
       "type": "战列",
       "faction": "重樱",
@@ -14519,7 +14519,7 @@
     {
       "id": "char_308",
       "name": "Tosa",
-      "nameCn": "Mutsu",
+      "nameCn": "土佐",
       "rarity": 4,
       "type": "战列",
       "faction": "重樱",
@@ -14570,7 +14570,7 @@
     {
       "id": "char_309",
       "name": "Kaga",
-      "nameCn": "Tosa",
+      "nameCn": "加贺",
       "rarity": 4,
       "type": "战列",
       "faction": "重樱",
@@ -14769,7 +14769,7 @@
     {
       "id": "char_313",
       "name": "Atago",
-      "nameCn": "Nagato II",
+      "nameCn": "爱宕",
       "rarity": 4,
       "type": "轻巡",
       "faction": "重樱",
@@ -14818,7 +14818,7 @@
     {
       "id": "char_314",
       "name": "Takao",
-      "nameCn": "Atago",
+      "nameCn": "高雄",
       "rarity": 4,
       "type": "重巡",
       "faction": "重樱",
@@ -14867,7 +14867,7 @@
     {
       "id": "char_315",
       "name": "Maya",
-      "nameCn": "Takao",
+      "nameCn": "摩耶",
       "rarity": 4,
       "type": "重巡",
       "faction": "重樱",
@@ -15015,7 +15015,7 @@
     {
       "id": "char_318",
       "name": "Nachi",
-      "nameCn": "Myoko",
+      "nameCn": "那智",
       "rarity": 4,
       "type": "轻巡",
       "faction": "重樱",
@@ -15065,7 +15065,7 @@
     {
       "id": "char_319",
       "name": "Ashigara",
-      "nameCn": "Nachi",
+      "nameCn": "足柄",
       "rarity": 4,
       "type": "重巡",
       "faction": "重樱",
@@ -15116,7 +15116,7 @@
     {
       "id": "char_320",
       "name": "Haguro",
-      "nameCn": "Ashigara",
+      "nameCn": "羽黑",
       "rarity": 4,
       "type": "重巡",
       "faction": "重樱",
@@ -15216,7 +15216,7 @@
     {
       "id": "char_322",
       "name": "Chikuma",
-      "nameCn": "Tone",
+      "nameCn": "筑摩",
       "rarity": 4,
       "type": "重巡",
       "faction": "重樱",
@@ -15265,7 +15265,7 @@
     {
       "id": "char_323",
       "name": "Suzuya",
-      "nameCn": "Chikuma",
+      "nameCn": "铃谷",
       "rarity": 3,
       "type": "轻巡",
       "faction": "重樱",
@@ -15310,7 +15310,7 @@
     {
       "id": "char_324",
       "name": "Kumano",
-      "nameCn": "Suzuya",
+      "nameCn": "熊野",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -15354,7 +15354,7 @@
     {
       "id": "char_325",
       "name": "Mogami",
-      "nameCn": "Kumano",
+      "nameCn": "最上",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -15398,7 +15398,7 @@
     {
       "id": "char_326",
       "name": "Mikuma",
-      "nameCn": "Mogami",
+      "nameCn": "三隈",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -15442,7 +15442,7 @@
     {
       "id": "char_327",
       "name": "Agano",
-      "nameCn": "Mikuma",
+      "nameCn": "阿贺野",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -15486,7 +15486,7 @@
     {
       "id": "char_328",
       "name": "Noshiro",
-      "nameCn": "Agano",
+      "nameCn": "能代",
       "rarity": 3,
       "type": "轻巡",
       "faction": "重樱",
@@ -15574,7 +15574,7 @@
     {
       "id": "char_330",
       "name": "Sakawa",
-      "nameCn": "Yahagi",
+      "nameCn": "酒匂",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -15885,7 +15885,7 @@
     {
       "id": "char_337",
       "name": "Nagara",
-      "nameCn": "Kiso",
+      "nameCn": "长良",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -15930,7 +15930,7 @@
     {
       "id": "char_338",
       "name": "Isuzu",
-      "nameCn": "Nagara",
+      "nameCn": "五十铃",
       "rarity": 3,
       "type": "轻巡",
       "faction": "重樱",
@@ -15975,7 +15975,7 @@
     {
       "id": "char_339",
       "name": "Natori",
-      "nameCn": "Isuzu",
+      "nameCn": "名取",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -16020,7 +16020,7 @@
     {
       "id": "char_340",
       "name": "Yura",
-      "nameCn": "Natori",
+      "nameCn": "由良",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -16065,7 +16065,7 @@
     {
       "id": "char_341",
       "name": "Kinu",
-      "nameCn": "Yura",
+      "nameCn": "鬼怒",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -16109,7 +16109,7 @@
     {
       "id": "char_342",
       "name": "Abukuma",
-      "nameCn": "Kinu",
+      "nameCn": "阿武隈",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -16154,7 +16154,7 @@
     {
       "id": "char_343",
       "name": "Sendai",
-      "nameCn": "Abukuma",
+      "nameCn": "川内",
       "rarity": 3,
       "type": "轻巡",
       "faction": "重樱",
@@ -16243,7 +16243,7 @@
     {
       "id": "char_345",
       "name": "Naka",
-      "nameCn": "Jintsu",
+      "nameCn": "那珂",
       "rarity": 3,
       "type": "重巡",
       "faction": "重樱",
@@ -16376,7 +16376,7 @@
     {
       "id": "char_348",
       "name": "Yukikaze",
-      "nameCn": "Takao II",
+      "nameCn": "雪风",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16425,7 +16425,7 @@
     {
       "id": "char_349",
       "name": "Shiranui",
-      "nameCn": "Yukikaze",
+      "nameCn": "不知火",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16524,7 +16524,7 @@
     {
       "id": "char_351",
       "name": "Kuroshio",
-      "nameCn": "Kagero",
+      "nameCn": "黑潮",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16574,7 +16574,7 @@
     {
       "id": "char_352",
       "name": "Oyashio",
-      "nameCn": "Kuroshio",
+      "nameCn": "亲潮",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16771,7 +16771,7 @@
     {
       "id": "char_356",
       "name": "Urakaze",
-      "nameCn": "Hatsukaze",
+      "nameCn": "浦风",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16820,7 +16820,7 @@
     {
       "id": "char_357",
       "name": "Isokaze",
-      "nameCn": "Urakaze",
+      "nameCn": "矶风",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16870,7 +16870,7 @@
     {
       "id": "char_358",
       "name": "Tanikaze",
-      "nameCn": "Isokaze",
+      "nameCn": "谷风",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16920,7 +16920,7 @@
     {
       "id": "char_359",
       "name": "Hamakaze",
-      "nameCn": "Tanikaze",
+      "nameCn": "滨风",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -16970,7 +16970,7 @@
     {
       "id": "char_360",
       "name": "Nowaki",
-      "nameCn": "Hamakaze",
+      "nameCn": "野分",
       "rarity": 4,
       "type": "驱逐",
       "faction": "重樱",
@@ -17295,7 +17295,7 @@
     {
       "id": "char_367",
       "name": "Kazagumo",
-      "nameCn": "Makigumo",
+      "nameCn": "风云",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -17340,7 +17340,7 @@
     {
       "id": "char_368",
       "name": "Shimakaze",
-      "nameCn": "Kazagumo",
+      "nameCn": "岛风",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -17384,7 +17384,7 @@
     {
       "id": "char_369",
       "name": "Fubuki",
-      "nameCn": "Shimakaze",
+      "nameCn": "吹雪",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -17428,7 +17428,7 @@
     {
       "id": "char_370",
       "name": "Shirayuki",
-      "nameCn": "Fubuki",
+      "nameCn": "白雪",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -17516,7 +17516,7 @@
     {
       "id": "char_372",
       "name": "Miyuki",
-      "nameCn": "Hatsuyuki",
+      "nameCn": "深雪",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -17650,7 +17650,7 @@
     {
       "id": "char_375",
       "name": "Uranami",
-      "nameCn": "Isonami",
+      "nameCn": "浦波",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -17739,7 +17739,7 @@
     {
       "id": "char_377",
       "name": "Ayanami",
-      "nameCn": "Shikinami",
+      "nameCn": "绫波",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -18004,7 +18004,7 @@
     {
       "id": "char_383",
       "name": "Asashio",
-      "nameCn": "Amagiri",
+      "nameCn": "朝潮",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -18094,7 +18094,7 @@
     {
       "id": "char_385",
       "name": "Michishio",
-      "nameCn": "Oshio",
+      "nameCn": "满潮",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -18138,7 +18138,7 @@
     {
       "id": "char_386",
       "name": "Arashio",
-      "nameCn": "Michishio",
+      "nameCn": "荒潮",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -18315,7 +18315,7 @@
     {
       "id": "char_390",
       "name": "Shigure",
-      "nameCn": "Murakumo",
+      "nameCn": "时雨",
       "rarity": 3,
       "type": "驱逐",
       "faction": "重樱",
@@ -18580,7 +18580,7 @@
     {
       "id": "char_396",
       "name": "Graf Zeppelin",
-      "nameCn": "Shigure II",
+      "nameCn": "齐柏林伯爵",
       "rarity": 5,
       "type": "航母",
       "faction": "铁血",
@@ -18630,7 +18630,7 @@
     {
       "id": "char_397",
       "name": "Peter Strasser",
-      "nameCn": "Graf Zeppelin",
+      "nameCn": "彼得·史特拉塞",
       "rarity": 5,
       "type": "航母",
       "faction": "铁血",
@@ -18679,7 +18679,7 @@
     {
       "id": "char_398",
       "name": "Weser",
-      "nameCn": "Peter Strasser",
+      "nameCn": "威悉",
       "rarity": 5,
       "type": "航母",
       "faction": "铁血",
@@ -18728,7 +18728,7 @@
     {
       "id": "char_399",
       "name": "Elbe",
-      "nameCn": "Weser",
+      "nameCn": "易北",
       "rarity": 5,
       "type": "航母",
       "faction": "铁血",
@@ -18827,7 +18827,7 @@
     {
       "id": "char_401",
       "name": "Bismarck",
-      "nameCn": "Graf Zeppelin II",
+      "nameCn": "俾斯麦",
       "rarity": 5,
       "type": "战列",
       "faction": "铁血",
@@ -18877,7 +18877,7 @@
     {
       "id": "char_402",
       "name": "Tirpitz",
-      "nameCn": "Bismarck",
+      "nameCn": "提尔比茨",
       "rarity": 5,
       "type": "战列",
       "faction": "铁血",
@@ -18927,7 +18927,7 @@
     {
       "id": "char_403",
       "name": "Scharnhorst",
-      "nameCn": "Tirpitz",
+      "nameCn": "沙恩霍斯特",
       "rarity": 5,
       "type": "战列",
       "faction": "铁血",
@@ -18978,7 +18978,7 @@
     {
       "id": "char_404",
       "name": "Gneisenau",
-      "nameCn": "Scharnhorst",
+      "nameCn": "格奈森瑙",
       "rarity": 5,
       "type": "战列",
       "faction": "铁血",
@@ -19280,7 +19280,7 @@
     {
       "id": "char_410",
       "name": "Admiral Hipper",
-      "nameCn": "Tirpitz II",
+      "nameCn": "欧根亲王",
       "rarity": 4,
       "type": "轻巡",
       "faction": "铁血",
@@ -19329,7 +19329,7 @@
     {
       "id": "char_411",
       "name": "Blücher",
-      "nameCn": "Admiral Hipper",
+      "nameCn": "布吕歇尔",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19380,7 +19380,7 @@
     {
       "id": "char_412",
       "name": "Prinz Eugen",
-      "nameCn": "Blücher",
+      "nameCn": "欧根亲王",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19431,7 +19431,7 @@
     {
       "id": "char_413",
       "name": "Seydlitz",
-      "nameCn": "Prinz Eugen",
+      "nameCn": "塞德利茨",
       "rarity": 4,
       "type": "轻巡",
       "faction": "铁血",
@@ -19481,7 +19481,7 @@
     {
       "id": "char_414",
       "name": "Lützow",
-      "nameCn": "Seydlitz",
+      "nameCn": "吕佐夫",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19531,7 +19531,7 @@
     {
       "id": "char_415",
       "name": "Deutschland",
-      "nameCn": "Lützow",
+      "nameCn": "德意志",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19630,7 +19630,7 @@
     {
       "id": "char_417",
       "name": "Admiral Graf Spee",
-      "nameCn": "Admiral Scheer",
+      "nameCn": "斯佩伯爵海军上将",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19680,7 +19680,7 @@
     {
       "id": "char_418",
       "name": "Leipzig",
-      "nameCn": "Admiral Graf Spee",
+      "nameCn": "莱比锡",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19730,7 +19730,7 @@
     {
       "id": "char_419",
       "name": "Nürnberg",
-      "nameCn": "Leipzig",
+      "nameCn": "纽伦堡",
       "rarity": 4,
       "type": "轻巡",
       "faction": "铁血",
@@ -19780,7 +19780,7 @@
     {
       "id": "char_420",
       "name": "Köln",
-      "nameCn": "Nürnberg",
+      "nameCn": "科隆",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19830,7 +19830,7 @@
     {
       "id": "char_421",
       "name": "Karlsruhe",
-      "nameCn": "Köln",
+      "nameCn": "卡尔斯鲁厄",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -19879,7 +19879,7 @@
     {
       "id": "char_422",
       "name": "Königsberg",
-      "nameCn": "Karlsruhe",
+      "nameCn": "柯尼斯堡",
       "rarity": 4,
       "type": "轻巡",
       "faction": "铁血",
@@ -19928,7 +19928,7 @@
     {
       "id": "char_423",
       "name": "Emden",
-      "nameCn": "Königsberg",
+      "nameCn": "埃姆登",
       "rarity": 4,
       "type": "重巡",
       "faction": "铁血",
@@ -20029,7 +20029,7 @@
     {
       "id": "char_425",
       "name": "Z23",
-      "nameCn": "Admiral Hipper II",
+      "nameCn": "Z23",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20078,7 +20078,7 @@
     {
       "id": "char_426",
       "name": "Z24",
-      "nameCn": "Z23",
+      "nameCn": "Z24",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20127,7 +20127,7 @@
     {
       "id": "char_427",
       "name": "Z25",
-      "nameCn": "Z24",
+      "nameCn": "Z25",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20177,7 +20177,7 @@
     {
       "id": "char_428",
       "name": "Z26",
-      "nameCn": "Z25",
+      "nameCn": "Z26",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20226,7 +20226,7 @@
     {
       "id": "char_429",
       "name": "Z28",
-      "nameCn": "Z26",
+      "nameCn": "Z28",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20276,7 +20276,7 @@
     {
       "id": "char_430",
       "name": "Z35",
-      "nameCn": "Z28",
+      "nameCn": "Z35",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20326,7 +20326,7 @@
     {
       "id": "char_431",
       "name": "Z36",
-      "nameCn": "Z35",
+      "nameCn": "Z36",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20375,7 +20375,7 @@
     {
       "id": "char_432",
       "name": "Z46",
-      "nameCn": "Z36",
+      "nameCn": "Z46",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20426,7 +20426,7 @@
     {
       "id": "char_433",
       "name": "Z1",
-      "nameCn": "Z46",
+      "nameCn": "Z1",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20475,7 +20475,7 @@
     {
       "id": "char_434",
       "name": "Z2",
-      "nameCn": "Z1",
+      "nameCn": "Z2",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20525,7 +20525,7 @@
     {
       "id": "char_435",
       "name": "Z9",
-      "nameCn": "Z2",
+      "nameCn": "Z9",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20624,7 +20624,7 @@
     {
       "id": "char_437",
       "name": "Z11",
-      "nameCn": "Z10",
+      "nameCn": "Z11",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20673,7 +20673,7 @@
     {
       "id": "char_438",
       "name": "Z18",
-      "nameCn": "Z11",
+      "nameCn": "Z18",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20722,7 +20722,7 @@
     {
       "id": "char_439",
       "name": "Z19",
-      "nameCn": "Z18",
+      "nameCn": "Z19",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20771,7 +20771,7 @@
     {
       "id": "char_440",
       "name": "Z20",
-      "nameCn": "Z19",
+      "nameCn": "Z20",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20821,7 +20821,7 @@
     {
       "id": "char_441",
       "name": "Z21",
-      "nameCn": "Z20",
+      "nameCn": "Z21",
       "rarity": 4,
       "type": "驱逐",
       "faction": "铁血",
@@ -20969,7 +20969,7 @@
     {
       "id": "char_444",
       "name": "Gangut",
-      "nameCn": "Z23 II",
+      "nameCn": "甘古特",
       "rarity": 5,
       "type": "战列",
       "faction": "北方联合",
@@ -21118,7 +21118,7 @@
     {
       "id": "char_447",
       "name": "Sevastopol",
-      "nameCn": "Petropavlovsk",
+      "nameCn": "塞瓦斯托波尔",
       "rarity": 5,
       "type": "战列",
       "faction": "北方联合",
@@ -21167,7 +21167,7 @@
     {
       "id": "char_448",
       "name": "Sovetsky Soyuz",
-      "nameCn": "Sevastopol",
+      "nameCn": "苏维埃联盟",
       "rarity": 5,
       "type": "战列",
       "faction": "北方联合",
@@ -21217,7 +21217,7 @@
     {
       "id": "char_449",
       "name": "Sovetskaya Rossiya",
-      "nameCn": "Sovetsky Soyuz",
+      "nameCn": "苏维埃俄罗斯",
       "rarity": 4,
       "type": "巡洋",
       "faction": "北方联合",
@@ -21267,7 +21267,7 @@
     {
       "id": "char_450",
       "name": "Kirov",
-      "nameCn": "Sovetskaya Rossiya",
+      "nameCn": "基洛夫",
       "rarity": 4,
       "type": "巡洋",
       "faction": "北方联合",
@@ -21316,7 +21316,7 @@
     {
       "id": "char_451",
       "name": "Voroshilov",
-      "nameCn": "Kirov",
+      "nameCn": "伏罗希洛夫",
       "rarity": 4,
       "type": "巡洋",
       "faction": "北方联合",
@@ -21516,7 +21516,7 @@
     {
       "id": "char_455",
       "name": "Tashkent",
-      "nameCn": "Kaganovich",
+      "nameCn": "塔什干",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -21616,7 +21616,7 @@
     {
       "id": "char_457",
       "name": "Minsk",
-      "nameCn": "Baku",
+      "nameCn": "明斯克",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -21666,7 +21666,7 @@
     {
       "id": "char_458",
       "name": "Kiev",
-      "nameCn": "Minsk",
+      "nameCn": "基辅",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -21715,7 +21715,7 @@
     {
       "id": "char_459",
       "name": "Grozny",
-      "nameCn": "Kiev",
+      "nameCn": "格罗兹尼",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -21765,7 +21765,7 @@
     {
       "id": "char_460",
       "name": "Gremyashchy",
-      "nameCn": "Grozny",
+      "nameCn": "雷鸣",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -21814,7 +21814,7 @@
     {
       "id": "char_461",
       "name": "Grozny",
-      "nameCn": "Gremyashchy",
+      "nameCn": "格罗兹尼",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -21962,7 +21962,7 @@
     {
       "id": "char_464",
       "name": "Stremitelny",
-      "nameCn": "Storozhevoy",
+      "nameCn": "迅速",
       "rarity": 4,
       "type": "驱逐",
       "faction": "北方联合",
@@ -22454,7 +22454,7 @@
     {
       "id": "char_474",
       "name": "Ning Hai",
-      "nameCn": "Taiyuan",
+      "nameCn": "宁海",
       "rarity": 4,
       "type": "轻巡",
       "faction": "东煌",
@@ -22504,7 +22504,7 @@
     {
       "id": "char_475",
       "name": "Ping Hai",
-      "nameCn": "Ning Hai",
+      "nameCn": "平海",
       "rarity": 4,
       "type": "轻巡",
       "faction": "东煌",
@@ -22555,7 +22555,7 @@
     {
       "id": "char_476",
       "name": "Yat Sen",
-      "nameCn": "Ping Hai",
+      "nameCn": "逸仙",
       "rarity": 4,
       "type": "轻巡",
       "faction": "东煌",
@@ -22855,7 +22855,7 @@
     {
       "id": "char_482",
       "name": "Chao Ho",
-      "nameCn": "Hoi Chen",
+      "nameCn": "肇和",
       "rarity": 4,
       "type": "轻巡",
       "faction": "东煌",
@@ -22905,7 +22905,7 @@
     {
       "id": "char_483",
       "name": "Ying Swei",
-      "nameCn": "Chao Ho",
+      "nameCn": "应瑞",
       "rarity": 4,
       "type": "轻巡",
       "faction": "东煌",
@@ -23206,7 +23206,7 @@
     {
       "id": "char_489",
       "name": "Littorio",
-      "nameCn": "Ping Hai II",
+      "nameCn": "利托里奥",
       "rarity": 5,
       "type": "战列",
       "faction": "撒丁帝国",
@@ -23307,7 +23307,7 @@
     {
       "id": "char_491",
       "name": "Roma",
-      "nameCn": "Italia",
+      "nameCn": "罗马",
       "rarity": 5,
       "type": "战列",
       "faction": "撒丁帝国",
@@ -23357,7 +23357,7 @@
     {
       "id": "char_492",
       "name": "Impero",
-      "nameCn": "Roma",
+      "nameCn": "帝国",
       "rarity": 5,
       "type": "战列",
       "faction": "撒丁帝国",
@@ -23407,7 +23407,7 @@
     {
       "id": "char_493",
       "name": "Conte di Cavour",
-      "nameCn": "Impero",
+      "nameCn": "加富尔伯爵",
       "rarity": 5,
       "type": "战列",
       "faction": "撒丁帝国",
@@ -23457,7 +23457,7 @@
     {
       "id": "char_494",
       "name": "Giulio Cesare",
-      "nameCn": "Conte di Cavour",
+      "nameCn": "朱利奥·凯撒",
       "rarity": 5,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23556,7 +23556,7 @@
     {
       "id": "char_496",
       "name": "Zara",
-      "nameCn": "Dante Alighieri",
+      "nameCn": "扎拉",
       "rarity": 5,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23606,7 +23606,7 @@
     {
       "id": "char_497",
       "name": "Pola",
-      "nameCn": "Zara",
+      "nameCn": "波拉",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23705,7 +23705,7 @@
     {
       "id": "char_499",
       "name": "Gorizia",
-      "nameCn": "Fiume",
+      "nameCn": "戈里齐亚",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23754,7 +23754,7 @@
     {
       "id": "char_500",
       "name": "Trento",
-      "nameCn": "Gorizia",
+      "nameCn": "特伦托",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23805,7 +23805,7 @@
     {
       "id": "char_501",
       "name": "Trieste",
-      "nameCn": "Trento",
+      "nameCn": "的里雅斯特",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23855,7 +23855,7 @@
     {
       "id": "char_502",
       "name": "Bolzano",
-      "nameCn": "Trieste",
+      "nameCn": "博尔扎诺",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23904,7 +23904,7 @@
     {
       "id": "char_503",
       "name": "Duca degli Abruzzi",
-      "nameCn": "Bolzano",
+      "nameCn": "阿布鲁齐公爵",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -23954,7 +23954,7 @@
     {
       "id": "char_504",
       "name": "Giuseppe Garibaldi",
-      "nameCn": "Duca degli Abruzzi",
+      "nameCn": "朱塞佩·加里波第",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -24003,7 +24003,7 @@
     {
       "id": "char_505",
       "name": "Attilio Regolo",
-      "nameCn": "Giuseppe Garibaldi",
+      "nameCn": "阿蒂利奥·雷戈洛",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -24103,7 +24103,7 @@
     {
       "id": "char_507",
       "name": "Pompeo Magno",
-      "nameCn": "Scipione Africano",
+      "nameCn": "庞培·马格诺",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -24203,7 +24203,7 @@
     {
       "id": "char_509",
       "name": "Andrea Doria",
-      "nameCn": "Caio Duilio",
+      "nameCn": "安德烈·多利亚",
       "rarity": 4,
       "type": "巡洋",
       "faction": "撒丁帝国",
@@ -24351,7 +24351,7 @@
     {
       "id": "char_512",
       "name": "Richelieu",
-      "nameCn": "Roma II",
+      "nameCn": "黎塞留",
       "rarity": 5,
       "type": "战列",
       "faction": "自由鸢尾",
@@ -24401,7 +24401,7 @@
     {
       "id": "char_513",
       "name": "Jean Bart",
-      "nameCn": "Richelieu",
+      "nameCn": "让·巴尔",
       "rarity": 5,
       "type": "战列",
       "faction": "自由鸢尾",
@@ -24451,7 +24451,7 @@
     {
       "id": "char_514",
       "name": "Clemenceau",
-      "nameCn": "Jean Bart",
+      "nameCn": "克莱蒙梭",
       "rarity": 5,
       "type": "战列",
       "faction": "自由鸢尾",
@@ -24551,7 +24551,7 @@
     {
       "id": "char_516",
       "name": "Dunkerque",
-      "nameCn": "Gascogne",
+      "nameCn": "敦刻尔克",
       "rarity": 5,
       "type": "战列",
       "faction": "维希教廷",
@@ -24601,7 +24601,7 @@
     {
       "id": "char_517",
       "name": "Strasbourg",
-      "nameCn": "Dunkerque",
+      "nameCn": "斯特拉斯堡",
       "rarity": 5,
       "type": "战列",
       "faction": "维希教廷",
@@ -24851,7 +24851,7 @@
     {
       "id": "char_522",
       "name": "Lyon",
-      "nameCn": "Normandie",
+      "nameCn": "里昂",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -24900,7 +24900,7 @@
     {
       "id": "char_523",
       "name": "La Galissonnière",
-      "nameCn": "Lyon",
+      "nameCn": "拉·加利索尼埃",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25001,7 +25001,7 @@
     {
       "id": "char_525",
       "name": "Marseillaise",
-      "nameCn": "Jean de Vienne",
+      "nameCn": "马赛曲",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25202,7 +25202,7 @@
     {
       "id": "char_529",
       "name": "Émile Bertin",
-      "nameCn": "Gloire",
+      "nameCn": "埃米尔·贝尔坦",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25300,7 +25300,7 @@
     {
       "id": "char_531",
       "name": "Algérie",
-      "nameCn": "Pluton",
+      "nameCn": "阿尔及利亚",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25398,7 +25398,7 @@
     {
       "id": "char_533",
       "name": "Le Terrible",
-      "nameCn": "Le Fantasque",
+      "nameCn": "恐怖",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25447,7 +25447,7 @@
     {
       "id": "char_534",
       "name": "Le Triomphant",
-      "nameCn": "Le Terrible",
+      "nameCn": "凯旋",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25496,7 +25496,7 @@
     {
       "id": "char_535",
       "name": "L'Indomptable",
-      "nameCn": "Le Triomphant",
+      "nameCn": "不屈",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25546,7 +25546,7 @@
     {
       "id": "char_536",
       "name": "Le Malin",
-      "nameCn": "L'Indomptable",
+      "nameCn": "恶毒",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",
@@ -25596,7 +25596,7 @@
     {
       "id": "char_537",
       "name": "Le Hardi",
-      "nameCn": "Le Malin",
+      "nameCn": "勇敢",
       "rarity": 4,
       "type": "驱逐",
       "faction": "维希教廷",

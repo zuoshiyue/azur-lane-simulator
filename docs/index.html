@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碧蓝航线阵容模拟器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #93c5fd;
+            margin-bottom: 40px;
+        }
+        .features {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .features h2 {
+            margin-top: 0;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2563eb;
+        }
+        .status {
+            background: rgba(59, 130, 246, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .links {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .links a {
+            color: #93c5fd;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚓ 碧蓝航线阵容模拟器</h1>
+    <p class="subtitle">Azur Lane Fleet Simulator</p>
+
+    <div class="features">
+        <h2>✨ 功能特性</h2>
+        <ul class="feature-list">
+            <li>🎮 <strong>拖拽式阵容模拟</strong> - 直观的角色拖拽组队体验</li>
+            <li>📊 <strong>角色数据库查询</strong> - 搜索、筛选、查看所有角色属性</li>
+            <li>🤖 <strong>智能编队推荐</strong> - 基于角色类型和属性的自动推荐</li>
+            <li>💾 <strong>阵容导出分享</strong> - 导出 JSON 格式阵容配置</li>
+            <li>⚡ <strong>实时战力计算</strong> - 动态显示阵容总战力</li>
+        </ul>
+    </div>
+
+    <div class="status">
+        <h3>🚀 应用状态</h3>
+        <p>GitHub Actions 正在构建中...</p>
+        <p>构建完成后，应用将在下方链接自动部署</p>
+    </div>
+
+    <div class="cta">
+        <a href="https://github.com/zuoshiyue/azur-lane-simulator" class="btn" target="_blank">
+            📦 访问 GitHub 仓库
+        </a>
+    </div>
+
+    <div class="links">
+        <a href="https://github.com/zuoshiyue/azur-lane-simulator/actions" target="_blank">查看构建状态</a>
+        <a href="https://github.com/zuoshiyue/azur-lane-simulator/blob/main/README.md" target="_blank">使用文档</a>
+    </div>
+
+    <script>
+        // 自动检查部署状态
+        setTimeout(() => {
+            console.log('等待 GitHub Pages 部署...');
+        }, 5000);
+    </script>
+</body>
+</html>

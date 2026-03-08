@@ -1,6 +1,6 @@
 import React from 'react';
 import { Character } from '../types';
-import { Anchor, Star } from 'lucide-react';
+import { Anchor, Star, CheckCircle, PlusCircle } from 'lucide-react';
 
 interface CharacterCardProps {
   character: Character;
@@ -11,6 +11,9 @@ interface CharacterCardProps {
   selectable?: boolean;
   selected?: boolean;
   onSelect?: () => void;
+  owned?: boolean;
+  onToggleOwned?: (character: Character) => void;
+  showOwnedToggle?: boolean;
 }
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({
@@ -21,7 +24,10 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
   compact = false,
   selectable = false,
   selected = false,
-  onSelect
+  onSelect,
+  owned = false,
+  onToggleOwned,
+  showOwnedToggle = false,
 }) => {
   const getRarityColor = (rarity: number) => {
     if (rarity >= 5) return 'text-yellow-400';
@@ -48,13 +54,15 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
         draggable={draggable}
         onDragStart={(e) => onDragStart?.(e, character)}
         onClick={() => {
-          if (!selectable) {
+          if (!selectable && !showOwnedToggle) {
             onClick?.(character);
           }
         }}
         className={`bg-azur rounded-lg p-3 transition-colors border ${
-          selectable ? 'cursor-default' : 'cursor-pointer hover:bg-azur-light'
-        } ${selected ? 'border-blue-500 ring-2 ring-blue-500/50' : 'border-azur-dark'}`}
+          selectable || showOwnedToggle ? 'cursor-default' : 'cursor-pointer hover:bg-azur-light'
+        } ${selected ? 'border-blue-500 ring-2 ring-blue-500/50' : 'border-azur-dark'} ${
+          owned ? 'border-green-500 ring-1 ring-green-500/30' : ''
+        }`}
       >
         <div className="flex items-center gap-2">
           {selectable && (
@@ -66,17 +74,38 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
               className="w-4 h-4 rounded bg-azur-dark border-azur text-blue-600 focus:ring-blue-500"
             />
           )}
-          {!selectable && (
+          {!selectable && !showOwnedToggle && (
             <div className={`w-2 h-2 rounded-full ${getTypeColor(character.type)}`} />
+          )}
+          {showOwnedToggle && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleOwned?.(character);
+              }}
+              className={`p-1 rounded transition-colors ${
+                owned 
+                  ? 'text-green-400 hover:text-green-300' 
+                  : 'text-gray-500 hover:text-gray-300'
+              }`}
+              title={owned ? '取消拥有' : '设为已拥有'}
+            >
+              {owned ? <CheckCircle className="w-4 h-4" /> : <PlusCircle className="w-4 h-4" />}
+            </button>
           )}
           <div className="flex-1">
             <div className="font-medium text-sm text-white">{character.nameCn}</div>
             <div className="text-xs text-gray-300">{character.type} · {character.faction}</div>
           </div>
-          <div className="flex">
-            {Array(character.rarity).fill(0).map((_, i) => (
-              <Star key={i} className={`w-3 h-3 ${getRarityColor(character.rarity)} fill-current`} />
-            ))}
+          <div className="flex items-center gap-2">
+            <div className="flex">
+              {Array(character.rarity).fill(0).map((_, i) => (
+                <Star key={i} className={`w-3 h-3 ${getRarityColor(character.rarity)} fill-current`} />
+              ))}
+            </div>
+            {owned && (
+              <CheckCircle className="w-4 h-4 text-green-400" />
+            )}
           </div>
         </div>
       </div>
@@ -87,24 +116,50 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
     <div
       draggable={draggable}
       onDragStart={(e) => onDragStart?.(e, character)}
-      onClick={() => onClick?.(character)}
-      className="bg-azur rounded-xl p-4 cursor-pointer hover:bg-azur-light transition-all hover:scale-105 border border-azur-dark shadow-lg"
+      onClick={() => {
+        if (!showOwnedToggle) {
+          onClick?.(character);
+        }
+      }}
+      className={`bg-azur rounded-xl p-4 cursor-pointer hover:bg-azur-light transition-all hover:scale-105 border border-azur-dark shadow-lg ${
+        owned ? 'border-green-500 ring-1 ring-green-500/30' : ''
+      }`}
     >
       <div className="flex items-start gap-3 mb-3">
         <div className={`w-12 h-12 rounded-full ${getTypeColor(character.type)} flex items-center justify-center`}>
           <Anchor className="w-6 h-6 text-white" />
         </div>
         <div className="flex-1">
-          <h3 className="font-bold text-lg text-white">{character.nameCn}</h3>
+          <div className="flex items-center gap-2">
+            <h3 className="font-bold text-lg text-white">{character.nameCn}</h3>
+            {owned && (
+              <CheckCircle className="w-5 h-5 text-green-400" />
+            )}
+          </div>
           <p className="text-sm text-gray-300">{character.name}</p>
         </div>
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-end gap-2">
           <div className="flex">
             {Array(character.rarity).fill(0).map((_, i) => (
               <Star key={i} className={`w-4 h-4 ${getRarityColor(character.rarity)} fill-current`} />
             ))}
           </div>
-          <span className="text-xs text-gray-400 mt-1">{character.faction}</span>
+          {showOwnedToggle && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleOwned?.(character);
+              }}
+              className={`px-3 py-1 rounded-full text-xs font-bold transition-colors ${
+                owned 
+                  ? 'bg-green-600 text-white hover:bg-green-700' 
+                  : 'bg-gray-600 text-gray-300 hover:bg-gray-500'
+              }`}
+            >
+              {owned ? '已拥有' : '设为已拥有'}
+            </button>
+          )}
+          <span className="text-xs text-gray-400">{character.faction}</span>
         </div>
       </div>
 

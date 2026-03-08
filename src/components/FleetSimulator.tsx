@@ -4,6 +4,7 @@ import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
 import { FleetSlot } from './FleetSlot';
 import { CharacterSearchModal } from './CharacterSearchModal';
+import { FleetRecommendationPanel } from './FleetRecommendationPanel';
 import { Character, Fleet } from '../types';
 import { Users, Download, Sparkles, PlusCircle, Database } from 'lucide-react';
 
@@ -12,12 +13,16 @@ export const FleetSimulator: React.FC = () => {
     dataManager.createFleet('我的阵容')
   );
   const [activeCharacter, setActiveCharacter] = useState<Character | null>(null);
-  const [showRecommendations, setShowRecommendations] = useState(false);
+  const [showRecommendationPanel, setShowRecommendationPanel] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [localCharacters, setLocalCharacters] = useState<Character[]>(
     dataManager.getCharacters()
   );
+  
+  // 获取已拥有的角色
+  const ownedCharacterIds = dataManager.getOwnedCharacterIds();
+  const ownedCharacters = localCharacters.filter(c => ownedCharacterIds.includes(c.id));
 
   const characters = localCharacters.filter(char => {
     const q = searchQuery.toLowerCase();
@@ -85,11 +90,6 @@ export const FleetSimulator: React.FC = () => {
     return dataManager.calculatePower(currentFleet);
   };
 
-  const getRecommendations = () => {
-    const recs = dataManager.recommendFleet('平衡', localCharacters);
-    return recs;
-  };
-
   const handleAddCharacter = (character: Character) => {
     if (!localCharacters.find(c => c.id === character.id)) {
       const newCharacters = [...localCharacters, character];
@@ -129,7 +129,7 @@ export const FleetSimulator: React.FC = () => {
             添加角色
           </button>
           <button
-            onClick={() => setShowRecommendations(!showRecommendations)}
+            onClick={() => setShowRecommendationPanel(true)}
             className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
           >
             <Sparkles className="w-4 h-4" />
@@ -198,31 +198,20 @@ export const FleetSimulator: React.FC = () => {
                 </div>
               </div>
 
-              {/* 推荐阵容 */}
-              {showRecommendations && (
-                <div className="mt-6 bg-purple-900/30 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5" />
-                    智能推荐阵容
-                  </h3>
-                  <div className="space-y-3">
-                    {getRecommendations().map((rec: any, i: number) => (
-                      <div key={i} className="bg-azur-dark/50 rounded-lg p-4">
-                        <div className="text-white font-medium mb-2">{rec.reason}</div>
-                        <div className="text-sm text-gray-300">
-                          战力：{rec.power}
-                        </div>
-                        <button
-                          onClick={() => setCurrentFleet(rec.fleet)}
-                          className="mt-2 text-blue-400 hover:text-blue-300 text-sm"
-                        >
-                          使用此阵容
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              {/* 推荐阵容提示 */}
+              <div className="mt-6 bg-purple-900/30 rounded-xl p-6 text-center">
+                <Sparkles className="w-12 h-12 text-purple-400 mx-auto mb-3" />
+                <h3 className="text-lg font-bold text-white mb-2">智能编队推荐</h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  根据你拥有的角色、舰种搭配、阵营协同，智能推荐最强阵容
+                </p>
+                <button
+                  onClick={() => setShowRecommendationPanel(true)}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors"
+                >
+                  打开推荐面板
+                </button>
+              </div>
             </div>
           </div>
 
@@ -242,6 +231,18 @@ export const FleetSimulator: React.FC = () => {
           onAddCharacter={handleAddCharacter}
           existingCharacterIds={existingCharacterIds}
         />
+
+        {/* 智能推荐面板 */}
+        {showRecommendationPanel && (
+          <FleetRecommendationPanel
+            ownedCharacters={ownedCharacters}
+            onApplyFleet={(fleet) => {
+              setCurrentFleet(fleet);
+              dataManager.updateFleet(fleet);
+            }}
+            onClose={() => setShowRecommendationPanel(false)}
+          />
+        )}
       </div>
     </div>
   );

@@ -361,13 +361,25 @@ export const CharacterPoolManager: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredCharacters.map(char => {
               const isSelected = selectedIds.has(char.id);
+              const isOwned = ownedCharacterIds.includes(char.id);
               
               return (
                 <div 
                   key={char.id} 
                   className={`relative group ${isSelected ? 'ring-2 ring-blue-500 rounded-xl' : ''}`}
                 >
-                  <CharacterCard character={char} />
+                  <CharacterCard 
+                    character={char} 
+                    owned={isOwned}
+                    showOwnedToggle={true}
+                    onToggleOwned={(character) => {
+                      if (isOwned) {
+                        dataManager.deleteCharacter(character.id);
+                      } else {
+                        dataManager.addCharacter(character);
+                      }
+                    }}
+                  />
                   
                   {/* 操作按钮 */}
                   <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">

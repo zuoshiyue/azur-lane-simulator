@@ -1,0 +1,1291 @@
+[
+  {
+    "id": "char_444",
+    "name": "Gangut",
+    "nameCn": "Z23 II",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 1915,
+      "fire": 123,
+      "torpedo": 5,
+      "aviation": 5,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 66,
+      "antiAir": 97,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_445",
+    "name": "Oktyabrskaya Revolutsiya",
+    "nameCn": "Gangut",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 1861,
+      "fire": 122,
+      "torpedo": 6,
+      "aviation": 8,
+      "reload": 50,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 51,
+      "antiAir": 98,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 146
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_446",
+    "name": "Petropavlovsk",
+    "nameCn": "Oktyabrskaya Revolutsiya",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 1892,
+      "fire": 122,
+      "torpedo": 1,
+      "aviation": 3,
+      "reload": 47,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 56,
+      "antiAir": 98,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 149
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_447",
+    "name": "Sevastopol",
+    "nameCn": "Petropavlovsk",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 1882,
+      "fire": 127,
+      "torpedo": 9,
+      "aviation": 0,
+      "reload": 49,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 66,
+      "antiAir": 91,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_448",
+    "name": "Sovetsky Soyuz",
+    "nameCn": "Sevastopol",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 1858,
+      "fire": 117,
+      "torpedo": 8,
+      "aviation": 2,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 65,
+      "antiAir": 94,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_449",
+    "name": "Sovetskaya Rossiya",
+    "nameCn": "Sovetsky Soyuz",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 414,
+      "fire": 40,
+      "torpedo": 87,
+      "aviation": 3,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 69,
+      "antiAir": 49,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_450",
+    "name": "Kirov",
+    "nameCn": "Sovetskaya Rossiya",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 435,
+      "fire": 37,
+      "torpedo": 84,
+      "aviation": 5,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 56,
+      "antiAir": 50,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_451",
+    "name": "Voroshilov",
+    "nameCn": "Kirov",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 445,
+      "fire": 36,
+      "torpedo": 82,
+      "aviation": 9,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 62,
+      "antiAir": 48,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_452",
+    "name": "Maxim Gorky",
+    "nameCn": "Voroshilov",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 356,
+      "fire": 38,
+      "torpedo": 88,
+      "aviation": 5,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 64,
+      "antiAir": 52,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_453",
+    "name": "Molotov",
+    "nameCn": "Maxim Gorky",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 360,
+      "fire": 42,
+      "torpedo": 89,
+      "aviation": 8,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 53,
+      "antiAir": 48,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_454",
+    "name": "Kaganovich",
+    "nameCn": "Molotov",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 407,
+      "fire": 40,
+      "torpedo": 88,
+      "aviation": 0,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 57,
+      "antiAir": 53,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_455",
+    "name": "Tashkent",
+    "nameCn": "Kaganovich",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 360,
+      "fire": 41,
+      "torpedo": 89,
+      "aviation": 4,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 65,
+      "antiAir": 52,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_456",
+    "name": "Baku",
+    "nameCn": "Tashkent",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 434,
+      "fire": 42,
+      "torpedo": 89,
+      "aviation": 5,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 67,
+      "antiAir": 48,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_457",
+    "name": "Minsk",
+    "nameCn": "Baku",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 411,
+      "fire": 35,
+      "torpedo": 90,
+      "aviation": 9,
+      "reload": 74,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 60,
+      "antiAir": 50,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_458",
+    "name": "Kiev",
+    "nameCn": "Minsk",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 373,
+      "fire": 40,
+      "torpedo": 83,
+      "aviation": 4,
+      "reload": 74,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 66,
+      "antiAir": 49,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_459",
+    "name": "Grozny",
+    "nameCn": "Kiev",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 414,
+      "fire": 36,
+      "torpedo": 90,
+      "aviation": 1,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 54,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_460",
+    "name": "Gremyashchy",
+    "nameCn": "Grozny",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 375,
+      "fire": 37,
+      "torpedo": 90,
+      "aviation": 3,
+      "reload": 74,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 50,
+      "antiAir": 51,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_461",
+    "name": "Grozny",
+    "nameCn": "Gremyashchy",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 444,
+      "fire": 40,
+      "torpedo": 82,
+      "aviation": 1,
+      "reload": 74,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 60,
+      "antiAir": 50,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_462",
+    "name": "Sovershenny",
+    "nameCn": "Grozny",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 354,
+      "fire": 41,
+      "torpedo": 83,
+      "aviation": 7,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 66,
+      "antiAir": 48,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_463",
+    "name": "Storozhevoy",
+    "nameCn": "Sovershenny",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 407,
+      "fire": 35,
+      "torpedo": 87,
+      "aviation": 10,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 69,
+      "antiAir": 47,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_464",
+    "name": "Stremitelny",
+    "nameCn": "Storozhevoy",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 379,
+      "fire": 38,
+      "torpedo": 84,
+      "aviation": 8,
+      "reload": 77,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 65,
+      "antiAir": 53,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_465",
+    "name": "Reshitelny",
+    "nameCn": "Stremitelny",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 374,
+      "fire": 35,
+      "torpedo": 89,
+      "aviation": 0,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 66,
+      "antiAir": 48,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_466",
+    "name": "Rezvyy",
+    "nameCn": "Reshitelny",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 439,
+      "fire": 43,
+      "torpedo": 89,
+      "aviation": 5,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 56,
+      "antiAir": 52,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_467",
+    "name": "Razyaryonny",
+    "nameCn": "Rezvyy",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 355,
+      "fire": 38,
+      "torpedo": 85,
+      "aviation": 2,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 66,
+      "antiAir": 50,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_468",
+    "name": "Serdity",
+    "nameCn": "Razyaryonny",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 435,
+      "fire": 44,
+      "torpedo": 82,
+      "aviation": 8,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 63,
+      "antiAir": 53,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_469",
+    "name": "Gangut II",
+    "nameCn": "Serdity",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "北方联合",
+    "stats": {
+      "hp": 420,
+      "fire": 36,
+      "torpedo": 82,
+      "aviation": 4,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 57,
+      "antiAir": 50,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  }
+]

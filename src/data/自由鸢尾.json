@@ -1,0 +1,202 @@
+[
+  {
+    "id": "char_512",
+    "name": "Richelieu",
+    "nameCn": "Roma II",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "自由鸢尾",
+    "stats": {
+      "hp": 1839,
+      "fire": 121,
+      "torpedo": 4,
+      "aviation": 10,
+      "reload": 50,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 58,
+      "antiAir": 97,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 146
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 123
+      }
+    ]
+  },
+  {
+    "id": "char_513",
+    "name": "Jean Bart",
+    "nameCn": "Richelieu",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "自由鸢尾",
+    "stats": {
+      "hp": 1895,
+      "fire": 118,
+      "torpedo": 5,
+      "aviation": 0,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 56,
+      "antiAir": 95,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 123
+      }
+    ]
+  },
+  {
+    "id": "char_514",
+    "name": "Clemenceau",
+    "nameCn": "Jean Bart",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "自由鸢尾",
+    "stats": {
+      "hp": 1875,
+      "fire": 118,
+      "torpedo": 8,
+      "aviation": 1,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 58,
+      "antiAir": 98,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_515",
+    "name": "Gascogne",
+    "nameCn": "Clemenceau",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "自由鸢尾",
+    "stats": {
+      "hp": 1865,
+      "fire": 121,
+      "torpedo": 3,
+      "aviation": 7,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 63,
+      "antiAir": 98,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 123
+      }
+    ]
+  }
+]

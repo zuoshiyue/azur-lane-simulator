@@ -1,32 +1,131 @@
 [
   {
-    "id": "char_002",
-    "name": "Belfast",
-    "nameCn": "贝尔法斯特",
+    "id": "char_148",
+    "name": "Illustrious",
+    "nameCn": "Bartlett",
     "rarity": 5,
-    "type": "轻巡",
+    "type": "航母",
     "faction": "皇家",
     "stats": {
-      "hp": 800,
-      "fire": 55,
-      "torpedo": 60,
-      "aviation": 0,
-      "reload": 65,
-      "armor": "轻型",
-      "speed": 32,
-      "luck": 65,
-      "antiAir": 70,
-      "detection": 75
+      "hp": 1345,
+      "fire": 74,
+      "torpedo": 9,
+      "aviation": 126,
+      "reload": 60,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 69,
+      "antiAir": 90,
+      "detection": 69
     },
     "skills": [
       {
-        "name": "完美女仆",
-        "description": "装填提高 10%，战斗开始时使自身机动提高 20%",
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 127
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_149",
+    "name": "Formidable",
+    "nameCn": "Illustrious",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1354,
+      "fire": 67,
+      "torpedo": 5,
+      "aviation": 119,
+      "reload": 66,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 58,
+      "antiAir": 86,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
         "type": "passive"
       },
       {
-        "name": "烟雾弹",
-        "description": "战斗开始 10 秒后生成烟雾屏障，持续 8 秒",
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 124
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_150",
+    "name": "Victorious",
+    "nameCn": "Formidable",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1337,
+      "fire": 66,
+      "torpedo": 6,
+      "aviation": 118,
+      "reload": 62,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 57,
+      "antiAir": 89,
+      "detection": 66
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
         "type": "active",
         "cooldown": 20
       }
@@ -34,51 +133,1693 @@
     "equipment": [
       {
         "slot": 1,
-        "type": "主炮",
-        "efficiency": 130
+        "type": "战斗机",
+        "efficiency": 121
       },
       {
         "slot": 2,
-        "type": "鱼雷",
-        "efficiency": 120
+        "type": "轰炸机",
+        "efficiency": 121
       },
       {
         "slot": 3,
-        "type": "防空炮",
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_151",
+    "name": "Indomitable",
+    "nameCn": "Victorious",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1400,
+      "fire": 72,
+      "torpedo": 10,
+      "aviation": 125,
+      "reload": 63,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 66,
+      "antiAir": 88,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_152",
+    "name": "Ark Royal",
+    "nameCn": "Indomitable",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1329,
+      "fire": 71,
+      "torpedo": 8,
+      "aviation": 122,
+      "reload": 66,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 62,
+      "antiAir": 90,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 126
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_153",
+    "name": "Eagle",
+    "nameCn": "Ark Royal",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1176,
+      "fire": 63,
+      "torpedo": 10,
+      "aviation": 109,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 53,
+      "antiAir": 82,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 126
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
         "efficiency": 110
       }
     ]
   },
   {
-    "id": "char_004",
+    "id": "char_154",
+    "name": "Glorious",
+    "nameCn": "Eagle",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1238,
+      "fire": 65,
+      "torpedo": 5,
+      "aviation": 111,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 66,
+      "antiAir": 80,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 123
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 117
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_155",
+    "name": "Courageous",
+    "nameCn": "Glorious",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1168,
+      "fire": 62,
+      "torpedo": 8,
+      "aviation": 113,
+      "reload": 55,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 58,
+      "antiAir": 77,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_156",
+    "name": "Furious",
+    "nameCn": "Courageous",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1210,
+      "fire": 59,
+      "torpedo": 0,
+      "aviation": 108,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 68,
+      "antiAir": 76,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_157",
+    "name": "Hermes",
+    "nameCn": "Furious",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1207,
+      "fire": 66,
+      "torpedo": 3,
+      "aviation": 110,
+      "reload": 54,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 69,
+      "antiAir": 78,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 123
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_158",
+    "name": "Unicorn",
+    "nameCn": "Hermes",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1191,
+      "fire": 65,
+      "torpedo": 10,
+      "aviation": 104,
+      "reload": 56,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 50,
+      "antiAir": 76,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_159",
+    "name": "Perseus",
+    "nameCn": "Unicorn",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1236,
+      "fire": 58,
+      "torpedo": 4,
+      "aviation": 107,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 56,
+      "antiAir": 79,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_160",
+    "name": "Theseus",
+    "nameCn": "Perseus",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1156,
+      "fire": 61,
+      "torpedo": 10,
+      "aviation": 109,
+      "reload": 55,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 53,
+      "antiAir": 81,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_161",
+    "name": "Centaur",
+    "nameCn": "Theseus",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1221,
+      "fire": 66,
+      "torpedo": 9,
+      "aviation": 106,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 62,
+      "antiAir": 76,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 127
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_162",
+    "name": "Albion",
+    "nameCn": "Centaur",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1203,
+      "fire": 65,
+      "torpedo": 3,
+      "aviation": 106,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 61,
+      "antiAir": 81,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 124
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_163",
+    "name": "Bulwark",
+    "nameCn": "Albion",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1242,
+      "fire": 61,
+      "torpedo": 1,
+      "aviation": 113,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 50,
+      "antiAir": 80,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 127
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_164",
+    "name": "Illustrious II",
+    "nameCn": "Bulwark",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1200,
+      "fire": 64,
+      "torpedo": 9,
+      "aviation": 105,
+      "reload": 54,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 62,
+      "antiAir": 78,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 126
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_165",
+    "name": "Victorious II",
+    "nameCn": "Illustrious II",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1220,
+      "fire": 63,
+      "torpedo": 4,
+      "aviation": 111,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 57,
+      "antiAir": 79,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_166",
     "name": "Prince of Wales",
-    "nameCn": "威尔士亲王",
+    "nameCn": "Victorious II",
     "rarity": 5,
     "type": "战列",
     "faction": "皇家",
     "stats": {
-      "hp": 1500,
-      "fire": 95,
+      "hp": 1867,
+      "fire": 127,
       "torpedo": 0,
-      "aviation": 0,
-      "reload": 40,
+      "aviation": 9,
+      "reload": 48,
       "armor": "重型",
-      "speed": 28,
+      "speed": 29,
+      "luck": 52,
+      "antiAir": 99,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_167",
+    "name": "King George V",
+    "nameCn": "Prince of Wales",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1826,
+      "fire": 125,
+      "torpedo": 9,
+      "aviation": 9,
+      "reload": 51,
+      "armor": "重型",
+      "speed": 30,
       "luck": 55,
-      "antiAir": 85,
-      "detection": 50
+      "antiAir": 96,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_168",
+    "name": "Duke of York",
+    "nameCn": "King George V",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1881,
+      "fire": 120,
+      "torpedo": 4,
+      "aviation": 3,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 55,
+      "antiAir": 97,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_169",
+    "name": "Howe",
+    "nameCn": "Duke of York",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1834,
+      "fire": 122,
+      "torpedo": 3,
+      "aviation": 9,
+      "reload": 50,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 62,
+      "antiAir": 94,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 149
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_170",
+    "name": "Anson",
+    "nameCn": "Howe",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1892,
+      "fire": 121,
+      "torpedo": 4,
+      "aviation": 0,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 54,
+      "antiAir": 96,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_171",
+    "name": "Rodney",
+    "nameCn": "Anson",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1838,
+      "fire": 120,
+      "torpedo": 1,
+      "aviation": 7,
+      "reload": 49,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 52,
+      "antiAir": 96,
+      "detection": 55
     },
     "skills": [
       {
         "name": "主炮强化",
-        "description": "主炮伤害提高 15%，对轻甲目标额外提高 10%",
+        "description": "主炮伤害提高 15-25%",
         "type": "passive"
       },
       {
-        "name": "穿甲弹",
-        "description": "使用穿甲弹时，伤害提高 20%",
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
         "type": "active",
         "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_172",
+    "name": "Nelson",
+    "nameCn": "Rodney",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1864,
+      "fire": 125,
+      "torpedo": 8,
+      "aviation": 9,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 67,
+      "antiAir": 94,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_173",
+    "name": "Queen Elizabeth",
+    "nameCn": "Nelson",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1900,
+      "fire": 123,
+      "torpedo": 7,
+      "aviation": 10,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 62,
+      "antiAir": 98,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_174",
+    "name": "Warspite",
+    "nameCn": "Queen Elizabeth",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1667,
+      "fire": 108,
+      "torpedo": 9,
+      "aviation": 1,
+      "reload": 41,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 57,
+      "antiAir": 81,
+      "detection": 47
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_175",
+    "name": "Barham",
+    "nameCn": "Warspite",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1620,
+      "fire": 105,
+      "torpedo": 5,
+      "aviation": 2,
+      "reload": 43,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 60,
+      "antiAir": 83,
+      "detection": 48
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_176",
+    "name": "Valiant",
+    "nameCn": "Barham",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1645,
+      "fire": 112,
+      "torpedo": 1,
+      "aviation": 5,
+      "reload": 48,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 50,
+      "antiAir": 84,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 149
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_177",
+    "name": "Malaya",
+    "nameCn": "Valiant",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1697,
+      "fire": 109,
+      "torpedo": 2,
+      "aviation": 3,
+      "reload": 42,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 59,
+      "antiAir": 82,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_178",
+    "name": "Resolution",
+    "nameCn": "Malaya",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1705,
+      "fire": 105,
+      "torpedo": 4,
+      "aviation": 8,
+      "reload": 42,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 53,
+      "antiAir": 83,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_179",
+    "name": "Renown",
+    "nameCn": "Resolution",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1693,
+      "fire": 104,
+      "torpedo": 6,
+      "aviation": 4,
+      "reload": 45,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 53,
+      "antiAir": 85,
+      "detection": 46
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_180",
+    "name": "Repulse",
+    "nameCn": "Renown",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1653,
+      "fire": 110,
+      "torpedo": 6,
+      "aviation": 0,
+      "reload": 41,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 69,
+      "antiAir": 83,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_181",
+    "name": "Hood",
+    "nameCn": "Repulse",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1658,
+      "fire": 104,
+      "torpedo": 6,
+      "aviation": 5,
+      "reload": 45,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 61,
+      "antiAir": 86,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_182",
+    "name": "Royal Oak",
+    "nameCn": "Hood",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1686,
+      "fire": 110,
+      "torpedo": 5,
+      "aviation": 9,
+      "reload": 42,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 66,
+      "antiAir": 88,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_183",
+    "name": "King George V II",
+    "nameCn": "Royal Oak",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1695,
+      "fire": 106,
+      "torpedo": 8,
+      "aviation": 6,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 65,
+      "antiAir": 83,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_184",
+    "name": "Howe II",
+    "nameCn": "King George V II",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1662,
+      "fire": 108,
+      "torpedo": 1,
+      "aviation": 6,
+      "reload": 43,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 54,
+      "antiAir": 88,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
       }
     ],
     "equipment": [
@@ -90,7 +1831,260 @@
       {
         "slot": 2,
         "type": "副炮",
-        "efficiency": 120
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_185",
+    "name": "Belfast",
+    "nameCn": "Howe II",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 738,
+      "fire": 53,
+      "torpedo": 66,
+      "aviation": 6,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 57,
+      "antiAir": 66,
+      "detection": 76
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 131
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_186",
+    "name": "Edinburgh",
+    "nameCn": "Belfast",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1001,
+      "fire": 74,
+      "torpedo": 53,
+      "aviation": 7,
+      "reload": 60,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 67,
+      "antiAir": 70,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_187",
+    "name": "Gloucester",
+    "nameCn": "Edinburgh",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 766,
+      "fire": 54,
+      "torpedo": 71,
+      "aviation": 2,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 58,
+      "antiAir": 66,
+      "detection": 74
+    },
+    "skills": [
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      },
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_188",
+    "name": "Liverpool",
+    "nameCn": "Gloucester",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 1006,
+      "fire": 74,
+      "torpedo": 58,
+      "aviation": 1,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 69,
+      "antiAir": 74,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_189",
+    "name": "Manchester",
+    "nameCn": "Liverpool",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 778,
+      "fire": 52,
+      "torpedo": 71,
+      "aviation": 7,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 69,
+      "antiAir": 64,
+      "detection": 76
+    },
+    "skills": [
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      },
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 122
       },
       {
         "slot": 3,
@@ -100,35 +2094,1682 @@
     ]
   },
   {
-    "id": "char_005",
-    "name": "Javelin",
-    "nameCn": "拉菲",
+    "id": "char_190",
+    "name": "Newcastle",
+    "nameCn": "Manchester",
     "rarity": 4,
-    "type": "驱逐",
+    "type": "重巡",
     "faction": "皇家",
     "stats": {
-      "hp": 400,
-      "fire": 35,
-      "torpedo": 75,
-      "aviation": 0,
-      "reload": 70,
+      "hp": 948,
+      "fire": 73,
+      "torpedo": 52,
+      "aviation": 6,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 57,
+      "antiAir": 77,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_191",
+    "name": "Sheffield",
+    "nameCn": "Newcastle",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 705,
+      "fire": 57,
+      "torpedo": 73,
+      "aviation": 2,
+      "reload": 66,
       "armor": "轻型",
-      "speed": 38,
+      "speed": 36,
+      "luck": 68,
+      "antiAir": 65,
+      "detection": 72
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_192",
+    "name": "Southampton",
+    "nameCn": "Sheffield",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 929,
+      "fire": 78,
+      "torpedo": 60,
+      "aviation": 0,
+      "reload": 56,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 57,
+      "antiAir": 75,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      },
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_193",
+    "name": "Birmingham",
+    "nameCn": "Southampton",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 707,
+      "fire": 56,
+      "torpedo": 65,
+      "aviation": 8,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 67,
+      "antiAir": 67,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 133
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_194",
+    "name": "London",
+    "nameCn": "Birmingham",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 957,
+      "fire": 73,
+      "torpedo": 55,
+      "aviation": 6,
+      "reload": 54,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 51,
+      "antiAir": 74,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_195",
+    "name": "Devonshire",
+    "nameCn": "London",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 606,
+      "fire": 51,
+      "torpedo": 62,
+      "aviation": 8,
+      "reload": 60,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 55,
+      "antiAir": 60,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 134
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_196",
+    "name": "Sussex",
+    "nameCn": "Devonshire",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 818,
+      "fire": 68,
+      "torpedo": 54,
+      "aviation": 9,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 64,
+      "antiAir": 63,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_197",
+    "name": "Shropshire",
+    "nameCn": "Sussex",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 659,
+      "fire": 50,
+      "torpedo": 57,
+      "aviation": 4,
+      "reload": 59,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 67,
+      "antiAir": 62,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_198",
+    "name": "Norfolk",
+    "nameCn": "Shropshire",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 879,
+      "fire": 63,
+      "torpedo": 46,
+      "aviation": 8,
+      "reload": 50,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 61,
+      "antiAir": 62,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_199",
+    "name": "Dorsetshire",
+    "nameCn": "Norfolk",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 696,
+      "fire": 46,
+      "torpedo": 60,
+      "aviation": 6,
+      "reload": 59,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 55,
+      "antiAir": 57,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_200",
+    "name": "Exeter",
+    "nameCn": "Dorsetshire",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 890,
+      "fire": 70,
+      "torpedo": 52,
+      "aviation": 1,
+      "reload": 47,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 59,
+      "antiAir": 64,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_201",
+    "name": "York",
+    "nameCn": "Exeter",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 633,
+      "fire": 55,
+      "torpedo": 56,
+      "aviation": 7,
+      "reload": 58,
+      "armor": "轻型",
+      "speed": 36,
+      "luck": 65,
+      "antiAir": 60,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_202",
+    "name": "Kent",
+    "nameCn": "York",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 869,
+      "fire": 61,
+      "torpedo": 54,
+      "aviation": 10,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 55,
+      "antiAir": 64,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 139
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_203",
+    "name": "Suffolk",
+    "nameCn": "Kent",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 693,
+      "fire": 51,
+      "torpedo": 59,
+      "aviation": 2,
+      "reload": 59,
+      "armor": "轻型",
+      "speed": 35,
       "luck": 60,
+      "antiAir": 56,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_204",
+    "name": "Cornwall",
+    "nameCn": "Suffolk",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 858,
+      "fire": 63,
+      "torpedo": 49,
+      "aviation": 4,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 52,
+      "antiAir": 65,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_205",
+    "name": "Arethusa",
+    "nameCn": "Cornwall",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 685,
+      "fire": 47,
+      "torpedo": 58,
+      "aviation": 7,
+      "reload": 59,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 53,
+      "antiAir": 58,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 130
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_206",
+    "name": "Galatea",
+    "nameCn": "Arethusa",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 809,
+      "fire": 68,
+      "torpedo": 50,
+      "aviation": 1,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 69,
+      "antiAir": 64,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_207",
+    "name": "Aurora",
+    "nameCn": "Galatea",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 670,
+      "fire": 49,
+      "torpedo": 61,
+      "aviation": 2,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 53,
+      "antiAir": 61,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 129
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_208",
+    "name": "Penelope",
+    "nameCn": "Aurora",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 813,
+      "fire": 67,
+      "torpedo": 51,
+      "aviation": 3,
+      "reload": 51,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 66,
+      "antiAir": 67,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_209",
+    "name": "Leander",
+    "nameCn": "Penelope",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 695,
+      "fire": 50,
+      "torpedo": 62,
+      "aviation": 4,
+      "reload": 56,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 64,
+      "antiAir": 60,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 134
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_210",
+    "name": "Achilles",
+    "nameCn": "Leander",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 884,
+      "fire": 63,
+      "torpedo": 52,
+      "aviation": 8,
+      "reload": 51,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 63,
+      "antiAir": 67,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 135
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_211",
+    "name": "Ajax",
+    "nameCn": "Achilles",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 607,
+      "fire": 52,
+      "torpedo": 60,
+      "aviation": 3,
+      "reload": 56,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 59,
+      "antiAir": 62,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_212",
+    "name": "Orion",
+    "nameCn": "Ajax",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 852,
+      "fire": 69,
+      "torpedo": 47,
+      "aviation": 3,
+      "reload": 49,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 53,
+      "antiAir": 67,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_213",
+    "name": "Neptune",
+    "nameCn": "Orion",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 667,
+      "fire": 49,
+      "torpedo": 62,
+      "aviation": 4,
+      "reload": 56,
+      "armor": "轻型",
+      "speed": 36,
+      "luck": 64,
+      "antiAir": 58,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 132
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_214",
+    "name": "Fiji",
+    "nameCn": "Neptune",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 856,
+      "fire": 70,
+      "torpedo": 54,
+      "aviation": 4,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 51,
+      "antiAir": 67,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_215",
+    "name": "Jamaica",
+    "nameCn": "Fiji",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 658,
+      "fire": 46,
+      "torpedo": 59,
+      "aviation": 1,
+      "reload": 57,
+      "armor": "轻型",
+      "speed": 36,
+      "luck": 68,
+      "antiAir": 56,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 132
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_216",
+    "name": "Kenya",
+    "nameCn": "Jamaica",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 835,
+      "fire": 63,
+      "torpedo": 48,
+      "aviation": 2,
+      "reload": 50,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 52,
+      "antiAir": 64,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_217",
+    "name": "Nigeria",
+    "nameCn": "Kenya",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 674,
+      "fire": 46,
+      "torpedo": 56,
+      "aviation": 8,
+      "reload": 60,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 66,
       "antiAir": 55,
       "detection": 65
     },
     "skills": [
       {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_218",
+    "name": "Mauritius",
+    "nameCn": "Nigeria",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 894,
+      "fire": 67,
+      "torpedo": 50,
+      "aviation": 7,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 65,
+      "antiAir": 66,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_219",
+    "name": "Trinidad",
+    "nameCn": "Mauritius",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 663,
+      "fire": 55,
+      "torpedo": 63,
+      "aviation": 4,
+      "reload": 60,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 54,
+      "antiAir": 56,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_220",
+    "name": "Jamaica II",
+    "nameCn": "Trinidad",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 858,
+      "fire": 68,
+      "torpedo": 46,
+      "aviation": 9,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 66,
+      "antiAir": 63,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_221",
+    "name": "Belfast II",
+    "nameCn": "Jamaica II",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "皇家",
+    "stats": {
+      "hp": 611,
+      "fire": 51,
+      "torpedo": 64,
+      "aviation": 2,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 55,
+      "antiAir": 60,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_222",
+    "name": "Javelin",
+    "nameCn": "Belfast II",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 411,
+      "fire": 40,
+      "torpedo": 81,
+      "aviation": 8,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 61,
+      "antiAir": 52,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
         "name": "鱼雷专精",
-        "description": "鱼雷伤害提高 20%，鱼雷散布范围减小",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_223",
+    "name": "Acasta",
+    "nameCn": "Javelin",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 427,
+      "fire": 42,
+      "torpedo": 90,
+      "aviation": 5,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 65,
+      "antiAir": 51,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
         "type": "passive"
       },
       {
         "name": "烟雾弹",
-        "description": "每隔 20 秒生成烟雾，持续 5 秒",
+        "description": "生成烟雾屏障，持续 5-8 秒",
         "type": "active",
         "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_224",
+    "name": "Amazone",
+    "nameCn": "Acasta",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 437,
+      "fire": 41,
+      "torpedo": 88,
+      "aviation": 9,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 67,
+      "antiAir": 54,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_225",
+    "name": "Anthony",
+    "nameCn": "Amazone",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 365,
+      "fire": 42,
+      "torpedo": 84,
+      "aviation": 1,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 49,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_226",
+    "name": "Ardent",
+    "nameCn": "Anthony",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 363,
+      "fire": 37,
+      "torpedo": 88,
+      "aviation": 1,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 65,
+      "antiAir": 51,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
       }
     ],
     "equipment": [
@@ -140,7 +3781,105 @@
       {
         "slot": 2,
         "type": "鱼雷",
-        "efficiency": 130
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_227",
+    "name": "Arrow",
+    "nameCn": "Ardent",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 396,
+      "fire": 41,
+      "torpedo": 82,
+      "aviation": 1,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 69,
+      "antiAir": 47,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_228",
+    "name": "Echo",
+    "nameCn": "Arrow",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 364,
+      "fire": 41,
+      "torpedo": 84,
+      "aviation": 7,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 67,
+      "antiAir": 46,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
       },
       {
         "slot": 3,
@@ -150,202 +3889,2020 @@
     ]
   },
   {
-    "id": "char_014",
-    "name": "Unicorn",
-    "nameCn": "独角兽",
+    "id": "char_229",
+    "name": "Fortune",
+    "nameCn": "Echo",
     "rarity": 4,
-    "type": "轻母",
+    "type": "驱逐",
     "faction": "皇家",
     "stats": {
-      "hp": 750,
-      "fire": 45,
-      "torpedo": 0,
-      "aviation": 75,
-      "reload": 55,
+      "hp": 349,
+      "fire": 35,
+      "torpedo": 81,
+      "aviation": 8,
+      "reload": 69,
       "armor": "轻型",
-      "speed": 25,
-      "luck": 62,
-      "antiAir": 65,
-      "detection": 55
+      "speed": 42,
+      "luck": 57,
+      "antiAir": 50,
+      "detection": 63
     },
     "skills": [
       {
-        "name": "支援",
-        "description": "战斗开始时回复先锋舰队耐久",
+        "name": "高速机动",
+        "description": "航速提高 5-10",
         "type": "passive"
       },
       {
-        "name": "空袭支援",
-        "description": "空袭冷却减少 15%",
-        "type": "active",
-        "cooldown": 18
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
       }
     ],
     "equipment": [
       {
         "slot": 1,
-        "type": "战斗机",
-        "efficiency": 115
+        "type": "主炮",
+        "efficiency": 117
       },
       {
         "slot": 2,
-        "type": "轰炸机",
-        "efficiency": 110
+        "type": "鱼雷",
+        "efficiency": 136
       },
       {
         "slot": 3,
-        "type": "设备",
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_230",
+    "name": "Foxhound",
+    "nameCn": "Fortune",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 386,
+      "fire": 44,
+      "torpedo": 89,
+      "aviation": 1,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 62,
+      "antiAir": 51,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
         "efficiency": 100
       }
     ]
   },
   {
-    "id": "char_018",
-    "name": "Illustrious",
-    "nameCn": "光辉",
-    "rarity": 5,
-    "type": "航母",
+    "id": "char_231",
+    "name": "Glowworm",
+    "nameCn": "Foxhound",
+    "rarity": 4,
+    "type": "驱逐",
     "faction": "皇家",
     "stats": {
-      "hp": 1250,
-      "fire": 58,
-      "torpedo": 0,
-      "aviation": 88,
-      "reload": 46,
-      "armor": "中型",
-      "speed": 29,
-      "luck": 67,
-      "antiAir": 85,
-      "detection": 54
+      "hp": 388,
+      "fire": 43,
+      "torpedo": 82,
+      "aviation": 2,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 66,
+      "antiAir": 49,
+      "detection": 58
     },
     "skills": [
       {
-        "name": "装甲航母",
-        "description": "受到的伤害减少 15%",
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
         "type": "passive"
       },
       {
-        "name": "皇家方舟",
-        "description": "提高全队防空 20%",
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
         "type": "active",
-        "cooldown": 25
+        "cooldown": 15
       }
     ],
     "equipment": [
       {
         "slot": 1,
-        "type": "战斗机",
-        "efficiency": 120
+        "type": "主炮",
+        "efficiency": 112
       },
       {
         "slot": 2,
-        "type": "轰炸机",
-        "efficiency": 114
+        "type": "鱼雷",
+        "efficiency": 134
       },
       {
         "slot": 3,
-        "type": "鱼雷机",
+        "type": "防空炮",
         "efficiency": 108
       }
     ]
   },
   {
-    "id": "char_019",
-    "name": "Formidable",
-    "nameCn": "可畏",
-    "rarity": 5,
-    "type": "航母",
+    "id": "char_232",
+    "name": "Greyhound",
+    "nameCn": "Glowworm",
+    "rarity": 4,
+    "type": "驱逐",
     "faction": "皇家",
     "stats": {
-      "hp": 1240,
-      "fire": 57,
-      "torpedo": 0,
-      "aviation": 87,
-      "reload": 47,
-      "armor": "中型",
-      "speed": 29,
-      "luck": 66,
-      "antiAir": 84,
-      "detection": 53
+      "hp": 439,
+      "fire": 44,
+      "torpedo": 85,
+      "aviation": 5,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 53,
+      "antiAir": 51,
+      "detection": 62
     },
     "skills": [
       {
-        "name": "铁底湾",
-        "description": "在夜战时航空提高 20%",
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
         "type": "passive"
       },
       {
-        "name": "舰载机专家",
-        "description": "舰载机伤害提高 16%",
-        "type": "active",
-        "cooldown": 23
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
       }
     ],
     "equipment": [
       {
         "slot": 1,
-        "type": "战斗机",
-        "efficiency": 119
+        "type": "主炮",
+        "efficiency": 118
       },
       {
         "slot": 2,
-        "type": "轰炸机",
-        "efficiency": 113
+        "type": "鱼雷",
+        "efficiency": 138
       },
       {
         "slot": 3,
-        "type": "鱼雷机",
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_233",
+    "name": "Grenville",
+    "nameCn": "Greyhound",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 430,
+      "fire": 36,
+      "torpedo": 89,
+      "aviation": 7,
+      "reload": 74,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 54,
+      "antiAir": 53,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_234",
+    "name": "Hardy",
+    "nameCn": "Grenville",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 366,
+      "fire": 38,
+      "torpedo": 88,
+      "aviation": 2,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 69,
+      "antiAir": 51,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_235",
+    "name": "Hunter",
+    "nameCn": "Hardy",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 328,
+      "fire": 40,
+      "torpedo": 75,
+      "aviation": 7,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 68,
+      "antiAir": 45,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_236",
+    "name": "Icarus",
+    "nameCn": "Hunter",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 359,
+      "fire": 37,
+      "torpedo": 71,
+      "aviation": 3,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 55,
+      "antiAir": 47,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_237",
+    "name": "Janus",
+    "nameCn": "Icarus",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 369,
+      "fire": 31,
+      "torpedo": 78,
+      "aviation": 8,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 42,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_238",
+    "name": "Juno",
+    "nameCn": "Janus",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 350,
+      "fire": 40,
+      "torpedo": 77,
+      "aviation": 3,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 54,
+      "antiAir": 43,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_239",
+    "name": "Jupiter",
+    "nameCn": "Juno",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 328,
+      "fire": 36,
+      "torpedo": 76,
+      "aviation": 9,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 52,
+      "antiAir": 44,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_240",
+    "name": "Kimberley",
+    "nameCn": "Jupiter",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 303,
+      "fire": 37,
+      "torpedo": 77,
+      "aviation": 0,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 46,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_241",
+    "name": "Kingston",
+    "nameCn": "Kimberley",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 390,
+      "fire": 36,
+      "torpedo": 77,
+      "aviation": 2,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 54,
+      "antiAir": 40,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_242",
+    "name": "Lance",
+    "nameCn": "Kingston",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 341,
+      "fire": 40,
+      "torpedo": 79,
+      "aviation": 3,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 54,
+      "antiAir": 42,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_243",
+    "name": "Legion",
+    "nameCn": "Lance",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 368,
+      "fire": 39,
+      "torpedo": 75,
+      "aviation": 0,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 50,
+      "antiAir": 41,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_244",
+    "name": "Lively",
+    "nameCn": "Legion",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 337,
+      "fire": 38,
+      "torpedo": 78,
+      "aviation": 3,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 42,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_245",
+    "name": "Lookout",
+    "nameCn": "Lively",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 307,
+      "fire": 31,
+      "torpedo": 76,
+      "aviation": 7,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 56,
+      "antiAir": 44,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_246",
+    "name": "Maori",
+    "nameCn": "Lookout",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 301,
+      "fire": 35,
+      "torpedo": 76,
+      "aviation": 0,
+      "reload": 68,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 59,
+      "antiAir": 43,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_247",
+    "name": "Matchless",
+    "nameCn": "Maori",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 361,
+      "fire": 38,
+      "torpedo": 73,
+      "aviation": 8,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 44,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_248",
+    "name": "Nubian",
+    "nameCn": "Matchless",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 315,
+      "fire": 33,
+      "torpedo": 70,
+      "aviation": 4,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 42,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_249",
+    "name": "Offa",
+    "nameCn": "Nubian",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 301,
+      "fire": 37,
+      "torpedo": 71,
+      "aviation": 4,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 60,
+      "antiAir": 43,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_250",
+    "name": "Oribi",
+    "nameCn": "Offa",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 398,
+      "fire": 34,
+      "torpedo": 73,
+      "aviation": 4,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 66,
+      "antiAir": 43,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_251",
+    "name": "Obedient",
+    "nameCn": "Oribi",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 392,
+      "fire": 35,
+      "torpedo": 79,
+      "aviation": 6,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 60,
+      "antiAir": 42,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_252",
+    "name": "Onslaught",
+    "nameCn": "Obedient",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 391,
+      "fire": 31,
+      "torpedo": 79,
+      "aviation": 7,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 51,
+      "antiAir": 48,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
         "efficiency": 107
       }
     ]
   },
   {
-    "id": "char_020",
-    "name": "Victorious",
-    "nameCn": "胜利",
-    "rarity": 5,
-    "type": "航母",
+    "id": "char_253",
+    "name": "Opportunity",
+    "nameCn": "Onslaught",
+    "rarity": 3,
+    "type": "驱逐",
     "faction": "皇家",
     "stats": {
-      "hp": 1235,
-      "fire": 56,
-      "torpedo": 0,
-      "aviation": 86,
-      "reload": 48,
-      "armor": "中型",
-      "speed": 30,
-      "luck": 65,
-      "antiAir": 83,
-      "detection": 52
+      "hp": 343,
+      "fire": 31,
+      "torpedo": 78,
+      "aviation": 1,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 60,
+      "antiAir": 41,
+      "detection": 54
     },
     "skills": [
       {
-        "name": "空袭引导",
-        "description": "空袭伤害提高 14%",
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
         "type": "passive"
-      },
-      {
-        "name": "皇家舰队",
-        "description": "与皇家航母在同一舰队时，航空提高 10%",
-        "type": "active",
-        "cooldown": 24
       }
     ],
     "equipment": [
       {
         "slot": 1,
-        "type": "战斗机",
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_254",
+    "name": "Orwell",
+    "nameCn": "Opportunity",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 349,
+      "fire": 35,
+      "torpedo": 72,
+      "aviation": 10,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 58,
+      "antiAir": 41,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_255",
+    "name": "Punjabi",
+    "nameCn": "Orwell",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 370,
+      "fire": 35,
+      "torpedo": 77,
+      "aviation": 0,
+      "reload": 68,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 50,
+      "antiAir": 44,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_256",
+    "name": "Bedouin",
+    "nameCn": "Punjabi",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 363,
+      "fire": 33,
+      "torpedo": 71,
+      "aviation": 9,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 44,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_257",
+    "name": "Tartar",
+    "nameCn": "Bedouin",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 382,
+      "fire": 36,
+      "torpedo": 74,
+      "aviation": 3,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 55,
+      "antiAir": 45,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_258",
+    "name": "Ashanti",
+    "nameCn": "Tartar",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 331,
+      "fire": 33,
+      "torpedo": 78,
+      "aviation": 8,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 62,
+      "antiAir": 45,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_259",
+    "name": "Zulu",
+    "nameCn": "Ashanti",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 305,
+      "fire": 39,
+      "torpedo": 73,
+      "aviation": 8,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 68,
+      "antiAir": 45,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_260",
+    "name": "Eskimo",
+    "nameCn": "Zulu",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 357,
+      "fire": 34,
+      "torpedo": 74,
+      "aviation": 5,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 50,
+      "antiAir": 44,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
         "efficiency": 118
       },
       {
         "slot": 2,
-        "type": "轰炸机",
-        "efficiency": 112
+        "type": "鱼雷",
+        "efficiency": 136
       },
       {
         "slot": 3,
-        "type": "鱼雷机",
+        "type": "防空炮",
         "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_261",
+    "name": "Somali",
+    "nameCn": "Eskimo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 396,
+      "fire": 33,
+      "torpedo": 79,
+      "aviation": 6,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 68,
+      "antiAir": 47,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_262",
+    "name": "Matabele",
+    "nameCn": "Somali",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 347,
+      "fire": 38,
+      "torpedo": 79,
+      "aviation": 1,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 60,
+      "antiAir": 42,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_263",
+    "name": "Cossack",
+    "nameCn": "Matabele",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 309,
+      "fire": 35,
+      "torpedo": 77,
+      "aviation": 8,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 59,
+      "antiAir": 47,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_264",
+    "name": "Sikh",
+    "nameCn": "Cossack",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 346,
+      "fire": 37,
+      "torpedo": 71,
+      "aviation": 6,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 61,
+      "antiAir": 41,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_265",
+    "name": "Zephyr",
+    "nameCn": "Sikh",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 391,
+      "fire": 37,
+      "torpedo": 76,
+      "aviation": 6,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 56,
+      "antiAir": 43,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_266",
+    "name": "Gurkha",
+    "nameCn": "Zephyr",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 380,
+      "fire": 36,
+      "torpedo": 75,
+      "aviation": 4,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 60,
+      "antiAir": 42,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_267",
+    "name": "Intrepid",
+    "nameCn": "Gurkha",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 337,
+      "fire": 38,
+      "torpedo": 77,
+      "aviation": 7,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 68,
+      "antiAir": 45,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_268",
+    "name": "Impulsive",
+    "nameCn": "Intrepid",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 372,
+      "fire": 35,
+      "torpedo": 78,
+      "aviation": 3,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 55,
+      "antiAir": 45,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_269",
+    "name": "Ivanhoe",
+    "nameCn": "Impulsive",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 385,
+      "fire": 34,
+      "torpedo": 79,
+      "aviation": 6,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 69,
+      "antiAir": 43,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_270",
+    "name": "Kempenfelt",
+    "nameCn": "Ivanhoe",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 385,
+      "fire": 36,
+      "torpedo": 75,
+      "aviation": 1,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 55,
+      "antiAir": 40,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_271",
+    "name": "Whirlwind",
+    "nameCn": "Kempenfelt",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 320,
+      "fire": 37,
+      "torpedo": 76,
+      "aviation": 9,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 56,
+      "antiAir": 44,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_272",
+    "name": "Javelin II",
+    "nameCn": "Whirlwind",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 362,
+      "fire": 31,
+      "torpedo": 72,
+      "aviation": 9,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 59,
+      "antiAir": 42,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_273",
+    "name": "Acasta II",
+    "nameCn": "Javelin II",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "皇家",
+    "stats": {
+      "hp": 301,
+      "fire": 38,
+      "torpedo": 76,
+      "aviation": 9,
+      "reload": 68,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 55,
+      "antiAir": 46,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
       }
     ]
   }

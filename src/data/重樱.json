@@ -1,34 +1,924 @@
 [
   {
-    "id": "char_003",
+    "id": "char_274",
     "name": "Akagi",
-    "nameCn": "赤城",
+    "nameCn": "Acasta II",
     "rarity": 5,
     "type": "航母",
     "faction": "重樱",
     "stats": {
-      "hp": 1100,
-      "fire": 60,
+      "hp": 1331,
+      "fire": 73,
       "torpedo": 0,
-      "aviation": 100,
-      "reload": 45,
+      "aviation": 122,
+      "reload": 64,
       "armor": "中型",
-      "speed": 31,
-      "luck": 60,
-      "antiAir": 75,
-      "detection": 55
+      "speed": 32,
+      "luck": 57,
+      "antiAir": 91,
+      "detection": 65
     },
     "skills": [
       {
-        "name": "航空母舰",
-        "description": "航空值提高 20%，但受到的伤害增加 5%",
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 110
+      }
+    ]
+  },
+  {
+    "id": "char_275",
+    "name": "Kaga",
+    "nameCn": "Akagi",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1384,
+      "fire": 67,
+      "torpedo": 5,
+      "aviation": 126,
+      "reload": 62,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 50,
+      "antiAir": 85,
+      "detection": 68
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
         "type": "passive"
       },
       {
-        "name": "空袭支援",
-        "description": "空袭冷却时间减少 20%",
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 129
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_276",
+    "name": "Soryu",
+    "nameCn": "Kaga",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1393,
+      "fire": 74,
+      "torpedo": 9,
+      "aviation": 121,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 63,
+      "antiAir": 91,
+      "detection": 69
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 124
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_277",
+    "name": "Hiryu",
+    "nameCn": "Soryu",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1398,
+      "fire": 65,
+      "torpedo": 7,
+      "aviation": 118,
+      "reload": 64,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 65,
+      "antiAir": 86,
+      "detection": 71
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_278",
+    "name": "Shokaku",
+    "nameCn": "Hiryu",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1368,
+      "fire": 66,
+      "torpedo": 9,
+      "aviation": 121,
+      "reload": 60,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 52,
+      "antiAir": 90,
+      "detection": 73
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 110
+      }
+    ]
+  },
+  {
+    "id": "char_279",
+    "name": "Zuikaku",
+    "nameCn": "Shokaku",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1325,
+      "fire": 67,
+      "torpedo": 6,
+      "aviation": 119,
+      "reload": 60,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 59,
+      "antiAir": 85,
+      "detection": 68
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 123
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_280",
+    "name": "Taiho",
+    "nameCn": "Zuikaku",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1238,
+      "fire": 61,
+      "torpedo": 1,
+      "aviation": 110,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 54,
+      "antiAir": 79,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
         "type": "active",
-        "cooldown": 18
+        "cooldown": 20
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_281",
+    "name": "Unryu",
+    "nameCn": "Taiho",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1182,
+      "fire": 64,
+      "torpedo": 7,
+      "aviation": 110,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 50,
+      "antiAir": 78,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_282",
+    "name": "Amagi",
+    "nameCn": "Unryu",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1211,
+      "fire": 59,
+      "torpedo": 7,
+      "aviation": 113,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 58,
+      "antiAir": 82,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 121
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_283",
+    "name": "Katsuragi",
+    "nameCn": "Amagi",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1164,
+      "fire": 67,
+      "torpedo": 7,
+      "aviation": 105,
+      "reload": 54,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 64,
+      "antiAir": 75,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_284",
+    "name": "Aso",
+    "nameCn": "Katsuragi",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1229,
+      "fire": 58,
+      "torpedo": 3,
+      "aviation": 105,
+      "reload": 56,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 56,
+      "antiAir": 77,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 121
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_285",
+    "name": "Kasagi",
+    "nameCn": "Aso",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1165,
+      "fire": 64,
+      "torpedo": 0,
+      "aviation": 106,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 53,
+      "antiAir": 81,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 129
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 110
+      }
+    ]
+  },
+  {
+    "id": "char_286",
+    "name": "Shinano",
+    "nameCn": "Kasagi",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1198,
+      "fire": 67,
+      "torpedo": 7,
+      "aviation": 109,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 64,
+      "antiAir": 75,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_287",
+    "name": "Taiyo",
+    "nameCn": "Shinano",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1231,
+      "fire": 65,
+      "torpedo": 7,
+      "aviation": 109,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 66,
+      "antiAir": 80,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 120
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_288",
+    "name": "Unyo",
+    "nameCn": "Taiyo",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1164,
+      "fire": 59,
+      "torpedo": 1,
+      "aviation": 108,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 50,
+      "antiAir": 77,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 121
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_289",
+    "name": "Chuyo",
+    "nameCn": "Unyo",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1233,
+      "fire": 67,
+      "torpedo": 1,
+      "aviation": 104,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 54,
+      "antiAir": 81,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 126
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_290",
+    "name": "Akagi II",
+    "nameCn": "Chuyo",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1165,
+      "fire": 64,
+      "torpedo": 8,
+      "aviation": 113,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 55,
+      "antiAir": 75,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_291",
+    "name": "Kaga II",
+    "nameCn": "Akagi II",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1168,
+      "fire": 62,
+      "torpedo": 0,
+      "aviation": 106,
+      "reload": 55,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 51,
+      "antiAir": 82,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_292",
+    "name": "Shokaku II",
+    "nameCn": "Kaga II",
+    "rarity": 4,
+    "type": "航母",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1244,
+      "fire": 67,
+      "torpedo": 6,
+      "aviation": 111,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 60,
+      "antiAir": 76,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
       }
     ],
     "equipment": [
@@ -45,290 +935,39 @@
       {
         "slot": 3,
         "type": "鱼雷机",
-        "efficiency": 115
+        "efficiency": 113
       }
     ]
   },
   {
-    "id": "char_006",
-    "name": "Kaga",
-    "nameCn": "加贺",
-    "rarity": 5,
-    "type": "航母",
-    "faction": "重樱",
-    "stats": {
-      "hp": 1150,
-      "fire": 62,
-      "torpedo": 0,
-      "aviation": 98,
-      "reload": 48,
-      "armor": "中型",
-      "speed": 30,
-      "luck": 58,
-      "antiAir": 78,
-      "detection": 58
-    },
-    "skills": [
-      {
-        "name": "航空强化",
-        "description": "航空值提高 18%，舰载机耐久提高 10%",
-        "type": "passive"
-      },
-      {
-        "name": "舰载机强化",
-        "description": "舰载机伤害提高 15%",
-        "type": "active",
-        "cooldown": 22
-      }
-    ],
-    "equipment": [
-      {
-        "slot": 1,
-        "type": "战斗机",
-        "efficiency": 122
-      },
-      {
-        "slot": 2,
-        "type": "轰炸机",
-        "efficiency": 118
-      },
-      {
-        "slot": 3,
-        "type": "鱼雷机",
-        "efficiency": 112
-      }
-    ]
-  },
-  {
-    "id": "char_011",
-    "name": "Shikishima",
-    "nameCn": "骏河",
-    "rarity": 5,
-    "type": "战列",
-    "faction": "重樱",
-    "stats": {
-      "hp": 1520,
-      "fire": 94,
-      "torpedo": 0,
-      "aviation": 0,
-      "reload": 41,
-      "armor": "重型",
-      "speed": 28,
-      "luck": 56,
-      "antiAir": 84,
-      "detection": 51
-    },
-    "skills": [
-      {
-        "name": "高速战列",
-        "description": "航速提高 5，机动提高 10%",
-        "type": "passive"
-      },
-      {
-        "name": "主炮连射",
-        "description": "有 25% 概率连续射击两次",
-        "type": "active",
-        "cooldown": 26
-      }
-    ],
-    "equipment": [
-      {
-        "slot": 1,
-        "type": "主炮",
-        "efficiency": 142
-      },
-      {
-        "slot": 2,
-        "type": "副炮",
-        "efficiency": 122
-      },
-      {
-        "slot": 3,
-        "type": "防空炮",
-        "efficiency": 117
-      }
-    ]
-  },
-  {
-    "id": "char_012",
-    "name": "Musashi",
-    "nameCn": "武藏",
-    "rarity": 5,
-    "type": "战列",
-    "faction": "重樱",
-    "stats": {
-      "hp": 1650,
-      "fire": 100,
-      "torpedo": 0,
-      "aviation": 0,
-      "reload": 36,
-      "armor": "重型",
-      "speed": 26,
-      "luck": 50,
-      "antiAir": 90,
-      "detection": 47
-    },
-    "skills": [
-      {
-        "name": "大和级",
-        "description": "火力提高 20%，耐久提高 15%",
-        "type": "passive"
-      },
-      {
-        "name": "超弩级炮击",
-        "description": "主炮暴击伤害提高 50%",
-        "type": "active",
-        "cooldown": 32
-      }
-    ],
-    "equipment": [
-      {
-        "slot": 1,
-        "type": "主炮",
-        "efficiency": 150
-      },
-      {
-        "slot": 2,
-        "type": "副炮",
-        "efficiency": 128
-      },
-      {
-        "slot": 3,
-        "type": "防空炮",
-        "efficiency": 122
-      }
-    ]
-  },
-  {
-    "id": "char_013",
-    "name": "Yamato",
-    "nameCn": "大和",
-    "rarity": 5,
-    "type": "战列",
-    "faction": "重樱",
-    "stats": {
-      "hp": 1640,
-      "fire": 99,
-      "torpedo": 0,
-      "aviation": 0,
-      "reload": 37,
-      "armor": "重型",
-      "speed": 26,
-      "luck": 51,
-      "antiAir": 89,
-      "detection": 48
-    },
-    "skills": [
-      {
-        "name": "旗舰",
-        "description": "提高全队火力 10%",
-        "type": "passive"
-      },
-      {
-        "name": "大和炮击",
-        "description": "主炮伤害提高 25%",
-        "type": "active",
-        "cooldown": 30
-      }
-    ],
-    "equipment": [
-      {
-        "slot": 1,
-        "type": "主炮",
-        "efficiency": 148
-      },
-      {
-        "slot": 2,
-        "type": "副炮",
-        "efficiency": 126
-      },
-      {
-        "slot": 3,
-        "type": "防空炮",
-        "efficiency": 120
-      }
-    ]
-  },
-  {
-    "id": "char_015",
-    "name": "Taihou",
-    "nameCn": "大凤",
-    "rarity": 5,
+    "id": "char_293",
+    "name": "Zuikaku II",
+    "nameCn": "Shokaku II",
+    "rarity": 4,
     "type": "航母",
     "faction": "重樱",
     "stats": {
       "hp": 1220,
-      "fire": 66,
-      "torpedo": 0,
-      "aviation": 102,
-      "reload": 47,
+      "fire": 62,
+      "torpedo": 7,
+      "aviation": 112,
+      "reload": 54,
       "armor": "中型",
-      "speed": 30,
-      "luck": 64,
-      "antiAir": 76,
-      "detection": 57
-    },
-    "skills": [
-      {
-        "name": "装母",
-        "description": "航空值提高 25%，但装填减少 10%",
-        "type": "passive"
-      },
-      {
-        "name": "精锐航空队",
-        "description": "舰载机伤害提高 20%",
-        "type": "active",
-        "cooldown": 20
-      }
-    ],
-    "equipment": [
-      {
-        "slot": 1,
-        "type": "战斗机",
-        "efficiency": 128
-      },
-      {
-        "slot": 2,
-        "type": "轰炸机",
-        "efficiency": 122
-      },
-      {
-        "slot": 3,
-        "type": "鱼雷机",
-        "efficiency": 118
-      }
-    ]
-  },
-  {
-    "id": "char_016",
-    "name": "Zuikaku",
-    "nameCn": "瑞鹤",
-    "rarity": 5,
-    "type": "航母",
-    "faction": "重樱",
-    "stats": {
-      "hp": 1170,
-      "fire": 61,
-      "torpedo": 0,
-      "aviation": 96,
-      "reload": 49,
-      "armor": "中型",
-      "speed": 31,
-      "luck": 63,
+      "speed": 33,
+      "luck": 68,
       "antiAir": 77,
-      "detection": 59
+      "detection": 61
     },
     "skills": [
       {
-        "name": "瑞翔",
-        "description": "与翔鹤在同一舰队时，航空提高 15%",
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
         "type": "passive"
       },
       {
-        "name": "空袭强化",
-        "description": "空袭伤害提高 18%",
-        "type": "active",
-        "cooldown": 21
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
       }
     ],
     "equipment": [
@@ -350,33 +989,1277 @@
     ]
   },
   {
-    "id": "char_017",
-    "name": "Zuikaku",
-    "nameCn": "翔鹤",
+    "id": "char_294",
+    "name": "Yamato",
+    "nameCn": "Zuikaku II",
     "rarity": 5,
-    "type": "航母",
+    "type": "战列",
     "faction": "重樱",
     "stats": {
-      "hp": 1165,
-      "fire": 60,
-      "torpedo": 0,
-      "aviation": 95,
-      "reload": 50,
-      "armor": "中型",
-      "speed": 31,
-      "luck": 62,
-      "antiAir": 76,
+      "hp": 1870,
+      "fire": 119,
+      "torpedo": 10,
+      "aviation": 9,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 60,
+      "antiAir": 91,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_295",
+    "name": "Musashi",
+    "nameCn": "Yamato",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1890,
+      "fire": 120,
+      "torpedo": 9,
+      "aviation": 4,
+      "reload": 49,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 68,
+      "antiAir": 96,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 123
+      }
+    ]
+  },
+  {
+    "id": "char_296",
+    "name": "Shinano",
+    "nameCn": "Musashi",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1841,
+      "fire": 126,
+      "torpedo": 8,
+      "aviation": 9,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 51,
+      "antiAir": 93,
       "detection": 60
     },
     "skills": [
       {
-        "name": "瑞翔",
-        "description": "与瑞鹤在同一舰队时，装填提高 15%",
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_297",
+    "name": "Kii",
+    "nameCn": "Shinano",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1850,
+      "fire": 119,
+      "torpedo": 7,
+      "aviation": 9,
+      "reload": 49,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 68,
+      "antiAir": 97,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
         "type": "passive"
       },
       {
-        "name": "熟练舰载机",
-        "description": "舰载机效率提高 12%",
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_298",
+    "name": "Suruga",
+    "nameCn": "Kii",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1871,
+      "fire": 126,
+      "torpedo": 8,
+      "aviation": 9,
+      "reload": 49,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 58,
+      "antiAir": 92,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_299",
+    "name": "Izumo",
+    "nameCn": "Suruga",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1901,
+      "fire": 125,
+      "torpedo": 6,
+      "aviation": 7,
+      "reload": 50,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 62,
+      "antiAir": 96,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_300",
+    "name": "Echizen",
+    "nameCn": "Izumo",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1886,
+      "fire": 121,
+      "torpedo": 0,
+      "aviation": 8,
+      "reload": 51,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 62,
+      "antiAir": 97,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_301",
+    "name": "Mikasa",
+    "nameCn": "Echizen",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1884,
+      "fire": 124,
+      "torpedo": 4,
+      "aviation": 7,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 62,
+      "antiAir": 93,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_302",
+    "name": "Fuso",
+    "nameCn": "Mikasa",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1708,
+      "fire": 113,
+      "torpedo": 10,
+      "aviation": 4,
+      "reload": 41,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 57,
+      "antiAir": 84,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 146
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_303",
+    "name": "Yamashiro",
+    "nameCn": "Fuso",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1687,
+      "fire": 113,
+      "torpedo": 2,
+      "aviation": 5,
+      "reload": 43,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 57,
+      "antiAir": 82,
+      "detection": 46
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_304",
+    "name": "Ise",
+    "nameCn": "Yamashiro",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1668,
+      "fire": 111,
+      "torpedo": 7,
+      "aviation": 3,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 61,
+      "antiAir": 81,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_305",
+    "name": "Hyuga",
+    "nameCn": "Ise",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1628,
+      "fire": 108,
+      "torpedo": 1,
+      "aviation": 4,
+      "reload": 43,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 62,
+      "antiAir": 85,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_306",
+    "name": "Nagato",
+    "nameCn": "Hyuga",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1691,
+      "fire": 110,
+      "torpedo": 6,
+      "aviation": 4,
+      "reload": 47,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 51,
+      "antiAir": 88,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_307",
+    "name": "Mutsu",
+    "nameCn": "Nagato",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1647,
+      "fire": 110,
+      "torpedo": 4,
+      "aviation": 2,
+      "reload": 44,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 54,
+      "antiAir": 87,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_308",
+    "name": "Tosa",
+    "nameCn": "Mutsu",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1633,
+      "fire": 112,
+      "torpedo": 2,
+      "aviation": 4,
+      "reload": 43,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 52,
+      "antiAir": 84,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_309",
+    "name": "Kaga",
+    "nameCn": "Tosa",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1696,
+      "fire": 113,
+      "torpedo": 8,
+      "aviation": 9,
+      "reload": 42,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 50,
+      "antiAir": 86,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_310",
+    "name": "Yamato II",
+    "nameCn": "Kaga",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1650,
+      "fire": 113,
+      "torpedo": 6,
+      "aviation": 3,
+      "reload": 42,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 55,
+      "antiAir": 84,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_311",
+    "name": "Musashi II",
+    "nameCn": "Yamato II",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1704,
+      "fire": 109,
+      "torpedo": 8,
+      "aviation": 7,
+      "reload": 45,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 59,
+      "antiAir": 87,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_312",
+    "name": "Nagato II",
+    "nameCn": "Musashi II",
+    "rarity": 4,
+    "type": "战列",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1619,
+      "fire": 110,
+      "torpedo": 6,
+      "aviation": 3,
+      "reload": 42,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 62,
+      "antiAir": 87,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_313",
+    "name": "Atago",
+    "nameCn": "Nagato II",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 709,
+      "fire": 52,
+      "torpedo": 72,
+      "aviation": 7,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 65,
+      "antiAir": 63,
+      "detection": 77
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 126
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_314",
+    "name": "Takao",
+    "nameCn": "Atago",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1000,
+      "fire": 69,
+      "torpedo": 54,
+      "aviation": 2,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 52,
+      "antiAir": 77,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_315",
+    "name": "Maya",
+    "nameCn": "Takao",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 986,
+      "fire": 74,
+      "torpedo": 53,
+      "aviation": 2,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 68,
+      "antiAir": 70,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_316",
+    "name": "Chokai",
+    "nameCn": "Maya",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1001,
+      "fire": 69,
+      "torpedo": 58,
+      "aviation": 7,
+      "reload": 56,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 50,
+      "antiAir": 74,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 117
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_317",
+    "name": "Myoko",
+    "nameCn": "Chokai",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 926,
+      "fire": 79,
+      "torpedo": 60,
+      "aviation": 3,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 61,
+      "antiAir": 75,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_318",
+    "name": "Nachi",
+    "nameCn": "Myoko",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 739,
+      "fire": 62,
+      "torpedo": 67,
+      "aviation": 7,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 56,
+      "antiAir": 71,
+      "detection": 74
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_319",
+    "name": "Ashigara",
+    "nameCn": "Nachi",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 999,
+      "fire": 76,
+      "torpedo": 57,
+      "aviation": 1,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 68,
+      "antiAir": 70,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
         "type": "active",
         "cooldown": 22
       }
@@ -384,18 +2267,3482 @@
     "equipment": [
       {
         "slot": 1,
-        "type": "战斗机",
-        "efficiency": 123
+        "type": "主炮",
+        "efficiency": 136
       },
       {
         "slot": 2,
-        "type": "轰炸机",
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_320",
+    "name": "Haguro",
+    "nameCn": "Ashigara",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 960,
+      "fire": 74,
+      "torpedo": 52,
+      "aviation": 6,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 56,
+      "antiAir": 71,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_321",
+    "name": "Tone",
+    "nameCn": "Haguro",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 965,
+      "fire": 74,
+      "torpedo": 56,
+      "aviation": 2,
+      "reload": 56,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 65,
+      "antiAir": 75,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_322",
+    "name": "Chikuma",
+    "nameCn": "Tone",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 1019,
+      "fire": 69,
+      "torpedo": 60,
+      "aviation": 3,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 55,
+      "antiAir": 69,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
         "efficiency": 118
       },
       {
         "slot": 3,
-        "type": "鱼雷机",
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_323",
+    "name": "Suzuya",
+    "nameCn": "Chikuma",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 668,
+      "fire": 47,
+      "torpedo": 61,
+      "aviation": 5,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 61,
+      "antiAir": 62,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 134
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_324",
+    "name": "Kumano",
+    "nameCn": "Suzuya",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 856,
+      "fire": 70,
+      "torpedo": 48,
+      "aviation": 3,
+      "reload": 51,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 61,
+      "antiAir": 67,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
         "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_325",
+    "name": "Mogami",
+    "nameCn": "Kumano",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 896,
+      "fire": 67,
+      "torpedo": 51,
+      "aviation": 7,
+      "reload": 47,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 68,
+      "antiAir": 62,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_326",
+    "name": "Mikuma",
+    "nameCn": "Mogami",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 868,
+      "fire": 67,
+      "torpedo": 46,
+      "aviation": 0,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 67,
+      "antiAir": 61,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_327",
+    "name": "Agano",
+    "nameCn": "Mikuma",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 855,
+      "fire": 64,
+      "torpedo": 53,
+      "aviation": 3,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 56,
+      "antiAir": 67,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_328",
+    "name": "Noshiro",
+    "nameCn": "Agano",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 641,
+      "fire": 50,
+      "torpedo": 57,
+      "aviation": 8,
+      "reload": 56,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 68,
+      "antiAir": 60,
+      "detection": 66
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_329",
+    "name": "Yahagi",
+    "nameCn": "Noshiro",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 835,
+      "fire": 68,
+      "torpedo": 51,
+      "aviation": 8,
+      "reload": 47,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 61,
+      "antiAir": 61,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_330",
+    "name": "Sakawa",
+    "nameCn": "Yahagi",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 899,
+      "fire": 61,
+      "torpedo": 51,
+      "aviation": 3,
+      "reload": 51,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 56,
+      "antiAir": 67,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 135
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_331",
+    "name": "Oyodo",
+    "nameCn": "Sakawa",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 900,
+      "fire": 64,
+      "torpedo": 54,
+      "aviation": 2,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 50,
+      "antiAir": 64,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_332",
+    "name": "Kuma",
+    "nameCn": "Oyodo",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 840,
+      "fire": 68,
+      "torpedo": 46,
+      "aviation": 3,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 62,
+      "antiAir": 61,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_333",
+    "name": "Tama",
+    "nameCn": "Kuma",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 687,
+      "fire": 46,
+      "torpedo": 59,
+      "aviation": 1,
+      "reload": 55,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 52,
+      "antiAir": 56,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 111
+      }
+    ]
+  },
+  {
+    "id": "char_334",
+    "name": "Kitakami",
+    "nameCn": "Tama",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 877,
+      "fire": 61,
+      "torpedo": 46,
+      "aviation": 6,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 69,
+      "antiAir": 66,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 140
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_335",
+    "name": "Ooi",
+    "nameCn": "Kitakami",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 865,
+      "fire": 63,
+      "torpedo": 49,
+      "aviation": 0,
+      "reload": 47,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 56,
+      "antiAir": 63,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 135
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_336",
+    "name": "Kiso",
+    "nameCn": "Ooi",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 879,
+      "fire": 64,
+      "torpedo": 46,
+      "aviation": 4,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 67,
+      "antiAir": 61,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_337",
+    "name": "Nagara",
+    "nameCn": "Kiso",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 889,
+      "fire": 63,
+      "torpedo": 47,
+      "aviation": 8,
+      "reload": 45,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 62,
+      "antiAir": 61,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_338",
+    "name": "Isuzu",
+    "nameCn": "Nagara",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 669,
+      "fire": 55,
+      "torpedo": 64,
+      "aviation": 5,
+      "reload": 58,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 55,
+      "antiAir": 61,
+      "detection": 66
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_339",
+    "name": "Natori",
+    "nameCn": "Isuzu",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 805,
+      "fire": 69,
+      "torpedo": 47,
+      "aviation": 2,
+      "reload": 46,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 64,
+      "antiAir": 61,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_340",
+    "name": "Yura",
+    "nameCn": "Natori",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 868,
+      "fire": 63,
+      "torpedo": 47,
+      "aviation": 2,
+      "reload": 48,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 66,
+      "antiAir": 67,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_341",
+    "name": "Kinu",
+    "nameCn": "Yura",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 867,
+      "fire": 68,
+      "torpedo": 48,
+      "aviation": 1,
+      "reload": 50,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 64,
+      "antiAir": 61,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 135
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_342",
+    "name": "Abukuma",
+    "nameCn": "Kinu",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 821,
+      "fire": 66,
+      "torpedo": 45,
+      "aviation": 4,
+      "reload": 48,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 59,
+      "antiAir": 66,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_343",
+    "name": "Sendai",
+    "nameCn": "Abukuma",
+    "rarity": 3,
+    "type": "轻巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 687,
+      "fire": 48,
+      "torpedo": 60,
+      "aviation": 1,
+      "reload": 63,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 57,
+      "antiAir": 60,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_344",
+    "name": "Jintsu",
+    "nameCn": "Sendai",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 891,
+      "fire": 65,
+      "torpedo": 53,
+      "aviation": 0,
+      "reload": 49,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 58,
+      "antiAir": 62,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 118
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_345",
+    "name": "Naka",
+    "nameCn": "Jintsu",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 879,
+      "fire": 66,
+      "torpedo": 55,
+      "aviation": 2,
+      "reload": 49,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 60,
+      "antiAir": 61,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 139
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 113
+      }
+    ]
+  },
+  {
+    "id": "char_346",
+    "name": "Atago II",
+    "nameCn": "Naka",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 862,
+      "fire": 64,
+      "torpedo": 47,
+      "aviation": 1,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 56,
+      "antiAir": 62,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 136
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_347",
+    "name": "Takao II",
+    "nameCn": "Atago II",
+    "rarity": 3,
+    "type": "重巡",
+    "faction": "重樱",
+    "stats": {
+      "hp": 844,
+      "fire": 68,
+      "torpedo": 50,
+      "aviation": 2,
+      "reload": 50,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 51,
+      "antiAir": 64,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 115
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_348",
+    "name": "Yukikaze",
+    "nameCn": "Takao II",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 360,
+      "fire": 39,
+      "torpedo": 88,
+      "aviation": 3,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 67,
+      "antiAir": 49,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_349",
+    "name": "Shiranui",
+    "nameCn": "Yukikaze",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 435,
+      "fire": 41,
+      "torpedo": 86,
+      "aviation": 0,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 62,
+      "antiAir": 52,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_350",
+    "name": "Kagero",
+    "nameCn": "Shiranui",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 354,
+      "fire": 41,
+      "torpedo": 82,
+      "aviation": 5,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 58,
+      "antiAir": 52,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_351",
+    "name": "Kuroshio",
+    "nameCn": "Kagero",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 437,
+      "fire": 43,
+      "torpedo": 81,
+      "aviation": 2,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 51,
+      "antiAir": 52,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_352",
+    "name": "Oyashio",
+    "nameCn": "Kuroshio",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 364,
+      "fire": 40,
+      "torpedo": 85,
+      "aviation": 3,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 52,
+      "antiAir": 49,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_353",
+    "name": "Hayashio",
+    "nameCn": "Oyashio",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 377,
+      "fire": 42,
+      "torpedo": 85,
+      "aviation": 10,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 53,
+      "antiAir": 50,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_354",
+    "name": "Natsushio",
+    "nameCn": "Hayashio",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 431,
+      "fire": 35,
+      "torpedo": 85,
+      "aviation": 1,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 57,
+      "antiAir": 48,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_355",
+    "name": "Hatsukaze",
+    "nameCn": "Natsushio",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 360,
+      "fire": 41,
+      "torpedo": 86,
+      "aviation": 2,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 69,
+      "antiAir": 53,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_356",
+    "name": "Urakaze",
+    "nameCn": "Hatsukaze",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 346,
+      "fire": 35,
+      "torpedo": 82,
+      "aviation": 4,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 52,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_357",
+    "name": "Isokaze",
+    "nameCn": "Urakaze",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 395,
+      "fire": 44,
+      "torpedo": 85,
+      "aviation": 2,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 56,
+      "antiAir": 46,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_358",
+    "name": "Tanikaze",
+    "nameCn": "Isokaze",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 371,
+      "fire": 44,
+      "torpedo": 88,
+      "aviation": 3,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 53,
+      "antiAir": 51,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_359",
+    "name": "Hamakaze",
+    "nameCn": "Tanikaze",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 386,
+      "fire": 36,
+      "torpedo": 82,
+      "aviation": 9,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 58,
+      "antiAir": 49,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_360",
+    "name": "Nowaki",
+    "nameCn": "Hamakaze",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 441,
+      "fire": 37,
+      "torpedo": 90,
+      "aviation": 4,
+      "reload": 77,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 57,
+      "antiAir": 47,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_361",
+    "name": "Arashi",
+    "nameCn": "Nowaki",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 351,
+      "fire": 41,
+      "torpedo": 87,
+      "aviation": 0,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 61,
+      "antiAir": 47,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_362",
+    "name": "Hagikaze",
+    "nameCn": "Arashi",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 363,
+      "fire": 44,
+      "torpedo": 90,
+      "aviation": 1,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 46,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_363",
+    "name": "Maikaze",
+    "nameCn": "Hagikaze",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 389,
+      "fire": 36,
+      "torpedo": 70,
+      "aviation": 2,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 54,
+      "antiAir": 41,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_364",
+    "name": "Akigumo",
+    "nameCn": "Maikaze",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 364,
+      "fire": 35,
+      "torpedo": 73,
+      "aviation": 4,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 44,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_365",
+    "name": "Yugumo",
+    "nameCn": "Akigumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 377,
+      "fire": 38,
+      "torpedo": 79,
+      "aviation": 7,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 57,
+      "antiAir": 43,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_366",
+    "name": "Makigumo",
+    "nameCn": "Yugumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 328,
+      "fire": 32,
+      "torpedo": 78,
+      "aviation": 7,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 64,
+      "antiAir": 44,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_367",
+    "name": "Kazagumo",
+    "nameCn": "Makigumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 392,
+      "fire": 35,
+      "torpedo": 71,
+      "aviation": 3,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 61,
+      "antiAir": 40,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_368",
+    "name": "Shimakaze",
+    "nameCn": "Kazagumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 321,
+      "fire": 39,
+      "torpedo": 77,
+      "aviation": 8,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 61,
+      "antiAir": 46,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_369",
+    "name": "Fubuki",
+    "nameCn": "Shimakaze",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 323,
+      "fire": 34,
+      "torpedo": 75,
+      "aviation": 1,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 58,
+      "antiAir": 47,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_370",
+    "name": "Shirayuki",
+    "nameCn": "Fubuki",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 390,
+      "fire": 33,
+      "torpedo": 75,
+      "aviation": 2,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 69,
+      "antiAir": 47,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_371",
+    "name": "Hatsuyuki",
+    "nameCn": "Shirayuki",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 381,
+      "fire": 34,
+      "torpedo": 72,
+      "aviation": 0,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 60,
+      "antiAir": 42,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_372",
+    "name": "Miyuki",
+    "nameCn": "Hatsuyuki",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 325,
+      "fire": 31,
+      "torpedo": 78,
+      "aviation": 8,
+      "reload": 68,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 60,
+      "antiAir": 44,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_373",
+    "name": "Murakumo",
+    "nameCn": "Miyuki",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 306,
+      "fire": 37,
+      "torpedo": 76,
+      "aviation": 9,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 46,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_374",
+    "name": "Isonami",
+    "nameCn": "Murakumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 345,
+      "fire": 37,
+      "torpedo": 78,
+      "aviation": 2,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 52,
+      "antiAir": 44,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_375",
+    "name": "Uranami",
+    "nameCn": "Isonami",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 347,
+      "fire": 31,
+      "torpedo": 77,
+      "aviation": 5,
+      "reload": 68,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 60,
+      "antiAir": 45,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_376",
+    "name": "Shikinami",
+    "nameCn": "Uranami",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 353,
+      "fire": 34,
+      "torpedo": 75,
+      "aviation": 5,
+      "reload": 60,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 50,
+      "antiAir": 45,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_377",
+    "name": "Ayanami",
+    "nameCn": "Shikinami",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 334,
+      "fire": 37,
+      "torpedo": 71,
+      "aviation": 0,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 55,
+      "antiAir": 40,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_378",
+    "name": "Shikinami",
+    "nameCn": "Ayanami",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 376,
+      "fire": 31,
+      "torpedo": 77,
+      "aviation": 3,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 61,
+      "antiAir": 47,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_379",
+    "name": "Asagiri",
+    "nameCn": "Shikinami",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 364,
+      "fire": 34,
+      "torpedo": 71,
+      "aviation": 8,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 68,
+      "antiAir": 47,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_380",
+    "name": "Yugiri",
+    "nameCn": "Asagiri",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 342,
+      "fire": 31,
+      "torpedo": 73,
+      "aviation": 1,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 50,
+      "antiAir": 42,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_381",
+    "name": "Sagiri",
+    "nameCn": "Yugiri",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 357,
+      "fire": 34,
+      "torpedo": 79,
+      "aviation": 7,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 55,
+      "antiAir": 44,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_382",
+    "name": "Amagiri",
+    "nameCn": "Sagiri",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 376,
+      "fire": 34,
+      "torpedo": 75,
+      "aviation": 9,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 60,
+      "antiAir": 46,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_383",
+    "name": "Asashio",
+    "nameCn": "Amagiri",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 308,
+      "fire": 31,
+      "torpedo": 79,
+      "aviation": 8,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 65,
+      "antiAir": 45,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_384",
+    "name": "Oshio",
+    "nameCn": "Asashio",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 363,
+      "fire": 39,
+      "torpedo": 75,
+      "aviation": 9,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 65,
+      "antiAir": 44,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_385",
+    "name": "Michishio",
+    "nameCn": "Oshio",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 329,
+      "fire": 35,
+      "torpedo": 75,
+      "aviation": 3,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 50,
+      "antiAir": 44,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_386",
+    "name": "Arashio",
+    "nameCn": "Michishio",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 334,
+      "fire": 35,
+      "torpedo": 70,
+      "aviation": 4,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 68,
+      "antiAir": 44,
+      "detection": 50
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_387",
+    "name": "Natsugumo",
+    "nameCn": "Arashio",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 332,
+      "fire": 32,
+      "torpedo": 77,
+      "aviation": 2,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 62,
+      "antiAir": 44,
+      "detection": 51
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_388",
+    "name": "Minegumo",
+    "nameCn": "Natsugumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 309,
+      "fire": 37,
+      "torpedo": 70,
+      "aviation": 10,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 66,
+      "antiAir": 44,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_389",
+    "name": "Murakumo",
+    "nameCn": "Minegumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 368,
+      "fire": 31,
+      "torpedo": 76,
+      "aviation": 10,
+      "reload": 67,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 55,
+      "antiAir": 43,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_390",
+    "name": "Shigure",
+    "nameCn": "Murakumo",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 316,
+      "fire": 37,
+      "torpedo": 80,
+      "aviation": 3,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 59,
+      "antiAir": 45,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_391",
+    "name": "Samidare",
+    "nameCn": "Shigure",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 396,
+      "fire": 35,
+      "torpedo": 71,
+      "aviation": 5,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 64,
+      "antiAir": 42,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_392",
+    "name": "Harusame",
+    "nameCn": "Samidare",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 367,
+      "fire": 34,
+      "torpedo": 73,
+      "aviation": 10,
+      "reload": 62,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 54,
+      "antiAir": 41,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_393",
+    "name": "Yudachi",
+    "nameCn": "Harusame",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 318,
+      "fire": 31,
+      "torpedo": 74,
+      "aviation": 4,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 68,
+      "antiAir": 43,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_394",
+    "name": " Harusame II",
+    "nameCn": "Yudachi",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 301,
+      "fire": 30,
+      "torpedo": 77,
+      "aviation": 6,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 60,
+      "antiAir": 46,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_395",
+    "name": "Shigure II",
+    "nameCn": " Harusame II",
+    "rarity": 3,
+    "type": "驱逐",
+    "faction": "重樱",
+    "stats": {
+      "hp": 354,
+      "fire": 39,
+      "torpedo": 72,
+      "aviation": 8,
+      "reload": 61,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 53,
+      "antiAir": 43,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
       }
     ]
   }

@@ -1,0 +1,2391 @@
+[
+  {
+    "id": "char_396",
+    "name": "Graf Zeppelin",
+    "nameCn": "Shigure II",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1334,
+      "fire": 71,
+      "torpedo": 7,
+      "aviation": 127,
+      "reload": 64,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 69,
+      "antiAir": 88,
+      "detection": 73
+    },
+    "skills": [
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 121
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_397",
+    "name": "Peter Strasser",
+    "nameCn": "Graf Zeppelin",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1313,
+      "fire": 68,
+      "torpedo": 7,
+      "aviation": 120,
+      "reload": 63,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 63,
+      "antiAir": 91,
+      "detection": 68
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 129
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_398",
+    "name": "Weser",
+    "nameCn": "Peter Strasser",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1314,
+      "fire": 69,
+      "torpedo": 8,
+      "aviation": 118,
+      "reload": 60,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 63,
+      "antiAir": 89,
+      "detection": 71
+    },
+    "skills": [
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 122
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 117
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_399",
+    "name": "Elbe",
+    "nameCn": "Weser",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1374,
+      "fire": 70,
+      "torpedo": 3,
+      "aviation": 123,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 58,
+      "antiAir": 92,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "制空权",
+        "description": "战斗机效率提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "空袭协调",
+        "description": "空袭冷却时间减少 10-20%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 123
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_400",
+    "name": "Graf Zeppelin II",
+    "nameCn": "Elbe",
+    "rarity": 5,
+    "type": "航母",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1370,
+      "fire": 66,
+      "torpedo": 9,
+      "aviation": 118,
+      "reload": 60,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 67,
+      "antiAir": 91,
+      "detection": 69
+    },
+    "skills": [
+      {
+        "name": "舰载机专家",
+        "description": "舰载机伤害提高 10-20%",
+        "type": "passive"
+      },
+      {
+        "name": "航空强化",
+        "description": "航空值提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "战斗机",
+        "efficiency": 121
+      },
+      {
+        "slot": 2,
+        "type": "轰炸机",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "鱼雷机",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_401",
+    "name": "Bismarck",
+    "nameCn": "Graf Zeppelin II",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1899,
+      "fire": 125,
+      "torpedo": 8,
+      "aviation": 1,
+      "reload": 47,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 68,
+      "antiAir": 96,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_402",
+    "name": "Tirpitz",
+    "nameCn": "Bismarck",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1828,
+      "fire": 125,
+      "torpedo": 9,
+      "aviation": 2,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 55,
+      "antiAir": 91,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_403",
+    "name": "Scharnhorst",
+    "nameCn": "Tirpitz",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1826,
+      "fire": 119,
+      "torpedo": 2,
+      "aviation": 9,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 67,
+      "antiAir": 91,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 148
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_404",
+    "name": "Gneisenau",
+    "nameCn": "Scharnhorst",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1877,
+      "fire": 117,
+      "torpedo": 1,
+      "aviation": 9,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 60,
+      "antiAir": 94,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_405",
+    "name": "Friedrich der Grosse",
+    "nameCn": "Gneisenau",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1849,
+      "fire": 124,
+      "torpedo": 9,
+      "aviation": 0,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 51,
+      "antiAir": 96,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 147
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_406",
+    "name": "Brandenburg",
+    "nameCn": "Friedrich der Grosse",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1862,
+      "fire": 124,
+      "torpedo": 4,
+      "aviation": 8,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 61,
+      "antiAir": 93,
+      "detection": 53
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_407",
+    "name": "Preussen",
+    "nameCn": "Brandenburg",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1822,
+      "fire": 120,
+      "torpedo": 3,
+      "aviation": 3,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 58,
+      "antiAir": 92,
+      "detection": 57
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 145
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_408",
+    "name": "Bismarck II",
+    "nameCn": "Preussen",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1868,
+      "fire": 123,
+      "torpedo": 2,
+      "aviation": 2,
+      "reload": 46,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 57,
+      "antiAir": 93,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_409",
+    "name": "Tirpitz II",
+    "nameCn": "Bismarck II",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1850,
+      "fire": 121,
+      "torpedo": 6,
+      "aviation": 3,
+      "reload": 51,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 58,
+      "antiAir": 98,
+      "detection": 55
+    },
+    "skills": [
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_410",
+    "name": "Admiral Hipper",
+    "nameCn": "Tirpitz II",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 703,
+      "fire": 61,
+      "torpedo": 65,
+      "aviation": 0,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 36,
+      "luck": 51,
+      "antiAir": 67,
+      "detection": 73
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      },
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 132
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_411",
+    "name": "Blücher",
+    "nameCn": "Admiral Hipper",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1016,
+      "fire": 78,
+      "torpedo": 61,
+      "aviation": 4,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 66,
+      "antiAir": 71,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_412",
+    "name": "Prinz Eugen",
+    "nameCn": "Blücher",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1014,
+      "fire": 76,
+      "torpedo": 55,
+      "aviation": 1,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 50,
+      "antiAir": 72,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 139
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 117
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_413",
+    "name": "Seydlitz",
+    "nameCn": "Prinz Eugen",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 770,
+      "fire": 54,
+      "torpedo": 68,
+      "aviation": 10,
+      "reload": 64,
+      "armor": "轻型",
+      "speed": 36,
+      "luck": 64,
+      "antiAir": 69,
+      "detection": 72
+    },
+    "skills": [
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      },
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 130
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_414",
+    "name": "Lützow",
+    "nameCn": "Seydlitz",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 981,
+      "fire": 72,
+      "torpedo": 54,
+      "aviation": 4,
+      "reload": 53,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 57,
+      "antiAir": 74,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_415",
+    "name": "Deutschland",
+    "nameCn": "Lützow",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 984,
+      "fire": 79,
+      "torpedo": 55,
+      "aviation": 4,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 60,
+      "antiAir": 72,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 135
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 116
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_416",
+    "name": "Admiral Scheer",
+    "nameCn": "Deutschland",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 748,
+      "fire": 55,
+      "torpedo": 71,
+      "aviation": 7,
+      "reload": 66,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 64,
+      "antiAir": 68,
+      "detection": 71
+    },
+    "skills": [
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      },
+      {
+        "name": "侦察机",
+        "description": "提高全队索敌 10%",
+        "type": "active",
+        "cooldown": 20
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 114
+      }
+    ]
+  },
+  {
+    "id": "char_417",
+    "name": "Admiral Graf Spee",
+    "nameCn": "Admiral Scheer",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 922,
+      "fire": 70,
+      "torpedo": 60,
+      "aviation": 4,
+      "reload": 57,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 65,
+      "antiAir": 70,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      },
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_418",
+    "name": "Leipzig",
+    "nameCn": "Admiral Graf Spee",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 998,
+      "fire": 72,
+      "torpedo": 59,
+      "aviation": 1,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 63,
+      "antiAir": 77,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "主炮专家",
+        "description": "主炮伤害提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 121
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_419",
+    "name": "Nürnberg",
+    "nameCn": "Leipzig",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 712,
+      "fire": 55,
+      "torpedo": 73,
+      "aviation": 10,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 37,
+      "luck": 58,
+      "antiAir": 63,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷连射",
+        "description": "鱼雷有 15% 概率连射",
+        "type": "active",
+        "cooldown": 18
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 119
+      }
+    ]
+  },
+  {
+    "id": "char_420",
+    "name": "Köln",
+    "nameCn": "Nürnberg",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 1013,
+      "fire": 70,
+      "torpedo": 56,
+      "aviation": 7,
+      "reload": 52,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 53,
+      "antiAir": 74,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      },
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 112
+      }
+    ]
+  },
+  {
+    "id": "char_421",
+    "name": "Karlsruhe",
+    "nameCn": "Köln",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 970,
+      "fire": 79,
+      "torpedo": 61,
+      "aviation": 3,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 33,
+      "luck": 64,
+      "antiAir": 75,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 119
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_422",
+    "name": "Königsberg",
+    "nameCn": "Karlsruhe",
+    "rarity": 4,
+    "type": "轻巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 710,
+      "fire": 56,
+      "torpedo": 64,
+      "aviation": 6,
+      "reload": 65,
+      "armor": "轻型",
+      "speed": 35,
+      "luck": 69,
+      "antiAir": 63,
+      "detection": 71
+    },
+    "skills": [
+      {
+        "name": "防空指挥",
+        "description": "提高全队防空 12%",
+        "type": "passive"
+      },
+      {
+        "name": "装填强化",
+        "description": "装填值提高 15%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_423",
+    "name": "Emden",
+    "nameCn": "Königsberg",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 968,
+      "fire": 69,
+      "torpedo": 54,
+      "aviation": 8,
+      "reload": 58,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 66,
+      "antiAir": 70,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      },
+      {
+        "name": "装甲强化",
+        "description": "受到的伤害减少 10%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_424",
+    "name": "Admiral Hipper II",
+    "nameCn": "Emden",
+    "rarity": 4,
+    "type": "重巡",
+    "faction": "铁血",
+    "stats": {
+      "hp": 938,
+      "fire": 72,
+      "torpedo": 53,
+      "aviation": 0,
+      "reload": 59,
+      "armor": "中型",
+      "speed": 34,
+      "luck": 54,
+      "antiAir": 74,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "火力支援",
+        "description": "提高先锋舰队火力 8%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹",
+        "description": "使用穿甲弹时伤害提高 18%",
+        "type": "active",
+        "cooldown": 22
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_425",
+    "name": "Z23",
+    "nameCn": "Admiral Hipper II",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 348,
+      "fire": 43,
+      "torpedo": 89,
+      "aviation": 10,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 48,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_426",
+    "name": "Z24",
+    "nameCn": "Z23",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 397,
+      "fire": 43,
+      "torpedo": 87,
+      "aviation": 1,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 61,
+      "antiAir": 52,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_427",
+    "name": "Z25",
+    "nameCn": "Z24",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 347,
+      "fire": 36,
+      "torpedo": 85,
+      "aviation": 3,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 53,
+      "antiAir": 47,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_428",
+    "name": "Z26",
+    "nameCn": "Z25",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 363,
+      "fire": 37,
+      "torpedo": 81,
+      "aviation": 1,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 64,
+      "antiAir": 52,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_429",
+    "name": "Z28",
+    "nameCn": "Z26",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 353,
+      "fire": 36,
+      "torpedo": 86,
+      "aviation": 2,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 59,
+      "antiAir": 51,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_430",
+    "name": "Z35",
+    "nameCn": "Z28",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 418,
+      "fire": 35,
+      "torpedo": 83,
+      "aviation": 8,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 67,
+      "antiAir": 48,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 134
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_431",
+    "name": "Z36",
+    "nameCn": "Z35",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 416,
+      "fire": 35,
+      "torpedo": 82,
+      "aviation": 9,
+      "reload": 77,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 53,
+      "antiAir": 48,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 109
+      }
+    ]
+  },
+  {
+    "id": "char_432",
+    "name": "Z46",
+    "nameCn": "Z36",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 390,
+      "fire": 37,
+      "torpedo": 82,
+      "aviation": 6,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 69,
+      "antiAir": 53,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_433",
+    "name": "Z1",
+    "nameCn": "Z46",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 405,
+      "fire": 37,
+      "torpedo": 84,
+      "aviation": 0,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 50,
+      "antiAir": 52,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_434",
+    "name": "Z2",
+    "nameCn": "Z1",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 443,
+      "fire": 38,
+      "torpedo": 87,
+      "aviation": 8,
+      "reload": 77,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 64,
+      "antiAir": 54,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_435",
+    "name": "Z9",
+    "nameCn": "Z2",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 414,
+      "fire": 41,
+      "torpedo": 89,
+      "aviation": 2,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 56,
+      "antiAir": 51,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_436",
+    "name": "Z10",
+    "nameCn": "Z9",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 401,
+      "fire": 44,
+      "torpedo": 82,
+      "aviation": 9,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 50,
+      "antiAir": 54,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_437",
+    "name": "Z11",
+    "nameCn": "Z10",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 384,
+      "fire": 35,
+      "torpedo": 89,
+      "aviation": 6,
+      "reload": 72,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 56,
+      "antiAir": 47,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_438",
+    "name": "Z18",
+    "nameCn": "Z11",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 351,
+      "fire": 44,
+      "torpedo": 85,
+      "aviation": 0,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 62,
+      "antiAir": 53,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_439",
+    "name": "Z19",
+    "nameCn": "Z18",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 445,
+      "fire": 41,
+      "torpedo": 81,
+      "aviation": 8,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 65,
+      "antiAir": 49,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_440",
+    "name": "Z20",
+    "nameCn": "Z19",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 396,
+      "fire": 40,
+      "torpedo": 82,
+      "aviation": 6,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 59,
+      "antiAir": 52,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_441",
+    "name": "Z21",
+    "nameCn": "Z20",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 394,
+      "fire": 41,
+      "torpedo": 83,
+      "aviation": 3,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 60,
+      "antiAir": 50,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_442",
+    "name": "Z22",
+    "nameCn": "Z21",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 386,
+      "fire": 39,
+      "torpedo": 85,
+      "aviation": 4,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 52,
+      "antiAir": 51,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_443",
+    "name": "Z23 II",
+    "nameCn": "Z22",
+    "rarity": 4,
+    "type": "驱逐",
+    "faction": "铁血",
+    "stats": {
+      "hp": 423,
+      "fire": 40,
+      "torpedo": 82,
+      "aviation": 3,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 54,
+      "antiAir": 48,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 117
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 131
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  }
+]

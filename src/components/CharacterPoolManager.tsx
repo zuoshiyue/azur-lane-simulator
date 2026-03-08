@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { dataManager } from '../data/characterData';
+import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
 import { CharacterForm } from './CharacterForm';
 import { Character, ShipType } from '../types';

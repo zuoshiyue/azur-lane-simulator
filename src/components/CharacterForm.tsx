@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Character, ShipType, Stats, Skill, EquipmentSlot } from '../types';
-import { X } from 'lucide-react';
+import { X, Sparkles, Search, Loader } from 'lucide-react';
+import { useSmartCharacterFill } from '../hooks/useSmartCharacterFill';
 
 interface CharacterFormProps {
   character?: Character;
@@ -40,6 +41,11 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [showSmartFill, setShowSmartFill] = useState(false);
+  const [smartFillQuery, setSmartFillQuery] = useState('');
+  const [smartFillMessage, setSmartFillMessage] = useState<{type: 'success' | 'error' | 'info', text: string} | null>(null);
+  
+  const { isLoading, smartFill, searchSuggestions } = useSmartCharacterFill();
 
   useEffect(() => {
     if (character) {
@@ -164,6 +170,45 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
     }));
   };
 
+  const handleSmartFill = async () => {
+    if (!smartFillQuery.trim()) {
+      setSmartFillMessage({ type: 'error', text: '请输入角色名称' });
+      return;
+    }
+
+    const result = await smartFill(smartFillQuery);
+    
+    if (result.success && result.data) {
+      // 填充表单
+      setFormData(prev => ({
+        ...prev,
+        name: result.data!.name || prev.name,
+        nameCn: result.data!.nameCn || smartFillQuery,
+        rarity: result.data!.rarity || prev.rarity,
+        type: result.data!.type || prev.type,
+        faction: result.data!.faction || prev.faction,
+        stats: result.data!.stats || prev.stats,
+        skills: result.data!.skills || prev.skills,
+        equipment: result.data!.equipment || prev.equipment,
+      }));
+      setSmartFillMessage({ 
+        type: 'success', 
+        text: `成功从${result.source === 'wiki' ? 'Wiki' : '模板库'}获取数据！请检查并修改。` 
+      });
+      setShowSmartFill(false);
+    } else {
+      setSmartFillMessage({ 
+        type: 'error', 
+        text: result.error || '获取数据失败' 
+      });
+    }
+
+    // 3 秒后清除消息
+    setTimeout(() => setSmartFillMessage(null), 3000);
+  };
+
+  const suggestions = searchSuggestions(smartFillQuery);
+
   return (
     <div 
       className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50 overflow-y-auto"
@@ -178,16 +223,106 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
           <h2 className="text-2xl font-bold text-white">
             {character ? '编辑角色' : '添加新角色'}
           </h2>
-          <button
-            onClick={onCancel}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            <X className="w-6 h-6" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setShowSmartFill(!showSmartFill)}
+              className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors text-sm"
+              title="智能填充"
+            >
+              <Sparkles className="w-4 h-4" />
+              智能填充
+            </button>
+            <button
+              onClick={onCancel}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         {/* 表单内容 */}
         <form onSubmit={handleSubmit} className="p-6 max-h-[70vh] overflow-y-auto">
+          {/* 智能填充面板 */}
+          {showSmartFill && (
+            <div className="mb-6 bg-gradient-to-r from-purple-900/50 to-blue-900/50 rounded-xl p-4 border border-purple-500/30">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-5 h-5 text-purple-400" />
+                <h3 className="text-lg font-bold text-white">智能填充</h3>
+              </div>
+              
+              <div className="flex gap-3 mb-3">
+                <div className="flex-1 relative">
+                  <input
+                    type="text"
+                    value={smartFillQuery}
+                    onChange={(e) => setSmartFillQuery(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && handleSmartFill()}
+                    placeholder="输入角色名称（如：企业、赤城、大和）"
+                    className="w-full bg-azur-dark border border-purple-500/50 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-purple-400"
+                    disabled={isLoading}
+                  />
+                  
+                  {/* 搜索建议 */}
+                  {suggestions.length > 0 && smartFillQuery && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-azur-dark border border-azur rounded-lg shadow-lg z-10 max-h-40 overflow-y-auto">
+                      {suggestions.map((name, index) => (
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => {
+                            setSmartFillQuery(name);
+                            handleSmartFill();
+                          }}
+                          className="w-full text-left px-4 py-2 text-gray-300 hover:bg-azur hover:text-white transition-colors"
+                        >
+                          {name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
+                <button
+                  type="button"
+                  onClick={handleSmartFill}
+                  disabled={isLoading}
+                  className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-800 disabled:cursor-not-allowed text-white px-6 py-2 rounded-lg transition-colors"
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader className="w-4 h-4 animate-spin" />
+                      加载中...
+                    </>
+                  ) : (
+                    <>
+                      <Search className="w-4 h-4" />
+                      查询
+                    </>
+                  )}
+                </button>
+              </div>
+              
+              {/* 状态消息 */}
+              {smartFillMessage && (
+                <div className={`text-sm p-3 rounded-lg ${
+                  smartFillMessage.type === 'success' 
+                    ? 'bg-green-900/50 text-green-300 border border-green-500/30'
+                    : smartFillMessage.type === 'error'
+                    ? 'bg-red-900/50 text-red-300 border border-red-500/30'
+                    : 'bg-blue-900/50 text-blue-300 border border-blue-500/30'
+                }`}>
+                  {smartFillMessage.text}
+                </div>
+              )}
+              
+              {/* 提示信息 */}
+              <div className="mt-3 text-xs text-gray-400">
+                <p>💡 提示：优先从本地模板库获取数据，支持常见角色。未来将支持从 B 站 Wiki 自动爬取。</p>
+              </div>
+            </div>
+          )}
+
           {/* 基本信息 */}
           <div className="mb-6">
             <h3 className="text-lg font-bold text-white mb-4">基本信息</h3>

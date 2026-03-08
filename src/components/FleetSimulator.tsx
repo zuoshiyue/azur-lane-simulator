@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DndContext, DragOverlay, useDraggable } from '@dnd-kit/core';
-import { dataManager } from '../data/characterData';
+import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
 import { FleetSlot } from './FleetSlot';
 import { CharacterSearchModal } from './CharacterSearchModal';
@@ -94,7 +94,7 @@ export const FleetSimulator: React.FC = () => {
     if (!localCharacters.find(c => c.id === character.id)) {
       const newCharacters = [...localCharacters, character];
       setLocalCharacters(newCharacters);
-      dataManager.addCharacters([character]);
+      dataManager.addCharacter(character);
     }
   };
 
@@ -206,7 +206,7 @@ export const FleetSimulator: React.FC = () => {
                     智能推荐阵容
                   </h3>
                   <div className="space-y-3">
-                    {getRecommendations().map((rec, i) => (
+                    {getRecommendations().map((rec: any, i: number) => (
                       <div key={i} className="bg-azur-dark/50 rounded-lg p-4">
                         <div className="text-white font-medium mb-2">{rec.reason}</div>
                         <div className="text-sm text-gray-300">
@@ -241,7 +241,6 @@ export const FleetSimulator: React.FC = () => {
           onClose={() => setShowSearchModal(false)}
           onAddCharacter={handleAddCharacter}
           existingCharacterIds={existingCharacterIds}
-          allCharacters={dataManager.getAllCharacters()}
         />
       </div>
     </div>

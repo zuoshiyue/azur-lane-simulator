@@ -14,7 +14,7 @@ export interface Character {
 export type ShipType = 
   | '驱逐' | '轻巡' | '重巡' | '超巡' 
   | '战列' | '战巡' | '航母' | '轻母' 
-  | '潜艇' | '维修' | '运输';
+  | '潜艇' | '维修' | '运输' | '巡洋' | 'META';
 
 export interface Stats {
   hp: number;

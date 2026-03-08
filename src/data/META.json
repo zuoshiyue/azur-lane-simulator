@@ -1,0 +1,852 @@
+[
+  {
+    "id": "char_540",
+    "name": "Enterprise·META",
+    "nameCn": "Jean Bart II",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1452,
+      "fire": 95,
+      "torpedo": 66,
+      "aviation": 88,
+      "reload": 66,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 69,
+      "antiAir": 78,
+      "detection": 74
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 139
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_541",
+    "name": "Yorktown·META",
+    "nameCn": "Enterprise·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1491,
+      "fire": 94,
+      "torpedo": 69,
+      "aviation": 79,
+      "reload": 72,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 75,
+      "antiAir": 84,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 133
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_542",
+    "name": "Hornet·META",
+    "nameCn": "Yorktown·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1433,
+      "fire": 95,
+      "torpedo": 70,
+      "aviation": 82,
+      "reload": 65,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 73,
+      "antiAir": 79,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "META 强化",
+        "description": "全属性提高 10%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 139
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_543",
+    "name": "Cleveland·META",
+    "nameCn": "Hornet·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1450,
+      "fire": 98,
+      "torpedo": 68,
+      "aviation": 80,
+      "reload": 68,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 62,
+      "antiAir": 81,
+      "detection": 77
+    },
+    "skills": [
+      {
+        "name": "觉醒之力",
+        "description": "战斗开始后每 10 秒提高 5% 伤害",
+        "type": "active",
+        "cooldown": 10
+      },
+      {
+        "name": "META 强化",
+        "description": "全属性提高 10%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_544",
+    "name": "Baltimore·META",
+    "nameCn": "Cleveland·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1460,
+      "fire": 98,
+      "torpedo": 73,
+      "aviation": 86,
+      "reload": 70,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 73,
+      "antiAir": 78,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 132
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 120
+      }
+    ]
+  },
+  {
+    "id": "char_545",
+    "name": "South Dakota·META",
+    "nameCn": "Baltimore·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1522,
+      "fire": 97,
+      "torpedo": 67,
+      "aviation": 82,
+      "reload": 72,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 65,
+      "antiAir": 86,
+      "detection": 79
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "META 强化",
+        "description": "全属性提高 10%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 130
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 126
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_546",
+    "name": "Massachusetts·META",
+    "nameCn": "South Dakota·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1483,
+      "fire": 97,
+      "torpedo": 66,
+      "aviation": 80,
+      "reload": 70,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 79,
+      "antiAir": 80,
+      "detection": 74
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 133
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 123
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 123
+      }
+    ]
+  },
+  {
+    "id": "char_547",
+    "name": "Illustrious·META",
+    "nameCn": "Massachusetts·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1488,
+      "fire": 92,
+      "torpedo": 75,
+      "aviation": 83,
+      "reload": 66,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 68,
+      "antiAir": 83,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 133
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 117
+      }
+    ]
+  },
+  {
+    "id": "char_548",
+    "name": "Belfast·META",
+    "nameCn": "Illustrious·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1484,
+      "fire": 93,
+      "torpedo": 68,
+      "aviation": 87,
+      "reload": 69,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 73,
+      "antiAir": 78,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "META 强化",
+        "description": "全属性提高 10%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_549",
+    "name": "Kaga·META",
+    "nameCn": "Belfast·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1478,
+      "fire": 92,
+      "torpedo": 66,
+      "aviation": 83,
+      "reload": 68,
+      "armor": "中型",
+      "speed": 32,
+      "luck": 63,
+      "antiAir": 85,
+      "detection": 72
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 130
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_550",
+    "name": "Akagi·META",
+    "nameCn": "Kaga·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1513,
+      "fire": 94,
+      "torpedo": 69,
+      "aviation": 84,
+      "reload": 72,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 69,
+      "antiAir": 81,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "META 强化",
+        "description": "全属性提高 10%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 138
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 120
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 121
+      }
+    ]
+  },
+  {
+    "id": "char_551",
+    "name": "Tirpitz·META",
+    "nameCn": "Akagi·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1437,
+      "fire": 96,
+      "torpedo": 67,
+      "aviation": 85,
+      "reload": 66,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 62,
+      "antiAir": 80,
+      "detection": 75
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "META 强化",
+        "description": "全属性提高 10%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 131
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 116
+      }
+    ]
+  },
+  {
+    "id": "char_552",
+    "name": "Bismarck·META",
+    "nameCn": "Tirpitz·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1467,
+      "fire": 94,
+      "torpedo": 69,
+      "aviation": 82,
+      "reload": 67,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 68,
+      "antiAir": 81,
+      "detection": 76
+    },
+    "skills": [
+      {
+        "name": "觉醒之力",
+        "description": "战斗开始后每 10 秒提高 5% 伤害",
+        "type": "active",
+        "cooldown": 10
+      },
+      {
+        "name": "觉醒之力",
+        "description": "战斗开始后每 10 秒提高 5% 伤害",
+        "type": "active",
+        "cooldown": 10
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 139
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_553",
+    "name": "Chapayev·META",
+    "nameCn": "Bismarck·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1486,
+      "fire": 94,
+      "torpedo": 75,
+      "aviation": 79,
+      "reload": 69,
+      "armor": "中型",
+      "speed": 31,
+      "luck": 60,
+      "antiAir": 83,
+      "detection": 77
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_554",
+    "name": "Murmansk·META",
+    "nameCn": "Chapayev·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1497,
+      "fire": 99,
+      "torpedo": 66,
+      "aviation": 80,
+      "reload": 67,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 72,
+      "antiAir": 83,
+      "detection": 73
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 135
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 125
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 115
+      }
+    ]
+  },
+  {
+    "id": "char_555",
+    "name": "Luoyang·META",
+    "nameCn": "Murmansk·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1526,
+      "fire": 92,
+      "torpedo": 65,
+      "aviation": 87,
+      "reload": 69,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 64,
+      "antiAir": 82,
+      "detection": 78
+    },
+    "skills": [
+      {
+        "name": "超时空打击",
+        "description": "攻击有 20% 概率造成额外伤害",
+        "type": "passive"
+      },
+      {
+        "name": "觉醒之力",
+        "description": "战斗开始后每 10 秒提高 5% 伤害",
+        "type": "active",
+        "cooldown": 10
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 122
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 124
+      }
+    ]
+  },
+  {
+    "id": "char_556",
+    "name": "Yat Sen·META",
+    "nameCn": "Luoyang·META",
+    "rarity": 5,
+    "type": "META",
+    "faction": "META",
+    "stats": {
+      "hp": 1520,
+      "fire": 96,
+      "torpedo": 73,
+      "aviation": 88,
+      "reload": 66,
+      "armor": "中型",
+      "speed": 30,
+      "luck": 77,
+      "antiAir": 85,
+      "detection": 77
+    },
+    "skills": [
+      {
+        "name": "次元屏障",
+        "description": "受到的伤害减少 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "觉醒之力",
+        "description": "战斗开始后每 10 秒提高 5% 伤害",
+        "type": "active",
+        "cooldown": 10
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 137
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 128
+      },
+      {
+        "slot": 3,
+        "type": "设备",
+        "efficiency": 123
+      }
+    ]
+  }
+]

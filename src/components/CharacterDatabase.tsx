@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { dataManager } from '../data/characterData';
+import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
 import { Character, ShipType } from '../types';
 import { Search, Filter, Grid, List } from 'lucide-react';

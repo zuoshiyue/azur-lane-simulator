@@ -1,0 +1,1147 @@
+[
+  {
+    "id": "char_489",
+    "name": "Littorio",
+    "nameCn": "Ping Hai II",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 1888,
+      "fire": 125,
+      "torpedo": 5,
+      "aviation": 10,
+      "reload": 49,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 60,
+      "antiAir": 94,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 149
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_490",
+    "name": "Italia",
+    "nameCn": "Littorio",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 1905,
+      "fire": 125,
+      "torpedo": 2,
+      "aviation": 2,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 59,
+      "antiAir": 95,
+      "detection": 56
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "穿甲弹专精",
+        "description": "对重甲目标伤害提高 20%",
+        "type": "active",
+        "cooldown": 25
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 142
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 124
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_491",
+    "name": "Roma",
+    "nameCn": "Italia",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 1906,
+      "fire": 125,
+      "torpedo": 6,
+      "aviation": 6,
+      "reload": 53,
+      "armor": "重型",
+      "speed": 29,
+      "luck": 64,
+      "antiAir": 92,
+      "detection": 54
+    },
+    "skills": [
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      },
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 141
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 118
+      }
+    ]
+  },
+  {
+    "id": "char_492",
+    "name": "Impero",
+    "nameCn": "Roma",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 1881,
+      "fire": 121,
+      "torpedo": 3,
+      "aviation": 1,
+      "reload": 52,
+      "armor": "重型",
+      "speed": 28,
+      "luck": 51,
+      "antiAir": 94,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "火力全开",
+        "description": "主炮装填时间减少 15%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 144
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 129
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 123
+      }
+    ]
+  },
+  {
+    "id": "char_493",
+    "name": "Conte di Cavour",
+    "nameCn": "Impero",
+    "rarity": 5,
+    "type": "战列",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 1864,
+      "fire": 120,
+      "torpedo": 7,
+      "aviation": 5,
+      "reload": 47,
+      "armor": "重型",
+      "speed": 30,
+      "luck": 61,
+      "antiAir": 96,
+      "detection": 52
+    },
+    "skills": [
+      {
+        "name": "主炮强化",
+        "description": "主炮伤害提高 15-25%",
+        "type": "passive"
+      },
+      {
+        "name": "精准射击",
+        "description": "暴击率提高 15%",
+        "type": "active",
+        "cooldown": 30
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 143
+      },
+      {
+        "slot": 2,
+        "type": "副炮",
+        "efficiency": 127
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 122
+      }
+    ]
+  },
+  {
+    "id": "char_494",
+    "name": "Giulio Cesare",
+    "nameCn": "Conte di Cavour",
+    "rarity": 5,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 406,
+      "fire": 41,
+      "torpedo": 93,
+      "aviation": 9,
+      "reload": 79,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 56,
+      "antiAir": 60,
+      "detection": 67
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 114
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_495",
+    "name": "Dante Alighieri",
+    "nameCn": "Giulio Cesare",
+    "rarity": 5,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 458,
+      "fire": 48,
+      "torpedo": 98,
+      "aviation": 2,
+      "reload": 79,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 58,
+      "antiAir": 59,
+      "detection": 72
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_496",
+    "name": "Zara",
+    "nameCn": "Dante Alighieri",
+    "rarity": 5,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 476,
+      "fire": 46,
+      "torpedo": 98,
+      "aviation": 8,
+      "reload": 79,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 54,
+      "antiAir": 53,
+      "detection": 72
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_497",
+    "name": "Pola",
+    "nameCn": "Zara",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 423,
+      "fire": 42,
+      "torpedo": 85,
+      "aviation": 2,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 57,
+      "antiAir": 48,
+      "detection": 60
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_498",
+    "name": "Fiume",
+    "nameCn": "Pola",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 355,
+      "fire": 39,
+      "torpedo": 83,
+      "aviation": 5,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 55,
+      "antiAir": 50,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 102
+      }
+    ]
+  },
+  {
+    "id": "char_499",
+    "name": "Gorizia",
+    "nameCn": "Fiume",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 423,
+      "fire": 35,
+      "torpedo": 90,
+      "aviation": 9,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 54,
+      "antiAir": 48,
+      "detection": 59
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 110
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_500",
+    "name": "Trento",
+    "nameCn": "Gorizia",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 429,
+      "fire": 43,
+      "torpedo": 82,
+      "aviation": 5,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 62,
+      "antiAir": 52,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 113
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 137
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 104
+      }
+    ]
+  },
+  {
+    "id": "char_501",
+    "name": "Trieste",
+    "nameCn": "Trento",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 381,
+      "fire": 35,
+      "torpedo": 89,
+      "aviation": 9,
+      "reload": 69,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 61,
+      "antiAir": 53,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 116
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 108
+      }
+    ]
+  },
+  {
+    "id": "char_502",
+    "name": "Bolzano",
+    "nameCn": "Trieste",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 424,
+      "fire": 37,
+      "torpedo": 89,
+      "aviation": 1,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 67,
+      "antiAir": 53,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 139
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_503",
+    "name": "Duca degli Abruzzi",
+    "nameCn": "Bolzano",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 395,
+      "fire": 35,
+      "torpedo": 82,
+      "aviation": 1,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 69,
+      "antiAir": 47,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 111
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_504",
+    "name": "Giuseppe Garibaldi",
+    "nameCn": "Duca degli Abruzzi",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 429,
+      "fire": 43,
+      "torpedo": 87,
+      "aviation": 6,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 61,
+      "antiAir": 48,
+      "detection": 63
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 136
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_505",
+    "name": "Attilio Regolo",
+    "nameCn": "Giuseppe Garibaldi",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 405,
+      "fire": 44,
+      "torpedo": 86,
+      "aviation": 5,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 55,
+      "antiAir": 46,
+      "detection": 62
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 138
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 101
+      }
+    ]
+  },
+  {
+    "id": "char_506",
+    "name": "Scipione Africano",
+    "nameCn": "Attilio Regolo",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 411,
+      "fire": 44,
+      "torpedo": 86,
+      "aviation": 3,
+      "reload": 75,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 69,
+      "antiAir": 52,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  },
+  {
+    "id": "char_507",
+    "name": "Pompeo Magno",
+    "nameCn": "Scipione Africano",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 421,
+      "fire": 43,
+      "torpedo": 89,
+      "aviation": 10,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 60,
+      "antiAir": 48,
+      "detection": 64
+    },
+    "skills": [
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 112
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 107
+      }
+    ]
+  },
+  {
+    "id": "char_508",
+    "name": "Caio Duilio",
+    "nameCn": "Pompeo Magno",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 396,
+      "fire": 42,
+      "torpedo": 87,
+      "aviation": 6,
+      "reload": 70,
+      "armor": "轻型",
+      "speed": 42,
+      "luck": 52,
+      "antiAir": 53,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 135
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 100
+      }
+    ]
+  },
+  {
+    "id": "char_509",
+    "name": "Andrea Doria",
+    "nameCn": "Caio Duilio",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 419,
+      "fire": 38,
+      "torpedo": 85,
+      "aviation": 9,
+      "reload": 73,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 55,
+      "antiAir": 49,
+      "detection": 58
+    },
+    "skills": [
+      {
+        "name": "鱼雷专精",
+        "description": "鱼雷伤害提高 20-30%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 119
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 132
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 105
+      }
+    ]
+  },
+  {
+    "id": "char_510",
+    "name": "Littorio II",
+    "nameCn": "Andrea Doria",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 370,
+      "fire": 36,
+      "torpedo": 83,
+      "aviation": 8,
+      "reload": 76,
+      "armor": "轻型",
+      "speed": 41,
+      "luck": 55,
+      "antiAir": 46,
+      "detection": 61
+    },
+    "skills": [
+      {
+        "name": "烟雾弹",
+        "description": "生成烟雾屏障，持续 5-8 秒",
+        "type": "active",
+        "cooldown": 15
+      },
+      {
+        "name": "高速机动",
+        "description": "航速提高 5-10",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 115
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 130
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 103
+      }
+    ]
+  },
+  {
+    "id": "char_511",
+    "name": "Roma II",
+    "nameCn": "Littorio II",
+    "rarity": 4,
+    "type": "巡洋",
+    "faction": "撒丁帝国",
+    "stats": {
+      "hp": 427,
+      "fire": 44,
+      "torpedo": 81,
+      "aviation": 4,
+      "reload": 71,
+      "armor": "轻型",
+      "speed": 40,
+      "luck": 51,
+      "antiAir": 47,
+      "detection": 65
+    },
+    "skills": [
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      },
+      {
+        "name": "反潜专家",
+        "description": "对潜艇伤害提高 25%",
+        "type": "passive"
+      }
+    ],
+    "equipment": [
+      {
+        "slot": 1,
+        "type": "主炮",
+        "efficiency": 118
+      },
+      {
+        "slot": 2,
+        "type": "鱼雷",
+        "efficiency": 133
+      },
+      {
+        "slot": 3,
+        "type": "防空炮",
+        "efficiency": 106
+      }
+    ]
+  }
+]

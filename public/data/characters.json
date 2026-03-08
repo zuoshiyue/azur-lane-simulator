@@ -202,7 +202,7 @@
   {
     "id": "char_005",
     "name": "Javelin",
-    "nameCn": "拉菲",
+    "nameCn": "标枪",
     "rarity": 4,
     "type": "驱逐",
     "faction": "皇家",
@@ -502,7 +502,7 @@
   {
     "id": "char_011",
     "name": "Shikishima",
-    "nameCn": "骏河",
+    "nameCn": "敷岛",
     "rarity": 5,
     "type": "战列",
     "faction": "重樱",
@@ -801,7 +801,7 @@
   },
   {
     "id": "char_017",
-    "name": "Zuikaku",
+    "name": "Shokaku",
     "nameCn": "翔鹤",
     "rarity": 5,
     "type": "航母",

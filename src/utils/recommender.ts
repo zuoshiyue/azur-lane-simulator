@@ -1,14 +1,30 @@
 /**
  * 智能推荐算法模块
  * 基于用户拥有情况、舰种搭配、阵营协同、强度评级、阵容平衡
+ * 
+ * 编队规则参考：https://wiki.biligame.com/blhx/%E7%BC%96%E9%98%9F
+ * - 先锋编队：3 槽位（驱逐/轻巡/重巡/超巡/运输） + 主力编队：3 槽位（战列/战巡/航母/轻母/潜艇/维修）
+ * - 先锋：坦位、保护位、三号位
+ * - 主力：旗舰、上僚舰、下僚舰
+ * - 潜艇编队：6 槽位（仅潜艇）
+ * - 推荐编队：https://wiki.biligame.com/blhx/%E9%98%B5%E5%AE%B9%E6%8E%A8%E8%8D%90
  */
 
 import { Character, Fleet, FleetRecommendation } from '../types';
 
-// 舰种分类
+// 舰种分类 - 先锋（前排）
 const FRONT_ROW_TYPES = ['驱逐', '轻巡', '重巡', '超巡'];
+const FRONT_ROW_SUPPORT_TYPES = ['运输'];
+
+// 舰种分类 - 主力（后排）
 const BACK_ROW_TYPES = ['战列', '战巡', '航母', '轻母'];
-const SUPPORT_TYPES = ['维修', '运输'];
+const BACK_ROW_SUPPORT_TYPES = ['维修'];
+
+// 潜艇编队专用
+const SUBMARINE_TYPES = ['潜艇'];
+
+// 所有支持类型
+const SUPPORT_TYPES = [...FRONT_ROW_SUPPORT_TYPES, ...BACK_ROW_SUPPORT_TYPES];
 
 // 阵营协同加成
 const FACTION_BONUS: Record<string, number> = {
@@ -69,11 +85,12 @@ export function calculateCharacterPower(character: Character): number {
   // 舰种系数
   const typeCoefficient = TYPE_POWER_COEFFICIENTS[character.type] || 1.0;
   
-  // 技能加成（每个技能增加 10%）
-  const skillBonus = 1 + (character.skills?.length || 0) * 0.1;
+  // 潜艇有特殊加成（水下作战）
+  const isSubmarine = SUBMARINE_TYPES.includes(character.type);
+  const subBonus = isSubmarine ? 1.15 : 1.0;
   
   // 综合评分
-  const totalScore = (baseScore + rarityBonus) * typeCoefficient * skillBonus;
+  const totalScore = (baseScore + rarityBonus) * typeCoefficient * subBonus;
   
   return Math.round(totalScore);
 }
@@ -255,8 +272,9 @@ export function recommendFleet(
   const scoredChars = availableChars.map(char => ({
     character: char,
     score: calculateCharacterPower(char),
-    isFrontRow: FRONT_ROW_TYPES.includes(char.type) || SUPPORT_TYPES.includes(char.type),
-    isBackRow: BACK_ROW_TYPES.includes(char.type) || SUPPORT_TYPES.includes(char.type),
+    isFrontRow: FRONT_ROW_TYPES.includes(char.type) || FRONT_ROW_SUPPORT_TYPES.includes(char.type),
+    isBackRow: BACK_ROW_TYPES.includes(char.type) || BACK_ROW_SUPPORT_TYPES.includes(char.type),
+    isSubmarine: SUBMARINE_TYPES.includes(char.type),
   }));
   
   // 排序
@@ -288,7 +306,7 @@ export function recommendFleet(
         if (selectedFront.length >= 3) break;
         if (usedIds.has(item.character.id)) continue;
         
-        if (SUPPORT_TYPES.includes(item.character.type)) {
+        if (FRONT_ROW_SUPPORT_TYPES.includes(item.character.type) || BACK_ROW_SUPPORT_TYPES.includes(item.character.type)) {
           selectedFront.push(item.character);
           usedIds.add(item.character.id);
         }
@@ -311,7 +329,7 @@ export function recommendFleet(
       if (selectedBack.length >= 3) break;
       if (usedIds.has(item.character.id)) continue;
       
-      if (item.isBackRow && !item.isFrontRow) {
+      if (item.isBackRow && !item.isFrontRow && !item.isSubmarine) {
         selectedBack.push(item.character);
         usedIds.add(item.character.id);
       }
@@ -323,7 +341,7 @@ export function recommendFleet(
         if (selectedBack.length >= 3) break;
         if (usedIds.has(item.character.id)) continue;
         
-        if (SUPPORT_TYPES.includes(item.character.type)) {
+        if (BACK_ROW_SUPPORT_TYPES.includes(item.character.type)) {
           selectedBack.push(item.character);
           usedIds.add(item.character.id);
         }

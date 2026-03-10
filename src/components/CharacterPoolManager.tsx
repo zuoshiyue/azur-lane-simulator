@@ -414,28 +414,30 @@ export const CharacterPoolManager: React.FC = () => {
                   />
                   
                   {/* 操作按钮 */}
-                  <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button
                       onClick={() => toggleSelectCharacter(char.id)}
-                      className={`p-2 rounded-lg transition-colors ${
-                        isSelected 
-                          ? 'bg-blue-600 text-white' 
+                      className={`p-2 rounded-lg transition-colors shadow-lg ${
+                        isSelected
+                          ? 'bg-blue-600 text-white'
                           : 'bg-gray-700/90 text-gray-300 hover:bg-blue-600 hover:text-white'
                       }`}
                       title={isSelected ? '取消选择' : '选择'}
                     >
                       {isSelected ? <CheckCircle className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                     </button>
+                    <div className="w-px bg-gray-600/50 my-1" />
                     <button
                       onClick={() => handleEditCharacter(char)}
-                      className="p-2 bg-blue-600/90 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      className="p-2 bg-blue-600/90 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
                       title="编辑"
                     >
                       <Edit2 className="w-4 h-4" />
                     </button>
+                    <div className="w-px bg-gray-600/50 my-1" />
                     <button
                       onClick={() => setShowDeleteConfirm(char.id)}
-                      className="p-2 bg-red-600/90 text-white rounded-lg hover:bg-red-700 transition-colors"
+                      className="p-2 bg-red-600/90 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg"
                       title="删除"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -487,17 +489,30 @@ export const CharacterPoolManager: React.FC = () => {
                     </div>
 
                     {/* 操作按钮 */}
-                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex gap-2 items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button
+                        onClick={() => toggleSelectCharacter(char.id)}
+                        className={`p-2 rounded-lg transition-colors shadow-lg ${
+                          isSelected
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-700/90 text-gray-300 hover:bg-blue-600 hover:text-white'
+                        }`}
+                        title={isSelected ? '取消选择' : '选择'}
+                      >
+                        {isSelected ? <CheckCircle className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                      </button>
+                      <div className="w-px bg-gray-600/50 my-1" />
                       <button
                         onClick={() => handleEditCharacter(char)}
-                        className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
                         title="编辑"
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
+                      <div className="w-px bg-gray-600/50 my-1" />
                       <button
                         onClick={() => setShowDeleteConfirm(char.id)}
-                        className="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                        className="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg"
                         title="删除"
                       >
                         <Trash2 className="w-4 h-4" />

@@ -5,13 +5,14 @@ import { CharacterCard } from './CharacterCard';
 import { FleetSlot } from './FleetSlot';
 import { CharacterSearchModal } from './CharacterSearchModal';
 import { FleetRecommendationPanel } from './FleetRecommendationPanel';
-import { Character, Fleet } from '../types';
+import { Character, Fleet, FleetType } from '../types';
 import { Users, Download, Sparkles, PlusCircle, Database } from 'lucide-react';
 
 export const FleetSimulator: React.FC = () => {
   const [currentFleet, setCurrentFleet] = useState<Fleet>(() =>
     dataManager.createFleet('我的阵容')
   );
+  const [fleetType, setFleetType] = useState<FleetType>('surface');
   const [activeCharacter, setActiveCharacter] = useState<Character | null>(null);
   const [showRecommendationPanel, setShowRecommendationPanel] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -156,7 +157,32 @@ export const FleetSimulator: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* 左侧：角色列表 */}
             <div className="lg:col-span-1">
-              <div className="bg-azur-dark/50 rounded-xl p-4">
+              <div className="bg-azur-dark/50 rounded-xl p-4 mb-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-white">编队类型</h2>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setFleetType('surface')}
+                      className={`px-3 py-1 rounded text-sm transition-colors ${
+                        fleetType === 'surface'
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-azur-dark text-gray-400 hover:bg-azur'
+                      }`}
+                    >
+                      水面编队
+                    </button>
+                    <button
+                      onClick={() => setFleetType('submarine')}
+                      className={`px-3 py-1 rounded text-sm transition-colors ${
+                        fleetType === 'submarine'
+                          ? 'bg-purple-600 text-white'
+                          : 'bg-azur-dark text-gray-400 hover:bg-azur'
+                      }`}
+                    >
+                      潜艇编队
+                    </button>
+                  </div>
+                </div>
                 <h2 className="text-xl font-bold text-white mb-4">
                   角色池 ({characters.length})
                 </h2>
@@ -180,8 +206,16 @@ export const FleetSimulator: React.FC = () => {
                       key={`slot-${i + 1}`}
                       id={`slot-${i + 1}`}
                       position={i + 1}
-                      character={currentFleet.characters[i]}
-                      onRemove={() => removeCharacter(i)}
+                      slotType={fleetType === 'submarine' ? '潜艇' : i < 3 ? '先锋' : '主力'}
+                      fleetType={fleetType}
+                      character={fleetType === 'submarine' ? currentFleet.characters[i + 3] : currentFleet.characters[i]}
+                      onRemove={() => {
+                        const	idx = fleetType === 'submarine' ? i + 3 : i;
+                        const newFleet = { ...currentFleet };
+                        newFleet.characters[idx] = null;
+                        setCurrentFleet(newFleet);
+                        dataManager.updateFleet(newFleet);
+                      }}
                     />
                   ))}
                 </div>
@@ -191,8 +225,15 @@ export const FleetSimulator: React.FC = () => {
                       key={`slot-${i + 1}`}
                       id={`slot-${i + 1}`}
                       position={i + 1}
-                      character={currentFleet.characters[i]}
-                      onRemove={() => removeCharacter(i)}
+                      slotType={fleetType === 'submarine' ? '潜艇' : i >= 3 ? '主力' : '先锋'}
+                      fleetType={fleetType}
+                      character={fleetType === 'submarine' ? null : currentFleet.characters[i]}
+                      onRemove={() => {
+                        const newFleet = { ...currentFleet };
+                        newFleet.characters[i] = null;
+                        setCurrentFleet(newFleet);
+                        dataManager.updateFleet(newFleet);
+                      }}
                     />
                   ))}
                 </div>

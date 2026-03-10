@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Character, Fleet, FleetRecommendation } from '../types';
+import { Character, Fleet, FleetRecommendation, FleetType } from '../types';
 import { recommendFleet } from '../utils/recommender';
 import { Sparkles, Trophy, Users, Heart, X, Check } from 'lucide-react';
 
@@ -10,6 +10,7 @@ interface FleetRecommendationPanelProps {
 }
 
 type RecommendationMode = 'strongest' | 'faction' | 'beginner' | 'custom';
+type FleetTypeSelection = 'surface' | 'submarine';
 
 export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> = ({
   ownedCharacters,
@@ -17,6 +18,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
   onClose,
 }) => {
   const [selectedMode, setSelectedMode] = useState<RecommendationMode>('strongest');
+  const [selectedFleetType, setSelectedFleetType] = useState<FleetTypeSelection>('surface');
   const [selectedFaction, setSelectedFaction] = useState<string>('白鹰');
   const [recommendations, setRecommendations] = useState<FleetRecommendation[]>([]);
   const [selectedRecIndex, setSelectedRecIndex] = useState<number>(0);
@@ -33,16 +35,16 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
     
     switch (selectedMode) {
       case 'strongest':
-        recs = recommendFleet(ownedCharacters, 'strongest');
+        recs = recommendFleet(ownedCharacters, 'strongest', selectedFleetType);
         break;
       case 'faction':
-        recs = recommendFleet(ownedCharacters, 'faction', { preferredFaction: selectedFaction });
+        recs = recommendFleet(ownedCharacters, 'faction', selectedFleetType, { preferredFaction: selectedFaction });
         break;
       case 'beginner':
-        recs = recommendFleet(ownedCharacters, 'beginner');
+        recs = recommendFleet(ownedCharacters, 'beginner', selectedFleetType);
         break;
       case 'custom':
-        recs = recommendFleet(ownedCharacters, 'custom');
+        recs = recommendFleet(ownedCharacters, 'custom', selectedFleetType);
         break;
     }
     
@@ -71,7 +73,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-800 rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-gray-800 rounded-xl shadow-2xl max-w-7xl w-full max-h-[95vh] overflow-hidden flex flex-col">
         {/* 标题栏 */}
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <div className="flex items-center gap-3">
@@ -89,7 +91,34 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
         {/* 内容区 */}
         <div className="flex-1 overflow-hidden flex flex-col lg:flex-row">
           {/* 左侧：设置面板 */}
-          <div className="lg:w-80 p-6 border-r border-gray-700 overflow-y-auto">
+          <div className="lg:w-72 p-6 border-r border-gray-700 overflow-y-auto">
+            <h3 className="text-lg font-bold text-white mb-4">编队类型</h3>
+            
+            <div className="grid grid-cols-2 gap-2 mb-6">
+              <button
+                onClick={() => setSelectedFleetType('surface')}
+                className={`p-3 rounded-lg text-center transition-colors ${
+                  selectedFleetType === 'surface'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                }`}
+              >
+                <div className="font-bold">水面编队</div>
+                <div className="text-xs mt-1">先锋3+主力3</div>
+              </button>
+              <button
+                onClick={() => setSelectedFleetType('submarine')}
+                className={`p-3 rounded-lg text-center transition-colors ${
+                  selectedFleetType === 'submarine'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                }`}
+              >
+                <div className="font-bold">潜艇编队</div>
+                <div className="text-xs mt-1">潜艇6</div>
+              </button>
+            </div>
+
             <h3 className="text-lg font-bold text-white mb-4">推荐模式</h3>
             
             <div className="space-y-2 mb-6">

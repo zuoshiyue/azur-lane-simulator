@@ -1,12 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { visualizer } from 'rollup-plugin-visualizer';
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [
-        react(),
-        visualizer({ open: false, filename: 'dist/stats.html', gzipSize: true })
-    ],
+    plugins: [react()],
     base: '/azur-lane-simulator/',
     server: {
         host: '127.0.0.1',

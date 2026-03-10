@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Character } from '../types';
 import { Anchor, Star, CheckCircle, PlusCircle } from 'lucide-react';
 
@@ -16,7 +16,20 @@ interface CharacterCardProps {
   showOwnedToggle?: boolean;
 }
 
-export const CharacterCard: React.FC<CharacterCardProps> = ({
+// 自定义比较函数，避免不必要的重渲染
+const areEqual = (prev: CharacterCardProps, next: CharacterCardProps) => {
+  return (
+    prev.character.id === next.character.id &&
+    prev.draggable === next.draggable &&
+    prev.compact === next.compact &&
+    prev.selectable === next.selectable &&
+    prev.selected === next.selected &&
+    prev.owned === next.owned &&
+    prev.showOwnedToggle === next.showOwnedToggle
+  );
+};
+
+export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
   character,
   draggable = false,
   onDragStart,
@@ -28,7 +41,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
   owned = false,
   onToggleOwned,
   showOwnedToggle = false,
-}) => {
+}) {
   const getRarityColor = (rarity: number) => {
     if (rarity >= 5) return 'text-yellow-400';
     if (rarity === 4) return 'text-purple-400';
@@ -208,4 +221,4 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
       )}
     </div>
   );
-};
+}, areEqual);

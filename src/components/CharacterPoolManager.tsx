@@ -1,18 +1,19 @@
 import React, { useState, useMemo, useRef } from 'react';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
 import { CharacterForm } from './CharacterForm';
 import { Character, ShipType } from '../types';
-import { 
-  Plus, Search, Filter, Trash2, Edit2, Download, Upload, 
-  Grid, List, Database, Star, X, CheckCircle, AlertTriangle 
+import {
+  Plus, Search, Filter, Trash2, Edit2, Download, Upload,
+  Grid, List, Database, Star, X, CheckCircle, AlertTriangle
 } from 'lucide-react';
 
 export const CharacterPoolManager: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<ShipType | '全部'>('全部');
   const [selectedFaction, setSelectedFaction] = useState<string>('全部');
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list'); // 默认列表模式以优化性能
   const [showForm, setShowForm] = useState(false);
   const [editingCharacter, setEditingCharacter] = useState<Character | undefined>();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState<string | null>(null);
@@ -20,6 +21,9 @@ export const CharacterPoolManager: React.FC = () => {
   const [showImportExport, setShowImportExport] = useState(false);
   const [importText, setImportText] = useState('');
   const [showOwnedOnly, setShowOwnedOnly] = useState(false);
+  // 虚拟滚动相关
+  const [visibleItemCount, setVisibleItemCount] = useState(50); // 初始显示 50 个
+  const parentRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const allCharacters = dataManager.getAllCharacters();
@@ -58,6 +62,32 @@ export const CharacterPoolManager: React.FC = () => {
       return a.nameCn.localeCompare(b.nameCn, 'zh-CN');
     });
   }, [allCharacters, searchQuery, selectedType, selectedFaction, showOwnedOnly, ownedCharacterIds]);
+
+  // 虚拟滚动 - 列表模式
+  const virtualizer = useVirtualizer({
+    count: filteredCharacters.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 100, // 估计每个项目高度
+    overscan: 5, // 额外渲染 5 个项目
+  });
+
+  // 网格模式 - 使用可见数量限制
+  const visibleItems = useMemo(() => {
+    return filteredCharacters.slice(0, visibleItemCount);
+  }, [filteredCharacters, visibleItemCount]);
+
+  // 滚动加载更多
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+    if (scrollHeight - scrollTop - clientHeight < 100) {
+      setVisibleItemCount(prev => Math.min(prev + 50, filteredCharacters.length));
+    }
+  };
+
+  // 重置可见数量当筛选条件变化时
+  React.useEffect(() => {
+    setVisibleItemCount(50);
+  }, [searchQuery, selectedType, selectedFaction, showOwnedOnly]);
 
   const handleBatchAddOwned = () => {
     const idsToAdd = filteredCharacters.map(c => c.id);
@@ -400,18 +430,21 @@ export const CharacterPoolManager: React.FC = () => {
             </button>
           </div>
         ) : viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredCharacters.map(char => {
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto"
+            onScroll={handleScroll}
+          >
+            {visibleItems.map(char => {
               const isSelected = selectedIds.has(char.id);
               const isOwned = ownedCharacterIds.includes(char.id);
-              
+
               return (
-                <div 
-                  key={char.id} 
+                <div
+                  key={char.id}
                   className={`relative group ${isSelected ? 'ring-2 ring-blue-500 rounded-xl' : ''}`}
                 >
-                  <CharacterCard 
-                    character={char} 
+                  <CharacterCard
+                    character={char}
                     owned={isOwned}
                     showOwnedToggle={true}
                     onToggleOwned={(character) => {
@@ -458,18 +491,29 @@ export const CharacterPoolManager: React.FC = () => {
             })}
           </div>
         ) : (
-          <div className="space-y-3">
-            {filteredCharacters.map(char => {
-              const isSelected = selectedIds.has(char.id);
-              
-              return (
-                <div 
-                  key={char.id} 
-                  className={`relative group bg-azur rounded-xl p-4 border border-azur-dark ${
-                    isSelected ? 'ring-2 ring-blue-500' : ''
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
+          <div ref={parentRef} className="space-y-3 max-h-[70vh] overflow-y-auto">
+            <div style={{ height: `${virtualizer.getTotalSize()}px`, width: '100%', position: 'relative' }}>
+              {virtualizer.getVirtualItems().map((virtualRow) => {
+                const char = filteredCharacters[virtualRow.index];
+                const isSelected = selectedIds.has(char.id);
+
+                return (
+                  <div
+                    key={char.id}
+                    data-index={virtualRow.index}
+                    ref={virtualizer.measureElement}
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      transform: `translateY(${virtualRow.start}px)`,
+                    }}
+                    className={`relative group bg-azur rounded-xl p-4 border border-azur-dark ${
+                      isSelected ? 'ring-2 ring-blue-500' : ''
+                    }`}
+                  >
+                    <div className="flex items-center gap-4">
                     {/* 选择框 */}
                     <input
                       type="checkbox"
@@ -532,6 +576,7 @@ export const CharacterPoolManager: React.FC = () => {
                 </div>
               );
             })}
+            </div>
           </div>
         )}
       </div>

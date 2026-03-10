@@ -15,7 +15,8 @@ import {
   FRONT_ROW_POSITIONS,
   BACK_ROW_POSITIONS,
   STAGE_TEAM_TEMPLATES,
-  SHIP_TIER_LIST
+  SHIP_TIER_LIST,
+  AWAKENING_TIER_LIST
 } from '../data/fleetGuideRules';
 
 // 舰种分类 - 先锋（前排）
@@ -620,4 +621,74 @@ function findBestCharacter(
   return matched.reduce((best, current) => {
     return calculateCharacterPower(current) > calculateCharacterPower(best) ? current : best;
   });
+}
+
+/**
+ * 基于认知觉醒榜推荐阵容
+ * @param ownedCharacters 用户拥有的角色
+ * @param mode 推荐模式：'main' (主线) | 'greatSea' (大世界)
+ */
+export function recommendByAwakeningTier(
+  ownedCharacters: Character[],
+  mode: 'main' | 'greatSea' = 'main'
+): FleetRecommendation | null {
+  if (ownedCharacters.length === 0) return null;
+
+  const tierType = mode === 'main' ? '主线' : '大世界';
+  const tierOrder = { 'T0': 4, 'T0.5': 3, 'T1': 2, 'T2': 1 };
+
+  // 为每个角色添加认知觉醒评级
+  const ratedChars = ownedCharacters.map(char => {
+    let tierInfo = null;
+
+    // 查找角色的认知觉醒评级
+    for (const ships of Object.values(AWAKENING_TIER_LIST)) {
+      const found = ships.find(s =>
+        s.type === tierType &&
+        (s.ships.includes(char.name) || s.ships.includes(char.nameCn))
+      );
+      if (found) {
+        tierInfo = found;
+        break;
+      }
+    }
+
+    return {
+      char,
+      tier: tierInfo?.tier || 'T2',
+      score: tierInfo ? tierOrder[tierInfo.tier] : 0
+    };
+  });
+
+  // 按评级排序
+  ratedChars.sort((a, b) => b.score - a.score);
+
+  // 选择前 6 个角色组成阵容
+  const top6 = ratedChars.slice(0, 6);
+  const frontRow = top6.filter(r => TYPE_TO_SLOT[r.char.type] === '先锋');
+  const backRow = top6.filter(r => TYPE_TO_SLOT[r.char.type] === '主力');
+
+  const characters: (Character | null)[] = [
+    ...(frontRow.slice(0, 3).map(r => r.char)),
+    ...(backRow.slice(0, 3).map(r => r.char))
+  ];
+  while (characters.length < 6) {
+    characters.push(null);
+  }
+
+  const fleet: Fleet = {
+    id: `fleet_awakening_${mode}_${Date.now()}`,
+    name: `认知觉醒推荐 - ${mode === 'main' ? '主线' : '大世界'}`,
+    characters,
+    createdAt: Date.now()
+  };
+
+  const power = calculateFleetPower(fleet);
+  const avgTier = top6.reduce((sum, r) => sum + tierOrder[r.tier as keyof typeof tierOrder], 0) / top6.length;
+
+  return {
+    fleet,
+    reason: `认知觉醒榜推荐 - 平均等级：${avgTier >= 3 ? 'T0 级' : avgTier >= 2 ? 'T1 级' : 'T2 级'}阵容`,
+    power
+  };
 }

@@ -126,8 +126,21 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
       }`}
     >
       <div className="flex items-start gap-3 mb-3">
-        <div className={`w-12 h-12 rounded-full ${getTypeColor(character.type)} flex items-center justify-center`}>
-          <Anchor className="w-6 h-6 text-white" />
+        {/* 头像区域 */}
+        <div className={`w-12 h-12 rounded-full ${getTypeColor(character.type)} flex items-center justify-center overflow-hidden flex-shrink-0`}>
+          {character.image ? (
+            <img
+              src={character.image}
+              alt={character.nameCn}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                // 头像加载失败时显示锚图标
+                (e.target as HTMLImageElement).style.display = 'none';
+                (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+          ) : null}
+          <Anchor className={`w-6 h-6 text-white ${character.image ? 'hidden' : ''}`} />
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2">

@@ -36,15 +36,17 @@ export const CharacterPoolManager: React.FC = () => {
 
   const filteredCharacters = useMemo(() => {
     return allCharacters.filter(char => {
-      const matchSearch = searchQuery === '' || 
+      // 搜索匹配（支持名称、别称、类型、阵营）
+      const matchSearch = searchQuery === '' ||
         char.nameCn.includes(searchQuery) ||
         char.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         char.type.includes(searchQuery) ||
-        char.faction.includes(searchQuery);
-      
+        char.faction.includes(searchQuery) ||
+        (char.aliases && char.aliases.some(alias => alias.includes(searchQuery))); // 别称搜索
+
       const matchType = selectedType === '全部' || char.type === selectedType;
       const matchFaction = selectedFaction === '全部' || char.faction === selectedFaction;
-      
+
       return matchSearch && matchType && matchFaction;
     });
   }, [allCharacters, searchQuery, selectedType, selectedFaction]);

@@ -27,10 +27,12 @@ export const FleetSimulator: React.FC = () => {
 
   const characters = localCharacters.filter(char => {
     const q = searchQuery.toLowerCase();
+    // 搜索匹配（支持名称、别称、类型、阵营）
     return char.name.toLowerCase().includes(q) ||
       char.nameCn.includes(searchQuery) ||
       char.type.includes(searchQuery) ||
-      char.faction.includes(searchQuery);
+      char.faction.includes(searchQuery) ||
+      (char.aliases && char.aliases.some(alias => alias.toLowerCase().includes(q))); // 别称搜索
   });
 
   const handleDragStart = (event: any) => {

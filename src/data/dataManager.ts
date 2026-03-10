@@ -3,13 +3,15 @@
  * 封装本地存储和数据库访问
  */
 
-import charactersData from './characters-full.json';
+import charactersData from './characters-wiki.json';
 import { Character, Fleet } from '../types';
 
 // 类型转换
-const characters: Character[] = Array.isArray(charactersData) 
-  ? charactersData 
+const characters: Character[] = Array.isArray(charactersData)
+  ? charactersData
   : (charactersData as any).characters || [];
+
+console.log(`[DataManager] 加载角色数据：${characters.length} 个`);
 
 // 本地存储键
 const STORAGE_KEYS = {

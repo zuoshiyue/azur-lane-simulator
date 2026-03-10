@@ -198,91 +198,93 @@ export const CharacterPoolManager: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-azur-dark to-azur p-6">
+    <div className="min-h-screen bg-gradient-to-br from-azur-dark to-azur p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* 标题 */}
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-            <Database className="w-8 h-8" />
-            角色池管理
+        <div className="mb-4 sm:mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2 flex items-center gap-2 sm:gap-3">
+            <Database className="w-6 h-6 sm:w-8 sm:h-8" />
+            <span className="truncate">角色池管理</span>
           </h1>
-          <p className="text-gray-300">管理你的角色收藏，支持增删改查和批量操作</p>
+          <p className="text-sm sm:text-base text-gray-300">管理你的角色收藏，支持增删改查和批量操作</p>
         </div>
 
         {/* 统计面板 */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-6">
-          <StatCard 
-            icon={Database} 
-            label="总角色数" 
-            value={stats.total} 
-            color="bg-blue-600" 
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <StatCard
+            icon={Database}
+            label="总角色数"
+            value={stats.total}
+            color="bg-blue-600"
           />
-          <StatCard 
-            icon={CheckCircle} 
-            label="已拥有" 
-            value={stats.owned} 
-            color="bg-green-600" 
+          <StatCard
+            icon={CheckCircle}
+            label="已拥有"
+            value={stats.owned}
+            color="bg-green-600"
           />
-          <StatCard 
-            icon={Star} 
-            label="SSR (6★)" 
-            value={stats.ssr} 
-            color="bg-yellow-500" 
+          <StatCard
+            icon={Star}
+            label="SSR (6★)"
+            value={stats.ssr}
+            color="bg-yellow-500"
           />
-          <StatCard 
-            icon={Star} 
-            label="SR (5★)" 
-            value={stats.sr} 
-            color="bg-purple-500" 
+          <StatCard
+            icon={Star}
+            label="SR (5★)"
+            value={stats.sr}
+            color="bg-purple-500"
           />
-          <StatCard 
-            icon={Star} 
-            label="R (4★)" 
-            value={stats.r} 
-            color="bg-blue-400" 
+          <StatCard
+            icon={Star}
+            label="R (4★)"
+            value={stats.r}
+            color="bg-blue-400"
           />
-          <StatCard 
-            icon={Star} 
-            label="N (≤3★)" 
-            value={stats.n} 
-            color="bg-gray-500" 
+          <StatCard
+            icon={Star}
+            label="N (≤3★)"
+            value={stats.n}
+            color="bg-gray-500"
           />
-          <StatCard 
-            icon={Filter} 
-            label="筛选结果" 
-            value={stats.filtered} 
-            color="bg-pink-600" 
+          <StatCard
+            icon={Filter}
+            label="筛选结果"
+            value={stats.filtered}
+            color="bg-pink-600"
           />
         </div>
 
         {/* 操作栏 */}
-        <div className="bg-azur-dark/50 rounded-xl p-4 mb-6">
-          <div className="flex flex-wrap gap-3 items-center justify-between">
-            {/* 左侧：添加和批量操作 */}
-            <div className="flex flex-wrap gap-3">
+        <div className="bg-azur-dark/50 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+          <div className="flex flex-col gap-3">
+            {/* 第一行：主要操作按钮 */}
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               <button
                 onClick={() => {
                   setEditingCharacter(undefined);
                   setShowForm(true);
                 }}
-                className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="flex items-center gap-1 sm:gap-2 bg-green-600 hover:bg-green-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
               >
                 <Plus className="w-4 h-4" />
-                添加角色
+                <span className="hidden xs:inline">添加角色</span>
+                <span className="xs:hidden">添加</span>
               </button>
 
               <button
                 onClick={handleBatchAddOwned}
-                className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="flex items-center gap-1 sm:gap-2 bg-purple-600 hover:bg-purple-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
                 title="将当前筛选结果中的所有角色添加到已拥有列表"
               >
                 <CheckCircle className="w-4 h-4" />
-                批量添加已拥有
+                <span className="hidden lg:inline">批量添加已拥有</span>
+                <span className="lg:hidden">批量添加</span>
               </button>
 
               <button
                 onClick={() => setShowOwnedOnly(!showOwnedOnly)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap ${
                   showOwnedOnly
                     ? 'bg-green-600 text-white'
                     : 'bg-gray-600 hover:bg-gray-700 text-white'
@@ -290,25 +292,27 @@ export const CharacterPoolManager: React.FC = () => {
                 title="只显示已拥有的角色"
               >
                 <Database className="w-4 h-4" />
-                {showOwnedOnly ? '已拥有' : '全部角色'}
+                <span className="hidden sm:inline">{showOwnedOnly ? '已拥有' : '全部角色'}</span>
               </button>
 
               {selectedIds.size > 0 && (
                 <button
                   onClick={handleBatchDelete}
-                  className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  className="flex items-center gap-1 sm:gap-2 bg-red-600 hover:bg-red-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
                 >
                   <Trash2 className="w-4 h-4" />
-                  删除选中 ({selectedIds.size})
+                  <span className="hidden sm:inline">删除选中 ({selectedIds.size})</span>
+                  <span className="sm:hidden">{selectedIds.size}</span>
                 </button>
               )}
 
               <button
                 onClick={() => setShowImportExport(true)}
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="flex items-center gap-1 sm:gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
               >
                 <Download className="w-4 h-4" />
-                导入/导出
+                <span className="hidden xs:inline">导入/导出</span>
+                <span className="xs:hidden">导入</span>
               </button>
             </div>
 
@@ -317,8 +321,8 @@ export const CharacterPoolManager: React.FC = () => {
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded-lg transition-colors ${
-                  viewMode === 'grid' 
-                    ? 'bg-blue-600 text-white' 
+                  viewMode === 'grid'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-azur-dark text-gray-400 hover:text-white'
                 }`}
               >
@@ -327,8 +331,8 @@ export const CharacterPoolManager: React.FC = () => {
               <button
                 onClick={() => setViewMode('list')}
                 className={`p-2 rounded-lg transition-colors ${
-                  viewMode === 'list' 
-                    ? 'bg-blue-600 text-white' 
+                  viewMode === 'list'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-azur-dark text-gray-400 hover:text-white'
                 }`}
               >

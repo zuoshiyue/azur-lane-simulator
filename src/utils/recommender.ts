@@ -14,17 +14,12 @@ import { Character, Fleet, FleetRecommendation } from '../types';
 
 // 舰种分类 - 先锋（前排）
 const FRONT_ROW_TYPES = ['驱逐', '轻巡', '重巡', '超巡'];
-const FRONT_ROW_SUPPORT_TYPES = ['运输'];
 
 // 舰种分类 - 主力（后排）
 const BACK_ROW_TYPES = ['战列', '战巡', '航母', '轻母'];
-const BACK_ROW_SUPPORT_TYPES = ['维修'];
 
 // 潜艇编队专用
 const SUBMARINE_TYPES = ['潜艇'];
-
-// 所有支持类型
-const SUPPORT_TYPES = [...FRONT_ROW_SUPPORT_TYPES, ...BACK_ROW_SUPPORT_TYPES];
 
 // 阵营协同加成
 const FACTION_BONUS: Record<string, number> = {
@@ -272,8 +267,8 @@ export function recommendFleet(
   const scoredChars = availableChars.map(char => ({
     character: char,
     score: calculateCharacterPower(char),
-    isFrontRow: FRONT_ROW_TYPES.includes(char.type) || FRONT_ROW_SUPPORT_TYPES.includes(char.type),
-    isBackRow: BACK_ROW_TYPES.includes(char.type) || BACK_ROW_SUPPORT_TYPES.includes(char.type),
+    isFrontRow: FRONT_ROW_TYPES.includes(char.type),
+    isBackRow: BACK_ROW_TYPES.includes(char.type),
     isSubmarine: SUBMARINE_TYPES.includes(char.type),
   }));
   

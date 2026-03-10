@@ -1,10 +1,47 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FleetSimulator } from './components/FleetSimulator';
 import { CharacterPoolManager } from './components/CharacterPoolManager';
-import { Users, Anchor, Database } from 'lucide-react';
+import { LoginModal } from './components/LoginModal';
+import { Users, Anchor, Database, LogOut } from 'lucide-react';
+import { authManager } from './utils/auth';
 
 function App() {
   const [currentView, setCurrentView] = useState<'simulator' | 'pool'>('simulator');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  // 初始化时检查认证状态
+  useEffect(() => {
+    const checkAuth = () => {
+      const auth = authManager.isAuthenticated();
+      setIsAuthenticated(auth);
+      // 如果未认证且 3 秒内没有操作，显示登录框
+      if (!auth) {
+        setTimeout(() => {
+          if (!authManager.isAuthenticated()) {
+            setShowLogin(true);
+          }
+        }, 3000);
+      }
+    };
+    checkAuth();
+  }, []);
+
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+    setShowLogin(false);
+  };
+
+  const handleLogout = () => {
+    authManager.logout();
+    setIsAuthenticated(false);
+    setShowLogin(true);
+  };
+
+  // 显示登录 modal
+  if (!isAuthenticated && showLogin) {
+    return <LoginModal onLoginSuccess={handleLoginSuccess} />;
+  }
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -24,7 +61,7 @@ function App() {
             </div>
 
             {/* 导航按钮 */}
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => setCurrentView('simulator')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
@@ -47,6 +84,15 @@ function App() {
                 <Database className="w-4 h-4" />
                 <span className="hidden sm:inline">角色池管理</span>
               </button>
+              {isAuthenticated && (
+                <button
+                  onClick={handleLogout}
+                  className="p-2 text-gray-300 hover:bg-azur-dark hover:text-white rounded-lg transition-colors"
+                  title="登出"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              )}
             </div>
           </div>
         </div>

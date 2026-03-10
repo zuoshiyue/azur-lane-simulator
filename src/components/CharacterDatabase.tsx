@@ -37,6 +37,12 @@ export const CharacterDatabase: React.FC = () => {
       const matchFaction = selectedFaction === '全部' || char.faction === selectedFaction;
 
       return matchSearch && matchType && matchFaction;
+    }).sort((a, b) => {
+      // 按稀有度降序排序，稀有度相同时按名称排序
+      if (b.rarity !== a.rarity) {
+        return b.rarity - a.rarity;
+      }
+      return a.nameCn.localeCompare(b.nameCn, 'zh-CN');
     });
   }, [characters, searchQuery, selectedType, selectedFaction]);
 

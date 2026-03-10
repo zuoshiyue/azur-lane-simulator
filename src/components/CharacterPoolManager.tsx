@@ -50,6 +50,12 @@ export const CharacterPoolManager: React.FC = () => {
       const matchOwned = !showOwnedOnly || ownedCharacterIds.includes(char.id);
 
       return matchSearch && matchType && matchFaction && matchOwned;
+    }).sort((a, b) => {
+      // 按稀有度降序排序，稀有度相同时按名称排序
+      if (b.rarity !== a.rarity) {
+        return b.rarity - a.rarity;
+      }
+      return a.nameCn.localeCompare(b.nameCn, 'zh-CN');
     });
   }, [allCharacters, searchQuery, selectedType, selectedFaction, showOwnedOnly, ownedCharacterIds]);
 

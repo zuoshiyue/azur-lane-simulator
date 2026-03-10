@@ -85,6 +85,36 @@ export const dataManager = {
   },
 
   /**
+   * 批量添加角色到已拥有列表
+   * @param characterIds 角色 ID 数组
+   * @returns 实际添加的数量
+   */
+  batchAddOwned(characterIds: string[]): number {
+    const owned = this.getOwnedCharacterIds();
+    let addedCount = 0;
+
+    characterIds.forEach(id => {
+      if (!owned.includes(id)) {
+        owned.push(id);
+        addedCount++;
+      }
+    });
+
+    localStorage.setItem(STORAGE_KEYS.OWNED_CHARACTERS, JSON.stringify(owned));
+    return addedCount;
+  },
+
+  /**
+   * 批量移除已拥有角色
+   * @param characterIds 角色 ID 数组
+   */
+  batchRemoveOwned(characterIds: string[]): void {
+    const owned = this.getOwnedCharacterIds();
+    const filtered = owned.filter(id => !characterIds.includes(id));
+    localStorage.setItem(STORAGE_KEYS.OWNED_CHARACTERS, JSON.stringify(filtered));
+  },
+
+  /**
    * 导入角色数据
    */
   importCharacters(newCharacters: Character[]): void {

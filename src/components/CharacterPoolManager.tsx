@@ -19,6 +19,7 @@ export const CharacterPoolManager: React.FC = () => {
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [showImportExport, setShowImportExport] = useState(false);
   const [importText, setImportText] = useState('');
+  const [showOwnedOnly, setShowOwnedOnly] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const allCharacters = dataManager.getAllCharacters();
@@ -46,10 +47,17 @@ export const CharacterPoolManager: React.FC = () => {
 
       const matchType = selectedType === '全部' || char.type === selectedType;
       const matchFaction = selectedFaction === '全部' || char.faction === selectedFaction;
+      const matchOwned = !showOwnedOnly || ownedCharacterIds.includes(char.id);
 
-      return matchSearch && matchType && matchFaction;
+      return matchSearch && matchType && matchFaction && matchOwned;
     });
-  }, [allCharacters, searchQuery, selectedType, selectedFaction]);
+  }, [allCharacters, searchQuery, selectedType, selectedFaction, showOwnedOnly, ownedCharacterIds]);
+
+  const handleBatchAddOwned = () => {
+    const idsToAdd = filteredCharacters.map(c => c.id);
+    const addedCount = dataManager.batchAddOwned(idsToAdd);
+    alert(`已批量添加 ${addedCount} 个角色到已拥有列表`);
+  };
 
   // 统计信息
   const stats = useMemo(() => {
@@ -255,6 +263,28 @@ export const CharacterPoolManager: React.FC = () => {
               >
                 <Plus className="w-4 h-4" />
                 添加角色
+              </button>
+
+              <button
+                onClick={handleBatchAddOwned}
+                className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                title="将当前筛选结果中的所有角色添加到已拥有列表"
+              >
+                <CheckCircle className="w-4 h-4" />
+                批量添加已拥有
+              </button>
+
+              <button
+                onClick={() => setShowOwnedOnly(!showOwnedOnly)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  showOwnedOnly
+                    ? 'bg-green-600 text-white'
+                    : 'bg-gray-600 hover:bg-gray-700 text-white'
+                }`}
+                title="只显示已拥有的角色"
+              >
+                <Database className="w-4 h-4" />
+                {showOwnedOnly ? '已拥有' : '全部角色'}
               </button>
 
               {selectedIds.size > 0 && (

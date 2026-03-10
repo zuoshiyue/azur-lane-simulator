@@ -11,6 +11,12 @@
  */
 
 import { Character, Fleet, FleetRecommendation, FleetType, FleetSlotType, TYPE_TO_SLOT } from '../types';
+import {
+  FRONT_ROW_POSITIONS,
+  BACK_ROW_POSITIONS,
+  STAGE_TEAM_TEMPLATES,
+  SHIP_TIER_LIST
+} from '../data/fleetGuideRules';
 
 // 舰种分类 - 先锋（前排）
 const FRONT_ROW_TYPES: FleetSlotType[] = ['先锋'];
@@ -463,4 +469,155 @@ export function recommendBeginnerFleet(
 ): FleetRecommendation | null {
   const recs = recommendFleet(ownedCharacters, 'beginner');
   return recs[0] || null;
+}
+
+/**
+ * 根据关卡推荐阵容（基于 28 法则攻略）
+ */
+export function recommendFleetByStage(
+  ownedCharacters: Character[],
+  stage: string
+): FleetRecommendation | null {
+  const template = STAGE_TEAM_TEMPLATES[stage];
+  if (!template) return null;
+
+  // 根据模板推荐角色
+  const frontRowChars: Character[] = [];
+  const backRowChars: Character[] = [];
+
+  // 筛选可用角色
+  const frontRowAvailable = ownedCharacters.filter(c => TYPE_TO_SLOT[c.type] === '先锋');
+  const backRowAvailable = ownedCharacters.filter(c => TYPE_TO_SLOT[c.type] === '主力');
+
+  // 为每个位置选择最佳角色
+  template.frontRow.forEach((desiredType, index) => {
+    const positionRule = FRONT_ROW_POSITIONS[(index + 1) as 1 | 2 | 3];
+    const bestChar = findBestCharacter(frontRowAvailable, desiredType, positionRule?.priority);
+    if (bestChar && !frontRowChars.includes(bestChar)) {
+      frontRowChars.push(bestChar);
+    }
+  });
+
+  template.backRow.forEach((desiredType, index) => {
+    const positionRule = index === 0 ? BACK_ROW_POSITIONS.flagship :
+                         index === 1 ? BACK_ROW_POSITIONS.upper :
+                         BACK_ROW_POSITIONS.lower;
+    const bestChar = findBestCharacter(backRowAvailable, desiredType, positionRule?.priority);
+    if (bestChar && !backRowChars.includes(bestChar)) {
+      backRowChars.push(bestChar);
+    }
+  });
+
+  // 创建阵容
+  const characters: (Character | null)[] = [...frontRowChars, ...backRowChars];
+  while (characters.length < 6) {
+    characters.push(null);
+  }
+
+  const fleet: Fleet = {
+    id: `fleet_${stage}_${Date.now()}`,
+    name: template.name,
+    characters,
+    createdAt: Date.now()
+  };
+
+  const power = calculateFleetPower(fleet);
+
+  return {
+    fleet,
+    reason: `${template.name} - ${template.description}`,
+    power
+  };
+}
+
+/**
+ * 根据强度榜推荐阵容
+ */
+export function recommendByTierList(
+  ownedCharacters: Character[]
+): FleetRecommendation | null {
+  // 为每个角色添加强度评级
+  const ratedChars = ownedCharacters.map(char => {
+    let tierInfo = null;
+
+    // 查找角色的强度评级
+    for (const ships of Object.values(SHIP_TIER_LIST)) {
+      const found = ships.find(s => char.name.includes(s.note.split(',')[0]));
+      if (found) {
+        tierInfo = found;
+        break;
+      }
+    }
+
+    return {
+      char,
+      tier: tierInfo?.tier || 'B',
+      role: tierInfo?.role || char.type
+    };
+  });
+
+  // 按强度排序
+  const tierOrder = { 'S+': 4, 'S': 3, 'A': 2, 'B': 1, 'C': 0 };
+  ratedChars.sort((a, b) => tierOrder[b.tier] - tierOrder[a.tier]);
+
+  // 选择前 6 个角色组成阵容
+  const top6 = ratedChars.slice(0, 6);
+  const frontRow = top6.filter(r => TYPE_TO_SLOT[r.char.type] === '先锋');
+  const backRow = top6.filter(r => TYPE_TO_SLOT[r.char.type] === '主力');
+
+  const characters: (Character | null)[] = [
+    ...(frontRow.slice(0, 3).map(r => r.char)),
+    ...(backRow.slice(0, 3).map(r => r.char))
+  ];
+  while (characters.length < 6) {
+    characters.push(null);
+  }
+
+  const fleet: Fleet = {
+    id: `fleet_tier_${Date.now()}`,
+    name: '强度榜推荐',
+    characters,
+    createdAt: Date.now()
+  };
+
+  const power = calculateFleetPower(fleet);
+  const avgTier = top6.reduce((sum, r) => sum + tierOrder[r.tier], 0) / top6.length;
+
+  return {
+    fleet,
+    reason: `平均强度等级：${avgTier >= 3 ? 'S 级' : avgTier >= 2 ? 'A 级' : 'B 级'}阵容`,
+    power
+  };
+}
+
+/**
+ * 辅助函数：为位置选择最佳角色
+ */
+function findBestCharacter(
+  candidates: Character[],
+  desiredType: string,
+  priorityTypes?: string[]
+): Character | null {
+  // 优先选择指定类型的角色
+  let matched = candidates.filter(c => c.type === desiredType);
+
+  if (matched.length === 0 && priorityTypes) {
+    // 如果没有指定类型，按优先级选择
+    for (const type of priorityTypes) {
+      matched = candidates.filter(c => c.type === type);
+      if (matched.length > 0) break;
+    }
+  }
+
+  if (matched.length === 0) {
+    // 仍然没有，选择任意可用角色
+    matched = candidates;
+  }
+
+  if (matched.length === 0) return null;
+
+  // 选择强度最高的
+  return matched.reduce((best, current) => {
+    return calculateCharacterPower(current) > calculateCharacterPower(best) ? current : best;
+  });
 }

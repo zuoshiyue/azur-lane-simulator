@@ -3,23 +3,23 @@
  * 基于用户拥有情况、舰种搭配、阵营协同、强度评级、阵容平衡
  * 
  * 编队规则参考：https://wiki.biligame.com/blhx/%E7%BC%96%E9%98%9F
- * - 先锋编队：3 槽位（驱逐/轻巡/重巡/超巡/运输） + 主力编队：3 槽位（战列/战巡/航母/轻母/潜艇/维修）
- * - 先锋：坦位、保护位、三号位
- * - 主力：旗舰、上僚舰、下僚舰
+ * - 先锋编队：3 槽位（驱逐/轻巡/重巡/超巡/运输）
+ * - 主力编队：3 槽位（战列/战巡/航母/轻母/潜艇/维修）
  * - 潜艇编队：6 槽位（仅潜艇）
+ * - 6种编队站位：先锋3（坦位/保护位/三号位）+主力3（旗舰/上僚舰/下僚舰）
  * - 推荐编队：https://wiki.biligame.com/blhx/%E9%98%B5%E5%AE%B9%E6%8E%A8%E8%8D%90
  */
 
-import { Character, Fleet, FleetRecommendation } from '../types';
+import { Character, Fleet, FleetRecommendation, FleetType, FleetSlotType, TYPE_TO_SLOT } from '../types';
 
 // 舰种分类 - 先锋（前排）
-const FRONT_ROW_TYPES = ['驱逐', '轻巡', '重巡', '超巡'];
+const FRONT_ROW_TYPES: FleetSlotType[] = ['先锋'];
 
 // 舰种分类 - 主力（后排）
-const BACK_ROW_TYPES = ['战列', '战巡', '航母', '轻母'];
+const BACK_ROW_TYPES: FleetSlotType[] = ['主力'];
 
 // 潜艇编队专用
-const SUBMARINE_TYPES = ['潜艇'];
+const SUBMARINE_TYPES: FleetSlotType[] = ['潜艇'];
 
 // 阵营协同加成
 const FACTION_BONUS: Record<string, number> = {

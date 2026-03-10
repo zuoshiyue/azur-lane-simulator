@@ -16,6 +16,29 @@ export type ShipType =
   | '战列' | '战巡' | '航母' | '轻母' 
   | '潜艇' | '维修' | '运输' | '巡洋' | 'META';
 
+// 编队类型
+export type FleetType = 'surface' | 'submarine';
+
+// 编队槽位类型
+export type FleetSlotType = '先锋' | '主力' | '潜艇';
+
+// 舰种对应的槽位类型
+export const TYPE_TO_SLOT: Record<ShipType, FleetSlotType> = {
+  '驱逐': '先锋',
+  '轻巡': '先锋',
+  '重巡': '先锋',
+  '超巡': '先锋',
+  '运输': '先锋',
+  '战列': '主力',
+  '战巡': '主力',
+  '航母': '主力',
+  '轻母': '主力',
+  '维修': '主力',
+  '潜艇': '潜艇',
+  '巡洋': '主力',
+  'META': '主力',
+};
+
 export interface Stats {
   hp: number;
   fire: number;

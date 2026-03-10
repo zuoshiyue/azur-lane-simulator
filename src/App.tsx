@@ -1,9 +1,27 @@
-import { useState, useEffect } from 'react';
-import { FleetSimulator } from './components/FleetSimulator';
-import { CharacterPoolManager } from './components/CharacterPoolManager';
+import { useState, useEffect, lazy, Suspense, ComponentType } from 'react';
 import { LoginModal } from './components/LoginModal';
-import { Users, Anchor, Database, LogOut, Menu, X } from 'lucide-react';
 import { authManager } from './utils/auth';
+import { Users, Anchor, Database, LogOut, Menu, X } from 'lucide-react';
+
+// 懒加载大型组件 - 使用包装函数处理动态 import
+const FleetSimulator: ComponentType = lazy(async () => {
+  const { FleetSimulator } = await import('./components/FleetSimulator');
+  return { default: FleetSimulator };
+});
+const CharacterPoolManager: ComponentType = lazy(async () => {
+  const { CharacterPoolManager } = await import('./components/CharacterPoolManager');
+  return { default: CharacterPoolManager };
+});
+
+// 加载占位组件
+const LoadingFallback = () => (
+  <div className="min-h-screen bg-gradient-to-br from-azur-dark to-azur flex items-center justify-center">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-white text-lg">加载中...</p>
+    </div>
+  </div>
+);
 
 function App() {
   const [currentView, setCurrentView] = useState<'simulator' | 'pool'>('simulator');
@@ -155,11 +173,13 @@ function App() {
 
       {/* 主内容 */}
       <main>
-        {currentView === 'simulator' ? (
-          <FleetSimulator />
-        ) : (
-          <CharacterPoolManager />
-        )}
+        <Suspense fallback={<LoadingFallback />}>
+          {currentView === 'simulator' ? (
+            <FleetSimulator />
+          ) : (
+            <CharacterPoolManager />
+          )}
+        </Suspense>
       </main>
 
       {/* 页脚 */}

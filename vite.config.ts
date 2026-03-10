@@ -12,11 +12,18 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    target: 'esnext',
+    minify: 'esbuild',
     rollupOptions: {
       output: {
-        entryFileNames: `assets/[name].[hash].js`,
-        chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`
+        manualChunks: {
+          // React 核心库单独打包
+          'react-vendor': ['react', 'react-dom'],
+          // lucide-react 图标库单独打包
+          'icons-vendor': ['lucide-react'],
+          // dnd-kit 拖拽库单独打包
+          'dnd-kit': ['@dnd-kit/core', '@dnd-kit/sortable', '@dnd-kit/utilities']
+        }
       }
     }
   }

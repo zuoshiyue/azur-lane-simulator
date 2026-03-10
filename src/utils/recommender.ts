@@ -301,7 +301,8 @@ export function recommendFleet(
         if (selectedFront.length >= 3) break;
         if (usedIds.has(item.character.id)) continue;
         
-        if (FRONT_ROW_SUPPORT_TYPES.includes(item.character.type) || BACK_ROW_SUPPORT_TYPES.includes(item.character.type)) {
+        // 允许运输舰作为前排支援
+        if (item.character.type === '运输') {
           selectedFront.push(item.character);
           usedIds.add(item.character.id);
         }
@@ -336,7 +337,8 @@ export function recommendFleet(
         if (selectedBack.length >= 3) break;
         if (usedIds.has(item.character.id)) continue;
         
-        if (BACK_ROW_SUPPORT_TYPES.includes(item.character.type)) {
+        // 允许维修舰作为后排支援
+        if (item.character.type === '维修') {
           selectedBack.push(item.character);
           usedIds.add(item.character.id);
         }

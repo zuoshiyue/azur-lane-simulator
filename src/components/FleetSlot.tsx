@@ -26,17 +26,6 @@ export const FleetSlot: React.FC<FleetSlotProps> = ({
     id
   });
 
-  // 获取位置标签
-  const getPositionLabel = (pos: number, slotType: FleetSlotType) => {
-    if (slotType === '潜艇') {
-      const labels = ['潜艇 1', '潜艇 2', '潜艇 3', '潜艇 4', '潜艇 5', '潜艇 6'];
-      return labels[pos - 1] || `位置${pos}`;
-    } else {
-      const labels = ['先锋 1', '先锋 2', '先锋 3', '主力 1', '主力 2', '主力 3'];
-      return labels[pos - 1] || `位置${pos}`;
-    }
-  };
-
   // 检查角色是否适用于当前槽位
   const isValidCharacter = (char: Character): boolean => {
     const charSlotType = TYPE_TO_SLOT[char.type];

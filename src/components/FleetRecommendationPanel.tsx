@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Character, Fleet, FleetRecommendation, FleetType } from '../types';
+import { Character, Fleet, FleetRecommendation } from '../types';
 import { recommendFleet } from '../utils/recommender';
 import { Sparkles, Trophy, Users, Heart, X, Check } from 'lucide-react';
 

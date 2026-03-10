@@ -68,14 +68,6 @@ export const FleetSimulator: React.FC = () => {
     }
   };
 
-  const removeCharacter = (slotIndex: number) => {
-    const newFleet = { ...currentFleet };
-    newFleet.characters = [...newFleet.characters];
-    newFleet.characters[slotIndex] = null;
-    setCurrentFleet(newFleet);
-    dataManager.updateFleet(newFleet);
-  };
-
   const exportFleet = () => {
     const json = dataManager.exportFleet(currentFleet);
     const blob = new Blob([json], { type: 'application/json' });

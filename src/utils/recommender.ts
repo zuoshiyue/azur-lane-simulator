@@ -1,7 +1,7 @@
 /**
  * 智能推荐算法模块
  * 基于用户拥有情况、舰种搭配、阵营协同、强度评级、阵容平衡
- * 
+ *
  * 编队规则参考：https://wiki.biligame.com/blhx/%E7%BC%96%E9%98%9F
  * - 先锋编队：3 槽位（驱逐/轻巡/重巡/超巡/运输）
  * - 主力编队：3 槽位（战列/战巡/航母/轻母/潜艇/维修）
@@ -70,9 +70,9 @@ const TYPE_POWER_COEFFICIENTS: Record<string, number> = {
  */
 export function calculateCharacterPower(character: Character, fleetType: FleetType = 'surface'): number {
   const stats = character.stats;
-  
+
   // 基础属性分
-  let baseScore = 
+  let baseScore =
     stats.hp * 0.5 +
     stats.fire * 1.2 +
     stats.torpedo * 1.3 +
@@ -80,29 +80,29 @@ export function calculateCharacterPower(character: Character, fleetType: FleetTy
     stats.reload * 0.8 +
     stats.antiAir * 0.6 +
     stats.detection * 0.5;
-  
+
   // 稀有度加成
   const rarityBonus = RARITY_WEIGHTS[character.rarity] || 10;
-  
+
   // 舰种系数
   const typeCoefficient = TYPE_POWER_COEFFICIENTS[character.type] || 1.0;
-  
+
   // 潜艇有特殊加成（水下作战）
   const isSubmarine = character.type === '潜艇';
   const subBonus = isSubmarine ? 1.15 : 1.0;
-  
+
   // 检查角色是否适用于当前编队类型
   const slotType = TYPE_TO_SLOT[character.type];
-  const isApplicable = 
-    fleetType === 'surface' 
+  const isApplicable =
+    fleetType === 'surface'
       ? slotType === '先锋' || slotType === '主力' || character.type === '维修'
       : slotType === '潜艇';
-  
+
   const fleetTypeBonus = isApplicable ? 1.0 : 0.5;
-  
+
   // 综合评分
   const totalScore = (baseScore + rarityBonus) * typeCoefficient * subBonus * fleetTypeBonus;
-  
+
   return Math.round(totalScore);
 }
 
@@ -111,20 +111,20 @@ export function calculateCharacterPower(character: Character, fleetType: FleetTy
  */
 export function calculateFleetPower(fleet: Fleet, fleetType: FleetType = 'surface'): number {
   let totalPower = 0;
-  
+
   fleet.characters.forEach((char, index) => {
     if (char) {
       let power = calculateCharacterPower(char, fleetType);
-      
+
       // 位置加成（后排通常更重要）
       if (index >= 3) { // 后排
         power *= 1.1;
       }
-      
+
       totalPower += power;
     }
   });
-  
+
   return Math.round(totalPower);
 }
 
@@ -133,27 +133,27 @@ export function calculateFleetPower(fleet: Fleet, fleetType: FleetType = 'surfac
  */
 function calculateFactionSynergy(fleet: Fleet): { score: number; mainFaction: string } {
   const factionCount: Record<string, number> = {};
-  
+
   fleet.characters.forEach(char => {
     if (char) {
       factionCount[char.faction] = (factionCount[char.faction] || 0) + 1;
     }
   });
-  
+
   let mainFaction = '';
   let maxCount = 0;
-  
+
   Object.entries(factionCount).forEach(([faction, count]) => {
     if (count > maxCount) {
       maxCount = count;
       mainFaction = faction;
     }
   });
-  
+
   // 纯阵营队获得最高加成
   const synergyMultiplier = FACTION_BONUS[mainFaction] || 1.0;
   const factionScore = maxCount === 6 ? synergyMultiplier : 1.0 + (maxCount / 6) * (synergyMultiplier - 1);
-  
+
   return {
     score: factionScore,
     mainFaction
@@ -166,35 +166,35 @@ function calculateFactionSynergy(fleet: Fleet): { score: number; mainFaction: st
 function checkFleetBalance(fleet: Fleet): { score: number; issues: string[] } {
   const issues: string[] = [];
   let balanceScore = 1.0;
-  
+
   const frontRow = fleet.characters.slice(0, 3).filter(c => c !== null);
   const backRow = fleet.characters.slice(3, 6).filter(c => c !== null);
-  
+
   // 检查前后排比例（理想 3:3）
   if (frontRow.length < 3) {
     issues.push(`先锋舰队不足 (${frontRow.length}/3)`);
     balanceScore -= 0.1 * (3 - frontRow.length);
   }
-  
+
   if (backRow.length < 3) {
     issues.push(`主力舰队不足 (${backRow.length}/3)`);
     balanceScore -= 0.1 * (3 - backRow.length);
   }
-  
+
   // 检查舰种多样性
   const frontTypes = new Set(frontRow.map(c => c?.type));
   const backTypes = new Set(backRow.map(c => c?.type));
-  
+
   if (frontTypes.size === 1 && frontRow.length === 3) {
     issues.push('先锋舰队舰种单一');
     balanceScore -= 0.05;
   }
-  
+
   if (backTypes.size === 1 && backRow.length === 3) {
     issues.push('主力舰队舰种单一');
     balanceScore -= 0.05;
   }
-  
+
   return {
     score: Math.max(0.5, balanceScore),
     issues
@@ -213,7 +213,7 @@ function generateRecommendationReason(
   fleetType: FleetType = 'surface'
 ): string {
   const reasons: string[] = [];
-  
+
   // 模式说明
   const modeNames: Record<string, string> = {
     'strongest': '最强阵容',
@@ -221,32 +221,32 @@ function generateRecommendationReason(
     'beginner': '新手友好',
     'custom': '自定义'
   };
-  
+
   const fleetTypeNames: Record<FleetType, string> = {
     'surface': '水面编队',
     'submarine': '潜艇编队'
   };
-  
+
   reasons.push(`【${modeNames[mode] || '推荐阵容'} - ${fleetTypeNames[fleetType]}】`);
-  
+
   // 阵营加成
   if (factionInfo.score > 1.05) {
     reasons.push(`✨ ${factionInfo.mainFaction}阵营协同 (+${Math.round((factionInfo.score - 1) * 100)}%)`);
   }
-  
+
   // 平衡性
   if (balanceInfo.score > 0.9) {
     reasons.push('⚖️ 阵容搭配平衡');
   }
-  
+
   // 战力评分
   reasons.push(`💪 综合战力评分：${Math.round(powerScore)}`);
-  
+
   // 问题提示
   if (balanceInfo.issues.length > 0) {
     reasons.push('⚠️ ' + balanceInfo.issues.join(', '));
   }
-  
+
   return reasons.join(' · ');
 }
 
@@ -271,9 +271,9 @@ export function recommendFleet(
   if (ownedCharacters.length === 0) {
     return [];
   }
-  
+
   const recommendations: FleetRecommendation[] = [];
-  
+
   // 筛选可用角色
   let availableChars = [...ownedCharacters];
 
@@ -292,7 +292,7 @@ export function recommendFleet(
       availableChars = factionChars;
     }
   }
-  
+
   // 计算每个角色的评分
   const scoredChars = availableChars.map(char => ({
     character: char,
@@ -302,23 +302,23 @@ export function recommendFleet(
     isBackRow: BACK_ROW_TYPES.includes(TYPE_TO_SLOT[char.type]),
     isSubmarine: SUBMARINE_TYPES.includes(TYPE_TO_SLOT[char.type]),
   }));
-  
+
   // 排序
   scoredChars.sort((a, b) => b.score - a.score);
-  
+
   // 生成多个推荐阵容
   const maxRecommendations = Math.min(5, Math.floor(scoredChars.length / 6));
-  
+
   for (let recIndex = 0; recIndex < maxRecommendations; recIndex++) {
     const selectedChars: Character[] = [];
     const usedIds = new Set<string>();
-    
+
     if (fleetType === 'submarine') {
       // 潜艇编队：6个潜艇
       for (const item of scoredChars) {
         if (selectedChars.length >= 6) break;
         if (usedIds.has(item.character.id)) continue;
-        
+
         if (item.isSubmarine) {
           selectedChars.push(item.character);
           usedIds.add(item.character.id);
@@ -328,24 +328,24 @@ export function recommendFleet(
       // 水面编队：3先锋 + 3主力
       const selectedFront: Character[] = [];
       const selectedBack: Character[] = [];
-      
+
       // 选择前排（3 个）
       for (const item of scoredChars) {
         if (selectedFront.length >= 3) break;
         if (usedIds.has(item.character.id)) continue;
-        
+
         if (item.isFrontRow && !item.isBackRow) {
           selectedFront.push(item.character);
           usedIds.add(item.character.id);
         }
       }
-      
+
       // 如果前排不足，用支援型补充
       if (selectedFront.length < 3) {
         for (const item of scoredChars) {
           if (selectedFront.length >= 3) break;
           if (usedIds.has(item.character.id)) continue;
-          
+
           // 允许运输舰作为前排支援
           if (item.character.type === '运输') {
             selectedFront.push(item.character);
@@ -353,35 +353,35 @@ export function recommendFleet(
           }
         }
       }
-      
+
       // 如果还不足，用任意角色补充
       if (selectedFront.length < 3) {
         for (const item of scoredChars) {
           if (selectedFront.length >= 3) break;
           if (usedIds.has(item.character.id)) continue;
-          
+
           selectedFront.push(item.character);
           usedIds.add(item.character.id);
         }
       }
-      
+
       // 选择后排（3 个）
       for (const item of scoredChars) {
         if (selectedBack.length >= 3) break;
         if (usedIds.has(item.character.id)) continue;
-        
+
         if (item.isBackRow && !item.isFrontRow && !item.isSubmarine) {
           selectedBack.push(item.character);
           usedIds.add(item.character.id);
         }
       }
-      
+
       // 如果后排不足，用支援型补充
       if (selectedBack.length < 3) {
         for (const item of scoredChars) {
           if (selectedBack.length >= 3) break;
           if (usedIds.has(item.character.id)) continue;
-          
+
           // 允许维修舰作为后排支援
           if (item.character.type === '维修') {
             selectedBack.push(item.character);
@@ -389,55 +389,55 @@ export function recommendFleet(
           }
         }
       }
-      
+
       // 如果还不足，用任意角色补充
       if (selectedBack.length < 3) {
         for (const item of scoredChars) {
           if (selectedBack.length >= 3) break;
           if (usedIds.has(item.character.id)) continue;
-          
+
           selectedBack.push(item.character);
           usedIds.add(item.character.id);
         }
       }
-      
+
       // 组建阵容：前排 3 + 后排 3
       selectedChars.push(...selectedFront.slice(0, 3), ...selectedBack.slice(0, 3));
     }
-    
+
     // 填充空位
     const fleetCharacters: (Character | null)[] = [...selectedChars];
     while (fleetCharacters.length < 6) {
       fleetCharacters.push(null);
     }
-    
+
     const fleet: Fleet = {
       id: `rec_${Date.now()}_${recIndex}`,
       name: `推荐阵容 #${recIndex + 1}`,
       characters: fleetCharacters,
       createdAt: Date.now(),
     };
-    
+
     // 计算评分
     const powerScore = calculateFleetPower(fleet, fleetType);
     const factionInfo = calculateFactionSynergy(fleet);
     const balanceInfo = checkFleetBalance(fleet);
-    
+
     const finalScore = powerScore * factionInfo.score * balanceInfo.score;
-    
+
     // 生成推荐理由
     const reason = generateRecommendationReason(fleet, finalScore, factionInfo, balanceInfo, mode, fleetType);
-    
+
     recommendations.push({
       fleet,
       reason,
       power: finalScore,
     });
   }
-  
+
   // 按评分排序
   recommendations.sort((a, b) => b.power - a.power);
-  
+
   return recommendations;
 }
 
@@ -449,11 +449,11 @@ export function recommendFactionFleet(
   faction: string
 ): FleetRecommendation | null {
   const factionChars = ownedCharacters.filter(c => c.faction === faction);
-  
+
   if (factionChars.length < 6) {
     return null;
   }
-  
+
   const recs = recommendFleet(factionChars, 'faction');
   return recs[0] || null;
 }

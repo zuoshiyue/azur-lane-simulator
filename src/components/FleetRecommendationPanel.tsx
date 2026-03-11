@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Character, Fleet, FleetRecommendation } from '../types';
 import { recommendFleet } from '../utils/recommender';
+import { recommendFleetExtended } from '../utils/recommenderExtended';
 import { Sparkles, Trophy, Users, Heart, X, Check } from 'lucide-react';
 
 interface FleetRecommendationPanelProps {
@@ -10,7 +11,9 @@ interface FleetRecommendationPanelProps {
   onClose: () => void;
 }
 
-type RecommendationMode = 'strongest' | 'faction' | 'beginner' | 'custom';
+type RecommendationMode = 'strongest' | 'faction' | 'beginner' | 'custom' |
+                        'midway' | 'boss' | 'grinding' | 'one_pull_five' | 'n_pull_m' |
+                        'anti_air' | 'sub_hunter' | 'fast_move' | 'tank';
 type FleetTypeSelection = 'surface' | 'submarine';
 
 export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> = ({
@@ -21,34 +24,140 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
 }) => {
   const [selectedMode, setSelectedMode] = useState<RecommendationMode>('strongest');
   const [selectedFleetType, setSelectedFleetType] = useState<FleetTypeSelection>('surface');
-  const [selectedFaction, setSelectedFaction] = useState<string>('白鹰');
+  const [selectedFaction, setSelectedFaction] = useState<string>('全部');
   const [recommendations, setRecommendations] = useState<FleetRecommendation[]>([]);
   const [selectedRecIndex, setSelectedRecIndex] = useState<number>(0);
 
   // 获取所有阵营
   const factions = useMemo(() => {
     const f = new Set(ownedCharacters.map(c => c.faction));
-    return Array.from(f).sort();
+    return ['全部', ...Array.from(f)].sort();
   }, [ownedCharacters]);
 
-  // 生成推荐
+  // 推荐模式配置
+  const recommendationModes = [
+    {
+      id: 'strongest',
+      label: '最强阵容',
+      desc: '根据角色强度生成最优组合',
+      icon: Trophy,
+      color: 'from-yellow-500 to-orange-500'
+    },
+    {
+      id: 'faction',
+      label: '阵营队',
+      desc: '同阵营协同加成阵容',
+      icon: Heart,
+      color: 'from-red-500 to-pink-500'
+    },
+    {
+      id: 'beginner',
+      label: '新手友好',
+      desc: '适合萌新的低稀有度阵容',
+      icon: Users,
+      color: 'from-green-500 to-teal-500'
+    },
+    {
+      id: 'midway',
+      label: '道中队',
+      desc: '适合清理前期小怪的队伍',
+      icon: Sparkles,
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      id: 'boss',
+      label: '困难BOSS队',
+      desc: '专为挑战高难度BOSS设计',
+      icon: Trophy,
+      color: 'from-purple-500 to-indigo-500'
+    },
+    {
+      id: 'grinding',
+      label: '练级队',
+      desc: '适合日常刷图升级的队伍',
+      icon: Users,
+      color: 'from-emerald-500 to-green-500'
+    },
+    {
+      id: 'one_pull_five',
+      label: '1拖5',
+      desc: '1个主力带动5个辅助',
+      icon: Sparkles,
+      color: 'from-amber-500 to-orange-600'
+    },
+    {
+      id: 'n_pull_m',
+      label: 'N拖M',
+      desc: 'N个主力带动M个辅助',
+      icon: Heart,
+      color: 'from-fuchsia-500 to-purple-600'
+    },
+    {
+      id: 'anti_air',
+      label: '防空队',
+      desc: '高对空值对抗空袭',
+      icon: Trophy,
+      color: 'from-sky-500 to-blue-600'
+    },
+    {
+      id: 'sub_hunter',
+      label: '反潜队',
+      desc: '专门对付潜艇敌人',
+      icon: Users,
+      color: 'from-violet-500 to-purple-600'
+    },
+    {
+      id: 'fast_move',
+      label: '高速队',
+      desc: '所有角色高航速单位',
+      icon: Sparkles,
+      color: 'from-cyan-500 to-blue-500'
+    },
+    {
+      id: 'tank',
+      label: '肉盾队',
+      desc: '专注防御和生存能力',
+      icon: Heart,
+      color: 'from-stone-500 to-gray-600'
+    }
+  ];
+
   // 生成推荐
   const handleGenerate = () => {
     let recs: FleetRecommendation[] = [];
 
+    // 根据选择的模式调用相应的推荐函数
     switch (selectedMode) {
-      case 'strongest':
-        recs = recommendFleet(ownedCharacters, 'strongest', selectedFleetType, { occupiedCharacterIds });
-        break;
       case 'faction':
-        recs = recommendFleet(ownedCharacters, 'faction', selectedFleetType, { preferredFaction: selectedFaction, occupiedCharacterIds });
+        if (selectedFaction && selectedFaction !== '全部') {
+          recs = recommendFleetExtended(ownedCharacters, selectedMode, {
+            preferredFaction: selectedFaction,
+            occupiedCharacterIds
+          });
+        } else {
+          // 如果没选择特定阵营，则使用默认最强阵容
+          recs = recommendFleetExtended(ownedCharacters, 'strongest', { occupiedCharacterIds });
+        }
         break;
-      case 'beginner':
-        recs = recommendFleet(ownedCharacters, 'beginner', selectedFleetType, { occupiedCharacterIds });
+      case 'midway':
+      case 'boss':
+      case 'grinding':
+      case 'one_pull_five':
+      case 'n_pull_m':
+      case 'anti_air':
+      case 'sub_hunter':
+      case 'fast_move':
+      case 'tank':
+        recs = recommendFleetExtended(ownedCharacters, selectedMode, {
+          preferredFaction: selectedFaction !== '全部' ? selectedFaction : undefined,
+          occupiedCharacterIds
+        });
         break;
-      case 'custom':
-        recs = recommendFleet(ownedCharacters, 'custom', selectedFleetType, { occupiedCharacterIds });
-        break;
+      default:
+        recs = recommendFleet(ownedCharacters, selectedMode, selectedFleetType, {
+          preferredFaction: selectedFaction !== '全部' ? selectedFaction : undefined,
+          occupiedCharacterIds
+        });
     }
 
     setRecommendations(recs);
@@ -65,14 +174,6 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
 
   // 当前选中的推荐
   const currentRec = recommendations[selectedRecIndex];
-
-  // 模式选项
-  const modeOptions = [
-    { id: 'strongest', label: '最强阵容', icon: Trophy, desc: '基于强度的最优解' },
-    { id: 'faction', label: '阵营队', icon: Users, desc: '单一阵营加成' },
-    { id: 'beginner', label: '新手友好', icon: Heart, desc: '容易获取的角色' },
-    { id: 'custom', label: '自定义', icon: Sparkles, desc: '用户指定条件' },
-  ];
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -94,9 +195,9 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
         {/* 内容区 */}
         <div className="flex-1 overflow-hidden flex flex-col lg:flex-row">
           {/* 左侧：设置面板 */}
-          <div className="lg:w-72 p-6 border-r border-gray-700 overflow-y-auto">
+          <div className="lg:w-80 p-6 border-r border-gray-700 overflow-y-auto">
             <h3 className="text-lg font-bold text-white mb-4">编队类型</h3>
-            
+
             <div className="grid grid-cols-2 gap-2 mb-6">
               <button
                 onClick={() => setSelectedFleetType('surface')}
@@ -123,9 +224,9 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
             </div>
 
             <h3 className="text-lg font-bold text-white mb-4">推荐模式</h3>
-            
+
             <div className="space-y-2 mb-6">
-              {modeOptions.map((mode) => {
+              {recommendationModes.map((mode) => {
                 const Icon = mode.icon;
                 return (
                   <button
@@ -147,8 +248,15 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
               })}
             </div>
 
-            {/* 阵营选择（仅阵营队模式显示） */}
-            {selectedMode === 'faction' && (
+            {/* 阵营选择（特定模式显示） */}
+            {(selectedMode === 'faction' ||
+              selectedMode === 'midway' ||
+              selectedMode === 'boss' ||
+              selectedMode === 'grinding' ||
+              selectedMode === 'anti_air' ||
+              selectedMode === 'sub_hunter' ||
+              selectedMode === 'fast_move' ||
+              selectedMode === 'tank') && (
               <div className="mb-6">
                 <h3 className="text-lg font-bold text-white mb-3">选择阵营</h3>
                 <div className="space-y-1">
@@ -249,7 +357,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
                 {currentRec && (
                   <div className="border-t border-gray-700 p-6 bg-gray-750">
                     <h3 className="text-lg font-bold text-white mb-4">阵容详情</h3>
-                    
+
                     {/* 阵容成员 */}
                     <div className="grid grid-cols-2 md:grid-cols-6 gap-3 mb-4">
                       {currentRec.fleet.characters.map((char, index) => (

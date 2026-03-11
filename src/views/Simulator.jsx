@@ -165,7 +165,7 @@ function Simulator() {
         <div className="flex space-x-3">
           <button
             onClick={handleExport}
-            className="px-4 py-2 bg-azur-blue text-white rounded-lg hover:bg-azur-dark transition"
+            className="px-4 py-2 bg-azur-blue text-white rounded-lg hover:bg-navy-light transition"
           >
             📋 复制配置
           </button>

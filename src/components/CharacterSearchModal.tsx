@@ -77,7 +77,7 @@ export const CharacterSearchModal: React.FC<CharacterSearchModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="bg-azur-dark rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+        className="bg-navy-light rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col"
         onClick={e => e.stopPropagation()}
       >
         {/* 头部 */}
@@ -100,7 +100,7 @@ export const CharacterSearchModal: React.FC<CharacterSearchModalProps> = ({
         </div>
 
         {/* 搜索和筛选 */}
-        <div className="p-4 bg-azur-dark/50 border-b border-azur">
+        <div className="p-4 bg-navy-light/50 border-b border-navy-gold/20">
           <div className="flex flex-wrap gap-3">
             {/* 搜索框 */}
             <div className="flex-1 min-w-[250px] relative">
@@ -110,19 +110,19 @@ export const CharacterSearchModal: React.FC<CharacterSearchModalProps> = ({
                 placeholder="搜索角色名（中文或英文）..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-azur-dark border border-azur rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
+                className="w-full bg-navy-light border border-navy-gold/20 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
                 autoFocus
               />
               
               {/* 搜索建议 */}
               {suggestions.length > 0 && debouncedQuery && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-azur-dark border border-azur rounded-lg shadow-lg z-10 max-h-40 overflow-y-auto">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-navy-light border border-navy-gold/20 rounded-lg shadow-lg z-10 max-h-40 overflow-y-auto">
                   {suggestions.map((name, index) => (
                     <button
                       key={index}
                       type="button"
                       onClick={() => setSearchQuery(name)}
-                      className="w-full text-left px-4 py-2 text-gray-300 hover:bg-azur hover:text-white transition-colors flex items-center gap-2"
+                      className="w-full text-left px-4 py-2 text-gray-300 hover:bg-navy-primary hover:text-white transition-colors flex items-center gap-2"
                     >
                       <Sparkles className="w-4 h-4 text-yellow-400" />
                       {name}
@@ -138,7 +138,7 @@ export const CharacterSearchModal: React.FC<CharacterSearchModalProps> = ({
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value as ShipType | '全部')}
-                className="bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                className="bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
               >
                 {types.map(type => (
                   <option key={type} value={type}>{type}</option>
@@ -150,7 +150,7 @@ export const CharacterSearchModal: React.FC<CharacterSearchModalProps> = ({
             <select
               value={selectedFaction}
               onChange={(e) => setSelectedFaction(e.target.value)}
-              className="bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+              className="bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
             >
               {factions.map(faction => (
                 <option key={faction} value={faction}>{faction}</option>
@@ -225,7 +225,7 @@ export const CharacterSearchModal: React.FC<CharacterSearchModalProps> = ({
         </div>
 
         {/* 底部 */}
-        <div className="p-4 bg-azur-dark/50 border-t border-azur flex justify-between items-center">
+        <div className="p-4 bg-navy-light/50 border-t border-navy-gold/20 flex justify-between items-center">
           <div className="text-xs text-gray-400">
             💡 提示：点击角色卡片右上角的 + 按钮快速添加
           </div>

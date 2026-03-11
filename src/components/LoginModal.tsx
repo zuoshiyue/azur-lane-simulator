@@ -30,7 +30,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ onLoginSuccess }) => {
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-      <div className="bg-azur-dark rounded-2xl p-8 max-w-md w-full border border-azur shadow-2xl">
+      <div className="bg-navy-light rounded-2xl p-8 max-w-md w-full border border-navy-gold/20 shadow-2xl">
         {/* Logo */}
         <div className="flex flex-col items-center mb-6">
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-azur flex items-center justify-center mb-4">
@@ -60,7 +60,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ onLoginSuccess }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="输入访问密码"
-              className="w-full bg-azur border border-azur-dark rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full bg-azur border border-navy-gold/20-dark rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
               autoFocus
             />
           </div>

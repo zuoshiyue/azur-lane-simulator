@@ -15,10 +15,10 @@ const CharacterPoolManager: ComponentType = lazy(async () => {
 
 // 加载占位组件
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-gradient-to-br from-azur-dark to-azur flex items-center justify-center">
+  <div className="min-h-screen bg-gradient-to-br from-navy-dark via-navy-primary to-navy-accent flex items-center justify-center">
     <div className="text-center">
-      <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-white text-lg">加载中...</p>
+      <div className="w-16 h-16 border-4 border-navy-gold/50 border-t-navy-gold rounded-full animate-spin mx-auto mb-4 shadow-lg shadow-navy-gold/20"></div>
+      <p className="text-white text-lg font-medium">加载中...</p>
     </div>
   </div>
 );
@@ -69,14 +69,14 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-navy-dark via-navy-primary to-navy-accent">
       {/* 导航栏 */}
-      <nav className="bg-azur-dark border-b border-azur sticky top-0 z-40">
+      <nav className="bg-navy-primary/95 backdrop-blur-sm border-b border-navy-gold/20 sticky top-0 z-40 shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-azur flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-ocean-light to-navy-gold flex items-center justify-center flex-shrink-0 shadow-lg">
                 <Anchor className="w-6 h-6 text-white" />
               </div>
               <div className="min-w-0">
@@ -89,10 +89,10 @@ function App() {
             <div className="hidden md:flex items-center gap-2">
               <button
                 onClick={() => handleNavClick('simulator')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all btn-base ${
                   currentView === 'simulator'
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-azur-dark hover:text-white'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg'
+                    : 'text-gray-300 hover:bg-navy-light hover:text-white'
                 }`}
               >
                 <Users className="w-4 h-4" />
@@ -100,10 +100,10 @@ function App() {
               </button>
               <button
                 onClick={() => handleNavClick('pool')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all btn-base ${
                   currentView === 'pool'
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-azur-dark hover:text-white'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg'
+                    : 'text-gray-300 hover:bg-navy-light hover:text-white'
                 }`}
               >
                 <Database className="w-4 h-4" />
@@ -112,7 +112,7 @@ function App() {
               {isAuthenticated && (
                 <button
                   onClick={handleLogout}
-                  className="p-2 text-gray-300 hover:bg-azur-dark hover:text-white rounded-lg transition-colors"
+                  className="p-2 text-gray-300 hover:bg-navy-light hover:text-white rounded-lg transition-colors"
                   title="登出"
                 >
                   <LogOut className="w-4 h-4" />
@@ -123,7 +123,7 @@ function App() {
             {/* 移动端菜单按钮 */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-300 hover:bg-azur-dark hover:text-white rounded-lg transition-colors"
+              className="md:hidden p-2 text-gray-300 hover:bg-navy-light hover:text-white rounded-lg transition-colors"
               title="菜单"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -133,14 +133,14 @@ function App() {
 
         {/* 移动端导航菜单 */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-azur bg-azur-dark/95 backdrop-blur-sm">
+          <div className="md:hidden border-t border-navy-gold/20 bg-navy-primary/95 backdrop-blur-sm">
             <div className="px-4 py-3 space-y-2">
               <button
                 onClick={() => handleNavClick('simulator')}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all btn-base ${
                   currentView === 'simulator'
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-azur-dark hover:text-white'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg'
+                    : 'text-gray-300 hover:bg-navy-light hover:text-white'
                 }`}
               >
                 <Users className="w-5 h-5" />
@@ -148,10 +148,10 @@ function App() {
               </button>
               <button
                 onClick={() => handleNavClick('pool')}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all btn-base ${
                   currentView === 'pool'
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-azur-dark hover:text-white'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg'
+                    : 'text-gray-300 hover:bg-navy-light hover:text-white'
                 }`}
               >
                 <Database className="w-5 h-5" />
@@ -160,7 +160,7 @@ function App() {
               {isAuthenticated && (
                 <button
                   onClick={handleLogout}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-azur-dark hover:text-white transition-colors"
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-navy-light hover:text-white transition-colors"
                 >
                   <LogOut className="w-5 h-5" />
                   <span className="font-medium">登出</span>
@@ -183,10 +183,10 @@ function App() {
       </main>
 
       {/* 页脚 */}
-      <footer className="bg-azur-dark border-t border-azur mt-12 py-6">
+      <footer className="bg-navy-primary/95 backdrop-blur-sm border-t border-navy-gold/20 mt-12 py-6 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 text-center text-gray-400 text-sm">
-          <p>碧蓝航线阵容模拟器 · 数据来源于 B 站碧蓝航线 Wiki</p>
-          <p className="mt-1">仅供学习交流使用</p>
+          <p className="text-gradient font-medium">碧蓝航线阵容模拟器 · 数据来源于 B 站碧蓝航线 Wiki</p>
+          <p className="mt-1 text-xs text-gray-500">仅供学习交流使用</p>
         </div>
       </footer>
     </div>

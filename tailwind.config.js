@@ -7,22 +7,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+        // 游戏主题配色 - 军武灰 + 海军金 + 海洋蓝
+        navy: {
+          dark: '#1a1a2e',      // 军武深蓝背景
+          primary: '#16213e',   // 海军蓝主色
+          light: '#1f2940',     // 浅军武灰
+          accent: '#0f3460',    // 海军强调色
+          gold: '#c9a227',      // 海军金
+          goldHover: '#e0b636',
         },
-        azur: {
-          light: '#60a5fa',
-          DEFAULT: '#1e40af',
+        ocean: {
+          DEFAULT: '#1e40af',   // 海洋蓝
+          light: '#3b82f6',
           dark: '#1e3a8a',
+        },
+        metal: {
+          gray: '#2d3748',      // 金属灰
+        },
+        // 保持 azur 别名兼容
+        azur: {
+          light: '#1f2940',
+          DEFAULT: '#16213e',
+          dark: '#1a1a2e',
+          blue: '#1e40af',
         }
       },
     },

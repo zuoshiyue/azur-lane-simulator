@@ -231,7 +231,7 @@ export const CharacterPoolManager: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-azur-dark to-azur p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-navy-dark via-navy-primary to-navy-accent p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* 标题 */}
         <div className="mb-4 sm:mb-6">
@@ -289,7 +289,7 @@ export const CharacterPoolManager: React.FC = () => {
         </div>
 
         {/* 操作栏 */}
-        <div className="bg-azur-dark/50 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+        <div className="bg-navy-light/50 backdrop-blur-sm rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 border border-navy-gold/10 shadow-lg">
           <div className="flex flex-col gap-3">
             {/* 第一行：主要操作按钮 */}
             <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -356,7 +356,7 @@ export const CharacterPoolManager: React.FC = () => {
                 className={`p-2 rounded-lg transition-colors ${
                   viewMode === 'grid'
                     ? 'bg-blue-600 text-white'
-                    : 'bg-azur-dark text-gray-400 hover:text-white'
+                    : 'bg-navy-light text-gray-400 hover:text-white'
                 }`}
               >
                 <Grid className="w-5 h-5" />
@@ -366,7 +366,7 @@ export const CharacterPoolManager: React.FC = () => {
                 className={`p-2 rounded-lg transition-colors ${
                   viewMode === 'list'
                     ? 'bg-blue-600 text-white'
-                    : 'bg-azur-dark text-gray-400 hover:text-white'
+                    : 'bg-navy-light text-gray-400 hover:text-white'
                 }`}
               >
                 <List className="w-5 h-5" />
@@ -384,7 +384,7 @@ export const CharacterPoolManager: React.FC = () => {
                 placeholder="搜索角色名、类型、阵营..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-azur-dark border border-azur rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
+                className="w-full bg-navy-light border border-navy-gold/20 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
               />
             </div>
 
@@ -394,7 +394,7 @@ export const CharacterPoolManager: React.FC = () => {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value as ShipType | '全部')}
-                className="bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                className="bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
               >
                 {types.map(type => (
                   <option key={type} value={type}>{type}</option>
@@ -406,7 +406,7 @@ export const CharacterPoolManager: React.FC = () => {
             <select
               value={selectedFaction}
               onChange={(e) => setSelectedFaction(e.target.value)}
-              className="bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+              className="bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
             >
               {factions.map(faction => (
                 <option key={faction} value={faction}>{faction}</option>
@@ -417,7 +417,7 @@ export const CharacterPoolManager: React.FC = () => {
 
         {/* 角色列表 */}
         {filteredCharacters.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-64 text-gray-400 bg-azur-dark/30 rounded-xl">
+          <div className="flex flex-col items-center justify-center h-64 text-gray-400 bg-navy-light/30 rounded-xl">
             <Search className="w-16 h-16 mb-4 opacity-50" />
             <p className="text-lg">没有找到匹配的角色</p>
             <p className="text-sm mt-2">尝试其他搜索词或清除筛选条件</p>
@@ -517,7 +517,7 @@ export const CharacterPoolManager: React.FC = () => {
                       width: '100%',
                       transform: `translateY(${virtualRow.start}px)`,
                     }}
-                    className={`relative group bg-azur rounded-xl p-4 border border-azur-dark ${
+                    className={`relative group bg-navy-primary rounded-xl p-4 border border-navy-gold/20 ${
                       isSelected ? 'ring-2 ring-blue-500' : ''
                     }`}
                   >
@@ -527,7 +527,7 @@ export const CharacterPoolManager: React.FC = () => {
                       type="checkbox"
                       checked={isSelected}
                       onChange={() => toggleSelectCharacter(char.id)}
-                      className="w-5 h-5 rounded bg-azur-dark border-azur text-blue-600 focus:ring-blue-500"
+                      className="w-5 h-5 rounded bg-navy-light border-navy-gold/20 text-blue-600 focus:ring-blue-500"
                     />
                     
                     {/* 角色信息 */}
@@ -631,7 +631,7 @@ export const CharacterPoolManager: React.FC = () => {
           onClick={() => setShowDeleteConfirm(null)}
         >
           <div 
-            className="bg-azur-dark rounded-2xl max-w-md w-full p-6"
+            className="bg-navy-light rounded-2xl max-w-md w-full p-6"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 mb-4">
@@ -644,7 +644,7 @@ export const CharacterPoolManager: React.FC = () => {
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setShowDeleteConfirm(null)}
-                className="px-4 py-2 bg-azur hover:bg-azur-light text-white rounded-lg transition-colors"
+                className="px-4 py-2 bg-navy-primary hover:bg-navy-light text-white rounded-lg transition-colors"
               >
                 取消
               </button>
@@ -666,10 +666,10 @@ export const CharacterPoolManager: React.FC = () => {
           onClick={() => setShowImportExport(false)}
         >
           <div 
-            className="bg-azur-dark rounded-2xl max-w-2xl w-full"
+            className="bg-navy-light rounded-2xl max-w-2xl w-full"
             onClick={e => e.stopPropagation()}
           >
-            <div className="bg-azur p-6 rounded-t-2xl flex items-center justify-between">
+            <div className="bg-navy-primary p-6 rounded-t-2xl flex items-center justify-between">
               <h3 className="text-xl font-bold text-white">导入/导出角色数据</h3>
               <button
                 onClick={() => setShowImportExport(false)}
@@ -730,7 +730,7 @@ export const CharacterPoolManager: React.FC = () => {
                   value={importText}
                   onChange={(e) => setImportText(e.target.value)}
                   placeholder='[{"id": "char_001", "name": "Enterprise", ...}]'
-                  className="w-full h-40 bg-azur-dark border border-azur rounded-lg p-3 text-white font-mono text-sm focus:outline-none"
+                  className="w-full h-40 bg-navy-light border border-navy-gold/20 rounded-lg p-3 text-white font-mono text-sm focus:outline-none"
                 />
                 <button
                   onClick={handleImport}

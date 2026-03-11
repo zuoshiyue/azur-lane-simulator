@@ -71,9 +71,9 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
             onClick?.(character);
           }
         }}
-        className={`bg-azur rounded-lg p-3 transition-colors border ${
-          selectable || showOwnedToggle ? 'cursor-default' : 'cursor-pointer hover:bg-azur-light'
-        } ${selected ? 'border-blue-500 ring-2 ring-blue-500/50' : 'border-azur-dark'} ${
+        className={`bg-navy-primary rounded-lg p-3 transition-colors border ${
+          selectable || showOwnedToggle ? 'cursor-default' : 'cursor-pointer hover:bg-navy-light'
+        } ${selected ? 'border-blue-500 ring-2 ring-blue-500/50' : 'border-navy-gold/20'} ${
           owned ? 'border-green-500 ring-1 ring-green-500/30' : ''
         }`}
       >
@@ -84,7 +84,7 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
               checked={selected}
               onChange={onSelect}
               onClick={e => e.stopPropagation()}
-              className="w-4 h-4 rounded bg-azur-dark border-azur text-blue-600 focus:ring-blue-500"
+              className="w-4 h-4 rounded bg-navy-light border-navy-gold/20 text-blue-600 focus:ring-blue-500"
             />
           )}
           {!selectable && !showOwnedToggle && (
@@ -134,7 +134,7 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
           onClick?.(character);
         }
       }}
-      className={`bg-azur rounded-xl p-4 cursor-pointer hover:bg-azur-light transition-all hover:scale-105 border border-azur-dark shadow-lg ${
+      className={`bg-navy-primary rounded-xl p-4 cursor-pointer hover:bg-navy-light transition-all hover:scale-105 border border-navy-gold/20 shadow-lg ${
         owned ? 'border-green-500 ring-1 ring-green-500/30' : ''
       }`}
     >
@@ -191,19 +191,19 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
       </div>
 
       <div className="grid grid-cols-2 gap-2 text-xs">
-        <div className="bg-azur-dark/50 rounded p-2">
+        <div className="bg-navy-light/50 rounded p-2">
           <span className="text-gray-400">类型</span>
           <div className="text-white font-medium">{character.type}</div>
         </div>
-        <div className="bg-azur-dark/50 rounded p-2">
+        <div className="bg-navy-light/50 rounded p-2">
           <span className="text-gray-400">装填</span>
           <div className="text-white font-medium">{character.stats.reload}</div>
         </div>
-        <div className="bg-azur-dark/50 rounded p-2">
+        <div className="bg-navy-light/50 rounded p-2">
           <span className="text-gray-400">火力</span>
           <div className="text-white font-medium">{character.stats.fire}</div>
         </div>
-        <div className="bg-azur-dark/50 rounded p-2">
+        <div className="bg-navy-light/50 rounded p-2">
           <span className="text-gray-400">航空</span>
           <div className="text-white font-medium">{character.stats.aviation}</div>
         </div>
@@ -213,7 +213,7 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
         <div className="mt-3">
           <div className="text-xs text-gray-400 mb-1">技能</div>
           {character.skills.slice(0, 2).map((skill, i) => (
-            <div key={i} className="text-xs text-white bg-azur-dark/30 rounded px-2 py-1 mb-1">
+            <div key={i} className="text-xs text-white bg-navy-light/30 rounded px-2 py-1 mb-1">
               {skill.name}
             </div>
           ))}

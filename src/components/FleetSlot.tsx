@@ -55,7 +55,7 @@ export const FleetSlot: React.FC<FleetSlotProps> = ({
       className={`
         relative rounded-xl border-2 transition-all min-h-[180px]
         ${character 
-          ? 'border-azur bg-azur/20' 
+          ? 'border-navy-gold/20 bg-navy-light/20' 
           : isOver 
             ? 'border-blue-400 bg-blue-500/20' 
             : 'border-gray-600 bg-gray-800/30'

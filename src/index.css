@@ -6,15 +6,32 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark;
+
+  /* 游戏主题配色 - 军武灰 + 海军金 + 海洋蓝 */
+  --navy-dark: #1a1a2e;      /* 军武深蓝背景 */
+  --navy-primary: #16213e;   /* 海军蓝主色 */
+  --navy-light: #1f2940;     /* 浅军武灰 */
+  --navy-accent: #0f3460;    /* 海军强调色 */
+  --navy-gold: #c9a227;      /* 海军金 */
+  --navy-gold-hover: #e0b636;
+  --ocean-blue: #1e40af;     /* 海洋蓝 */
+  --ocean-blue-light: #3b82f6;
+  --metal-gray: #2d3748;     /* 金属灰 */
+  --text-primary: #e2e8f0;   /* 主文字色 */
+  --text-secondary: #94a3b8; /* 次要文字 */
+
+  color: var(--text-primary);
+  background-color: var(--navy-dark);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  /* 深海渐变背景 */
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, var(--navy-accent) 100%);
+  background-attachment: fixed;
 }
 
 #root {
@@ -24,4 +41,73 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy-dark);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--navy-gold) 0%, var(--ocean-blue) 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--navy-gold-hover) 0%, var(--ocean-blue-light) 100%);
+}
+
+/* 卡片通用样式 */
+.card-base {
+  background: linear-gradient(145deg, rgba(22, 33, 62, 0.95) 0%, rgba(15, 52, 96, 0.9) 100%);
+  border: 1px solid rgba(199, 162, 39, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card-base:hover {
+  border-color: rgba(199, 162, 39, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 按钮基础样式 */
+.btn-base {
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-base::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.btn-base:hover::after {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* 金色边框装饰 */
+.gold-accent {
+  border-color: var(--navy-gold) !important;
+  box-shadow: 0 0 15px rgba(199, 162, 39, 0.3);
+}
+
+/* 文本渐变 */
+.text-gradient {
+  background: linear-gradient(135deg, var(--navy-gold) 0%, var(--ocean-blue-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

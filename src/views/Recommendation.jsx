@@ -58,7 +58,7 @@ function RecommendationCard({ recommendation, onApply }) {
         disabled={!recommendation.isComplete}
         className="w-full py-2 rounded-lg font-bold transition
           {recommendation.isComplete
-            ? 'bg-azur-blue text-white hover:bg-azur-dark'
+            ? 'bg-azur-blue text-white hover:bg-navy-light'
             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }"
       >
@@ -152,7 +152,7 @@ function Recommendation() {
           </div>
           <button
             onClick={handleGenerate}
-            className="px-6 py-3 bg-azur-blue text-white rounded-lg font-bold hover:bg-azur-dark transition"
+            className="px-6 py-3 bg-azur-blue text-white rounded-lg font-bold hover:bg-navy-light transition"
           >
             ✨ 生成阵容推荐
           </button>

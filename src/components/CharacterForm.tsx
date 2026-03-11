@@ -215,11 +215,11 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
       onClick={onCancel}
     >
       <div 
-        className="bg-azur-dark rounded-2xl max-w-4xl w-full my-8"
+        className="bg-navy-light rounded-2xl max-w-4xl w-full my-8"
         onClick={e => e.stopPropagation()}
       >
         {/* 头部 */}
-        <div className="bg-azur p-6 rounded-t-2xl flex items-center justify-between">
+        <div className="bg-navy-primary p-6 rounded-t-2xl flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">
             {character ? '编辑角色' : '添加新角色'}
           </h2>
@@ -259,13 +259,13 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                     onChange={(e) => setSmartFillQuery(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSmartFill()}
                     placeholder="输入角色名称（如：企业、赤城、大和）"
-                    className="w-full bg-azur-dark border border-purple-500/50 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-purple-400"
+                    className="w-full bg-navy-light border border-purple-500/50 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-purple-400"
                     disabled={isLoading}
                   />
                   
                   {/* 搜索建议 */}
                   {suggestions.length > 0 && smartFillQuery && (
-                    <div className="absolute top-full left-0 right-0 mt-1 bg-azur-dark border border-azur rounded-lg shadow-lg z-10 max-h-40 overflow-y-auto">
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-navy-light border border-navy-gold/20 rounded-lg shadow-lg z-10 max-h-40 overflow-y-auto">
                       {suggestions.map((name, index) => (
                         <button
                           key={index}
@@ -274,7 +274,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                             setSmartFillQuery(name);
                             handleSmartFill();
                           }}
-                          className="w-full text-left px-4 py-2 text-gray-300 hover:bg-azur hover:text-white transition-colors"
+                          className="w-full text-left px-4 py-2 text-gray-300 hover:bg-navy-primary hover:text-white transition-colors"
                         >
                           {name}
                         </button>
@@ -333,7 +333,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="text"
                   value={formData.name || ''}
                   onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  className={`w-full bg-azur-dark border ${errors.name ? 'border-red-500' : 'border-azur'} rounded-lg px-3 py-2 text-white focus:outline-none`}
+                  className={`w-full bg-navy-light border ${errors.name ? 'border-red-500' : 'border-navy-gold/20'} rounded-lg px-3 py-2 text-white focus:outline-none`}
                   placeholder="Enterprise"
                 />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -345,7 +345,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="text"
                   value={formData.nameCn || ''}
                   onChange={e => setFormData(prev => ({ ...prev, nameCn: e.target.value }))}
-                  className={`w-full bg-azur-dark border ${errors.nameCn ? 'border-red-500' : 'border-azur'} rounded-lg px-3 py-2 text-white focus:outline-none`}
+                  className={`w-full bg-navy-light border ${errors.nameCn ? 'border-red-500' : 'border-navy-gold/20'} rounded-lg px-3 py-2 text-white focus:outline-none`}
                   placeholder="企业"
                 />
                 {errors.nameCn && <p className="text-red-500 text-xs mt-1">{errors.nameCn}</p>}
@@ -356,7 +356,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                 <select
                   value={formData.rarity}
                   onChange={e => setFormData(prev => ({ ...prev, rarity: Number(e.target.value) }))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 >
                   {[1, 2, 3, 4, 5, 6].map(r => (
                     <option key={r} value={r}>{'★'.repeat(r)} ({r}星)</option>
@@ -369,7 +369,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                 <select
                   value={formData.type}
                   onChange={e => setFormData(prev => ({ ...prev, type: e.target.value as ShipType }))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 >
                   {shipTypes.map(type => (
                     <option key={type} value={type}>{type}</option>
@@ -382,7 +382,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                 <select
                   value={formData.faction}
                   onChange={e => setFormData(prev => ({ ...prev, faction: e.target.value }))}
-                  className={`w-full bg-azur-dark border ${errors.faction ? 'border-red-500' : 'border-azur'} rounded-lg px-3 py-2 text-white focus:outline-none`}
+                  className={`w-full bg-navy-light border ${errors.faction ? 'border-red-500' : 'border-navy-gold/20'} rounded-lg px-3 py-2 text-white focus:outline-none`}
                 >
                   <option value="">请选择</option>
                   {factions.map(f => (
@@ -398,7 +398,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="url"
                   value={formData.image || ''}
                   onChange={e => setFormData(prev => ({ ...prev, image: e.target.value }))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                   placeholder="https://..."
                 />
               </div>
@@ -415,7 +415,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.hp || 0}
                   onChange={e => updateStats('hp', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -424,7 +424,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.fire || 0}
                   onChange={e => updateStats('fire', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -433,7 +433,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.torpedo || 0}
                   onChange={e => updateStats('torpedo', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -442,7 +442,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.aviation || 0}
                   onChange={e => updateStats('aviation', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -451,7 +451,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.reload || 0}
                   onChange={e => updateStats('reload', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -459,7 +459,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                 <select
                   value={formData.stats?.armor || '中型'}
                   onChange={e => updateStats('armor', e.target.value)}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 >
                   {armorTypes.map(a => (
                     <option key={a} value={a}>{a}</option>
@@ -472,7 +472,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.speed || 0}
                   onChange={e => updateStats('speed', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -481,7 +481,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.luck || 0}
                   onChange={e => updateStats('luck', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -490,7 +490,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.antiAir || 0}
                   onChange={e => updateStats('antiAir', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
               <div>
@@ -499,7 +499,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                   type="number"
                   value={formData.stats?.detection || 0}
                   onChange={e => updateStats('detection', Number(e.target.value))}
-                  className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
                 />
               </div>
             </div>
@@ -527,12 +527,12 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                       value={skill.name}
                       onChange={e => updateSkill(index, 'name', e.target.value)}
                       placeholder="技能名称"
-                      className="flex-1 bg-azur-dark border border-azur rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none"
+                      className="flex-1 bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none"
                     />
                     <select
                       value={skill.type}
                       onChange={e => updateSkill(index, 'type', e.target.value)}
-                      className="bg-azur-dark border border-azur rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
+                      className="bg-navy-light border border-navy-gold/20 rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
                     >
                       <option value="passive">被动</option>
                       <option value="active">主动</option>
@@ -543,7 +543,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                         value={skill.cooldown || 0}
                         onChange={e => updateSkill(index, 'cooldown', Number(e.target.value))}
                         placeholder="CD"
-                        className="w-16 bg-azur-dark border border-azur rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
+                        className="w-16 bg-navy-light border border-navy-gold/20 rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
                       />
                     )}
                     <button
@@ -559,7 +559,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                     onChange={e => updateSkill(index, 'description', e.target.value)}
                     placeholder="技能描述"
                     rows={2}
-                    className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-2 text-white text-sm focus:outline-none resize-none"
+                    className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none resize-none"
                   />
                 </div>
               ))}
@@ -587,7 +587,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                       type="number"
                       value={eq.slot}
                       onChange={e => updateEquipment(index, 'slot', Number(e.target.value))}
-                      className="w-full bg-azur-dark border border-azur rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
+                      className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
                     />
                   </div>
                   <div className="flex-1">
@@ -597,7 +597,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                       value={eq.type}
                       onChange={e => updateEquipment(index, 'type', e.target.value)}
                       placeholder="战斗机/主炮/鱼雷等"
-                      className="w-full bg-azur-dark border border-azur rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none"
+                      className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none"
                     />
                   </div>
                   <div className="w-24">
@@ -606,7 +606,7 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
                       type="number"
                       value={eq.efficiency}
                       onChange={e => updateEquipment(index, 'efficiency', Number(e.target.value))}
-                      className="w-full bg-azur-dark border border-azur rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
+                      className="w-full bg-navy-light border border-navy-gold/20 rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none"
                     />
                   </div>
                   <button
@@ -622,11 +622,11 @@ export const CharacterForm: React.FC<CharacterFormProps> = ({
           </div>
 
           {/* 提交按钮 */}
-          <div className="flex gap-3 justify-end pt-4 border-t border-azur">
+          <div className="flex gap-3 justify-end pt-4 border-t border-navy-gold/20">
             <button
               type="button"
               onClick={onCancel}
-              className="px-6 py-2 bg-azur-dark hover:bg-azur text-white rounded-lg transition-colors border border-azur"
+              className="px-6 py-2 bg-navy-light hover:bg-navy-primary text-white rounded-lg transition-colors border border-navy-gold/20"
             >
               取消
             </button>

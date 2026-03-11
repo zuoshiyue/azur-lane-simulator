@@ -4,10 +4,26 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // 或 'media' 如果想跟随系统
+  darkMode: 'class', // Keep using class mode for compatibility
   theme: {
     extend: {
       colors: {
+        // Light theme colors
+        light: {
+          bg: {
+            primary: '#f9fafb',  // 更浅的基础背景色
+            secondary: '#ffffff',  // 干净的白色卡片背景
+            tertiary: '#f3f4f6',  // 浅灰色次级卡片背景
+          },
+          text: {
+            primary: '#111827',  // 深灰色主要文字
+            secondary: '#6b7280',  // 中灰色次要文字
+          },
+          border: '#e5e7eb',  // 浅边框颜色
+          accent: '#2563eb',  // 深蓝色强调色
+          accentHover: '#1d4ed8',
+        },
+
         // 优化后的游戏主题配色 - 柔和的海军风格
         navy: {
           dark: '#2a2f45',      // 柔和的深蓝色背景

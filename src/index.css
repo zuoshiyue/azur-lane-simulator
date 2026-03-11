@@ -8,7 +8,18 @@
   font-weight: 400;
   color-scheme: light dark;
 
-  /* 优化后的柔和主题配色 */
+  /* Light theme variables - 更浅更协调的游戏风格主题 */
+  --light-bg-primary: #f9fafb;       /* 更浅的基础背景色 */
+  --light-bg-secondary: #ffffff;     /* 干净的白色卡片背景 */
+  --light-bg-tertiary: #f3f4f6;      /* 浅灰色次级卡片背景 */
+  --light-text-primary: #111827;     /* 深灰色主要文字 */
+  --light-text-secondary: #6b7280;   /* 中灰色次要文字 */
+  --light-border: #e5e7eb;           /* 浅边框颜色 */
+  --light-accent: #2563eb;           /* 深蓝色强调色 */
+  --light-accent-hover: #1d4ed8;     /* 强调色悬停 */
+  --light-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  /* Current Navy/Ocean theme variables (now used as dark theme) */
   --navy-dark: #2a2f45;      /* 柔和的深蓝色背景 */
   --navy-primary: #3a425a;   /* 温和的海军蓝主色 */
   --navy-light: #4a546d;     /* 柔和的浅海军蓝 */
@@ -25,7 +36,28 @@
   background-color: var(--navy-dark);
 }
 
-/* 深色模式变量定义 */
+/* Light theme variables */
+.light {
+  color-scheme: light;
+
+  --navy-dark: var(--light-bg-primary);
+  --navy-primary: var(--light-bg-secondary);
+  --navy-light: var(--light-bg-tertiary);
+  --navy-accent: var(--light-border);
+  --navy-gold: var(--light-accent);         /* 使用蓝色作为浅色主题的"黄金"色 */
+  --navy-gold-hover: var(--light-accent-hover);
+  --ocean-blue: var(--light-accent);        /* 使用蓝色替代海洋蓝 */
+  --ocean-blue-light: #60a5fa;             /* 更亮的蓝色 */
+  --metal-gray: #6b7280;                   /* 灰色 */
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+
+  /* 针对浅色主题的特殊调整 */
+  --card-gradient-start: #ffffff;
+  --card-gradient-end: #f9fafb;
+}
+
+/* Dark theme variables definition */
 .dark {
   color-scheme: dark;
 
@@ -46,9 +78,19 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  /* 柔和的渐变背景 */
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, var(--navy-accent) 100%);
+  /* 柔和的渐变背景 that adapts to theme */
+  background: linear-gradient(135deg,
+    var(--navy-dark) 0%,
+    var(--navy-primary) 50%,
+    var(--navy-accent) 100%);
   background-attachment: fixed;
+}
+
+.light body {
+  background: linear-gradient(135deg,
+    var(--light-bg-primary) 0%,
+    var(--light-bg-secondary) 50%,
+    var(--light-bg-tertiary) 100%);
 }
 
 #root {
@@ -71,36 +113,71 @@ body {
   border-radius: 5px;
 }
 
+.light ::-webkit-scrollbar-track {
+  background: var(--light-bg-tertiary);
+}
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--navy-gold) 0%, var(--ocean-blue) 100%);
   border-radius: 5px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--light-accent) 0%, #60a5fa 100%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--navy-gold-hover) 0%, var(--ocean-blue-light) 100%);
 }
 
+.light ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1d4ed8 0%, #3b82f6 100%);
+}
+
 /* 卡片通用样式 */
 .card-base {
-  background: linear-gradient(145deg, rgba(58, 66, 90, 0.95) 0%, rgba(90, 101, 128, 0.9) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg,
+    var(--navy-primary) 0%,
+    var(--navy-light) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.15); /* Using blue accent with opacity */
+  box-shadow: var(--light-card-shadow, 0 4px 20px rgba(0, 0, 0, 0.4)),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.light .card-base {
+  background: linear-gradient(145deg,
+    var(--card-gradient-start) 0%,
+    var(--card-gradient-end) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.1); /* 更淡的边框 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .dark .card-base {
-  background: linear-gradient(145deg, rgba(34, 38, 49, 0.95) 0%, rgba(45, 51, 66, 0.9) 100%);
+  background: linear-gradient(145deg,
+    rgba(34, 38, 49, 0.95) 0%,
+    rgba(45, 51, 66, 0.9) 100%);
   border: 1px solid rgba(245, 215, 110, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .card-base:hover {
-  border-color: rgba(212, 175, 55, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(59, 130, 246, 0.3); /* Using blue accent with opacity */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.light .card-base:hover {
+  border-color: rgba(37, 99, 235, 0.2); /* 更淡的蓝色边框 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .dark .card-base:hover {
   border-color: rgba(245, 215, 110, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* 按钮基础样式 */
@@ -129,7 +206,12 @@ body {
 /* 金色边框装饰 */
 .gold-accent {
   border-color: var(--navy-gold) !important;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); /* Changed to blue accent for better visibility */
+}
+
+.light .gold-accent {
+  border-color: var(--light-accent) !important;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); /* Consistent blue accent */
 }
 
 .dark .gold-accent {
@@ -137,14 +219,30 @@ body {
   box-shadow: 0 0 15px rgba(245, 215, 110, 0.3);
 }
 
-/* 文本渐变 */
+/* Text gradient that works in both themes */
 .text-gradient {
-  background: linear-gradient(135deg, var(--navy-gold) 0%, var(--ocean-blue-light) 100%);
+  background: linear-gradient(135deg,
+    var(--navy-gold) 0%,
+    var(--ocean-blue-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.light .text-gradient {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg,
+    var(--light-accent) 0%,
+    var(--ocean-blue-light) 100%);
+}
+
 .dark .text-gradient {
-  background: linear-gradient(135deg, var(--navy-gold) 0%, var(--ocean-blue-light) 100%);
+  background: linear-gradient(135deg,
+    var(--navy-gold) 0%,
+    var(--ocean-blue-light) 100%);
+}
+
+/* 浅色主题按钮增强 */
+.light .btn-base::after {
+  background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.1), transparent);
 }

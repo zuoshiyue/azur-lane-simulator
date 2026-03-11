@@ -343,6 +343,12 @@ interface Character {
 
 ---
 
+## 📝 用户建议
+
+<!-- 此处留空，用于填写用户建议、新功能请求、优化点 -->
+
+---
+
 ## 🌐 部署
 
 项目使用 GitHub Actions 自动部署到 GitHub Pages：

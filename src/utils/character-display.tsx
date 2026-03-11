@@ -3,7 +3,9 @@
  * 用于显示角色的中文名称和别称
  */
 
-export function formatCharacterName(character) {
+import { Character } from '../types';
+
+export function formatCharacterName(character: Character): string {
   if (!character) return '';
 
   const name = character.nameCn || character.name || '';
@@ -18,7 +20,7 @@ export function formatCharacterName(character) {
 }
 
 // 在React组件中使用的格式化组件
-export function CharacterNameDisplay({ character, className = "" }) {
+export function CharacterNameDisplay({ character, className = "" }: { character: Character, className?: string }) {
   if (!character) return null;
 
   const displayName = formatCharacterName(character);

@@ -6,6 +6,8 @@ import { FleetSlot } from './FleetSlot';
 import { CharacterSearchModal } from './CharacterSearchModal';
 import { FleetRecommendationPanel } from './FleetRecommendationPanel';
 import { CharacterDetailModal } from './CharacterDetailModal';
+import { FleetSaveLoadPanel } from './FleetSaveLoadPanel';
+import { FleetComparisonPanel } from './FleetComparisonPanel';
 import { Character, Fleet, FleetType } from '../types';
 import { Users, Download, Sparkles, PlusCircle, Database, Copy, RotateCcw, Eye } from 'lucide-react';
 
@@ -121,6 +123,14 @@ export const FleetSimulator: React.FC = () => {
     };
     setFleets(newFleets);
     dataManager.updateFleet(newFleets[to]);
+  };
+
+  const updateCurrentFleet = (updatedFleet: Fleet) => {
+    const newFleets = { ...fleets };
+    const currentFleetIndex = activeTab === 'fleet1' ? 'fleet1' : activeTab === 'fleet2' ? 'fleet2' : 'sub';
+    newFleets[currentFleetIndex] = updatedFleet;
+    setFleets(newFleets);
+    dataManager.updateFleet(newFleets[currentFleetIndex]);
   };
 
   // 清空当前阵容
@@ -370,9 +380,21 @@ export const FleetSimulator: React.FC = () => {
             {/* 右侧：阵容槽位 */}
             <div className="lg:col-span-2">
               <div className="bg-navy-light/30 rounded-xl p-3 sm:p-6">
-                <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-                  {currentFleet.name}
-                </h2>
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <h2 className="text-lg sm:text-xl font-bold text-white">
+                    {currentFleet.name}
+                  </h2>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={clearFleet}
+                      className="flex items-center gap-1 bg-gray-600 hover:bg-gray-700 text-white px-2 py-1 rounded text-sm"
+                      title="清空当前阵容"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span className="hidden sm:inline">清空</span>
+                    </button>
+                  </div>
+                </div>
 
                 {/* 潜艇阵容 - 单排显示 */}
                 {activeTab === 'sub' ? (
@@ -438,6 +460,25 @@ export const FleetSimulator: React.FC = () => {
                   </>
                 )}
               </div>
+
+              {/* 保存/加载面板 */}
+              <div className="mt-4">
+                <FleetSaveLoadPanel
+                  fleet={currentFleet}
+                  onFleetChange={updateCurrentFleet}
+                  fleetType={activeTab === 'sub' ? 'submarine' : 'surface'}
+                />
+              </div>
+
+              {/* 阵容对比面板 - 仅在查看海上阵容时显示 */}
+              {activeTab !== 'sub' && (
+                <div className="mt-4">
+                  <FleetComparisonPanel
+                    fleet1={fleets.fleet1}
+                    fleet2={fleets.fleet2}
+                  />
+                </div>
+              )}
 
               {/* 推荐阵容提示 - 移动端隐藏 */}
               <div className="hidden sm:block mt-4 sm:mt-6 bg-purple-900/30 rounded-xl p-4 sm:p-6 text-center">

@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // 或 'media' 如果想跟随系统
   theme: {
     extend: {
       colors: {
@@ -23,6 +24,21 @@ export default {
         },
         metal: {
           gray: '#2d3748',      // 金属灰
+        },
+        // 深色模式的替代颜色
+        dark: {
+          navy: {
+            dark: '#0a0a1a',
+            primary: '#0f172a',
+            light: '#1e293b',
+            accent: '#1e263a',
+            gold: '#facc15',
+          },
+          ocean: {
+            DEFAULT: '#3b82f6',
+            light: '#60a5fa',
+            dark: '#1d4ed8',
+          },
         },
         // 保持 azur 别名兼容
         azur: {

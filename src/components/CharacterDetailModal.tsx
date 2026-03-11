@@ -1,6 +1,8 @@
 import React from 'react';
 import { Character } from '../types';
-import { X, Star, Sword, Shield, Zap, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, Star, Sword, Shield, Zap, Heart, ChevronLeft, ChevronRight, Swords } from 'lucide-react';
+import { SkillDisplay } from './SkillDisplay';
+import { EquipmentDisplay } from './EquipmentDisplay';
 
 interface CharacterDetailModalProps {
   character: Character;
@@ -224,42 +226,22 @@ export const CharacterDetailModal: React.FC<CharacterDetailModalProps> = ({
             {/* 技能和装备 */}
             <div className="space-y-6">
               {/* 技能 */}
-              {character.skills && character.skills.length > 0 && (
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-yellow-400" />
-                    技能
-                  </h3>
-                  <div className="space-y-3">
-                    {character.skills.map((skill, index) => (
-                      <div key={index} className="p-4 bg-navy-light/30 rounded-lg">
-                        <h4 className="font-bold text-white mb-2">{skill.name}</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed">{skill.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div>
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-yellow-400" />
+                  技能
+                </h3>
+                <SkillDisplay skills={character.skills} />
+              </div>
 
               {/* 装备 */}
-              {character.equipment && character.equipment.length > 0 && (
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                    <Sword className="w-5 h-5 text-blue-400" />
-                    装备
-                  </h3>
-                  <div className="space-y-3">
-                    {character.equipment.map((eq, index) => (
-                      <div key={index} className="p-3 bg-navy-light/30 rounded-lg">
-                        <div className="font-medium text-white mb-1">{eq.type}</div>
-                        <div className="text-gray-300 text-sm">
-                          槽位: {eq.slot} | 效率: {eq.efficiency}%
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div>
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                  <Swords className="w-5 h-5 text-blue-400" />
+                  装备
+                </h3>
+                <EquipmentDisplay equipment={character.equipment} />
+              </div>
 
               {/* 别称 */}
               {character.aliases && character.aliases.length > 0 && (

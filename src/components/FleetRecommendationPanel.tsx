@@ -234,7 +234,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-2xl font-bold text-yellow-400">{rec.power}</div>
+                            <div className="text-2xl font-bold text-yellow-400">{Math.round(rec.power)}</div>
                             <div className="text-xs text-gray-500">战力评分</div>
                           </div>
                         </div>
@@ -262,7 +262,14 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
                           </div>
                           {char ? (
                             <>
-                              <div className="font-bold text-white text-sm">{char.nameCn}</div>
+                              <div className="font-bold text-white text-sm">
+                                {char.nameCn}
+                                {char.aliases && char.aliases.length > 0 && (
+                                  <span className="block text-xs text-purple-300">
+                                    ({char.aliases.join('、')})
+                                  </span>
+                                )}
+                              </div>
                               <div className="text-xs text-gray-400">{char.type}</div>
                               <div className="text-xs text-yellow-400">
                                 {'★'.repeat(Math.min(5, char.rarity))}

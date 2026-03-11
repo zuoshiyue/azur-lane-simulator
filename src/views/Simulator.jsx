@@ -296,7 +296,7 @@ function Simulator() {
             <h2 className="text-xl font-bold mb-4">阵容属性</h2>
             
             <div className="text-center mb-4">
-              <div className="text-4xl font-bold text-azur-blue">{fleetScore}</div>
+              <div className="text-4xl font-bold text-azur-blue">{Math.round(fleetScore)}</div>
               <div className="text-gray-500">综合评分</div>
             </div>
 

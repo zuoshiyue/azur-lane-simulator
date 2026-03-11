@@ -321,7 +321,7 @@ export const FleetSimulator: React.FC = () => {
               <span className="font-bold text-yellow-400">{ownedCharacters.length}</span>
             </div>
             <div className="bg-navy-light rounded-lg px-3 sm:px-4 py-2 text-white text-xs sm:text-sm">
-              战力：<span className="font-bold text-yellow-400">{calculatePower()}</span>
+              战力：<span className="font-bold text-yellow-400">{Math.round(calculatePower())}</span>
             </div>
           </div>
         </div>

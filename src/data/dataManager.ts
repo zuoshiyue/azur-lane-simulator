@@ -188,11 +188,12 @@ export const dataManager = {
     fleet.characters.forEach(char => {
       if (char) {
         const stats = char.stats;
-        power += stats.hp + stats.fire + stats.torpedo + stats.aviation + stats.reload;
-        power += char.rarity * 100;
+        // 使用更平衡的计算方式，避免数值过大
+        power += (stats.hp * 0.5) + stats.fire + (stats.torpedo * 1.2) + (stats.aviation * 1.2) + (stats.reload * 0.8);
+        power += char.rarity * 35; // 调整稀有度权重至更合理的水平
       }
     });
-    return power;
+    return Math.round(power); // 返回整数
   },
 
   /**

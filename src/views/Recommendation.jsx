@@ -14,7 +14,7 @@ function RecommendationCard({ recommendation, onApply }) {
           <p className="text-gray-500 text-sm">{recommendation.description}</p>
         </div>
         <div className="text-right">
-          <div className="text-2xl font-bold text-azur-blue">{recommendation.totalScore}</div>
+          <div className="text-2xl font-bold text-azur-blue">{Math.round(recommendation.totalScore)}</div>
           <div className="text-xs text-gray-500">综合评分</div>
         </div>
       </div>

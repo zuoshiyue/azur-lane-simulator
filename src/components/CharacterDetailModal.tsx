@@ -82,7 +82,14 @@ export const CharacterDetailModal: React.FC<CharacterDetailModalProps> = ({
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-white">{character.nameCn}</h2>
+              <h2 className="text-2xl font-bold text-white">
+                {character.nameCn}
+                {character.aliases && character.aliases.length > 0 && (
+                  <span className="ml-3 text-sm px-2 py-1 bg-purple-900 text-purple-200 rounded-full">
+                    {character.aliases.join('、')}
+                  </span>
+                )}
+              </h2>
               <p className="text-gray-300">{character.name}</p>
               <div className="flex items-center gap-2 mt-1">
                 <span className={`px-2 py-1 rounded text-xs font-medium ${getTypeColor(character.type)} text-white`}>

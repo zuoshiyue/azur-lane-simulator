@@ -110,7 +110,14 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
             </button>
           )}
           <div className="flex-1">
-            <div className="font-medium text-sm text-white">{character.nameCn}</div>
+            <div className="font-medium text-sm text-white">
+              {character.nameCn}
+              {character.aliases && character.aliases.length > 0 && (
+                <span className="ml-1 text-xs px-1.5 py-0.5 bg-purple-900 text-purple-200 rounded-full">
+                  {character.aliases.join('、')}
+                </span>
+              )}
+            </div>
             <div className="text-xs text-gray-300">{character.type} · {character.faction}</div>
           </div>
           <div className="flex items-center gap-2">
@@ -163,7 +170,14 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <h3 className="font-bold text-lg text-white">{character.nameCn}</h3>
+            <h3 className="font-bold text-lg text-white">
+              {character.nameCn}
+              {character.aliases && character.aliases.length > 0 && (
+                <span className="ml-2 text-xs px-2 py-0.5 bg-purple-900 text-purple-200 rounded-full">
+                  {character.aliases.join('、')}
+                </span>
+              )}
+            </h3>
             {owned && (
               <CheckCircle className="w-5 h-5 text-green-400" />
             )}

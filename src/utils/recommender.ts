@@ -41,13 +41,13 @@ const FACTION_BONUS: Record<string, number> = {
   '维希教廷': 1.05,
 };
 
-// 稀有度权重
+// 稀有度权重（调整后的校准分级）
 const RARITY_WEIGHTS: Record<number, number> = {
-  6: 100, // META
-  5: 80,  // SSR
-  4: 60,  // SR
-  3: 40,  // R
-  2: 20,  // N
+  6: 75,  // UR/META
+  5: 65,  // SSR - 降低了分数差距
+  4: 50,  // SR - 更符合实际价值
+  3: 35,  // R - 适中的加成
+  2: 20,  // N - 基础加成
   1: 10,
 };
 
@@ -240,7 +240,7 @@ function generateRecommendationReason(
   }
   
   // 战力评分
-  reasons.push(`💪 综合战力评分：${powerScore}`);
+  reasons.push(`💪 综合战力评分：${Math.round(powerScore)}`);
   
   // 问题提示
   if (balanceInfo.issues.length > 0) {

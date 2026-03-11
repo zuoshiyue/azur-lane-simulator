@@ -583,7 +583,14 @@ export const CharacterPoolManager: React.FC = () => {
                     {/* 角色信息 */}
                     <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4">
                       <div>
-                        <div className="font-bold text-white">{char.nameCn}</div>
+                        <div className="font-bold text-white">
+                          {char.nameCn}
+                          {char.aliases && char.aliases.length > 0 && (
+                            <span className="block text-xs text-purple-300 mt-1">
+                              ({char.aliases.join('、')})
+                            </span>
+                          )}
+                        </div>
                         <div className="text-sm text-gray-400">{char.name}</div>
                       </div>
                       <div>

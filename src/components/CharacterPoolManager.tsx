@@ -6,8 +6,9 @@ import { CharacterForm } from './CharacterForm';
 import { Character, ShipType } from '../types';
 import {
   Plus, Search, Filter, Trash2, Edit2, Download, Upload,
-  Grid, List, Database, Star, X, CheckCircle, AlertTriangle, PlusCircle
+  Grid, List, Database, Star, X, CheckCircle, AlertTriangle, PlusCircle, Eye
 } from 'lucide-react';
+import { CharacterDetailModal } from './CharacterDetailModal';
 
 export const CharacterPoolManager: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,6 +26,10 @@ export const CharacterPoolManager: React.FC = () => {
   const [visibleItemCount, setVisibleItemCount] = useState(50); // 初始显示 50 个
   const parentRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // 角色详情弹窗相关
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [showDetailModal, setShowDetailModal] = useState(false);
 
   const allCharacters = dataManager.getAllCharacters();
   const ownedCharacterIds = dataManager.getOwnedCharacterIds();
@@ -96,6 +101,12 @@ export const CharacterPoolManager: React.FC = () => {
       : filteredCharacters.map(c => c.id);
     const addedCount = dataManager.batchAddOwned(idsToAdd);
     alert(`已批量添加 ${addedCount} 个角色到已拥有列表`);
+  };
+
+  // 打开角色详情弹窗
+  const handleShowCharacterDetails = (character: Character) => {
+    setSelectedCharacter(character);
+    setShowDetailModal(true);
   };
 
   // 统计信息
@@ -192,22 +203,6 @@ export const CharacterPoolManager: React.FC = () => {
     URL.revokeObjectURL(url);
   };
 
-  const handleImport = () => {
-    try {
-      const characters = JSON.parse(importText);
-      if (Array.isArray(characters)) {
-        dataManager.importCharacters(characters);
-        setShowImportExport(false);
-        setImportText('');
-        alert(`成功导入 ${characters.length} 个角色！`);
-      } else {
-        alert('无效的 JSON 格式，应该是角色数组');
-      }
-    } catch (e) {
-      alert('JSON 解析失败：' + (e as Error).message);
-    }
-  };
-
   const handleFileImport = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -215,11 +210,9 @@ export const CharacterPoolManager: React.FC = () => {
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
-        const characters = JSON.parse(event.target?.result as string);
-        if (Array.isArray(characters)) {
-          dataManager.importCharacters(characters);
-          alert(`成功导入 ${characters.length} 个角色！`);
-        }
+        const content = event.target?.result as string;
+        const importedCount = dataManager.importOwnedCharacters(content);
+        alert(`成功导入 ${importedCount} 个新角色到已拥有列表！`);
       } catch (err) {
         alert('文件解析失败：' + (err as Error).message);
       }
@@ -227,6 +220,33 @@ export const CharacterPoolManager: React.FC = () => {
     reader.readAsText(file);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
+    }
+  };
+
+  // 导出已拥有角色
+  const handleExportOwned = () => {
+    const ownedData = dataManager.exportOwnedCharacters();
+    const blob = new Blob([ownedData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `owned-characters-${Date.now()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  // 导入已拥有角色
+  const handleImportOwned = () => {
+    try {
+      if (!importText.trim()) {
+        alert('请输入要导入的数据');
+        return;
+      }
+      const importedCount = dataManager.importOwnedCharacters(importText);
+      alert(`成功导入 ${importedCount} 个新角色到已拥有列表！`);
+      setImportText('');
+    } catch (e) {
+      alert('导入失败：' + (e as Error).message);
     }
   };
 
@@ -462,10 +482,19 @@ export const CharacterPoolManager: React.FC = () => {
                         window.dispatchEvent(new Event('storage'));
                       }
                     }}
+                    onShowDetails={handleShowCharacterDetails}
                   />
                   
                   {/* 操作按钮 */}
                   <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button
+                      onClick={() => handleShowCharacterDetails(char)}
+                      className="p-2 bg-purple-600/90 text-white rounded-lg hover:bg-purple-700 transition-colors shadow-lg"
+                      title="查看详情"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </button>
+                    <div className="w-px bg-gray-600/50 my-1" />
                     <button
                       onClick={() => toggleSelectCharacter(char.id)}
                       className={`p-2 rounded-lg transition-colors shadow-lg ${
@@ -521,7 +550,10 @@ export const CharacterPoolManager: React.FC = () => {
                       isSelected ? 'ring-2 ring-blue-500' : ''
                     }`}
                   >
-                    <div className="flex items-center gap-4">
+                    <div
+                      className="flex items-center gap-4 cursor-pointer hover:bg-navy-light/50 rounded-lg p-2 transition-colors"
+                      onClick={() => handleShowCharacterDetails(char)}
+                    >
                     {/* 选择框 */}
                     <input
                       type="checkbox"
@@ -529,7 +561,7 @@ export const CharacterPoolManager: React.FC = () => {
                       onChange={() => toggleSelectCharacter(char.id)}
                       className="w-5 h-5 rounded bg-navy-light border-navy-gold/20 text-blue-600 focus:ring-blue-500"
                     />
-                    
+
                     {/* 角色信息 */}
                     <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4">
                       <div>
@@ -554,7 +586,8 @@ export const CharacterPoolManager: React.FC = () => {
                     <div className="flex gap-2 items-center opacity-0 group-hover:opacity-100 transition-opacity">
                       {/* 设为已拥有/取消拥有按钮 */}
                       <button
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation(); // 阻止事件冒泡到父元素的点击事件
                           const isOwned = ownedCharacterIds.includes(char.id);
                           if (isOwned) {
                             const owned = dataManager.getOwnedCharacterIds().filter(id => id !== char.id);
@@ -576,7 +609,10 @@ export const CharacterPoolManager: React.FC = () => {
                       </button>
                       <div className="w-px bg-gray-600/50 my-1" />
                       <button
-                        onClick={() => toggleSelectCharacter(char.id)}
+                        onClick={(e) => {
+                          e.stopPropagation(); // 阻止事件冒泡
+                          toggleSelectCharacter(char.id);
+                        }}
                         className={`p-2 rounded-lg transition-colors shadow-lg ${
                           isSelected
                             ? 'bg-blue-600 text-white'
@@ -588,7 +624,10 @@ export const CharacterPoolManager: React.FC = () => {
                       </button>
                       <div className="w-px bg-gray-600/50 my-1" />
                       <button
-                        onClick={() => handleEditCharacter(char)}
+                        onClick={(e) => {
+                          e.stopPropagation(); // 阻止事件冒泡
+                          handleEditCharacter(char);
+                        }}
                         className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
                         title="编辑"
                       >
@@ -596,7 +635,10 @@ export const CharacterPoolManager: React.FC = () => {
                       </button>
                       <div className="w-px bg-gray-600/50 my-1" />
                       <button
-                        onClick={() => setShowDeleteConfirm(char.id)}
+                        onClick={(e) => {
+                          e.stopPropagation(); // 阻止事件冒泡
+                          setShowDeleteConfirm(char.id);
+                        }}
                         className="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg"
                         title="删除"
                       >
@@ -684,7 +726,7 @@ export const CharacterPoolManager: React.FC = () => {
               <div className="mb-6">
                 <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                   <Download className="w-5 h-5" />
-                  导出数据
+                  导出所有角色数据
                 </h4>
                 <p className="text-gray-400 text-sm mb-3">
                   将所有角色数据导出为 JSON 文件，可用于备份或分享
@@ -693,7 +735,7 @@ export const CharacterPoolManager: React.FC = () => {
                   onClick={handleExport}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
                 >
-                  导出 JSON 文件
+                  导出角色 JSON 文件
                 </button>
               </div>
 
@@ -701,7 +743,7 @@ export const CharacterPoolManager: React.FC = () => {
               <div className="mb-6">
                 <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                   <Upload className="w-5 h-5" />
-                  导入数据
+                  导入角色数据
                 </h4>
                 <p className="text-gray-400 text-sm mb-3">
                   从 JSON 文件导入角色数据，会自动合并到现有角色池
@@ -718,31 +760,104 @@ export const CharacterPoolManager: React.FC = () => {
                     onClick={() => fileInputRef.current?.click()}
                     className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
                   >
-                    选择 JSON 文件
+                    选择角色 JSON 文件
                   </button>
                 </div>
               </div>
 
-              {/* 文本导入 */}
-              <div>
-                <h4 className="text-lg font-bold text-white mb-3">或粘贴 JSON 文本</h4>
-                <textarea
-                  value={importText}
-                  onChange={(e) => setImportText(e.target.value)}
-                  placeholder='[{"id": "char_001", "name": "Enterprise", ...}]'
-                  className="w-full h-40 bg-navy-light border border-navy-gold/20 rounded-lg p-3 text-white font-mono text-sm focus:outline-none"
-                />
+              {/* 导出已拥有角色 */}
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                  <Download className="w-5 h-5" />
+                  导出已拥有角色
+                </h4>
+                <p className="text-gray-400 text-sm mb-3">
+                  将已拥有的角色 ID 列表导出为 JSON 格式，可用于备份或分享
+                </p>
                 <button
-                  onClick={handleImport}
-                  className="mt-3 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  onClick={handleExportOwned}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
                 >
-                  导入文本
+                  导出已拥有角色 JSON
                 </button>
+              </div>
+
+              {/* 导入已拥有角色 */}
+              <div>
+                <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                  <Upload className="w-5 h-5" />
+                  导入已拥有角色
+                </h4>
+                <p className="text-gray-400 text-sm mb-3">
+                  从 JSON 格式的角色 ID 数组导入已拥有角色列表
+                </p>
+
+                <div className="mb-3">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    或粘贴 JSON 数据
+                  </label>
+                  <textarea
+                    value={importText}
+                    onChange={(e) => setImportText(e.target.value)}
+                    placeholder='["char_106", "char_053", ...]'
+                    className="w-full h-32 bg-navy-light border border-navy-gold/20 rounded-lg p-3 text-white font-mono text-sm focus:outline-none"
+                  />
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleImportOwned}
+                    className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    从文本导入
+                  </button>
+
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".json"
+                    onChange={(e) => {
+                      // 创建一个单独的文件输入处理函数用于导入已拥有角色
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+
+                      const reader = new FileReader();
+                      reader.onload = (event) => {
+                        try {
+                          const content = event.target?.result as string;
+                          const importedCount = dataManager.importOwnedCharacters(content);
+                          alert(`成功导入 ${importedCount} 个新角色到已拥有列表！`);
+                        } catch (err) {
+                          alert('文件解析失败：' + (err as Error).message);
+                        }
+                      };
+                      reader.readAsText(file);
+                      if (fileInputRef.current) {
+                        fileInputRef.current.value = '';
+                      }
+                    }}
+                    className="hidden"
+                    id="import-owned-file-input"
+                  />
+                  <button
+                    onClick={() => document.getElementById('import-owned-file-input')?.click()}
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    从文件导入
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* 角色详情弹窗 */}
+      <CharacterDetailModal
+        character={selectedCharacter!}
+        isOpen={showDetailModal}
+        onClose={() => setShowDetailModal(false)}
+      />
     </div>
   );
 };

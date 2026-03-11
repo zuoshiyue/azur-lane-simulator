@@ -5,8 +5,9 @@ import { CharacterCard } from './CharacterCard';
 import { FleetSlot } from './FleetSlot';
 import { CharacterSearchModal } from './CharacterSearchModal';
 import { FleetRecommendationPanel } from './FleetRecommendationPanel';
+import { CharacterDetailModal } from './CharacterDetailModal';
 import { Character, Fleet, FleetType } from '../types';
-import { Users, Download, Sparkles, PlusCircle, Database, Copy, RotateCcw } from 'lucide-react';
+import { Users, Download, Sparkles, PlusCircle, Database, Copy, RotateCcw, Eye } from 'lucide-react';
 
 export const FleetSimulator: React.FC = () => {
   // 双阵容支持
@@ -26,9 +27,18 @@ export const FleetSimulator: React.FC = () => {
   const [showRecommendationPanel, setShowRecommendationPanel] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
+  // 角色详情弹窗相关
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [showDetailModal, setShowDetailModal] = useState(false);
   const [localCharacters, setLocalCharacters] = useState<Character[]>(
     dataManager.getCharacters()
   );
+
+  // 打开角色详情弹窗
+  const handleShowCharacterDetails = (character: Character) => {
+    setSelectedCharacter(character);
+    setShowDetailModal(true);
+  };
 
   // 当前活跃阵容
   const currentFleet = activeTab === 'fleet1' ? fleets.fleet1 : activeTab === 'fleet2' ? fleets.fleet2 : fleets.sub;
@@ -139,6 +149,43 @@ export const FleetSimulator: React.FC = () => {
   };
 
   const existingCharacterIds = localCharacters.map(c => c.id);
+
+  // 可拖拽角色组件 - 定义在主组件内部以便访问状态和函数
+  const DraggableCharacter: React.FC<{ character: Character }> = ({ character }) => {
+    const { attributes, listeners, setNodeRef, transform } = useDraggable({
+      id: character.id
+    });
+
+    const style = transform ? {
+      transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`
+    } : undefined;
+
+    return (
+      <div className="relative group">
+        <div ref={setNodeRef} {...listeners} {...attributes} style={style}>
+          <CharacterCard
+            character={character}
+            draggable
+            compact
+            onShowDetails={(char) => handleShowCharacterDetails(char)}
+          />
+        </div>
+        {/* 查看详情按钮 */}
+        <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleShowCharacterDetails(character);
+            }}
+            className="p-1 bg-purple-600/90 text-white rounded-md hover:bg-purple-700 transition-colors shadow-lg"
+            title="查看详情"
+          >
+            <Eye className="w-3 h-3" />
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy-dark via-navy-primary to-navy-accent p-4 sm:p-6">
@@ -426,23 +473,14 @@ export const FleetSimulator: React.FC = () => {
           />
         )}
       </div>
+
+      {/* 角色详情弹窗 */}
+      <CharacterDetailModal
+        character={selectedCharacter!}
+        isOpen={showDetailModal}
+        onClose={() => setShowDetailModal(false)}
+      />
     </div>
   );
 };
 
-// 可拖拽角色组件
-const DraggableCharacter: React.FC<{ character: Character }> = ({ character }) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: character.id
-  });
-
-  const style = transform ? {
-    transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`
-  } : undefined;
-
-  return (
-    <div ref={setNodeRef} {...listeners} {...attributes} style={style}>
-      <CharacterCard character={character} draggable compact />
-    </div>
-  );
-};

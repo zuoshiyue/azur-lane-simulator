@@ -7,6 +7,7 @@ interface CharacterCardProps {
   draggable?: boolean;
   onDragStart?: (e: React.DragEvent, character: Character) => void;
   onClick?: (character: Character) => void;
+  onShowDetails?: (character: Character) => void;  // 新增：打开详情弹窗
   compact?: boolean;
   selectable?: boolean;
   selected?: boolean;
@@ -25,7 +26,8 @@ const areEqual = (prev: CharacterCardProps, next: CharacterCardProps) => {
     prev.selectable === next.selectable &&
     prev.selected === next.selected &&
     prev.owned === next.owned &&
-    prev.showOwnedToggle === next.showOwnedToggle
+    prev.showOwnedToggle === next.showOwnedToggle &&
+    prev.onShowDetails === next.onShowDetails
   );
 };
 
@@ -34,6 +36,7 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
   draggable = false,
   onDragStart,
   onClick,
+  onShowDetails,
   compact = false,
   selectable = false,
   selected = false,
@@ -129,8 +132,11 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
     <div
       draggable={draggable}
       onDragStart={(e) => onDragStart?.(e, character)}
-      onClick={() => {
-        if (!showOwnedToggle) {
+      onClick={(e) => {
+        if (onShowDetails) {
+          e.stopPropagation(); // 阻止事件冒泡
+          onShowDetails(character);
+        } else {
           onClick?.(character);
         }
       }}

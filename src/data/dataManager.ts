@@ -196,6 +196,47 @@ export const dataManager = {
   },
 
   /**
+   * 导出已拥有角色为 JSON 格式
+   */
+  exportOwnedCharacters(): string {
+    const owned = this.getOwnedCharacterIds();
+    return JSON.stringify(owned, null, 2);
+  },
+
+  /**
+   * 从 JSON 字符串导入已拥有角色
+   * @param json JSON 格式的角色 ID 数组字符串
+   * @returns 成功导入的角色数量
+   */
+  importOwnedCharacters(json: string): number {
+    try {
+      const importedIds = JSON.parse(json);
+      if (!Array.isArray(importedIds)) {
+        throw new Error('导入数据格式错误：应为角色 ID 数组');
+      }
+
+      const validIds = importedIds.filter(id => typeof id === 'string');
+      const existingIds = this.getOwnedCharacterIds();
+
+      // 过滤掉已存在的角色ID
+      const newIds = validIds.filter(id => !existingIds.includes(id));
+
+      if (newIds.length > 0) {
+        const updatedIds = [...existingIds, ...newIds];
+        localStorage.setItem(STORAGE_KEYS.OWNED_CHARACTERS, JSON.stringify(updatedIds));
+      }
+
+      // 触发存储事件，通知其他组件更新
+      window.dispatchEvent(new Event('storage'));
+
+      return newIds.length;
+    } catch (error) {
+      console.error('导入已拥有角色失败:', error);
+      throw new Error(`导入失败: ${(error as Error).message}`);
+    }
+  },
+
+  /**
    * 推荐阵容
    */
   recommendFleet(_type?: string, _characters?: Character[]): any {

@@ -5,6 +5,7 @@ import { Sparkles, Trophy, Users, Heart, X, Check } from 'lucide-react';
 
 interface FleetRecommendationPanelProps {
   ownedCharacters: Character[];
+  occupiedCharacterIds: string[]; // 新增：被占用的角色ID
   onApplyFleet: (fleet: Fleet) => void;
   onClose: () => void;
 }
@@ -14,6 +15,7 @@ type FleetTypeSelection = 'surface' | 'submarine';
 
 export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> = ({
   ownedCharacters,
+  occupiedCharacterIds,
   onApplyFleet,
   onClose,
 }) => {
@@ -30,24 +32,25 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
   }, [ownedCharacters]);
 
   // 生成推荐
+  // 生成推荐
   const handleGenerate = () => {
     let recs: FleetRecommendation[] = [];
-    
+
     switch (selectedMode) {
       case 'strongest':
-        recs = recommendFleet(ownedCharacters, 'strongest', selectedFleetType);
+        recs = recommendFleet(ownedCharacters, 'strongest', selectedFleetType, { occupiedCharacterIds });
         break;
       case 'faction':
-        recs = recommendFleet(ownedCharacters, 'faction', selectedFleetType, { preferredFaction: selectedFaction });
+        recs = recommendFleet(ownedCharacters, 'faction', selectedFleetType, { preferredFaction: selectedFaction, occupiedCharacterIds });
         break;
       case 'beginner':
-        recs = recommendFleet(ownedCharacters, 'beginner', selectedFleetType);
+        recs = recommendFleet(ownedCharacters, 'beginner', selectedFleetType, { occupiedCharacterIds });
         break;
       case 'custom':
-        recs = recommendFleet(ownedCharacters, 'custom', selectedFleetType);
+        recs = recommendFleet(ownedCharacters, 'custom', selectedFleetType, { occupiedCharacterIds });
         break;
     }
-    
+
     setRecommendations(recs);
     setSelectedRecIndex(0);
   };

@@ -265,6 +265,7 @@ export function recommendFleet(
     preferredFaction?: string;
     preferredTypes?: string[];
     excludeSSR?: boolean;
+    occupiedCharacterIds?: string[]; // 新增：被占用的角色ID
   }
 ): FleetRecommendation[] {
   if (ownedCharacters.length === 0) {
@@ -275,7 +276,12 @@ export function recommendFleet(
   
   // 筛选可用角色
   let availableChars = [...ownedCharacters];
-  
+
+  // 如果提供了被占用的角色ID，则过滤掉这些角色
+  if (customOptions?.occupiedCharacterIds && customOptions.occupiedCharacterIds.length > 0) {
+    availableChars = availableChars.filter(char => !customOptions.occupiedCharacterIds!.includes(char.id));
+  }
+
   if (mode === 'beginner') {
     // 新手友好：排除高稀有度角色
     availableChars = availableChars.filter(c => c.rarity <= 4);

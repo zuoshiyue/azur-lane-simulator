@@ -14,6 +14,7 @@ export const CharacterPoolManager: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<ShipType | '全部'>('全部');
   const [selectedFaction, setSelectedFaction] = useState<string>('全部');
+  const [selectedRarity, setSelectedRarity] = useState<number | '全部'>('全部'); // 新增：稀有度过滤
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list'); // 默认列表模式以优化性能
   const [showForm, setShowForm] = useState(false);
   const [editingCharacter, setEditingCharacter] = useState<Character | undefined>();
@@ -56,9 +57,10 @@ export const CharacterPoolManager: React.FC = () => {
 
       const matchType = selectedType === '全部' || char.type === selectedType;
       const matchFaction = selectedFaction === '全部' || char.faction === selectedFaction;
+      const matchRarity = selectedRarity === '全部' || char.rarity === selectedRarity; // 新增：稀有度过滤
       const matchOwned = !showOwnedOnly || ownedCharacterIds.includes(char.id);
 
-      return matchSearch && matchType && matchFaction && matchOwned;
+      return matchSearch && matchType && matchFaction && matchRarity && matchOwned;
     }).sort((a, b) => {
       // 按稀有度降序排序，稀有度相同时按名称排序
       if (b.rarity !== a.rarity) {
@@ -66,7 +68,7 @@ export const CharacterPoolManager: React.FC = () => {
       }
       return a.nameCn.localeCompare(b.nameCn, 'zh-CN');
     });
-  }, [allCharacters, searchQuery, selectedType, selectedFaction, showOwnedOnly, ownedCharacterIds]);
+  }, [allCharacters, searchQuery, selectedType, selectedFaction, selectedRarity, showOwnedOnly, ownedCharacterIds]);
 
   // 虚拟滚动 - 列表模式
   const virtualizer = useVirtualizer({
@@ -432,6 +434,21 @@ export const CharacterPoolManager: React.FC = () => {
                 <option key={faction} value={faction}>{faction}</option>
               ))}
             </select>
+
+            {/* 稀有度筛选 - 新增 */}
+            <select
+              value={typeof selectedRarity === 'number' ? selectedRarity.toString() : selectedRarity}
+              onChange={(e) => setSelectedRarity(e.target.value === '全部' ? '全部' : Number(e.target.value))}
+              className="bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
+            >
+              <option value="全部">全部稀有度</option>
+              <option value="6">★★★★★★ (META)</option>
+              <option value="5">★★★★★ (SSR)</option>
+              <option value="4">★★★★ (SR)</option>
+              <option value="3">★★★ (R)</option>
+              <option value="2">★★ (N)</option>
+              <option value="1">★ (N)</option>
+            </select>
           </div>
         </div>
 
@@ -446,6 +463,7 @@ export const CharacterPoolManager: React.FC = () => {
                 setSearchQuery('');
                 setSelectedType('全部');
                 setSelectedFaction('全部');
+                setSelectedRarity('全部'); // 新增：重置稀有度筛选
               }}
               className="mt-4 text-blue-400 hover:text-blue-300"
             >

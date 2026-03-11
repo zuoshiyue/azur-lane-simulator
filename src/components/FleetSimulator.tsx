@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { DndContext, DragOverlay, useDraggable } from '@dnd-kit/core';
 import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
@@ -33,6 +33,21 @@ export const FleetSimulator: React.FC = () => {
   const [localCharacters, setLocalCharacters] = useState<Character[]>(
     dataManager.getCharacters()
   );
+
+  // 计算被占用的角色ID
+  const occupiedCharacterIds = useMemo(() => {
+    const ids = new Set<string>();
+    fleets.fleet1.characters.forEach(char => {
+      if (char) ids.add(char.id);
+    });
+    fleets.fleet2.characters.forEach(char => {
+      if (char) ids.add(char.id);
+    });
+    fleets.sub.characters.forEach(char => {
+      if (char) ids.add(char.id);
+    });
+    return Array.from(ids);
+  }, [fleets]);
 
   // 打开角色详情弹窗
   const handleShowCharacterDetails = (character: Character) => {
@@ -462,6 +477,7 @@ export const FleetSimulator: React.FC = () => {
         {showRecommendationPanel && (
           <FleetRecommendationPanel
             ownedCharacters={ownedCharacters}
+            occupiedCharacterIds={occupiedCharacterIds}
             onApplyFleet={(fleet) => {
               const newFleets = { ...fleets };
               const key = activeTab === 'fleet1' ? 'fleet1' : activeTab === 'fleet2' ? 'fleet2' : 'sub';

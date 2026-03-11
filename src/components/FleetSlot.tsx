@@ -77,29 +77,29 @@ export const FleetSlot: React.FC<FleetSlotProps> = ({
       onClick={onClick}
       className={`
         relative rounded-xl border-2 transition-all min-h-[180px]
-        ${character 
-          ? 'border-navy-gold/20 bg-navy-light/20' 
-          : isOver 
-            ? 'border-blue-400 bg-blue-500/20' 
+        ${character
+          ? 'border-navy-gold/20 bg-navy-light/20'
+          : isOver
+            ? 'border-blue-400 bg-blue-500/20'
             : 'border-gray-600 bg-gray-800/30'
         }
         ${showTypeMismatch ? 'border-red-500 bg-red-900/20' : ''}
       `}
     >
-      <div className="absolute top-2 left-2 text-xs text-gray-400">
+      <div className="absolute top-1 left-1 text-xs text-gray-400 z-10 bg-black/30 px-1 rounded">
         {slotType} {position}
       </div>
-      
+
       {showTypeMismatch && (
-        <div className="absolute top-2 right-2">
+        <div className="absolute top-1 right-1 z-10">
           <X className="w-3 h-3 text-red-400" />
         </div>
       )}
 
       {character ? (
-        <div className="p-3 h-full flex flex-col">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2 flex-1">
+        <div className="p-3 h-full flex flex-col pt-6"> {/* 增加pt-6来避免顶部信息遮挡 */}
+          <div className="flex items-center justify-between mb-2 flex-1 min-h-0">
+            <div className="flex items-center gap-2 flex-1 min-w-0">
               {/* 头像区域 */}
               <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ${getTypeColor(character.type)}`}>
                 {character.image ? (
@@ -160,8 +160,11 @@ export const FleetSlot: React.FC<FleetSlotProps> = ({
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-full text-gray-500">
-          <Anchor className="w-8 h-8 mb-2 opacity-50" />
-          <div className="text-sm">拖拽角色至此</div>
+          <div className="h-5"></div> {/* 为位置标签留出空间 */}
+          <div className="flex flex-col items-center justify-center h-full -mt-5">
+            <Anchor className="w-8 h-8 mb-2 opacity-50" />
+            <div className="text-sm">拖拽角色至此</div>
+          </div>
         </div>
       )}
     </div>

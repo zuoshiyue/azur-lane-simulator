@@ -6,12 +6,21 @@ import { FleetSlot } from './FleetSlot';
 import { CharacterSearchModal } from './CharacterSearchModal';
 import { FleetRecommendationPanel } from './FleetRecommendationPanel';
 import { Character, Fleet, FleetType } from '../types';
-import { Users, Download, Sparkles, PlusCircle, Database } from 'lucide-react';
+import { Users, Download, Sparkles, PlusCircle, Database, Copy, RotateCcw } from 'lucide-react';
 
 export const FleetSimulator: React.FC = () => {
-  const [currentFleet, setCurrentFleet] = useState<Fleet>(() =>
-    dataManager.createFleet('我的阵容')
-  );
+  // 双阵容支持
+  const [activeTab, setActiveTab] = useState<'fleet1' | 'fleet2' | 'sub'>('fleet1');
+  const [fleets, setFleets] = useState<{
+    fleet1: Fleet;
+    fleet2: Fleet;
+    sub: Fleet;
+  }>(() => ({
+    fleet1: dataManager.createFleet('海上阵容 1'),
+    fleet2: dataManager.createFleet('海上阵容 2'),
+    sub: dataManager.createFleet('潜艇阵容')
+  }));
+
   const [fleetType, setFleetType] = useState<FleetType>('surface');
   const [activeCharacter, setActiveCharacter] = useState<Character | null>(null);
   const [showRecommendationPanel, setShowRecommendationPanel] = useState(false);
@@ -20,7 +29,10 @@ export const FleetSimulator: React.FC = () => {
   const [localCharacters, setLocalCharacters] = useState<Character[]>(
     dataManager.getCharacters()
   );
-  
+
+  // 当前活跃阵容
+  const currentFleet = activeTab === 'fleet1' ? fleets.fleet1 : activeTab === 'fleet2' ? fleets.fleet2 : fleets.sub;
+
   // 获取已拥有的角色
   const ownedCharacterIds = dataManager.getOwnedCharacterIds();
   const ownedCharacters = localCharacters.filter(c => ownedCharacterIds.includes(c.id));
@@ -52,31 +64,64 @@ export const FleetSimulator: React.FC = () => {
 
       const character = localCharacters.find(c => c.id === characterId);
       if (character) {
-        const newFleet = { ...currentFleet };
-        newFleet.characters = [...newFleet.characters];
+        const newFleets = { ...fleets };
+        const currentFleetIndex = activeTab === 'fleet1' ? 'fleet1' : activeTab === 'fleet2' ? 'fleet2' : 'sub';
+        newFleets[currentFleetIndex] = { ...newFleets[currentFleetIndex] };
+        newFleets[currentFleetIndex].characters = [...newFleets[currentFleetIndex].characters];
 
-        const existingChar = newFleet.characters[slotIndex];
-        const oldIndex = newFleet.characters.findIndex(c => c?.id === characterId);
+        const existingChar = newFleets[currentFleetIndex].characters[slotIndex];
+        const oldIndex = newFleets[currentFleetIndex].characters.findIndex(c => c?.id === characterId);
 
-        newFleet.characters[slotIndex] = character;
+        newFleets[currentFleetIndex].characters[slotIndex] = character;
 
         if (oldIndex !== -1 && oldIndex !== slotIndex) {
-          newFleet.characters[oldIndex] = existingChar;
+          newFleets[currentFleetIndex].characters[oldIndex] = existingChar;
         }
 
-        setCurrentFleet(newFleet);
-        dataManager.updateFleet(newFleet);
+        setFleets(newFleets);
+        dataManager.updateFleet(newFleets[currentFleetIndex]);
       }
     }
   };
 
+  // 复制阵容到另一个
+  const copyFleet = (from: 'fleet1' | 'fleet2', to: 'fleet1' | 'fleet2') => {
+    const newFleets = { ...fleets };
+    const sourceFleet = newFleets[from];
+    newFleets[to] = {
+      ...sourceFleet,
+      id: to === 'fleet1' ? 'fleet1' : 'fleet2',
+      name: to === 'fleet1' ? '海上阵容 1' : '海上阵容 2',
+      characters: sourceFleet.characters.map(c => c ? { ...c } : null)
+    };
+    setFleets(newFleets);
+    dataManager.updateFleet(newFleets[to]);
+  };
+
+  // 清空当前阵容
+  const clearFleet = () => {
+    const newFleets = { ...fleets };
+    const currentFleetIndex = activeTab === 'fleet1' ? 'fleet1' : activeTab === 'fleet2' ? 'fleet2' : 'sub';
+    newFleets[currentFleetIndex] = dataManager.createFleet(
+      currentFleetIndex === 'fleet1' ? '海上阵容 1' : currentFleetIndex === 'fleet2' ? '海上阵容 2' : '潜艇阵容'
+    );
+    setFleets(newFleets);
+    dataManager.updateFleet(newFleets[currentFleetIndex]);
+  };
+
   const exportFleet = () => {
-    const json = dataManager.exportFleet(currentFleet);
+    // 导出所有阵容
+    const allFleets = {
+      fleet1: fleets.fleet1,
+      fleet2: fleets.fleet2,
+      sub: fleets.sub
+    };
+    const json = JSON.stringify(allFleets, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `fleet-${currentFleet.name}.json`;
+    a.download = `fleets-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -102,10 +147,82 @@ export const FleetSimulator: React.FC = () => {
         <div className="mb-4 sm:mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2 flex items-center gap-2 sm:gap-3">
             <Users className="w-6 h-6 sm:w-8 sm:h-8" />
-            <span className="hidden xs:inline">阵容模拟器</span>
+            <span className="hidden xs:inline">双阵容模拟器</span>
             <span className="xs:hidden">阵容</span>
           </h1>
-          <p className="text-gray-300 text-sm sm:text-base">拖拽角色组建你的最强舰队</p>
+          <p className="text-gray-300 text-sm sm:text-base">拖拽角色组建你的最强舰队（支持双海上阵容 + 潜艇）</p>
+        </div>
+
+        {/* 阵容标签页 */}
+        <div className="mb-4 sm:mb-6">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            {/* 标签页切换 */}
+            <div className="flex bg-navy-light/50 rounded-lg p-1 border border-navy-gold/20">
+              <button
+                onClick={() => setActiveTab('fleet1')}
+                className={`px-3 sm:px-4 py-2 rounded-md transition-all btn-base ${
+                  activeTab === 'fleet1'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg font-medium'
+                    : 'text-gray-300 hover:text-white hover:bg-navy-light'
+                }`}
+              >
+                海上 1
+              </button>
+              <button
+                onClick={() => setActiveTab('fleet2')}
+                className={`px-3 sm:px-4 py-2 rounded-md transition-all btn-base ${
+                  activeTab === 'fleet2'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg font-medium'
+                    : 'text-gray-300 hover:text-white hover:bg-navy-light'
+                }`}
+              >
+                海上 2
+              </button>
+              <button
+                onClick={() => setActiveTab('sub')}
+                className={`px-3 sm:px-4 py-2 rounded-md transition-all btn-base ${
+                  activeTab === 'sub'
+                    ? 'bg-gradient-to-r from-navy-gold to-ocean-light text-white shadow-lg font-medium'
+                    : 'text-gray-300 hover:text-white hover:bg-navy-light'
+                }`}
+              >
+                潜艇
+              </button>
+            </div>
+
+            {/* 阵容操作按钮 */}
+            <div className="flex flex-wrap gap-2 ml-auto">
+              {activeTab !== 'sub' && (
+                <>
+                  <button
+                    onClick={() => copyFleet(activeTab, activeTab === 'fleet1' ? 'fleet2' : 'fleet1')}
+                    className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                    title="复制到另一个阵容"
+                  >
+                    <Copy className="w-4 h-4" />
+                    <span className="hidden sm:inline">复制到</span>
+                    <span className="sm:hidden">复制</span>
+                  </button>
+                </>
+              )}
+              <button
+                onClick={clearFleet}
+                className="flex items-center gap-1 bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                title="清空当前阵容"
+              >
+                <RotateCcw className="w-4 h-4" />
+                <span className="hidden sm:inline">清空</span>
+              </button>
+              <button
+                onClick={exportFleet}
+                className="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                title="导出所有阵容"
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden sm:inline">导出</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* 操作栏 */}
@@ -134,20 +251,12 @@ export const FleetSimulator: React.FC = () => {
               <span className="hidden xs:inline">智能推荐</span>
               <span className="xs:hidden">推荐</span>
             </button>
-            <button
-              onClick={exportFleet}
-              className="flex items-center justify-center gap-1 sm:gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base"
-            >
-              <Download className="w-4 h-4" />
-              <span className="hidden xs:inline">导出阵容</span>
-              <span className="xs:hidden">导出</span>
-            </button>
           </div>
           <div className="flex gap-2">
             <div className="bg-navy-light rounded-lg px-3 sm:px-4 py-2 text-white flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
               <Database className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">角色池：</span>
-              <span className="font-bold text-yellow-400">{localCharacters.length}</span>
+              <span className="hidden sm:inline">已拥有：</span>
+              <span className="font-bold text-yellow-400">{ownedCharacters.length}</span>
             </div>
             <div className="bg-navy-light rounded-lg px-3 sm:px-4 py-2 text-white text-xs sm:text-sm">
               战力：<span className="font-bold text-yellow-400">{calculatePower()}</span>
@@ -202,43 +311,70 @@ export const FleetSimulator: React.FC = () => {
                 <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
                   {currentFleet.name}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  {[0, 1, 2].map(i => (
-                    <FleetSlot
-                      key={`slot-${i + 1}`}
-                      id={`slot-${i + 1}`}
-                      position={i + 1}
-                      slotType={fleetType === 'submarine' ? '潜艇' : i < 3 ? '先锋' : '主力'}
-                      fleetType={fleetType}
-                      character={fleetType === 'submarine' ? currentFleet.characters[i + 3] : currentFleet.characters[i]}
-                      onRemove={() => {
-                        const	idx = fleetType === 'submarine' ? i + 3 : i;
-                        const newFleet = { ...currentFleet };
-                        newFleet.characters[idx] = null;
-                        setCurrentFleet(newFleet);
-                        dataManager.updateFleet(newFleet);
-                      }}
-                    />
-                  ))}
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                  {[3, 4, 5].map(i => (
-                    <FleetSlot
-                      key={`slot-${i + 1}`}
-                      id={`slot-${i + 1}`}
-                      position={i + 1}
-                      slotType={fleetType === 'submarine' ? '潜艇' : i >= 3 ? '主力' : '先锋'}
-                      fleetType={fleetType}
-                      character={fleetType === 'submarine' ? null : currentFleet.characters[i]}
-                      onRemove={() => {
-                        const newFleet = { ...currentFleet };
-                        newFleet.characters[i] = null;
-                        setCurrentFleet(newFleet);
-                        dataManager.updateFleet(newFleet);
-                      }}
-                    />
-                  ))}
-                </div>
+
+                {/* 潜艇阵容 - 单排显示 */}
+                {activeTab === 'sub' ? (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+                    {[0, 1, 2, 3, 4, 5].map(i => (
+                      <FleetSlot
+                        key={`slot-${i + 1}`}
+                        id={`slot-${i + 1}`}
+                        position={i + 1}
+                        slotType="潜艇"
+                        fleetType="submarine"
+                        character={currentFleet.characters[i]}
+                        onRemove={() => {
+                          const newFleets = { ...fleets };
+                          newFleets.sub.characters[i] = null;
+                          setFleets(newFleets);
+                          dataManager.updateFleet(newFleets.sub);
+                        }}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  /* 水面阵容 - 两排显示 */
+                  <>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4">
+                      {[0, 1, 2].map(i => (
+                        <FleetSlot
+                          key={`slot-${i + 1}`}
+                          id={`slot-${i + 1}`}
+                          position={i + 1}
+                          slotType="先锋"
+                          fleetType="surface"
+                          character={currentFleet.characters[i]}
+                          onRemove={() => {
+                            const newFleets = { ...fleets };
+                            const key = activeTab === 'fleet1' ? 'fleet1' : 'fleet2';
+                            newFleets[key].characters[i] = null;
+                            setFleets(newFleets);
+                            dataManager.updateFleet(newFleets[key]);
+                          }}
+                        />
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                      {[3, 4, 5].map(i => (
+                        <FleetSlot
+                          key={`slot-${i + 1}`}
+                          id={`slot-${i + 1}`}
+                          position={i + 1}
+                          slotType="主力"
+                          fleetType="surface"
+                          character={currentFleet.characters[i]}
+                          onRemove={() => {
+                            const newFleets = { ...fleets };
+                            const key = activeTab === 'fleet1' ? 'fleet1' : 'fleet2';
+                            newFleets[key].characters[i] = null;
+                            setFleets(newFleets);
+                            dataManager.updateFleet(newFleets[key]);
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* 推荐阵容提示 - 移动端隐藏 */}
@@ -280,8 +416,11 @@ export const FleetSimulator: React.FC = () => {
           <FleetRecommendationPanel
             ownedCharacters={ownedCharacters}
             onApplyFleet={(fleet) => {
-              setCurrentFleet(fleet);
-              dataManager.updateFleet(fleet);
+              const newFleets = { ...fleets };
+              const key = activeTab === 'fleet1' ? 'fleet1' : activeTab === 'fleet2' ? 'fleet2' : 'sub';
+              newFleets[key] = { ...fleet, id: newFleets[key].id, name: newFleets[key].name };
+              setFleets(newFleets);
+              dataManager.updateFleet(newFleets[key]);
             }}
             onClose={() => setShowRecommendationPanel(false)}
           />

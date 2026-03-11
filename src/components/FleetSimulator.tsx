@@ -8,8 +8,9 @@ import { FleetRecommendationPanel } from './FleetRecommendationPanel';
 import { CharacterDetailModal } from './CharacterDetailModal';
 import { FleetSaveLoadPanel } from './FleetSaveLoadPanel';
 import { FleetComparisonPanel } from './FleetComparisonPanel';
+import { PositionImportPanel } from './PositionImportPanel';
 import { Character, Fleet, FleetType } from '../types';
-import { Users, Download, Sparkles, PlusCircle, Database, Copy, RotateCcw, Eye } from 'lucide-react';
+import { Users, Download, Sparkles, PlusCircle, Database, Copy, RotateCcw, Eye, Camera } from 'lucide-react';
 
 export const FleetSimulator: React.FC = () => {
   // 双阵容支持
@@ -29,6 +30,8 @@ export const FleetSimulator: React.FC = () => {
   const [showRecommendationPanel, setShowRecommendationPanel] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
+  // 位置截图导入相关
+  const [showPositionImportPanel, setShowPositionImportPanel] = useState(false);
   // 角色详情弹窗相关
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [showDetailModal, setShowDetailModal] = useState(false);
@@ -173,6 +176,11 @@ export const FleetSimulator: React.FC = () => {
     }
   };
 
+  const handlePositionImportComplete = (characterIds: string[]) => {
+    // Refresh the character list after import
+    setLocalCharacters(dataManager.getCharacters());
+  };
+
   const existingCharacterIds = localCharacters.map(c => c.id);
 
   // 可拖拽角色组件 - 定义在主组件内部以便访问状态和函数
@@ -314,6 +322,14 @@ export const FleetSimulator: React.FC = () => {
               <PlusCircle className="w-4 h-4" />
               <span className="hidden xs:inline">添加角色</span>
               <span className="xs:hidden">添加</span>
+            </button>
+            <button
+              onClick={() => setShowPositionImportPanel(true)}
+              className="flex items-center justify-center gap-1 sm:gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base"
+            >
+              <Camera className="w-4 h-4" />
+              <span className="hidden xs:inline">识别截图</span>
+              <span className="xs:hidden">截图</span>
             </button>
             <button
               onClick={() => setShowRecommendationPanel(true)}
@@ -527,6 +543,14 @@ export const FleetSimulator: React.FC = () => {
               dataManager.updateFleet(newFleets[key]);
             }}
             onClose={() => setShowRecommendationPanel(false)}
+          />
+        )}
+
+        {/* 位置导入面板 */}
+        {showPositionImportPanel && (
+          <PositionImportPanel
+            onClose={() => setShowPositionImportPanel(false)}
+            onImportComplete={handlePositionImportComplete}
           />
         )}
       </div>

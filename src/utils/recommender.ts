@@ -11,6 +11,7 @@
  */
 
 import { Character, Fleet, FleetRecommendation, FleetType, FleetSlotType, TYPE_TO_SLOT } from '../types';
+import { feedbackManager, getAdjustedWeights } from './feedback';
 import {
   FRONT_ROW_POSITIONS,
   BACK_ROW_POSITIONS,
@@ -18,6 +19,119 @@ import {
   SHIP_TIER_LIST,
   AWAKENING_TIER_LIST
 } from '../data/fleetGuideRules';
+
+// 缓存对象，用于存储角色力量计算结果
+const characterPowerCache = new Map<string, number>();
+
+// 缓存键生成器，考虑角色ID、舰队类型和可能影响力量计算的因素
+function getCharacterPowerCacheKey(characterId: string, fleetType: FleetType): string {
+  return `${characterId}:${fleetType}`;
+}
+
+// 清除缓存的函数
+export function clearCharacterPowerCache(): void {
+  characterPowerCache.clear();
+}
+
+// 批量缓存操作
+export function batchCalculateCharacterPower(characters: Character[], fleetType: FleetType = 'surface'): number[] {
+  return characters.map(char => calculateCharacterPower(char, fleetType));
+}
+
+// 缓存带有时效性的推荐结果
+const recommendationCache = new Map<string, { data: FleetRecommendation[], timestamp: number }>();
+const CACHE_DURATION = 5 * 60 * 1000; // 5分钟缓存
+
+// 为缓存键添加更详细的参数
+function getRecommendationCacheKey(
+  ownedCharacterIds: string[],
+  mode: string,
+  fleetType: FleetType,
+  customOptions?: {
+    preferredFaction?: string;
+    preferredTypes?: string[];
+    excludeSSR?: boolean;
+    occupiedCharacterIds?: string[];
+  }
+): string {
+  const sortedIds = [...ownedCharacterIds].sort().join(',');
+  const occupiedIds = customOptions?.occupiedCharacterIds ? [...customOptions.occupiedCharacterIds].sort().join(',') : '';
+
+  return `${sortedIds}:${mode}:${fleetType}:${customOptions?.preferredFaction || ''}:${occupiedIds}`;
+}
+
+// 生成唯一的推荐ID
+function generateRecommendationId(): string {
+  return `rec_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+}
+
+/**
+ * 记录推荐采纳反馈
+ * @param fleet 推荐的舰队
+ * @param applied 是否应用了此推荐
+ * @param effectiveness 应用后效果评分 (1-5)
+ * @param userId 用户ID（可选）
+ */
+export function recordRecommendationFeedback(
+  fleet: Fleet,
+  applied: boolean,
+  effectiveness?: number,
+  userId?: string
+): string {
+  // 提取舰队中的角色ID
+  const fleetCharacterIds = fleet.characters
+    .filter(char => char !== null)
+    .map(char => char!.id);
+
+  // 创建推荐唯一标识
+  const recommendationId = generateRecommendationId();
+
+  // 添加反馈记录
+  return feedbackManager.addFeedback({
+    recommendationId,
+    userId,
+    feedbackType: applied ? 'positive' : 'ignore',
+    applied,
+    effectiveness: effectiveness !== undefined ? effectiveness : applied ? 4 : 2, // 默认应用效果为4，未应用效果为2
+    fleetComposition: fleetCharacterIds,
+    rating: effectiveness // 使用效果评分作为rating
+  });
+}
+
+/**
+ * 获取推荐采纳率统计
+ * @param userId 用户ID（可选），如果不提供则返回全站统计
+ */
+export function getRecommendationEffectivenessStats(userId?: string): {
+  adoptionRate: number;
+  averageEffectiveness: number;
+  totalRecommendations: number;
+} {
+  const feedbacks = userId
+    ? feedbackManager.getUserFeedback(userId)
+    : feedbackManager.getUserFeedback();
+
+  const total = feedbacks.length;
+  if (total === 0) {
+    return {
+      adoptionRate: 0,
+      averageEffectiveness: 0,
+      totalRecommendations: 0
+    };
+  }
+
+  const appliedCount = feedbacks.filter(f => f.applied === true).length;
+  const effectivenessSum = feedbacks
+    .filter(f => f.effectiveness !== undefined)
+    .reduce((sum, f) => sum + (f.effectiveness || 0), 0);
+  const effectivenessCount = feedbacks.filter(f => f.effectiveness !== undefined).length;
+
+  return {
+    adoptionRate: appliedCount / total,
+    averageEffectiveness: effectivenessCount > 0 ? effectivenessSum / effectivenessCount : 0,
+    totalRecommendations: total
+  };
+}
 
 // 舰种分类 - 先锋（前排）
 const FRONT_ROW_TYPES: FleetSlotType[] = ['先锋'];
@@ -42,7 +156,7 @@ const FACTION_BONUS: Record<string, number> = {
 };
 
 // 稀有度权重（调整后的校准分级）
-const RARITY_WEIGHTS: Record<number, number> = {
+let RARITY_WEIGHTS_BASE: Record<number, number> = {
   6: 85,  // UR
   5: 80,  // SSR
   4: 60,  // SR
@@ -51,8 +165,25 @@ const RARITY_WEIGHTS: Record<number, number> = {
   1: 10,
 };
 
+// 动态稀有度权重（可以根据反馈调整）
+let RARITY_WEIGHTS: Record<number, number> = { ...RARITY_WEIGHTS_BASE };
+
+// 更新权重的函数
+export function updateRarityWeightsBasedOnFeedback(): void {
+  const adjustedWeights = getAdjustedWeights(RARITY_WEIGHTS_BASE);
+
+  // 将调整后的权重应用到基础权重上
+  RARITY_WEIGHTS = { ...RARITY_WEIGHTS_BASE };
+  Object.keys(adjustedWeights).forEach(key => {
+    const rarity = parseInt(key);
+    if (!isNaN(rarity) && RARITY_WEIGHTS.hasOwnProperty(rarity)) {
+      RARITY_WEIGHTS[rarity] = adjustedWeights[rarity];
+    }
+  });
+}
+
 // 舰种强度系数（不同舰种在不同位置的强度）
-const TYPE_POWER_COEFFICIENTS: Record<string, number> = {
+let TYPE_POWER_COEFFICIENTS_BASE: Record<string, number> = {
   '驱逐': 0.85,
   '轻巡': 0.90,
   '重巡': 0.95,
@@ -65,10 +196,33 @@ const TYPE_POWER_COEFFICIENTS: Record<string, number> = {
   '运输': 0.70,
 };
 
+// 动态舰种强度系数（可以根据反馈调整）
+let TYPE_POWER_COEFFICIENTS: Record<string, number> = { ...TYPE_POWER_COEFFICIENTS_BASE };
+
+// 更新舰种系数的函数
+export function updateTypeCoefficientsBasedOnFeedback(): void {
+  const adjustedWeights = getAdjustedWeights(TYPE_POWER_COEFFICIENTS_BASE);
+
+  // 将调整后的权重应用到基础权重上
+  TYPE_POWER_COEFFICIENTS = { ...TYPE_POWER_COEFFICIENTS_BASE };
+  Object.keys(adjustedWeights).forEach(key => {
+    if (TYPE_POWER_COEFFICIENTS.hasOwnProperty(key)) {
+      TYPE_POWER_COEFFICIENTS[key] = adjustedWeights[key];
+    }
+  });
+}
+
 /**
  * 计算角色综合强度评分
  */
 export function calculateCharacterPower(character: Character, fleetType: FleetType = 'surface'): number {
+  const cacheKey = getCharacterPowerCacheKey(character.id, fleetType);
+
+  // 检查缓存
+  if (characterPowerCache.has(cacheKey)) {
+    return characterPowerCache.get(cacheKey)!;
+  }
+
   const stats = character.stats;
 
   // 基础属性分
@@ -87,6 +241,17 @@ export function calculateCharacterPower(character: Character, fleetType: FleetTy
   // 舰种系数
   const typeCoefficient = TYPE_POWER_COEFFICIENTS[character.type] || 1.0;
 
+  // 检查是否有基于反馈的更新
+  if (Object.keys(RARITY_WEIGHTS).length !== Object.keys(RARITY_WEIGHTS_BASE).length ||
+      Object.keys(TYPE_POWER_COEFFICIENTS).length !== Object.keys(TYPE_POWER_COEFFICIENTS_BASE).length) {
+    // 如果权重已经改变，重新计算
+    updateRarityWeightsBasedOnFeedback();
+    updateTypeCoefficientsBasedOnFeedback();
+    // 递归调用自身以应用新权重
+    characterPowerCache.delete(cacheKey); // 删除缓存以强制重新计算
+    return calculateCharacterPower(character, fleetType);
+  }
+
   // 潜艇有特殊加成（水下作战）
   const isSubmarine = character.type === '潜艇';
   const subBonus = isSubmarine ? 1.15 : 1.0;
@@ -102,8 +267,12 @@ export function calculateCharacterPower(character: Character, fleetType: FleetTy
 
   // 综合评分
   const totalScore = (baseScore + rarityBonus) * typeCoefficient * subBonus * fleetTypeBonus;
+  const roundedScore = Math.round(totalScore);
 
-  return Math.round(totalScore);
+  // 存储到缓存
+  characterPowerCache.set(cacheKey, roundedScore);
+
+  return roundedScore;
 }
 
 /**
@@ -272,6 +441,19 @@ export function recommendFleet(
     return [];
   }
 
+  // 检查缓存
+  const cacheKey = getRecommendationCacheKey(
+    ownedCharacters.map(c => c.id),
+    mode,
+    fleetType,
+    customOptions
+  );
+
+  const cached = recommendationCache.get(cacheKey);
+  if (cached && (Date.now() - cached.timestamp) < CACHE_DURATION) {
+    return cached.data;
+  }
+
   const recommendations: FleetRecommendation[] = [];
 
   // 筛选可用角色
@@ -437,6 +619,12 @@ export function recommendFleet(
 
   // 按评分排序
   recommendations.sort((a, b) => b.power - a.power);
+
+  // 缓存结果
+  recommendationCache.set(cacheKey, {
+    data: recommendations,
+    timestamp: Date.now()
+  });
 
   return recommendations;
 }

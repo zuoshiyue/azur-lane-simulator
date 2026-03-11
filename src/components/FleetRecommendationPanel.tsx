@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { Character, Fleet, FleetRecommendation } from '../types';
 import { recommendFleet } from '../utils/recommender';
 import { recommendFleetExtended } from '../utils/recommenderExtended';
-import { Sparkles, Trophy, Users, Heart, X, Check, Info } from 'lucide-react';
+import { recordRecommendationFeedback } from '../utils/recommender';
+import { Sparkles, Trophy, Users, Heart, X, Check, Info, ThumbsUp, ThumbsDown } from 'lucide-react';
 
 interface FleetRecommendationPanelProps {
   ownedCharacters: Character[];
@@ -16,7 +17,7 @@ type RecommendationMode = 'strongest' | 'faction' | 'beginner' | 'custom' |
                         'anti_air' | 'sub_hunter' | 'fast_move' | 'tank';
 type FleetTypeSelection = 'surface' | 'submarine';
 
-export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> = ({
+export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> = memo(({
   ownedCharacters,
   occupiedCharacterIds,
   onApplyFleet,
@@ -36,7 +37,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
   }, [ownedCharacters]);
 
   // 推荐模式配置
-  const recommendationModes = [
+  const recommendationModes = useMemo(() => [
     {
       id: 'strongest',
       label: '最强阵容',
@@ -121,10 +122,10 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
       icon: Heart,
       color: 'from-stone-500 to-gray-600'
     }
-  ];
+  ], []);
 
   // 生成推荐
-  const handleGenerate = () => {
+  const handleGenerate = useCallback(() => {
     let recs: FleetRecommendation[] = [];
 
     // 根据选择的模式调用相应的推荐函数
@@ -163,18 +164,37 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
 
     setRecommendations(recs);
     setSelectedRecIndex(0);
-  };
+  }, [selectedMode, selectedFleetType, selectedFaction, ownedCharacters, occupiedCharacterIds]);
 
   // 应用阵容
-  const handleApply = () => {
+  const handleApply = useCallback(() => {
     if (recommendations[selectedRecIndex]) {
+      // 记录推荐采纳反馈
+      recordRecommendationFeedback(
+        recommendations[selectedRecIndex].fleet,
+        true, // 应用推荐
+        4, // 默认效果评分为4
+        undefined // 可以添加用户ID
+      );
+
       onApplyFleet(recommendations[selectedRecIndex].fleet);
       onClose();
     }
-  };
+  }, [recommendations, selectedRecIndex, onApplyFleet, onClose]);
 
   // 当前选中的推荐
   const currentRec = recommendations[selectedRecIndex];
+
+  // Memoized character stats display
+  const characterDisplay = useMemo(() => (
+    <div className="text-xs text-gray-500 mt-1">
+      超稀有(UR): {ownedCharacters.filter(c => c.rarity === 6).length} |
+      精锐(SSR): {ownedCharacters.filter(c => c.rarity === 5).length} |
+      稀有(SR): {ownedCharacters.filter(c => c.rarity === 4).length} |
+      普通(R): {ownedCharacters.filter(c => c.rarity === 3).length} |
+      一般(N): {ownedCharacters.filter(c => c.rarity <= 2).length}
+    </div>
+  ), [ownedCharacters]);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -291,13 +311,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
             <div className="bg-gray-700 rounded-lg p-4 mb-6">
               <div className="text-sm text-gray-400 mb-2">可用角色</div>
               <div className="text-2xl font-bold text-white">{ownedCharacters.length}</div>
-              <div className="text-xs text-gray-500 mt-1">
-                超稀有(UR): {ownedCharacters.filter(c => c.rarity === 6).length} |
-                精锐(SSR): {ownedCharacters.filter(c => c.rarity === 5).length} |
-                稀有(SR): {ownedCharacters.filter(c => c.rarity === 4).length} |
-                普通(R): {ownedCharacters.filter(c => c.rarity === 3).length} |
-                一般(N): {ownedCharacters.filter(c => c.rarity <= 2).length}
-              </div>
+              {characterDisplay}
             </div>
 
             {/* 生成按钮 */}
@@ -427,6 +441,47 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
                         取消
                       </button>
                     </div>
+
+                    {/* 推荐有效性反馈 */}
+                    <div className="mt-4 pt-4 border-t border-gray-700">
+                      <h4 className="font-bold text-white mb-2 text-sm">对这个推荐满意吗？</h4>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => {
+                            // 记录正面反馈
+                            if (currentRec) {
+                              recordRecommendationFeedback(
+                                currentRec.fleet,
+                                false, // 没有应用推荐
+                                5, // 效果评分5星
+                                undefined // 用户ID
+                              );
+                            }
+                          }}
+                          className="flex-1 flex items-center justify-center gap-1 bg-green-700 hover:bg-green-600 text-white py-2 px-3 rounded-lg transition-colors text-sm"
+                        >
+                          <ThumbsUp className="w-4 h-4" />
+                          很好
+                        </button>
+                        <button
+                          onClick={() => {
+                            // 记录负面反馈
+                            if (currentRec) {
+                              recordRecommendationFeedback(
+                                currentRec.fleet,
+                                false, // 没有应用推荐
+                                1, // 效果评分1星
+                                undefined // 用户ID
+                              );
+                            }
+                          }}
+                          className="flex-1 flex items-center justify-center gap-1 bg-red-700 hover:bg-red-600 text-white py-2 px-3 rounded-lg transition-colors text-sm"
+                        >
+                          <ThumbsDown className="w-4 h-4" />
+                          不太好
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
               </>
@@ -442,13 +497,13 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
       />
     </div>
   );
-};
+});
 
 // 推荐算法信息弹窗组件
-const AlgorithmInfoModal: React.FC<{
+const AlgorithmInfoModal = memo(({ isOpen, onClose }: {
   isOpen: boolean;
   onClose: () => void
-}> = ({ isOpen, onClose }) => {
+}) => {
   if (!isOpen) return null;
 
   return (
@@ -527,4 +582,4 @@ const AlgorithmInfoModal: React.FC<{
       </div>
     </div>
   );
-};
+});

@@ -25,11 +25,20 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     const root = document.documentElement;
 
+    // Remove all theme classes first
+    root.classList.remove('light', 'dark');
+
     if (theme === 'auto') {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.classList.toggle('dark', prefersDark);
-    } else {
-      root.classList.toggle('dark', theme === 'dark');
+      if (prefersDark) {
+        root.classList.add('dark');
+      } else {
+        root.classList.add('light');
+      }
+    } else if (theme === 'dark') {
+      root.classList.add('dark');
+    } else { // theme === 'light'
+      root.classList.add('light');
     }
 
     localStorage.setItem('theme', theme);

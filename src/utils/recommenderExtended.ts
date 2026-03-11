@@ -5,6 +5,46 @@
  */
 
 import { Character, Fleet, FleetRecommendation, FleetType, TYPE_TO_SLOT } from '../types';
+import { recommendFleet } from './recommender'; // Import the basic recommendFleet function
+import { feedbackManager, getAdjustedWeights } from './feedback';
+
+// 缓存对象，用于存储角色力量计算结果
+const characterPowerCache = new Map<string, number>();
+
+// 缓存键生成器，考虑角色ID、舰队类型和可能影响力量计算的因素
+function getCharacterPowerCacheKey(characterId: string, fleetType: FleetType): string {
+  return `${characterId}:${fleetType}`;
+}
+
+// 清除缓存的函数
+export function clearCharacterPowerCache(): void {
+  characterPowerCache.clear();
+}
+
+// 批量缓存操作
+export function batchCalculateCharacterPower(characters: Character[], fleetType: FleetType = 'surface'): number[] {
+  return characters.map(char => calculateCharacterPower(char, fleetType));
+}
+
+// 缓存带有时效性的推荐结果
+const recommendationCache = new Map<string, { data: FleetRecommendation[], timestamp: number }>();
+const CACHE_DURATION = 5 * 60 * 1000; // 5分钟缓存
+
+// 为缓存键添加更详细的参数
+function getRecommendationCacheKey(
+  ownedCharacterIds: string[],
+  mode: string,
+  customOptions?: {
+    preferredFaction?: string;
+    occupiedCharacterIds?: string[];
+    nValue?: number;
+  }
+): string {
+  const sortedIds = [...ownedCharacterIds].sort().join(',');
+  const occupiedIds = customOptions?.occupiedCharacterIds ? [...customOptions.occupiedCharacterIds].sort().join(',') : '';
+
+  return `${sortedIds}:${mode}:${customOptions?.preferredFaction || ''}:${occupiedIds}`;
+}
 
 // 阵营协同加成
 const FACTION_BONUS: Record<string, number> = {
@@ -20,7 +60,7 @@ const FACTION_BONUS: Record<string, number> = {
 };
 
 // 稀有度权重（调整后的校准分级）
-const RARITY_WEIGHTS: Record<number, number> = {
+let RARITY_WEIGHTS_BASE: Record<number, number> = {
   6: 85,  // UR
   5: 80,  // SSR
   4: 60,  // SR
@@ -29,8 +69,25 @@ const RARITY_WEIGHTS: Record<number, number> = {
   1: 10,
 };
 
+// 动态稀有度权重（可以根据反馈调整）
+let RARITY_WEIGHTS: Record<number, number> = { ...RARITY_WEIGHTS_BASE };
+
+// 更新权重的函数
+export function updateRarityWeightsBasedOnFeedbackExtended(): void {
+  const adjustedWeights = getAdjustedWeights(RARITY_WEIGHTS_BASE);
+
+  // 将调整后的权重应用到基础权重上
+  RARITY_WEIGHTS = { ...RARITY_WEIGHTS_BASE };
+  Object.keys(adjustedWeights).forEach(key => {
+    const rarity = parseInt(key);
+    if (!isNaN(rarity) && RARITY_WEIGHTS.hasOwnProperty(rarity)) {
+      RARITY_WEIGHTS[rarity] = adjustedWeights[rarity];
+    }
+  });
+}
+
 // 舰种强度系数（不同舰种在不同位置的强度）
-const TYPE_POWER_COEFFICIENTS: Record<string, number> = {
+let TYPE_POWER_COEFFICIENTS_BASE: Record<string, number> = {
   '驱逐': 0.85,
   '轻巡': 0.90,
   '重巡': 0.95,
@@ -43,10 +100,33 @@ const TYPE_POWER_COEFFICIENTS: Record<string, number> = {
   '运输': 0.70,
 };
 
+// 动态舰种强度系数（可以根据反馈调整）
+let TYPE_POWER_COEFFICIENTS: Record<string, number> = { ...TYPE_POWER_COEFFICIENTS_BASE };
+
+// 更新舰种系数的函数
+export function updateTypeCoefficientsBasedOnFeedbackExtended(): void {
+  const adjustedWeights = getAdjustedWeights(TYPE_POWER_COEFFICIENTS_BASE);
+
+  // 将调整后的权重应用到基础权重上
+  TYPE_POWER_COEFFICIENTS = { ...TYPE_POWER_COEFFICIENTS_BASE };
+  Object.keys(adjustedWeights).forEach(key => {
+    if (TYPE_POWER_COEFFICIENTS.hasOwnProperty(key)) {
+      TYPE_POWER_COEFFICIENTS[key] = adjustedWeights[key];
+    }
+  });
+}
+
 /**
  * 计算角色综合强度评分
  */
 export function calculateCharacterPower(character: Character, fleetType: FleetType = 'surface'): number {
+  const cacheKey = getCharacterPowerCacheKey(character.id, fleetType);
+
+  // 检查缓存
+  if (characterPowerCache.has(cacheKey)) {
+    return characterPowerCache.get(cacheKey)!;
+  }
+
   const stats = character.stats;
 
   // 基础属性分
@@ -80,8 +160,12 @@ export function calculateCharacterPower(character: Character, fleetType: FleetTy
 
   // 综合评分
   const totalScore = (baseScore + rarityBonus) * typeCoefficient * subBonus * fleetTypeBonus;
+  const roundedScore = Math.round(totalScore);
 
-  return Math.round(totalScore);
+  // 存储到缓存
+  characterPowerCache.set(cacheKey, roundedScore);
+
+  return roundedScore;
 }
 
 /**
@@ -899,6 +983,20 @@ export function recommendFleetExtended(
     return [];
   }
 
+  // 检查缓存
+  const cacheKey = getRecommendationCacheKey(
+    ownedCharacters.map(c => c.id),
+    mode,
+    customOptions
+  );
+
+  const cached = recommendationCache.get(cacheKey);
+  if (cached && (Date.now() - cached.timestamp) < CACHE_DURATION) {
+    return cached.data;
+  }
+
+  let result: FleetRecommendation[] = [];
+
   // 根据模式选择适当的推荐策略
   switch (mode) {
     case 'midway':
@@ -906,66 +1004,90 @@ export function recommendFleetExtended(
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return midwayResult ? [midwayResult] : [];
+      result = midwayResult ? [midwayResult] : [];
+      break;
 
     case 'boss':
       const bossResult = recommendBossFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return bossResult ? [bossResult] : [];
+      result = bossResult ? [bossResult] : [];
+      break;
 
     case 'grinding':
       const grindingResult = recommendGrindingFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return grindingResult ? [grindingResult] : [];
+      result = grindingResult ? [grindingResult] : [];
+      break;
 
     case 'one_pull_five':
       const opfResult = recommendOnePullFiveFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return opfResult ? [opfResult] : [];
+      result = opfResult ? [opfResult] : [];
+      break;
 
     case 'n_pull_m':
       const npmResult = recommendNPullMFleet(ownedCharacters, customOptions?.nValue || 2, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return npmResult ? [npmResult] : [];
+      result = npmResult ? [npmResult] : [];
+      break;
 
     case 'anti_air':
       const aaResult = recommendAntiAirFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return aaResult ? [aaResult] : [];
+      result = aaResult ? [aaResult] : [];
+      break;
 
     case 'sub_hunter':
       const shResult = recommendSubHunterFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return shResult ? [shResult] : [];
+      result = shResult ? [shResult] : [];
+      break;
 
     case 'fast_move':
       const fmResult = recommendFastMoveFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return fmResult ? [fmResult] : [];
+      result = fmResult ? [fmResult] : [];
+      break;
 
     case 'tank':
       const tankResult = recommendTankFleet(ownedCharacters, {
         preferredFaction: customOptions?.preferredFaction,
         occupiedCharacterIds: customOptions?.occupiedCharacterIds
       });
-      return tankResult ? [tankResult] : [];
+      result = tankResult ? [tankResult] : [];
+      break;
 
     default:
       // 对于原始模式，调用原有的 recommendFleet 函数
-      return []; // This should be replaced with the original logic if needed
+      // 使用 surface 编队类型作为默认值，因为 extended 模式没有明确区分编队类型参数
+      result = recommendFleet(ownedCharacters, mode as 'strongest' | 'faction' | 'beginner' | 'custom', 'surface', {
+        preferredFaction: customOptions?.preferredFaction,
+        preferredTypes: customOptions?.preferredTypes,
+        excludeSSR: customOptions?.excludeSSR,
+        occupiedCharacterIds: customOptions?.occupiedCharacterIds
+      });
+      break;
   }
+
+  // 缓存结果
+  recommendationCache.set(cacheKey, {
+    data: result,
+    timestamp: Date.now()
+  });
+
+  return result;
 }

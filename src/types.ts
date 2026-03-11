@@ -2,14 +2,14 @@ export interface Character {
   id: string;
   name: string;
   nameCn: string;
-  rarity: number; // 1-6
+  rarity: number; // 6=UR, 5=SSR, 4=SR, 3=R, 2=N
   type: ShipType;
   faction: string;
   stats: Stats;
   skills: Skill[];
   equipment: EquipmentSlot[];
   image?: string;
-  aliases?: string[]; // 别称/昵称（如“鲨”、“花园”等）
+  aliases?: string[]; // 别称/昵称（如”鲨”、”花园”等）
 }
 
 export type ShipType =

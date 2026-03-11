@@ -43,11 +43,11 @@ const FACTION_BONUS: Record<string, number> = {
 
 // 稀有度权重（调整后的校准分级）
 const RARITY_WEIGHTS: Record<number, number> = {
-  6: 75,  // UR/META
-  5: 65,  // SSR - 降低了分数差距
-  4: 50,  // SR - 更符合实际价值
-  3: 35,  // R - 适中的加成
-  2: 20,  // N - 基础加成
+  6: 85,  // UR
+  5: 80,  // SSR
+  4: 60,  // SR
+  3: 40,  // R
+  2: 20,  // N
   1: 10,
 };
 

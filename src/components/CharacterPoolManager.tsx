@@ -117,10 +117,11 @@ export const CharacterPoolManager: React.FC = () => {
     return {
       total: allCharacters.length,
       owned: owned.length,
-      ssr: owned.filter(c => c.rarity === 6).length,
-      sr: owned.filter(c => c.rarity === 5).length,
-      r: owned.filter(c => c.rarity === 4).length,
-      n: owned.filter(c => c.rarity <= 3).length,
+      ur: owned.filter(c => c.rarity === 6).length,
+      ssr: owned.filter(c => c.rarity === 5).length,
+      sr: owned.filter(c => c.rarity === 4).length,
+      r: owned.filter(c => c.rarity === 3).length,
+      n: owned.filter(c => c.rarity <= 2).length,
       filtered: filteredCharacters.length
     };
   }, [allCharacters, ownedCharacterIds, filteredCharacters]);
@@ -280,27 +281,38 @@ export const CharacterPoolManager: React.FC = () => {
           />
           <StatCard
             icon={Star}
-            label="SSR (6★)"
+            label="超稀有(6★)"
+            value={stats.ur}
+            color="bg-purple-500"
+            onClick={() => setSelectedRarity(6)}
+          />
+          <StatCard
+            icon={Star}
+            label="精锐(5★)"
             value={stats.ssr}
             color="bg-yellow-500"
+            onClick={() => setSelectedRarity(5)}
           />
           <StatCard
             icon={Star}
-            label="SR (5★)"
+            label="稀有(4★)"
             value={stats.sr}
-            color="bg-purple-500"
+            color="bg-purple-400"
+            onClick={() => setSelectedRarity(4)}
           />
           <StatCard
             icon={Star}
-            label="R (4★)"
+            label="普通(3★)"
             value={stats.r}
             color="bg-blue-400"
+            onClick={() => setSelectedRarity(3)}
           />
           <StatCard
             icon={Star}
-            label="N (≤3★)"
+            label="一般(≤2★)"
             value={stats.n}
             color="bg-gray-500"
+            onClick={() => setSelectedRarity(2)}
           />
           <StatCard
             icon={Filter}
@@ -442,12 +454,12 @@ export const CharacterPoolManager: React.FC = () => {
               className="bg-navy-light border border-navy-gold/20 rounded-lg px-3 py-2 text-white focus:outline-none"
             >
               <option value="全部">全部稀有度</option>
-              <option value="6">★★★★★★ (META)</option>
-              <option value="5">★★★★★ (SSR)</option>
-              <option value="4">★★★★ (SR)</option>
-              <option value="3">★★★ (R)</option>
-              <option value="2">★★ (N)</option>
-              <option value="1">★ (N)</option>
+              <option value="6">★★★★★★ (超稀有/UR)</option>
+              <option value="5">★★★★★ (精锐/SSR)</option>
+              <option value="4">★★★★ (稀有/SR)</option>
+              <option value="3">★★★ (普通/R)</option>
+              <option value="2">★★ (一般/N)</option>
+              <option value="1">★ (一般/N)</option>
             </select>
           </div>
         </div>
@@ -893,8 +905,12 @@ const StatCard: React.FC<{
   label: string;
   value: number;
   color: string;
-}> = ({ icon: Icon, label, value, color }) => (
-  <div className={`${color} rounded-lg p-3 text-white`}>
+  onClick?: () => void;
+}> = ({ icon: Icon, label, value, color, onClick }) => (
+  <div
+    className={`${color} rounded-lg p-3 text-white cursor-pointer transition-all hover:scale-105 hover:shadow-lg ${onClick ? 'hover:brightness-110' : ''}`}
+    onClick={onClick}
+  >
     <div className="flex items-center gap-2 mb-1">
       <Icon className="w-4 h-4 opacity-80" />
       <span className="text-xs opacity-80">{label}</span>

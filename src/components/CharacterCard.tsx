@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Character } from '../types';
 import { Anchor, Star, CheckCircle, PlusCircle } from 'lucide-react';
+import { getRarityColor } from '../utils/rarity';
 
 interface CharacterCardProps {
   character: Character;
@@ -45,12 +46,6 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
   onToggleOwned,
   showOwnedToggle = false,
 }) {
-  const getRarityColor = (rarity: number) => {
-    if (rarity >= 5) return 'text-yellow-400';
-    if (rarity === 4) return 'text-purple-400';
-    if (rarity === 3) return 'text-blue-400';
-    return 'text-gray-400';
-  };
 
   const getTypeColor = (type: string) => {
     const colors: Record<string, string> = {

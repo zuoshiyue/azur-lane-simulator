@@ -174,9 +174,11 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
               <div className="text-sm text-gray-400 mb-2">可用角色</div>
               <div className="text-2xl font-bold text-white">{ownedCharacters.length}</div>
               <div className="text-xs text-gray-500 mt-1">
-                SSR: {ownedCharacters.filter(c => c.rarity === 5).length} | 
-                SR: {ownedCharacters.filter(c => c.rarity === 4).length} | 
-                R: {ownedCharacters.filter(c => c.rarity <= 3).length}
+                超稀有(UR): {ownedCharacters.filter(c => c.rarity === 6).length} |
+                精锐(SSR): {ownedCharacters.filter(c => c.rarity === 5).length} |
+                稀有(SR): {ownedCharacters.filter(c => c.rarity === 4).length} |
+                普通(R): {ownedCharacters.filter(c => c.rarity === 3).length} |
+                一般(N): {ownedCharacters.filter(c => c.rarity <= 2).length}
               </div>
             </div>
 
@@ -272,7 +274,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
                               </div>
                               <div className="text-xs text-gray-400">{char.type}</div>
                               <div className="text-xs text-yellow-400">
-                                {'★'.repeat(Math.min(5, char.rarity))}
+                                {'★'.repeat(Math.min(6, char.rarity))}
                               </div>
                             </>
                           ) : (

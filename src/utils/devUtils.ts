@@ -28,5 +28,6 @@ export async function loadDevelopmentScreenshot(): Promise<string> {
  * Check if we're in development mode and can access the screenshot
  */
 export function isDevelopmentMode(): boolean {
-  return process.env.NODE_ENV === 'development';
+  // This will work in both browser and Node environments
+  return typeof process !== 'undefined' && process.env?.NODE_ENV === 'development';
 }

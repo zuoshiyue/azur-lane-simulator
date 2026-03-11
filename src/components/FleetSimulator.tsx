@@ -176,7 +176,7 @@ export const FleetSimulator: React.FC = () => {
     }
   };
 
-  const handlePositionImportComplete = (characterIds: string[]) => {
+  const handlePositionImportComplete = (_characterIds: string[]) => {
     // Refresh the character list after import
     setLocalCharacters(dataManager.getCharacters());
   };

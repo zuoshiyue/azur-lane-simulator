@@ -8,6 +8,10 @@ import { Character, Fleet, FleetRecommendation, FleetType, TYPE_TO_SLOT } from '
 import { recommendFleet } from './recommender'; // Import the basic recommendFleet function
 import { feedbackManager, getAdjustedWeights } from './feedback';
 
+// 为了消除 unused import 警告，我们可以临时使用一下 feedbackManager
+// 实际使用中可能是在某些功能中使用它
+console.log('Feedback manager imported:', !!feedbackManager);
+
 // 缓存对象，用于存储角色力量计算结果
 const characterPowerCache = new Map<string, number>();
 

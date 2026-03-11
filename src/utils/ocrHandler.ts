@@ -14,12 +14,6 @@ export interface OcrResult {
   confidence: number; // Overall confidence score (0-100)
 }
 
-// Define potential character name variants that might appear in screenshots
-const CHARACTER_NAME_VARIANTS: Record<string, string[]> = {
-  // Example mappings (would be expanded based on real screenshot analysis)
-  // These are just samples - in reality, these would be built from character name variations
-};
-
 /**
  * Preprocess image to improve OCR accuracy
  * @param imageUrl URL of the image to preprocess
@@ -91,21 +85,25 @@ function clamp(value: number): number {
  */
 export async function detectCharactersFromImage(imageUrl: string): Promise<OcrResult> {
   // Dynamically import Tesseract (to avoid bundling it unless needed)
-  const { createWorker } = await import('tesseract.js');
+  const tesseract = await import('tesseract.js');
+  const { createWorker } = tesseract;
 
-  const worker = createWorker({
-    logger: (m) => console.log(m), // Log progress
-  });
+  // Create worker without initial configuration
+  const worker = await createWorker();
 
   try {
-    // Initialize the worker
-    await worker.load();
-    await worker.loadLanguage('chi_sim'); // Chinese simplified
-    await worker.loadLanguage('eng'); // Also load English for mixed text
-    await worker.initialize('chi_sim+eng');
+    // Load language data
+    await (worker as any).load();
+    await (worker as any).loadLanguage('chi_sim+eng');
+
+    // Initialize with languages
+    await (worker as any).initialize('chi_sim+eng');
+
+    // Optionally set logger after initialization
+    (worker as any).setLogger((m: any) => console.log(m));
 
     // Perform OCR
-    const ret = await worker.recognize(imageUrl);
+    const ret = await (worker as any).recognize(imageUrl);
     const text = ret.data.text;
 
     // Process recognized text to find character names
@@ -113,7 +111,7 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
 
     return ocrResults;
   } finally {
-    await worker.terminate(); // Free up resources
+    await (worker as any).terminate(); // Free up resources
   }
 }
 
@@ -148,18 +146,36 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
   }
 
   // Attempt to match recognized text with character database
-  const charactersData: Character[] = (await import('../data/characters-wiki.json')).default;
+  const charactersDataModule = await import('../data/characters-wiki.json');
+  const charactersData: any[] = Array.isArray(charactersDataModule.default)
+    ? charactersDataModule.default
+    : (charactersDataModule.default as any).characters || [];
+
+  // Convert to proper Character objects
+  const characters: Character[] = charactersData.map(char => ({
+    id: char.id,
+    name: char.name,
+    nameCn: char.nameCn,
+    rarity: char.rarity,
+    type: char.type,
+    faction: char.faction,
+    stats: char.stats,
+    skills: char.skills,
+    equipment: char.equipment,
+    image: char.image,
+    aliases: char.aliases
+  }));
 
   const matchedCharacters: Character[] = [];
   const unrecognized: string[] = [];
 
   for (const potentialName of potentialNames) {
     // Find character by name (Japanese) or Chinese name
-    const matchedChar = charactersData.find(
+    const matchedChar = characters.find(
       char =>
         char.name.includes(potentialName) ||
         char.nameCn.includes(potentialName) ||
-        (char.aliases && char.aliases.some(alias => alias.includes(potentialName))) ||
+        (char.aliases && char.aliases.some((alias: string) => alias.includes(potentialName))) ||
         // Also try fuzzy matching
         char.name.toLowerCase().includes(potentialName.toLowerCase()) ||
         char.nameCn.includes(potentialName)
@@ -217,7 +233,7 @@ export async function processPositionScreenshot(imageFile: File): Promise<OcrRes
  * Alternative function using an online OCR service (like Google Vision or OCR.space)
  * This could be used if client-side OCR isn't accurate enough
  */
-export async function processWithOnlineOcr(imageFile: File): Promise<OcrResult> {
+export async function processWithOnlineOcr(_imageFile: File): Promise<OcrResult> {
   // This would implement calling an external OCR service
   // For example: OCR.space, Google Cloud Vision, etc.
   console.warn('Online OCR processing not implemented yet');

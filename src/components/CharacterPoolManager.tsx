@@ -6,7 +6,7 @@ import { CharacterForm } from './CharacterForm';
 import { Character, ShipType } from '../types';
 import {
   Plus, Search, Filter, Trash2, Edit2, Download, Upload,
-  Grid, List, Database, Star, X, CheckCircle, AlertTriangle
+  Grid, List, Database, Star, X, CheckCircle, AlertTriangle, PlusCircle
 } from 'lucide-react';
 
 export const CharacterPoolManager: React.FC = () => {
@@ -90,7 +90,10 @@ export const CharacterPoolManager: React.FC = () => {
   }, [searchQuery, selectedType, selectedFaction, showOwnedOnly]);
 
   const handleBatchAddOwned = () => {
-    const idsToAdd = filteredCharacters.map(c => c.id);
+    // 如果有选中的角色，只添加选中的；否则添加当前筛选结果
+    const idsToAdd = selectedIds.size > 0
+      ? Array.from(selectedIds)
+      : filteredCharacters.map(c => c.id);
     const addedCount = dataManager.batchAddOwned(idsToAdd);
     alert(`已批量添加 ${addedCount} 个角色到已拥有列表`);
   };
@@ -305,11 +308,11 @@ export const CharacterPoolManager: React.FC = () => {
               <button
                 onClick={handleBatchAddOwned}
                 className="flex items-center gap-1 sm:gap-2 bg-purple-600 hover:bg-purple-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
-                title="将当前筛选结果中的所有角色添加到已拥有列表"
+                title={selectedIds.size > 0 ? "将选中的角色添加到已拥有列表" : "将当前筛选结果中的所有角色添加到已拥有列表"}
               >
                 <CheckCircle className="w-4 h-4" />
-                <span className="hidden lg:inline">批量添加已拥有</span>
-                <span className="lg:hidden">批量添加</span>
+                <span className="hidden lg:inline">{selectedIds.size > 0 ? `批量添加已拥有 (${selectedIds.size})` : '批量添加已拥有'}</span>
+                <span className="lg:hidden">{selectedIds.size > 0 ? `批量添加 (${selectedIds.size})` : '批量添加'}</span>
               </button>
 
               <button
@@ -449,9 +452,14 @@ export const CharacterPoolManager: React.FC = () => {
                     showOwnedToggle={true}
                     onToggleOwned={(character) => {
                       if (isOwned) {
-                        dataManager.deleteCharacter(character.id);
+                        // 取消拥有：从已拥有列表移除
+                        const owned = dataManager.getOwnedCharacterIds().filter(id => id !== character.id);
+                        localStorage.setItem('azur_lane_owned', JSON.stringify(owned));
+                        window.dispatchEvent(new Event('storage'));
                       } else {
-                        dataManager.addCharacter(character);
+                        // 设为已拥有：添加到已拥有列表
+                        dataManager.batchAddOwned([character.id]);
+                        window.dispatchEvent(new Event('storage'));
                       }
                     }}
                   />
@@ -544,6 +552,29 @@ export const CharacterPoolManager: React.FC = () => {
 
                     {/* 操作按钮 */}
                     <div className="flex gap-2 items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      {/* 设为已拥有/取消拥有按钮 */}
+                      <button
+                        onClick={() => {
+                          const isOwned = ownedCharacterIds.includes(char.id);
+                          if (isOwned) {
+                            const owned = dataManager.getOwnedCharacterIds().filter(id => id !== char.id);
+                            localStorage.setItem('azur_lane_owned', JSON.stringify(owned));
+                            window.dispatchEvent(new Event('storage'));
+                          } else {
+                            dataManager.batchAddOwned([char.id]);
+                            window.dispatchEvent(new Event('storage'));
+                          }
+                        }}
+                        className={`p-2 rounded-lg transition-colors shadow-lg ${
+                          ownedCharacterIds.includes(char.id)
+                            ? 'bg-green-600 text-white hover:bg-green-700'
+                            : 'bg-gray-700/90 text-gray-300 hover:bg-green-600 hover:text-white'
+                        }`}
+                        title={ownedCharacterIds.includes(char.id) ? '取消拥有' : '设为已拥有'}
+                      >
+                        {ownedCharacterIds.includes(char.id) ? <CheckCircle className="w-4 h-4" /> : <PlusCircle className="w-4 h-4" />}
+                      </button>
+                      <div className="w-px bg-gray-600/50 my-1" />
                       <button
                         onClick={() => toggleSelectCharacter(char.id)}
                         className={`p-2 rounded-lg transition-colors shadow-lg ${

@@ -8,18 +8,18 @@
   font-weight: 400;
   color-scheme: light dark;
 
-  /* 游戏主题配色 - 军武灰 + 海军金 + 海洋蓝 */
-  --navy-dark: #1a1a2e;      /* 军武深蓝背景 */
-  --navy-primary: #16213e;   /* 海军蓝主色 */
-  --navy-light: #1f2940;     /* 浅军武灰 */
-  --navy-accent: #0f3460;    /* 海军强调色 */
-  --navy-gold: #c9a227;      /* 海军金 */
-  --navy-gold-hover: #e0b636;
-  --ocean-blue: #1e40af;     /* 海洋蓝 */
-  --ocean-blue-light: #3b82f6;
-  --metal-gray: #2d3748;     /* 金属灰 */
+  /* 优化后的柔和主题配色 */
+  --navy-dark: #2a2f45;      /* 柔和的深蓝色背景 */
+  --navy-primary: #3a425a;   /* 温和的海军蓝主色 */
+  --navy-light: #4a546d;     /* 柔和的浅海军蓝 */
+  --navy-accent: #5a6580;    /* 轻柔的强调色 */
+  --navy-gold: #d4af37;      /* 优雅的金色 */
+  --navy-gold-hover: #e6c052;
+  --ocean-blue: #5d8aa8;     /* 经典的海洋蓝 */
+  --ocean-blue-light: #7fbce6;
+  --metal-gray: #5a6478;     /* 柔和的金属灰 */
   --text-primary: #e2e8f0;   /* 主文字色 */
-  --text-secondary: #94a3b8; /* 次要文字 */
+  --text-secondary: #cbd5e1; /* 次要文字 */
 
   color: var(--text-primary);
   background-color: var(--navy-dark);
@@ -29,15 +29,15 @@
 .dark {
   color-scheme: dark;
 
-  --navy-dark: #0a0a1a;
-  --navy-primary: #0f172a;
-  --navy-light: #1e293b;
-  --navy-accent: #1e263a;
-  --navy-gold: #facc15;
-  --navy-gold-hover: #eab308;
-  --ocean-blue: #3b82f6;
-  --ocean-blue-light: #60a5fa;
-  --metal-gray: #374151;
+  --navy-dark: #1a1c23;
+  --navy-primary: #222631;
+  --navy-light: #2d3342;
+  --navy-accent: #3a4255;
+  --navy-gold: #f5d76e;
+  --navy-gold-hover: #f7df8a;
+  --ocean-blue: #6bb8f1;
+  --ocean-blue-light: #8fc9ff;
+  --metal-gray: #4b5563;
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
 }
@@ -46,7 +46,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  /* 深海渐变背景 */
+  /* 柔和的渐变背景 */
   background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, var(--navy-accent) 100%);
   background-attachment: fixed;
 }
@@ -82,24 +82,24 @@ body {
 
 /* 卡片通用样式 */
 .card-base {
-  background: linear-gradient(145deg, rgba(22, 33, 62, 0.95) 0%, rgba(15, 52, 96, 0.9) 100%);
-  border: 1px solid rgba(199, 162, 39, 0.15);
+  background: linear-gradient(145deg, rgba(58, 66, 90, 0.95) 0%, rgba(90, 101, 128, 0.9) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .dark .card-base {
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
-  border: 1px solid rgba(250, 204, 21, 0.15);
+  background: linear-gradient(145deg, rgba(34, 38, 49, 0.95) 0%, rgba(45, 51, 66, 0.9) 100%);
+  border: 1px solid rgba(245, 215, 110, 0.15);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .card-base:hover {
-  border-color: rgba(199, 162, 39, 0.3);
+  border-color: rgba(212, 175, 55, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .dark .card-base:hover {
-  border-color: rgba(250, 204, 21, 0.3);
+  border-color: rgba(245, 215, 110, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -129,12 +129,12 @@ body {
 /* 金色边框装饰 */
 .gold-accent {
   border-color: var(--navy-gold) !important;
-  box-shadow: 0 0 15px rgba(199, 162, 39, 0.3);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .dark .gold-accent {
   border-color: var(--navy-gold) !important;
-  box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+  box-shadow: 0 0 15px rgba(245, 215, 110, 0.3);
 }
 
 /* 文本渐变 */

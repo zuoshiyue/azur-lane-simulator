@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Character, Fleet, FleetRecommendation } from '../types';
 import { recommendFleet } from '../utils/recommender';
 import { recommendFleetExtended } from '../utils/recommenderExtended';
-import { Sparkles, Trophy, Users, Heart, X, Check } from 'lucide-react';
+import { Sparkles, Trophy, Users, Heart, X, Check, Info } from 'lucide-react';
 
 interface FleetRecommendationPanelProps {
   ownedCharacters: Character[];
@@ -27,6 +27,7 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
   const [selectedFaction, setSelectedFaction] = useState<string>('全部');
   const [recommendations, setRecommendations] = useState<FleetRecommendation[]>([]);
   const [selectedRecIndex, setSelectedRecIndex] = useState<number>(0);
+  const [showAlgorithmInfo, setShowAlgorithmInfo] = useState<boolean>(false);
 
   // 获取所有阵营
   const factions = useMemo(() => {
@@ -184,12 +185,21 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
             <Sparkles className="w-6 h-6 text-purple-400" />
             <h2 className="text-2xl font-bold text-white">智能编队推荐</h2>
           </div>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            <X className="w-6 h-6" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setShowAlgorithmInfo(true)}
+              className="text-gray-400 hover:text-white transition-colors p-1 rounded hover:bg-gray-700"
+              title="查看推荐算法说明"
+            >
+              <Info className="w-5 h-5" />
+            </button>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         {/* 内容区 */}
@@ -421,6 +431,97 @@ export const FleetRecommendationPanel: React.FC<FleetRecommendationPanelProps> =
                 )}
               </>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* 算法信息弹窗 */}
+      <AlgorithmInfoModal
+        isOpen={showAlgorithmInfo}
+        onClose={() => setShowAlgorithmInfo(false)}
+      />
+    </div>
+  );
+};
+
+// 推荐算法信息弹窗组件
+const AlgorithmInfoModal: React.FC<{
+  isOpen: boolean;
+  onClose: () => void
+}> = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-800 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-gray-700 flex items-center justify-between">
+          <h3 className="text-xl font-bold text-white flex items-center gap-2">
+            <Info className="w-5 h-5 text-blue-400" />
+            推荐算法说明
+          </h3>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+        <div className="p-6 space-y-4">
+          <div className="bg-gray-700 rounded-lg p-4">
+            <h4 className="font-bold text-yellow-400 mb-2">算法核心要素：</h4>
+            <ul className="space-y-2 text-gray-200 text-sm">
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>角色稀有度</strong> - UR(85) &gt; SSR(80) &gt; SR(60) &gt; R(40) &gt; N(20)</span>
+              </li>
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>舰种强度系数</strong> - 航母(1.15) &gt; 轻母(1.12) &gt; 战巡(1.05) &gt; 战列(1.10)等</span>
+              </li>
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>基础属性</strong> - HP、火力、鱼雷、航空、装填、对空、索敌等</span>
+              </li>
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>舰种定位</strong> - 前排（先锋）和后排（主力）的角色分配</span>
+              </li>
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>阵营协同</strong> - 同阵营加成效果（最高可达15%）</span>
+              </li>
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>位置权重</strong> - 后排角色通常获得10%额外权重</span>
+              </li>
+              <li className="flex">
+                <span className="text-yellow-400 mr-2">•</span>
+                <span><strong>特殊策略</strong> - 不同模式（如BOSS队、道中队、1拖5等）的针对性策略</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700">
+            <h4 className="font-bold text-blue-400 mb-2 flex items-center gap-1">
+              <Info className="w-4 h-4" />
+              重要提醒
+            </h4>
+            <p className="text-gray-200 text-sm">
+              算法仍在持续优化中，如果您发现某些强力角色（如独角兽）未被优先推荐，请向我们反馈！
+              我们致力于让推荐算法更贴近实际游戏体验。
+            </p>
+          </div>
+
+          <div className="bg-gray-700 rounded-lg p-4">
+            <h4 className="font-bold text-green-400 mb-2">模式说明：</h4>
+            <ul className="space-y-2 text-gray-200 text-sm">
+              <li><strong>最强阵容</strong> - 综合评分最高的角色组合</li>
+              <li><strong>阵营队</strong> - 同阵营协同加成阵容</li>
+              <li><strong>道中队</strong> - 适合清理前期小怪的队伍</li>
+              <li><strong>困难BOSS队</strong> - 专为挑战高难度BOSS设计</li>
+              <li><strong>1拖5/N拖M</strong> - 特殊配队策略</li>
+              <li><strong>防空队/反潜队</strong> - 针对特定战斗需求</li>
+            </ul>
           </div>
         </div>
       </div>

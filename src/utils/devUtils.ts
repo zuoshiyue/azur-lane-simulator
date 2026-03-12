@@ -8,6 +8,21 @@ export const EXISTING_SCREENSHOT_PATH = '/position_screenshot.jpg';
 export const SCREENSHOT_PNG_PATH = '/ScreenShot.png';
 export const POSSESSION_JPG_PATH = '/持仓截图.jpg';
 
+// 新增：测试图片路径
+export const TEST_IMAGE_DIR = '/test_images/';
+export const TEST_IMAGES = [
+  '微信图片_20260312190703_375_108.jpg',
+  '微信图片_20260312190705_376_108.jpg',
+  '微信图片_20260312190707_377_108.jpg',
+  '微信图片_20260312190708_378_108.jpg',
+  '微信图片_20260312190710_379_108.jpg',
+  '微信图片_20260312190712_380_108.jpg',
+  '微信图片_20260312190714_381_108.jpg',
+  '微信图片_20260312190716_382_108.jpg',
+  '微信图片_20260312190717_383_108.jpg',
+  '微信图片_20260312190719_384_108.jpg'
+];
+
 /**
  * Get the existing screenshot file from public folder
  * @returns Promise with the screenshot URL
@@ -31,6 +46,23 @@ export async function getTestScreenshotPath(): Promise<string> {
 export async function getPossessionScreenshotPath(): Promise<string> {
   // Return path to 持仓截图.jpg in public folder
   return POSSESSION_JPG_PATH;
+}
+
+/**
+ * Get test images from the 1111 folder
+ */
+export async function getTestImagePaths(): Promise<string[]> {
+  return TEST_IMAGES.map(image => `${TEST_IMAGE_DIR}${image}`);
+}
+
+/**
+ * Get a specific test image by index
+ */
+export async function getSpecificTestImagePath(index: number): Promise<string> {
+  if (index < 0 || index >= TEST_IMAGES.length) {
+    throw new Error(`Invalid test image index: ${index}. Valid range is 0-${TEST_IMAGES.length - 1}`);
+  }
+  return `${TEST_IMAGE_DIR}${TEST_IMAGES[index]}`;
 }
 
 /**

@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { Upload, Download, AlertTriangle, CheckCircle, X, Image as ImageIcon, Target } from 'lucide-react';
+import { Upload, Download, AlertTriangle, CheckCircle, X, Image as ImageIcon, Target, RotateCcw } from 'lucide-react';
 import { processPositionScreenshot, OcrResult, processPositionScreenshotFromUrl } from '../utils/ocrHandler';
 import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
-import { getExistingPositionScreenshot, getTestScreenshotPath, getPossessionScreenshotPath } from '../utils/devUtils';
+import { getExistingPositionScreenshot, getTestScreenshotPath, getPossessionScreenshotPath, getSpecificTestImagePath } from '../utils/devUtils';
 
 interface PositionImportPanelProps {
   onClose: () => void;
@@ -83,6 +83,33 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
     } catch (error) {
       console.error('Failed to process possession screenshot (持仓截图.jpg):', error);
       setUploadError('处理持仓截图(持仓截图.jpg)时发生错误，请确保文件存在');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  // Handle cycling through test images
+  const [currentTestImageIndex, setCurrentTestImageIndex] = useState(0);
+
+  const handleCycleTestImage = async () => {
+    setIsProcessing(true);
+    setUploadError(null);
+
+    try {
+      const imagePath = await getSpecificTestImagePath(currentTestImageIndex);
+      const result = await processPositionScreenshotFromUrl(imagePath);
+
+      // Update to show the image being tested
+      console.log(`Processing test image ${currentTestImageIndex + 1}: ${await getSpecificTestImagePath(currentTestImageIndex)}`);
+      setOcrResult(result);
+
+      // Cycle to next image (loop back to 0 when reaching end)
+      setCurrentTestImageIndex((prevIndex) =>
+        prevIndex >= 9 ? 0 : prevIndex + 1
+      );
+    } catch (error) {
+      console.error('Failed to process test image:', error);
+      setUploadError('处理测试图片时发生错误，请确保文件存在');
     } finally {
       setIsProcessing(false);
     }
@@ -213,6 +240,19 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
                 >
                   <Target className="w-4 h-4" />
                   持仓截图(持仓截图.jpg)
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCycleTestImage();
+                  }}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors"
+                  title={`循环测试图片 ${currentTestImageIndex + 1}/10`}
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  循环测试图片 ({currentTestImageIndex + 1}/10)
                 </button>
               </div>
 

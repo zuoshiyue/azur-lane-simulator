@@ -88,16 +88,6 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
   const worker = await createWorker(['eng', 'chi_sim']);
 
   try {
-    // Set specific parameters to improve text recognition accuracy
-    await worker.setParameters({
-      // Page segmentation mode - single block of text (SINGLE_BLOCK = '6')
-      tessedit_pageseg_mode: '6' as any,
-      // OCR engine mode - LSTM only (better for printed text)
-      tessedit_ocr_engine_mode: '1' as any,
-      // Text orientation
-      user_defined_dpi: '300' as any,
-    });
-
     // Perform OCR
     const ret = await worker.recognize(imageUrl);
     const text = ret.data.text;

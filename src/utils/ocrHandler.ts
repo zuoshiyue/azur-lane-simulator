@@ -84,8 +84,8 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
   const tesseract = await import('tesseract.js');
   const { createWorker } = tesseract;
 
-  // Create worker with English and Chinese language support
-  const worker = await createWorker(['eng', 'chi_sim']);
+  // Create worker with English and Chinese language support using correct API
+  const worker = await createWorker('eng+chi_sim'); // Use string format for multiple languages
 
   try {
     // Perform OCR

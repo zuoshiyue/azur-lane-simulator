@@ -30,8 +30,8 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
         const ctx = canvas.getContext('2d');
 
         // Set canvas size (upscale for better OCR)
-        canvas.width = img.width * 4;  // Increased scaling factor for better text recognition
-        canvas.height = img.height * 4;
+        canvas.width = img.width * 6;  // Further increased scaling factor for better text recognition
+        canvas.height = img.height * 6;
 
         if (!ctx) {
           reject(new Error('Could not get canvas context'));
@@ -41,28 +41,25 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
         // Apply transformations to improve OCR
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // Convert to grayscale first for better text recognition
+        // Enhance contrast and sharpen image for better text recognition
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data = imageData.data;
 
+        // Apply unsharp mask to enhance edges/text
+        const enhancedData = applyUnsharpMask(data, canvas.width, canvas.height);
+
         // Convert to grayscale
-        for (let i = 0; i < data.length; i += 4) {
-          const gray = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-          data[i] = gray;     // Red
-          data[i + 1] = gray; // Green
-          data[i + 2] = gray; // Blue
+        for (let i = 0; i < enhancedData.length; i += 4) {
+          const gray = 0.299 * enhancedData[i] + 0.587 * enhancedData[i + 1] + 0.114 * enhancedData[i + 2];
+          enhancedData[i] = gray;     // Red
+          enhancedData[i + 1] = gray; // Green
+          enhancedData[i + 2] = gray; // Blue
         }
 
-        // Apply threshold to make text more defined
-        for (let i = 0; i < data.length; i += 4) {
-          const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-          const newValue = avg > 128 ? 255 : 0;
-          data[i] = newValue;     // Red
-          data[i + 1] = newValue; // Green
-          data[i + 2] = newValue; // Blue
-        }
+        // Apply adaptive threshold to make text more defined
+        const thresholdedImageData = applyAdaptiveThreshold(enhancedData, canvas.width, canvas.height);
 
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(thresholdedImageData, 0, 0);
         resolve(canvas.toDataURL());
       } catch (error) {
         reject(error);
@@ -72,6 +69,107 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
     img.onerror = (err) => reject(err);
     img.src = imageUrl;
   });
+}
+
+// Helper function to apply unsharp mask for edge enhancement
+function applyUnsharpMask(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
+  // Create a copy of the original data
+  const original = new Uint8ClampedArray(data);
+
+  // Create a blurred version using a simple box blur
+  const blurred = new Uint8ClampedArray(data.length);
+  const radius = 1; // Small radius for subtle sharpening
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let rSum = 0, gSum = 0, bSum = 0;
+      let count = 0;
+
+      for (let ry = -radius; ry <= radius; ry++) {
+        for (let rx = -radius; rx <= radius; rx++) {
+          const px = x + rx;
+          const py = y + ry;
+
+          if (px >= 0 && px < width && py >= 0 && py < height) {
+            const idx = (py * width + px) * 4;
+            rSum += original[idx];
+            gSum += original[idx + 1];
+            bSum += original[idx + 2];
+            count++;
+          }
+        }
+      }
+
+      const idx = (y * width + x) * 4;
+      blurred[idx] = rSum / count;       // R
+      blurred[idx + 1] = gSum / count;   // G
+      blurred[idx + 2] = bSum / count;   // B
+      blurred[idx + 3] = original[idx + 3]; // A remains unchanged
+    }
+  }
+
+  // Apply unsharp mask formula: output = original + amount*(original-blurred)
+  const amount = 0.5; // Amount of sharpening
+  const result = new Uint8ClampedArray(data.length);
+
+  for (let i = 0; i < data.length; i += 4) {
+    // Only process RGB channels, keep alpha channel unchanged
+    result[i] = clampPixel(original[i] + amount * (original[i] - blurred[i]));     // R
+    result[i + 1] = clampPixel(original[i + 1] + amount * (original[i + 1] - blurred[i + 1])); // G
+    result[i + 2] = clampPixel(original[i + 2] + amount * (original[i + 2] - blurred[i + 2])); // B
+    result[i + 3] = original[i + 3]; // A remains unchanged
+  }
+
+  return result;
+}
+
+// Helper function to apply adaptive threshold
+function applyAdaptiveThreshold(data: Uint8ClampedArray, width: number, height: number): ImageData {
+  // Convert to grayscale first if needed
+  const grayscale = new Uint8ClampedArray(width * height);
+  for (let i = 0; i < data.length; i += 4) {
+    const idx = i / 4;
+    grayscale[idx] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+  }
+
+  // Calculate local thresholds using a neighborhood approach
+  const binary = new Uint8ClampedArray(data.length);
+  const blockSize = 20; // Size of the local neighborhood
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const idx = y * width + x;
+      const dataIdx = idx * 4;
+
+      // Calculate local average in the neighborhood
+      let sum = 0;
+      let count = 0;
+
+      for (let ry = Math.max(0, y - blockSize/2); ry <= Math.min(height - 1, y + blockSize/2); ry++) {
+        for (let rx = Math.max(0, x - blockSize/2); rx <= Math.min(width - 1, x + blockSize/2); rx++) {
+          const nIdx = ry * width + rx;
+          sum += grayscale[nIdx];
+          count++;
+        }
+      }
+
+      const localAvg = sum / count;
+      // Apply threshold: if pixel is brighter than local average, make it white, otherwise black
+      const value = grayscale[idx] > localAvg * 0.9 ? 255 : 0; // 0.9 factor to make it slightly more sensitive
+
+      binary[dataIdx] = value;     // R
+      binary[dataIdx + 1] = value; // G
+      binary[dataIdx + 2] = value; // B
+      binary[dataIdx + 3] = data[dataIdx + 3]; // A remains unchanged
+    }
+  }
+
+  return new ImageData(binary, width, height);
+}
+
+// Helper function to clamp pixel values between 0 and 255
+function clampPixel(value: number): number {
+  return Math.min(Math.max(Math.round(value), 0), 255);
 }
 
 /**

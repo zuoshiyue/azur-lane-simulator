@@ -1,5 +1,5 @@
 import { Character } from '../types';
-import { loadImageAsDataUrl } from './imageLoader';
+// import { loadImageAsDataUrl } from './imageLoader';
 
 /**
  * OCR Handler for Azur Lane Simulator
@@ -12,6 +12,108 @@ export interface OcrResult {
   matchedCharacters: Character[]; // Characters matched to the game database
   unrecognized: string[]; // Character names that couldn't be matched
   confidence: number; // Overall confidence score (0-100)
+}
+
+// Define UI element coordinates for Azur Lane screenshots
+interface UiElements {
+  characterGrid: { x: number; y: number; width: number; height: number };
+  characterSpacing: { x: number; y: number };
+  characterBoxSize: { width: number; height: number };
+  nameRegionOffset: { x: number; y: number; width: number; height: number };
+}
+
+/**
+ * Detect common Azur Lane UI layout and extract character grid positions
+ * @param img HTMLImageElement to analyze
+ * @returns Detected UI elements or default layout
+ */
+function detectUiLayout(img: HTMLImageElement): UiElements {
+  // For now, we'll use estimated regions based on common Azur Lane UI
+  // In a more advanced implementation, we'd use computer vision to detect these
+  const width = img.width;
+  const height = img.height;
+
+  // Estimate common Azur Lane character grid positions
+  // This is a simplified estimation - real implementation would use image detection
+  const characterGrid = {
+    x: width * 0.05, // Start 5% from left
+    y: height * 0.2, // Start 20% from top (below headers)
+    width: width * 0.9, // 90% of screen width
+    height: height * 0.7 // 70% of screen height for grid
+  };
+
+  // Assuming a 3x2 or 3x3 grid layout typical in Azur Lane
+  const characterBoxSize = {
+    width: characterGrid.width / 3,
+    height: characterGrid.height / 3
+  };
+
+  const nameRegionOffset = {
+    x: characterBoxSize.width * 0.1, // Name text usually at top-left of character box
+    y: characterBoxSize.height * 0.7, // Name often appears at bottom of character box
+    width: characterBoxSize.width * 0.8,
+    height: characterBoxSize.height * 0.25
+  };
+
+  return {
+    characterGrid,
+    characterSpacing: { x: characterBoxSize.width, y: characterBoxSize.height },
+    characterBoxSize,
+    nameRegionOffset
+  };
+}
+
+/**
+ * Extract character name regions from image based on detected UI layout
+ * @param img Image to extract from
+ * @param uiElements Detected UI layout
+ * @returns Array of image data URLs for each character name region
+ */
+function extractCharacterNameRegions(img: HTMLImageElement, uiElements: UiElements): string[] {
+  const { characterGrid, characterBoxSize, nameRegionOffset } = uiElements;
+  const regions: string[] = [];
+
+  // Estimate grid size - typically 3 columns
+  const cols = 3;
+  const rows = Math.min(6, Math.floor((img.height - characterGrid.y) / characterBoxSize.height)); // Max 6 rows
+
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return regions;
+
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+
+  // Extract each character name region
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const x = characterGrid.x + col * characterBoxSize.width + nameRegionOffset.x;
+      const y = characterGrid.y + row * characterBoxSize.height + nameRegionOffset.y;
+
+      // Ensure the region is within image bounds
+      if (x + nameRegionOffset.width <= img.width && y + nameRegionOffset.height <= img.height) {
+        const croppedCanvas = document.createElement('canvas');
+        const croppedCtx = croppedCanvas.getContext('2d');
+
+        if (croppedCtx) {
+          croppedCanvas.width = nameRegionOffset.width;
+          croppedCanvas.height = nameRegionOffset.height;
+
+          // Draw the name region
+          croppedCtx.drawImage(
+            canvas,
+            x, y, nameRegionOffset.width, nameRegionOffset.height,
+            0, 0, nameRegionOffset.width, nameRegionOffset.height
+          );
+
+          regions.push(croppedCanvas.toDataURL());
+        }
+      }
+    }
+  }
+
+  return regions;
 }
 
 /**
@@ -60,6 +162,66 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
         const thresholdedImageData = applyAdaptiveThreshold(enhancedData, canvas.width, canvas.height);
 
         ctx.putImageData(thresholdedImageData, 0, 0);
+        resolve(canvas.toDataURL());
+      } catch (error) {
+        reject(error);
+      }
+    };
+
+    img.onerror = (err) => reject(err);
+    img.src = imageUrl;
+  });
+}
+
+// Helper function to preprocess a cropped region specifically for character name OCR
+export async function preprocessCharacterNameRegion(imageUrl: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // For character names, even higher scaling
+        canvas.width = img.width * 8;  // Higher scaling for small text
+        canvas.height = img.height * 8;
+
+        if (!ctx) {
+          reject(new Error('Could not get canvas context'));
+          return;
+        }
+
+        // Draw image at high resolution
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // Specialized preprocessing for text regions
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        // Enhance contrast specifically for text
+        for (let i = 0; i < data.length; i += 4) {
+          // Increase contrast for better text visibility
+          let r = data[i];
+          let g = data[i + 1];
+          let b = data[i + 2];
+
+          // Convert to grayscale first
+          const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+
+          // Apply contrast adjustment
+          const factor = 1.5; // Adjust contrast
+          const adjusted = ((gray - 128) * factor) + 128;
+          const finalValue = Math.min(255, Math.max(0, adjusted));
+
+          // Apply to RGB channels
+          data[i] = finalValue;     // R
+          data[i + 1] = finalValue; // G
+          data[i + 2] = finalValue; // B
+        }
+
+        ctx.putImageData(imageData, 0, 0);
         resolve(canvas.toDataURL());
       } catch (error) {
         reject(error);
@@ -200,6 +362,75 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
 }
 
 /**
+ * Detect character names by analyzing character grid regions
+ * @param imageUrl URL of the full screenshot
+ * @returns Promise with OCR results
+ */
+export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<OcrResult> {
+  return new Promise(async (resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+
+    img.onload = async () => {
+      try {
+        // Detect UI layout
+        const uiElements = detectUiLayout(img);
+
+        // Extract character name regions
+        const nameRegions = extractCharacterNameRegions(img, uiElements);
+
+        // Process each region separately
+        let allPotentialNames: string[] = [];
+
+        for (const regionUrl of nameRegions) {
+          try {
+            // Preprocess the region specifically for character names
+            const processedRegion = await preprocessCharacterNameRegion(regionUrl);
+
+            // OCR the region
+            const tesseract = await import('tesseract.js');
+            const { createWorker } = tesseract;
+
+            const worker = await createWorker('chi_sim+eng');
+            await worker.setParameters({
+              tessedit_pageseg_mode: '8' as any, // Assume single word/line for names
+              tessedit_ocr_engine_mode: '1' as any, // LSTM only
+            });
+
+            const result = await worker.recognize(processedRegion);
+            const regionText = result.data.text.trim();
+
+            // Split potential names and clean them
+            if (regionText) {
+              const potentialNames = regionText
+                .split(/[\s\n\r\t,，、；;：:]+/)
+                .map(name => name.trim())
+                .filter(name => name.length >= 2 && name.length <= 12);
+
+              allPotentialNames = allPotentialNames.concat(potentialNames);
+            }
+
+            await worker.terminate();
+          } catch (regionError) {
+            console.warn('Error processing region:', regionError);
+            continue; // Continue with other regions
+          }
+        }
+
+        // Process all extracted names
+        const ocrResults = await processRecognizedText(allPotentialNames.join('\n'));
+        resolve(ocrResults);
+      } catch (error) {
+        reject(error);
+      }
+    };
+
+    img.onerror = (err) => reject(err);
+    img.src = imageUrl;
+  });
+}
+
+/**
  * Process the raw OCR text to extract character names
  * @param text Raw text from OCR
  * @returns Promise with processed OCR results
@@ -230,8 +461,8 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
       if (cleanWord.match(/[\u4e00-\u9fa5a-zA-Z]/) && cleanWord.length >= 2 && cleanWord.length <= 12) {
         // Additional validation: check if it looks like a name
         // Skip very common non-name words
-        const skipWords = ['level', 'lv', 'rank', 'ship', 'shipgirl', 'navy', 'stage', 'battle', 'expedition'];
-        if (!skipWords.some(skipWord => cleanWord.toLowerCase().includes(skipWord))) {
+        const skipWords = ['level', 'lv', 'rank', 'ship', 'shipgirl', 'navy', 'stage', 'battle', 'expedition', 'all', 'off', 'the', 'and', 'for', 'are', 'but', 'not', 'you', 'get', 'had', 'him', 'his', 'her', 'has', 'was', 'one', 'out', 'day', 'by', 'etc', 'art', 'gif'];
+        if (!skipWords.some(skipWord => cleanWord.toLowerCase().includes(skipWord) || skipWord.includes(cleanWord.toLowerCase()))) {
           potentialNames.push(cleanWord);
         }
       }
@@ -343,11 +574,8 @@ export async function processPositionScreenshot(imageFile: File): Promise<OcrRes
   const imageUrl = URL.createObjectURL(imageFile);
 
   try {
-    // Preprocess image for better OCR results
-    const processedImageUrl = await preprocessImage(imageUrl);
-
-    // Detect characters using OCR
-    const results = await detectCharactersFromImage(processedImageUrl);
+    // Use grid-based detection for better results
+    const results = await detectCharacterNamesFromGrid(imageUrl);
 
     return results;
   } finally {
@@ -379,14 +607,8 @@ export async function processWithOnlineOcr(_imageFile: File): Promise<OcrResult>
  * This is mainly for loading the provided screenshot file in development
  */
 export async function processPositionScreenshotFromUrl(imageUrl: string): Promise<OcrResult> {
-  // Load image as data URL to handle cross-origin issues
-  const imageDataUrl = await loadImageAsDataUrl(imageUrl);
-
-  // Preprocess image for better OCR results
-  const processedImageUrl = await preprocessImage(imageDataUrl);
-
-  // Detect characters using OCR
-  const results = await detectCharactersFromImage(processedImageUrl);
+  // Use grid-based detection for better results
+  const results = await detectCharacterNamesFromGrid(imageUrl);
 
   return results;
 }

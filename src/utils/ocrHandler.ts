@@ -185,8 +185,8 @@ export async function preprocessCharacterNameRegion(imageUrl: string): Promise<s
         const ctx = canvas.getContext('2d');
 
         // For character names, even higher scaling
-        canvas.width = img.width * 8;  // Higher scaling for small text
-        canvas.height = img.height * 8;
+        canvas.width = img.width * 10;  // Increased scaling for small text
+        canvas.height = img.height * 10;
 
         if (!ctx) {
           reject(new Error('Could not get canvas context'));
@@ -196,32 +196,27 @@ export async function preprocessCharacterNameRegion(imageUrl: string): Promise<s
         // Draw image at high resolution
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // Specialized preprocessing for text regions
+        // Apply multiple preprocessing passes for Chinese characters
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data;
 
-        // Enhance contrast specifically for text
-        for (let i = 0; i < data.length; i += 4) {
-          // Increase contrast for better text visibility
-          let r = data[i];
-          let g = data[i + 1];
-          let b = data[i + 2];
+        // First pass: enhance contrast specifically for text
+        let processedData = enhanceContrastForChineseText(imageData.data, canvas.width, canvas.height);
 
-          // Convert to grayscale first
-          const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+        // Second pass: denoise
+        processedData = applyDenoising(processedData, canvas.width, canvas.height);
 
-          // Apply contrast adjustment
-          const factor = 1.5; // Adjust contrast
-          const adjusted = ((gray - 128) * factor) + 128;
-          const finalValue = Math.min(255, Math.max(0, adjusted));
+        // Third pass: sharpen edges for character clarity
+        processedData = applySharpening(processedData, canvas.width, canvas.height);
 
-          // Apply to RGB channels
-          data[i] = finalValue;     // R
-          data[i + 1] = finalValue; // G
-          data[i + 2] = finalValue; // B
+        // Convert to grayscale
+        for (let i = 0; i < processedData.length; i += 4) {
+          const gray = 0.299 * processedData[i] + 0.587 * processedData[i + 1] + 0.114 * processedData[i + 2];
+          processedData[i] = gray;     // R
+          processedData[i + 1] = gray; // G
+          processedData[i + 2] = gray; // B
         }
 
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(new ImageData(processedData, canvas.width, canvas.height), 0, 0);
         resolve(canvas.toDataURL());
       } catch (error) {
         reject(error);
@@ -231,6 +226,126 @@ export async function preprocessCharacterNameRegion(imageUrl: string): Promise<s
     img.onerror = (err) => reject(err);
     img.src = imageUrl;
   });
+}
+
+// Helper function to enhance contrast specifically for Chinese characters
+function enhanceContrastForChineseText(data: Uint8ClampedArray, _width: number, _height: number): Uint8ClampedArray {
+  // Process RGB channels to enhance contrast for Chinese text
+  const result = new Uint8ClampedArray(data.length);
+
+  for (let i = 0; i < data.length; i += 4) {
+    // Get RGB values
+    let r = data[i];
+    let g = data[i + 1];
+    let b = data[i + 2];
+
+    // Convert to grayscale
+    const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+
+    // Apply strong contrast enhancement for Chinese character clarity
+    // This helps differentiate similar-looking Chinese characters
+    let adjusted;
+    if (gray < 128) {
+      // Make dark pixels darker (text)
+      adjusted = gray * 0.3;
+    } else {
+      // Make light pixels lighter (background)
+      adjusted = 220 + (gray - 128) * 0.7;
+    }
+
+    const finalValue = Math.min(255, Math.max(0, adjusted));
+
+    // Apply to all channels to maintain grayscale but enhance contrast
+    result[i] = finalValue;     // R
+    result[i + 1] = finalValue; // G
+    result[i + 2] = finalValue; // B
+    result[i + 3] = data[i + 3]; // A remains unchanged
+  }
+
+  return result;
+}
+
+// Helper function to apply denoising for cleaner Chinese character recognition
+function applyDenoising(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
+  // Simple denoising algorithm to smooth out noise while preserving character shapes
+  const result = new Uint8ClampedArray(data.length);
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const idx = (y * width + x) * 4;
+
+      // Calculate average of neighboring pixels (3x3 kernel)
+      let rSum = 0, gSum = 0, bSum = 0;
+      let count = 0;
+
+      for (let dy = -1; dy <= 1; dy++) {
+        for (let dx = -1; dx <= 1; dx++) {
+          const ny = Math.max(0, Math.min(height - 1, y + dy));
+          const nx = Math.max(0, Math.min(width - 1, x + dx));
+          const nIdx = (ny * width + nx) * 4;
+
+          rSum += data[nIdx];
+          gSum += data[nIdx + 1];
+          bSum += data[nIdx + 2];
+          count++;
+        }
+      }
+
+      result[idx] = rSum / count;     // R
+      result[idx + 1] = gSum / count; // G
+      result[idx + 2] = bSum / count; // B
+      result[idx + 3] = data[idx + 3]; // A remains unchanged
+    }
+  }
+
+  return result;
+}
+
+// Helper function to apply sharpening for clearer character edges
+function applySharpening(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
+  // Sharpening kernel
+  const kernel = [
+    0, -1, 0,
+    -1, 5, -1,
+    0, -1, 0
+  ];
+
+  const result = new Uint8ClampedArray(data.length);
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let rSum = 0, gSum = 0, bSum = 0;
+      let kSum = 0;
+
+      for (let ky = 0; ky < 3; ky++) {
+        for (let kx = 0; kx < 3; kx++) {
+          const pixelY = Math.max(0, Math.min(height - 1, y + ky - 1));
+          const pixelX = Math.max(0, Math.min(width - 1, x + kx - 1));
+          const pixelIdx = (pixelY * width + pixelX) * 4;
+          const kVal = kernel[ky * 3 + kx];
+
+          rSum += data[pixelIdx] * kVal;
+          gSum += data[pixelIdx + 1] * kVal;
+          bSum += data[pixelIdx + 2] * kVal;
+          kSum += kVal;
+        }
+      }
+
+      // Normalize if kernel sum is not 0
+      if (kSum > 0) {
+        rSum /= kSum;
+        gSum /= kSum;
+        bSum /= kSum;
+      }
+
+      result[(y * width + x) * 4] = clampPixel(rSum);     // R
+      result[(y * width + x) * 4 + 1] = clampPixel(gSum); // G
+      result[(y * width + x) * 4 + 2] = clampPixel(bSum); // B
+      result[(y * width + x) * 4 + 3] = data[(y * width + x) * 4 + 3]; // A remains unchanged
+    }
+  }
+
+  return result;
 }
 
 // Helper function to apply unsharp mask for edge enhancement
@@ -271,7 +386,7 @@ function applyUnsharpMask(data: Uint8ClampedArray, width: number, height: number
   }
 
   // Apply unsharp mask formula: output = original + amount*(original-blurred)
-  const amount = 0.5; // Amount of sharpening
+  const amount = 0.7; // Increased sharpening for Chinese characters
   const result = new Uint8ClampedArray(data.length);
 
   for (let i = 0; i < data.length; i += 4) {
@@ -345,24 +460,42 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
   const { createWorker } = tesseract;
 
   // Create worker with English and Chinese language support using correct API
-  const worker = await createWorker('eng+chi_sim'); // Use string format for multiple languages
+  const worker = await createWorker('chi_sim'); // Focus on Chinese characters first
 
   try {
     // Perform OCR
     const ret = await worker.recognize(imageUrl);
     const text = ret.data.text;
 
+    // If the result is poor, try combined approach
+    let finalText = text;
+    if (!text || text.trim().length < 2) {
+      await worker.terminate();
+
+      const fallbackWorker = await createWorker('chi_sim+eng');
+      const fallbackRet = await fallbackWorker.recognize(imageUrl);
+      finalText = fallbackRet.data.text;
+      await fallbackWorker.terminate();
+    } else {
+      await worker.terminate();
+    }
+
     // Process recognized text to find character names
-    const ocrResults = await processRecognizedText(text);
+    const ocrResults = await processRecognizedText(finalText);
 
     return ocrResults;
   } finally {
-    await worker.terminate(); // Free up resources
+    // Ensure worker is terminated in case of error
+    try {
+      await worker.terminate();
+    } catch (e) {
+      // Ignore termination errors
+    }
   }
 }
 
 /**
- * Detect character names by analyzing character grid regions
+ * Detect character names by analyzing character grid regions with enhanced Chinese character support
  * @param imageUrl URL of the full screenshot
  * @returns Promise with OCR results
  */
@@ -387,35 +520,58 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
             // Preprocess the region specifically for character names
             const processedRegion = await preprocessCharacterNameRegion(regionUrl);
 
-            // OCR the region with focus on Chinese characters
+            // Try Chinese-focused OCR first
             const tesseract = await import('tesseract.js');
             const { createWorker } = tesseract;
 
-            const worker = await createWorker('chi_sim+eng');
+            // Create worker focused specifically on Chinese characters
+            const worker = await createWorker('chi_sim');
 
-            // Configure parameters to improve Chinese character recognition
+            // Set parameters optimized for Chinese character recognition
             await worker.setParameters({
-              tessedit_pageseg_mode: '6' as any, // Assume a single uniform block of text
+              tessedit_pageseg_mode: '6' as any, // Single block of text
               tessedit_ocr_engine_mode: '1' as any, // LSTM only
-              // Additional parameters to improve Chinese character recognition
-              'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+              // Focus specifically on Chinese characters
+              'tessedit_char_whitelist': '\u4e00-\u9fff',
               'preserve_interword_spaces': '1',
+              // Improve segmentation for Chinese characters
+              'textord_heavy_nr': '1',
+              'textord_heavy_nr_fragments': '1',
             });
 
             const result = await worker.recognize(processedRegion);
             const regionText = result.data.text.trim();
 
+            // If Chinese-focused OCR didn't work well, try combined approach
+            let finalText = regionText;
+            if (!regionText || regionText.trim().length < 2) {
+              // Terminate first worker and try with combined languages
+              await worker.terminate();
+
+              const combinedWorker = await createWorker('chi_sim+eng');
+              await combinedWorker.setParameters({
+                tessedit_pageseg_mode: '6' as any,
+                tessedit_ocr_engine_mode: '1' as any,
+                'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+                'preserve_interword_spaces': '1',
+              });
+
+              const combinedResult = await combinedWorker.recognize(processedRegion);
+              finalText = combinedResult.data.text.trim();
+              await combinedWorker.terminate();
+            } else {
+              await worker.terminate();
+            }
+
             // Split potential names and clean them
-            if (regionText) {
-              const potentialNames = regionText
+            if (finalText) {
+              const potentialNames = finalText
                 .split(/[\s\n\r\t,，、；;：:，。！？【】「」『』（）]/)
                 .map(name => name.trim())
                 .filter(name => name.length >= 1 && name.length <= 12); // Allow single Chinese characters
 
               allPotentialNames = allPotentialNames.concat(potentialNames);
             }
-
-            await worker.terminate();
           } catch (regionError) {
             console.warn('Error processing region:', regionError);
             continue; // Continue with other regions

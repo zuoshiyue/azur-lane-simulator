@@ -387,14 +387,19 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
             // Preprocess the region specifically for character names
             const processedRegion = await preprocessCharacterNameRegion(regionUrl);
 
-            // OCR the region
+            // OCR the region with focus on Chinese characters
             const tesseract = await import('tesseract.js');
             const { createWorker } = tesseract;
 
             const worker = await createWorker('chi_sim+eng');
+
+            // Configure parameters to improve Chinese character recognition
             await worker.setParameters({
-              tessedit_pageseg_mode: '8' as any, // Assume single word/line for names
+              tessedit_pageseg_mode: '6' as any, // Assume a single uniform block of text
               tessedit_ocr_engine_mode: '1' as any, // LSTM only
+              // Additional parameters to improve Chinese character recognition
+              'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+              'preserve_interword_spaces': '1',
             });
 
             const result = await worker.recognize(processedRegion);
@@ -403,9 +408,9 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
             // Split potential names and clean them
             if (regionText) {
               const potentialNames = regionText
-                .split(/[\s\n\r\t,，、；;：:]+/)
+                .split(/[\s\n\r\t,，、；;：:，。！？【】「」『』（）]/)
                 .map(name => name.trim())
-                .filter(name => name.length >= 2 && name.length <= 12);
+                .filter(name => name.length >= 1 && name.length <= 12); // Allow single Chinese characters
 
               allPotentialNames = allPotentialNames.concat(potentialNames);
             }
@@ -437,7 +442,7 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
  */
 async function processRecognizedText(text: string): Promise<OcrResult> {
   // Clean up the text
-  const lines = text.split('\n')
+  const lines = text.split(/[\n\r]+/)
     .map(line => line.trim())
     .filter(line => line.length > 0);
 
@@ -448,22 +453,23 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
   for (const line of lines) {
     // Look for patterns that might indicate character names
     // Split by common separators but preserve potential names
-    const words = line.split(/[\s\n\r\t,，、；;：:]+/);
+    // Updated to better handle Chinese punctuation and mixed text
+    const segments = line.split(/[,，、；;：:：【】\[\]「」""''（）\(\)]+/);
 
-    for (const word of words) {
+    for (const segment of segments) {
       // Enhanced cleaning - remove common non-name characters but keep alphabets and Chinese characters
-      let cleanWord = word
-        .replace(/[!@#$%^&*()_+\-=\[\]{}|\\:";<>?,.\/1234567890]/g, '') // Remove special chars and numbers
+      let cleanSegment = segment
+        .replace(/[!@#$%^&*+_=\-|\\<>?\/0-9]/g, '') // Remove special chars but keep Chinese/English
         .replace(/\s+/g, '') // Remove any remaining whitespace
         .trim();
 
       // Only consider strings that have some alphabetic or Chinese characters
-      if (cleanWord.match(/[\u4e00-\u9fa5a-zA-Z]/) && cleanWord.length >= 2 && cleanWord.length <= 12) {
+      if (cleanSegment.match(/[\u4e00-\u9fa5a-zA-Z]/) && cleanSegment.length >= 1 && cleanSegment.length <= 12) {
         // Additional validation: check if it looks like a name
         // Skip very common non-name words
-        const skipWords = ['level', 'lv', 'rank', 'ship', 'shipgirl', 'navy', 'stage', 'battle', 'expedition', 'all', 'off', 'the', 'and', 'for', 'are', 'but', 'not', 'you', 'get', 'had', 'him', 'his', 'her', 'has', 'was', 'one', 'out', 'day', 'by', 'etc', 'art', 'gif'];
-        if (!skipWords.some(skipWord => cleanWord.toLowerCase().includes(skipWord) || skipWord.includes(cleanWord.toLowerCase()))) {
-          potentialNames.push(cleanWord);
+        const skipWords = ['level', 'lv', 'rank', 'ship', 'shipgirl', 'navy', 'stage', 'battle', 'expedition', 'all', 'off', 'the', 'and', 'for', 'are', 'but', 'not', 'you', 'get', 'had', 'him', 'his', 'her', 'has', 'was', 'one', 'out', 'day', 'by', 'etc', 'art', 'gif', 'yes', 'no', 'ok', 'hp', 'atk', 'def', 'acc', 'eva', 'spd', 'luck', 'crit', 'pen', 'res', 'rarity', 'type', 'faction', 'pos', 'owned', 'have', 'main', 'sub', 'skill', 'equip', 'equipped', 'status', 'stats', 'info', 'detail', 'details', 'data', 'value', 'cost', 'oil', 'ammo', 'steel', 'bauxite', 'time', 'build', 'repair', 'modernize', 'retrofit', 'upgrade', 'enhance', 'improve', 'develop', 'research', 'mission', 'quest', 'event', 'activity', 'campaign', 'operation', 'combat', 'fight', 'war', 'peace', 'alliance', 'enemy', 'formation', 'position', 'location', 'area', 'zone', 'map', 'route', 'path', 'way', 'method', 'strategy', 'tactic', 'technique', 'ability', 'power', 'strength', 'force', 'energy', 'mana', 'stamina', 'health', 'life', 'death', 'alive', 'dead', 'live', 'survive', 'win', 'lose', 'victory', 'defeat', 'success', 'failure', 'progress', 'complete', 'finish', 'done', 'ready', 'start', 'begin', 'end', 'stop', 'continue', 'pause', 'resume', 'restart', 'reload', 'refresh', 'update', 'change', 'modify', 'adjust', 'control', 'manage', 'lead', 'follow', 'guide', 'direct', 'assist', 'help', 'support', 'protect', 'defend', 'attack', 'damage', 'hurt', 'injure', 'heal', 'cure', 'recover', 'restore', 'repair', 'fix', 'solve', 'find', 'search', 'explore', 'discover', 'learn', 'study', 'teach', 'train', 'practice', 'exercise', 'work', 'job', 'task', 'duty', 'responsibility', 'role', 'purpose', 'goal', 'objective', 'target', 'aim', 'intention', 'plan', 'idea', 'thought', 'mind', 'brain', 'intellect', 'wisdom', 'knowledge', 'truth', 'false', 'real', 'fake', 'true', 'false', 'good', 'bad', 'better', 'worse', 'best', 'worst', 'nice', 'mean', 'kind', 'cruel', 'fair', 'unfair', 'just', 'unjust', 'right', 'wrong', 'correct', 'incorrect', 'accurate', 'inaccurate', 'precise', 'imprecise', 'exact', 'inexact', 'close', 'near', 'far', 'distant', 'remote', 'nearby', 'adjacent', 'next', 'previous', 'first', 'last', 'middle', 'center', 'central', 'side', 'edge', 'border', 'boundary', 'limit', 'extent', 'range', 'scope', 'scale', 'size', 'dimension', 'magnitude', 'measure', 'quantity', 'amount', 'number', 'count', 'total', 'sum', 'difference', 'increase', 'decrease', 'multiply', 'divide', 'add', 'subtract', 'calculate', 'compute', 'figure', 'determine', 'decide', 'choose', 'select', 'pick', 'grab', 'take', 'grab', 'catch', 'seize', 'hold', 'grasp', 'grip', 'clutch', 'cling', 'stick', 'attach', 'connect', 'link', 'tie', 'bind', 'fasten', 'secure', 'lock', 'close', 'shut', 'open', 'unlock', 'release', 'free', 'liberate', 'escape', 'flee', 'run', 'walk', 'move', 'travel', 'go', 'come', 'arrive', 'depart', 'leave', 'stay', 'remain', 'continue', 'persist', 'last', 'endure', 'tolerate', 'bear', 'stand', 'support', 'carry', 'transport', 'deliver', 'send', 'receive', 'accept', 'give', 'offer', 'present', 'provide', 'supply', 'furnish', 'equip', 'arm', 'weapon', 'armor', 'shield', 'helmet', 'coat', 'suit', 'uniform', 'clothes', 'clothing', 'garment', 'apparel', 'dress', 'robe', 'gown', 'skirt', 'pants', 'shirt', 'blouse', 'jacket', 'coat', 'shoes', 'boots', 'sandals', 'slippers', 'socks', 'hat', 'cap', 'scarf', 'gloves', 'belt', 'tie', 'necktie', 'bow', 'bowtie', 'pin', 'brooch', 'jewelry', 'ring', 'necklace', 'earrings', 'bracelet', 'watch', 'clock', 'time', 'hour', 'minute', 'second', 'day', 'night', 'morning', 'afternoon', 'evening', 'dawn', 'dusk', 'sunrise', 'sunset', 'season', 'spring', 'summer', 'autumn', 'winter', 'weather', 'rain', 'snow', 'sun', 'cloud', 'wind', 'storm', 'lightning', 'thunder', 'earthquake', 'flood', 'fire', 'water', 'air', 'earth', 'fire', 'metal', 'wood', 'nature', 'animal', 'bird', 'fish', 'insect', 'plant', 'tree', 'flower', 'grass', 'leaf', 'root', 'seed', 'fruit', 'vegetable', 'food', 'drink', 'beverage', 'water', 'juice', 'milk', 'tea', 'coffee', 'wine', 'beer', 'alcohol', 'bread', 'rice', 'meat', 'vegetable', 'soup', 'salad', 'dessert', 'sweet', 'sour', 'bitter', 'spicy', 'hot', 'cold', 'warm', 'cool', 'temperature', 'heat', 'coldness', 'color', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'white', 'gray', 'silver', 'gold', 'shape', 'round', 'square', 'triangle', 'circle', 'rectangle', 'oval', 'diamond', 'star', 'heart', 'spade', 'club'];
+        if (!skipWords.some(skipWord => cleanSegment.toLowerCase().includes(skipWord) || skipWord.includes(cleanSegment.toLowerCase()))) {
+          potentialNames.push(cleanSegment);
         }
       }
     }
@@ -537,7 +543,7 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
         matchedCharacters.push(matchedChar);
       }
     } else {
-      if (!unrecognized.includes(potentialName)) {
+      if (!unrecognized.includes(potentialName) && potentialName.length > 0) {
         unrecognized.push(potentialName);
       }
     }

@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { Upload, Download, AlertTriangle, CheckCircle, X, Image as ImageIcon } from 'lucide-react';
+import { Upload, Download, AlertTriangle, CheckCircle, X, Image as ImageIcon, Target } from 'lucide-react';
 import { processPositionScreenshot, OcrResult, processPositionScreenshotFromUrl } from '../utils/ocrHandler';
 import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
-import { getExistingPositionScreenshot } from '../utils/devUtils';
+import { getExistingPositionScreenshot, getTestScreenshotPath, getPossessionScreenshotPath } from '../utils/devUtils';
 
 interface PositionImportPanelProps {
   onClose: () => void;
@@ -51,6 +51,38 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
     } catch (error) {
       console.error('Failed to process existing screenshot:', error);
       setUploadError('处理现有截图时发生错误，请确保文件存在');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleProcessTestScreenshot = async () => {
+    setIsProcessing(true);
+    setUploadError(null);
+
+    try {
+      const screenshotPath = await getTestScreenshotPath();
+      const result = await processPositionScreenshotFromUrl(screenshotPath);
+      setOcrResult(result);
+    } catch (error) {
+      console.error('Failed to process test screenshot (ScreenShot.png):', error);
+      setUploadError('处理测试截图(ScreenShot.png)时发生错误，请确保文件存在');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleProcessPossessionScreenshot = async () => {
+    setIsProcessing(true);
+    setUploadError(null);
+
+    try {
+      const screenshotPath = await getPossessionScreenshotPath();
+      const result = await processPositionScreenshotFromUrl(screenshotPath);
+      setOcrResult(result);
+    } catch (error) {
+      console.error('Failed to process possession screenshot (持仓截图.jpg):', error);
+      setUploadError('处理持仓截图(持仓截图.jpg)时发生错误，请确保文件存在');
     } finally {
       setIsProcessing(false);
     }
@@ -155,6 +187,32 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
                 >
                   <ImageIcon className="w-4 h-4" />
                   处理现有截图
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleProcessTestScreenshot();
+                  }}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
+                  title="测试专用截图，包含'确捷'等特定角色"
+                >
+                  <Target className="w-4 h-4" />
+                  测试截图(ScreenShot.png)
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleProcessPossessionScreenshot();
+                  }}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  title="持仓截图，用于批量识别角色"
+                >
+                  <Target className="w-4 h-4" />
+                  持仓截图(持仓截图.jpg)
                 </button>
               </div>
 

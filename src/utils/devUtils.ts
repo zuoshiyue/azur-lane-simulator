@@ -5,6 +5,8 @@
 
 // Define the path to the existing screenshot
 export const EXISTING_SCREENSHOT_PATH = '/position_screenshot.jpg';
+export const SCREENSHOT_PNG_PATH = '/ScreenShot.png';
+export const POSSESSION_JPG_PATH = '/持仓截图.jpg';
 
 /**
  * Get the existing screenshot file from public folder
@@ -13,6 +15,22 @@ export const EXISTING_SCREENSHOT_PATH = '/position_screenshot.jpg';
 export async function getExistingPositionScreenshot(): Promise<string> {
   // Return the path to the screenshot in the public folder
   return EXISTING_SCREENSHOT_PATH;
+}
+
+/**
+ * Get the specific screenshot for testing "确捷" recognition
+ */
+export async function getTestScreenshotPath(): Promise<string> {
+  // Return path to ScreenShot.png in public folder
+  return SCREENSHOT_PNG_PATH;
+}
+
+/**
+ * Get the possession screenshot for bulk character recognition
+ */
+export async function getPossessionScreenshotPath(): Promise<string> {
+  // Return path to 持仓截图.jpg in public folder
+  return POSSESSION_JPG_PATH;
 }
 
 /**

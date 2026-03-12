@@ -88,17 +88,12 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
   const tesseract = await import('tesseract.js');
   const { createWorker } = tesseract;
 
-  // Create worker
-  const worker = await createWorker();
+  // Create worker with English and Chinese language support
+  const worker = await createWorker(['eng', 'chi_sim']);
 
   try {
-    // Load English and Chinese language data - using type assertion for compatibility
-    await (worker as any).loadLanguage('eng');
-    await (worker as any).loadLanguage('chi_sim');
-    await (worker as any).initialize(['eng', 'chi_sim']); // Initialize with multiple languages
-
     // Perform OCR
-    const ret = await (worker as any).recognize(imageUrl);
+    const ret = await worker.recognize(imageUrl);
     const text = ret.data.text;
 
     // Process recognized text to find character names
@@ -106,7 +101,7 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
 
     return ocrResults;
   } finally {
-    await (worker as any).terminate(); // Free up resources
+    await worker.terminate(); // Free up resources
   }
 }
 

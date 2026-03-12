@@ -30,8 +30,8 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
         const ctx = canvas.getContext('2d');
 
         // Set canvas size (upscale for better OCR)
-        canvas.width = img.width * 3;  // Increased scaling factor for better text recognition
-        canvas.height = img.height * 3;
+        canvas.width = img.width * 4;  // Increased scaling factor for better text recognition
+        canvas.height = img.height * 4;
 
         if (!ctx) {
           reject(new Error('Could not get canvas context'));
@@ -41,24 +41,25 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
         // Apply transformations to improve OCR
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // Increase contrast and brightness for text
+        // Convert to grayscale first for better text recognition
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data = imageData.data;
 
-        // Adjust contrast and brightness
-        const brightness = 30; // Range: -100 to 100
-        const contrast = 30;   // Range: -100 to 100
-
-        const factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
-
+        // Convert to grayscale
         for (let i = 0; i < data.length; i += 4) {
-          // Red
-          data[i] = clamp(factor * (data[i] - 128) + 128 + brightness);
-          // Green
-          data[i + 1] = clamp(factor * (data[i + 1] - 128) + 128 + brightness);
-          // Blue
-          data[i + 2] = clamp(factor * (data[i + 2] - 128) + 128 + brightness);
-          // Alpha stays the same
+          const gray = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+          data[i] = gray;     // Red
+          data[i + 1] = gray; // Green
+          data[i + 2] = gray; // Blue
+        }
+
+        // Apply threshold to make text more defined
+        for (let i = 0; i < data.length; i += 4) {
+          const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          const newValue = avg > 128 ? 255 : 0;
+          data[i] = newValue;     // Red
+          data[i + 1] = newValue; // Green
+          data[i + 2] = newValue; // Blue
         }
 
         ctx.putImageData(imageData, 0, 0);
@@ -71,11 +72,6 @@ export async function preprocessImage(imageUrl: string): Promise<string> {
     img.onerror = (err) => reject(err);
     img.src = imageUrl;
   });
-}
-
-// Helper function to clamp values between 0 and 255
-function clamp(value: number): number {
-  return Math.min(Math.max(value, 0), 255);
 }
 
 /**
@@ -92,6 +88,16 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
   const worker = await createWorker(['eng', 'chi_sim']);
 
   try {
+    // Set specific parameters to improve text recognition accuracy
+    await worker.setParameters({
+      // Page segmentation mode - single block of text (SINGLE_BLOCK = '6')
+      tessedit_pageseg_mode: '6' as any,
+      // OCR engine mode - LSTM only (better for printed text)
+      tessedit_ocr_engine_mode: '1' as any,
+      // Text orientation
+      user_defined_dpi: '300' as any,
+    });
+
     // Perform OCR
     const ret = await worker.recognize(imageUrl);
     const text = ret.data.text;
@@ -119,18 +125,27 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
   // Identify potential character names in the text
   const potentialNames: string[] = [];
 
-  // This is a simplified version - in a real implementation, you'd have
-  // more sophisticated pattern matching based on how characters appear in screenshots
+  // More sophisticated pattern matching for character names
   for (const line of lines) {
     // Look for patterns that might indicate character names
-    // This would be adapted based on how characters are displayed in position screenshots
-    const words = line.split(/[\s,，、]+/); // Split by whitespace and Chinese commas
-    for (const word of words) {
-      // Clean up the word - remove punctuation that might appear around names
-      const cleanWord = word.replace(/[^\u4e00-\u9fa5a-zA-Z]/g, '').trim();
+    // Split by common separators but preserve potential names
+    const words = line.split(/[\s\n\r\t,，、；;：:]+/);
 
-      if (cleanWord.length >= 2 && cleanWord.length <= 8) { // Reasonable name length
-        potentialNames.push(cleanWord);
+    for (const word of words) {
+      // Enhanced cleaning - remove common non-name characters but keep alphabets and Chinese characters
+      let cleanWord = word
+        .replace(/[!@#$%^&*()_+\-=\[\]{}|\\:";<>?,.\/1234567890]/g, '') // Remove special chars and numbers
+        .replace(/\s+/g, '') // Remove any remaining whitespace
+        .trim();
+
+      // Only consider strings that have some alphabetic or Chinese characters
+      if (cleanWord.match(/[\u4e00-\u9fa5a-zA-Z]/) && cleanWord.length >= 2 && cleanWord.length <= 12) {
+        // Additional validation: check if it looks like a name
+        // Skip very common non-name words
+        const skipWords = ['level', 'lv', 'rank', 'ship', 'shipgirl', 'navy', 'stage', 'battle', 'expedition'];
+        if (!skipWords.some(skipWord => cleanWord.toLowerCase().includes(skipWord))) {
+          potentialNames.push(cleanWord);
+        }
       }
     }
   }
@@ -160,16 +175,42 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
   const unrecognized: string[] = [];
 
   for (const potentialName of potentialNames) {
-    // Find character by name (Japanese) or Chinese name
-    const matchedChar = characters.find(
+    // Find character by multiple matching strategies
+    let matchedChar = characters.find(
       char =>
-        char.name.includes(potentialName) ||
-        char.nameCn.includes(potentialName) ||
-        (char.aliases && char.aliases.some((alias: string) => alias.includes(potentialName))) ||
-        // Also try fuzzy matching
-        char.name.toLowerCase().includes(potentialName.toLowerCase()) ||
-        char.nameCn.includes(potentialName)
+        // Exact match first
+        char.name.toLowerCase() === potentialName.toLowerCase() ||
+        char.nameCn === potentialName ||
+        (char.aliases && char.aliases.some((alias: string) => alias.toLowerCase() === potentialName.toLowerCase()))
     );
+
+    // If no exact match, try partial/fuzzy matching
+    if (!matchedChar) {
+      matchedChar = characters.find(
+        char =>
+          // Partial matches with higher confidence requirements
+          char.name.toLowerCase().includes(potentialName.toLowerCase()) ||
+          char.name.toLowerCase().startsWith(potentialName.toLowerCase()) ||
+          char.nameCn.includes(potentialName) ||
+          char.nameCn.startsWith(potentialName) ||
+          (char.aliases && char.aliases.some((alias: string) =>
+            alias.toLowerCase().includes(potentialName.toLowerCase()) ||
+            alias.toLowerCase().startsWith(potentialName.toLowerCase())
+          ))
+      );
+    }
+
+    // As a last resort, try reverse match (potentialName contains character name)
+    if (!matchedChar) {
+      matchedChar = characters.find(
+        char =>
+          potentialName.toLowerCase().includes(char.name.toLowerCase()) ||
+          potentialName.includes(char.nameCn) ||
+          (char.aliases && char.aliases.some((alias: string) =>
+            potentialName.toLowerCase().includes(alias.toLowerCase())
+          ))
+      );
+    }
 
     if (matchedChar) {
       // Avoid duplicates by checking if the character is already matched
@@ -183,10 +224,18 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
     }
   }
 
-  // Calculate confidence based on match rate
+  // Calculate confidence based on match rate and text quality
   const totalPotential = potentialNames.length;
   const matchRate = totalPotential > 0 ? matchedCharacters.length / totalPotential : 0;
-  const confidence = Math.min(100, Math.floor(matchRate * 100));
+
+  // Base confidence from match rate, adjusted based on number of matches
+  let confidence = Math.min(100, Math.floor(matchRate * 100));
+
+  // Boost confidence if we found some matches (suggesting good OCR quality)
+  if (matchedCharacters.length > 0 && matchRate > 0) {
+    const boostFactor = Math.min(1.5, 1 + (matchedCharacters.length * 0.1));
+    confidence = Math.min(100, Math.floor(confidence * boostFactor));
+  }
 
   return {
     characters: potentialNames,

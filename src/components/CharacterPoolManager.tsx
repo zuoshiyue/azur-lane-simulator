@@ -908,7 +908,7 @@ export const CharacterPoolManager: React.FC = () => {
         </div>
       )}
 
-      {/* OCR持仓识别面板 */}
+      {/* OCR舰舱识别面板 */}
       {showPositionImportPanel && (
         <PositionImportPanel
           onClose={() => setShowPositionImportPanel(false)}

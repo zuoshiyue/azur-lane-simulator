@@ -185,8 +185,8 @@ export async function preprocessCharacterNameRegion(imageUrl: string): Promise<s
         const ctx = canvas.getContext('2d');
 
         // For character names, even higher scaling
-        canvas.width = img.width * 10;  // Increased scaling for small text
-        canvas.height = img.height * 10;
+        canvas.width = img.width * 12;  // Increased scaling specifically for character names
+        canvas.height = img.height * 12;
 
         if (!ctx) {
           reject(new Error('Could not get canvas context'));
@@ -196,17 +196,20 @@ export async function preprocessCharacterNameRegion(imageUrl: string): Promise<s
         // Draw image at high resolution
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // Apply multiple preprocessing passes for Chinese characters
+        // Apply multiple preprocessing passes for character names
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
         // First pass: enhance contrast specifically for text
-        let processedData = enhanceContrastForChineseText(imageData.data, canvas.width, canvas.height);
+        let processedData = enhanceContrastForCharacterNames(imageData.data, canvas.width, canvas.height);
 
         // Second pass: denoise
         processedData = applyDenoising(processedData, canvas.width, canvas.height);
 
-        // Third pass: sharpen edges for character clarity
-        processedData = applySharpening(processedData, canvas.width, canvas.height);
+        // Third pass: sharpen edges for character name clarity
+        processedData = applySharpeningForCharacterNames(processedData, canvas.width, canvas.height);
+
+        // Fourth pass: apply unsharp mask to enhance character name features
+        processedData = applyUnsharpMaskForCharacterNames(processedData, canvas.width, canvas.height);
 
         // Convert to grayscale
         for (let i = 0; i < processedData.length; i += 4) {
@@ -228,9 +231,9 @@ export async function preprocessCharacterNameRegion(imageUrl: string): Promise<s
   });
 }
 
-// Helper function to enhance contrast specifically for Chinese characters
-function enhanceContrastForChineseText(data: Uint8ClampedArray, _width: number, _height: number): Uint8ClampedArray {
-  // Process RGB channels to enhance contrast for Chinese text
+// Helper function to enhance contrast specifically for character names
+function enhanceContrastForCharacterNames(data: Uint8ClampedArray, _width: number, _height: number): Uint8ClampedArray {
+  // Process RGB channels to enhance contrast for character names
   const result = new Uint8ClampedArray(data.length);
 
   for (let i = 0; i < data.length; i += 4) {
@@ -242,20 +245,23 @@ function enhanceContrastForChineseText(data: Uint8ClampedArray, _width: number, 
     // Convert to grayscale
     const gray = 0.299 * r + 0.587 * g + 0.114 * b;
 
-    // Apply strong contrast enhancement for Chinese character clarity
-    // This helps differentiate similar-looking Chinese characters
+    // Apply contrast enhancement specifically optimized for character names
+    // Character names in games often have specific color schemes and contrasts
     let adjusted;
-    if (gray < 128) {
-      // Make dark pixels darker (text)
-      adjusted = gray * 0.3;
+    if (gray < 100) {
+      // Make dark text pixels more distinct
+      adjusted = gray * 0.1;
+    } else if (gray < 150) {
+      // Medium range - preserve details
+      adjusted = 50 + (gray - 100) * 0.8;
     } else {
-      // Make light pixels lighter (background)
-      adjusted = 220 + (gray - 128) * 0.7;
+      // Bright areas - reduce slightly to improve contrast
+      adjusted = 180 + (gray - 150) * 0.6;
     }
 
     const finalValue = Math.min(255, Math.max(0, adjusted));
 
-    // Apply to all channels to maintain grayscale but enhance contrast
+    // Apply to all channels to maintain grayscale but enhance character name visibility
     result[i] = finalValue;     // R
     result[i + 1] = finalValue; // G
     result[i + 2] = finalValue; // B
@@ -265,9 +271,108 @@ function enhanceContrastForChineseText(data: Uint8ClampedArray, _width: number, 
   return result;
 }
 
-// Helper function to apply denoising for cleaner Chinese character recognition
+// Helper function to apply sharpening specifically for character names
+function applySharpeningForCharacterNames(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
+  // Sharpening kernel optimized for character name edges
+  const kernel = [
+    0, -1, 0,
+    -1, 5, -1,
+    0, -1, 0
+  ];
+
+  const result = new Uint8ClampedArray(data.length);
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let rSum = 0, gSum = 0, bSum = 0;
+      let kSum = 0;
+
+      for (let ky = 0; ky < 3; ky++) {
+        for (let kx = 0; kx < 3; kx++) {
+          const pixelY = Math.max(0, Math.min(height - 1, y + ky - 1));
+          const pixelX = Math.max(0, Math.min(width - 1, x + kx - 1));
+          const pixelIdx = (pixelY * width + pixelX) * 4;
+          const kVal = kernel[ky * 3 + kx];
+
+          rSum += data[pixelIdx] * kVal;
+          gSum += data[pixelIdx + 1] * kVal;
+          bSum += data[pixelIdx + 2] * kVal;
+          kSum += Math.abs(kVal); // Use absolute value for normalization
+        }
+      }
+
+      // Normalize if kernel sum is greater than 0
+      if (kSum > 0) {
+        rSum /= kSum;
+        gSum /= kSum;
+        bSum /= kSum;
+      }
+
+      result[(y * width + x) * 4] = clampPixel(rSum);     // R
+      result[(y * width + x) * 4 + 1] = clampPixel(gSum); // G
+      result[(y * width + x) * 4 + 2] = clampPixel(bSum); // B
+      result[(y * width + x) * 4 + 3] = data[(y * width + x) * 4 + 3]; // A remains unchanged
+    }
+  }
+
+  return result;
+}
+
+// Helper function to apply unsharp mask specifically for character names
+function applyUnsharpMaskForCharacterNames(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
+  // Create a copy of the original data
+  const original = new Uint8ClampedArray(data);
+
+  // Create a blurred version using a slightly larger radius for character names
+  const blurred = new Uint8ClampedArray(data.length);
+  const radius = 2; // Slightly larger radius for character names
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let rSum = 0, gSum = 0, bSum = 0;
+      let count = 0;
+
+      for (let ry = -radius; ry <= radius; ry++) {
+        for (let rx = -radius; rx <= radius; rx++) {
+          const px = x + rx;
+          const py = y + ry;
+
+          if (px >= 0 && px < width && py >= 0 && py < height) {
+            const idx = (py * width + px) * 4;
+            rSum += original[idx];
+            gSum += original[idx + 1];
+            bSum += original[idx + 2];
+            count++;
+          }
+        }
+      }
+
+      const idx = (y * width + x) * 4;
+      blurred[idx] = rSum / count;       // R
+      blurred[idx + 1] = gSum / count;   // G
+      blurred[idx + 2] = bSum / count;   // B
+      blurred[idx + 3] = original[idx + 3]; // A remains unchanged
+    }
+  }
+
+  // Apply unsharp mask formula: output = original + amount*(original-blurred)
+  const amount = 0.9; // Increased sharpening specifically for character names
+  const result = new Uint8ClampedArray(data.length);
+
+  for (let i = 0; i < data.length; i += 4) {
+    // Only process RGB channels, keep alpha channel unchanged
+    result[i] = clampPixel(original[i] + amount * (original[i] - blurred[i]));     // R
+    result[i + 1] = clampPixel(original[i + 1] + amount * (original[i + 1] - blurred[i + 1])); // G
+    result[i + 2] = clampPixel(original[i + 2] + amount * (original[i + 2] - blurred[i + 2])); // B
+    result[i + 3] = original[i + 3]; // A remains unchanged
+  }
+
+  return result;
+}
+
+// Helper function to apply denoising for cleaner character name recognition
 function applyDenoising(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
-  // Simple denoising algorithm to smooth out noise while preserving character shapes
+  // Simple denoising algorithm to smooth out noise while preserving character names
   const result = new Uint8ClampedArray(data.length);
 
   for (let y = 0; y < height; y++) {
@@ -295,53 +400,6 @@ function applyDenoising(data: Uint8ClampedArray, width: number, height: number):
       result[idx + 1] = gSum / count; // G
       result[idx + 2] = bSum / count; // B
       result[idx + 3] = data[idx + 3]; // A remains unchanged
-    }
-  }
-
-  return result;
-}
-
-// Helper function to apply sharpening for clearer character edges
-function applySharpening(data: Uint8ClampedArray, width: number, height: number): Uint8ClampedArray {
-  // Sharpening kernel
-  const kernel = [
-    0, -1, 0,
-    -1, 5, -1,
-    0, -1, 0
-  ];
-
-  const result = new Uint8ClampedArray(data.length);
-
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      let rSum = 0, gSum = 0, bSum = 0;
-      let kSum = 0;
-
-      for (let ky = 0; ky < 3; ky++) {
-        for (let kx = 0; kx < 3; kx++) {
-          const pixelY = Math.max(0, Math.min(height - 1, y + ky - 1));
-          const pixelX = Math.max(0, Math.min(width - 1, x + kx - 1));
-          const pixelIdx = (pixelY * width + pixelX) * 4;
-          const kVal = kernel[ky * 3 + kx];
-
-          rSum += data[pixelIdx] * kVal;
-          gSum += data[pixelIdx + 1] * kVal;
-          bSum += data[pixelIdx + 2] * kVal;
-          kSum += kVal;
-        }
-      }
-
-      // Normalize if kernel sum is not 0
-      if (kSum > 0) {
-        rSum /= kSum;
-        gSum /= kSum;
-        bSum /= kSum;
-      }
-
-      result[(y * width + x) * 4] = clampPixel(rSum);     // R
-      result[(y * width + x) * 4 + 1] = clampPixel(gSum); // G
-      result[(y * width + x) * 4 + 2] = clampPixel(bSum); // B
-      result[(y * width + x) * 4 + 3] = data[(y * width + x) * 4 + 3]; // A remains unchanged
     }
   }
 
@@ -495,7 +553,7 @@ export async function detectCharactersFromImage(imageUrl: string): Promise<OcrRe
 }
 
 /**
- * Detect character names by analyzing character grid regions with enhanced Chinese character support
+ * Detect character names by analyzing character grid regions with enhanced focus on character names
  * @param imageUrl URL of the full screenshot
  * @returns Promise with OCR results
  */
@@ -515,60 +573,87 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
         // Process each region separately
         let allPotentialNames: string[] = [];
 
+        // Read character data for reference
+        let characterNameReference = [];
+        try {
+          const charactersDataModule = await import('../data/characters-wiki.json');
+          const charactersData: any[] = Array.isArray(charactersDataModule.default)
+            ? charactersDataModule.default
+            : (charactersDataModule.default as any).characters || [];
+
+          // Collect all possible character names for reference
+          for (const char of charactersData) {
+            if (char.nameCn) characterNameReference.push(char.nameCn);
+            if (char.name) characterNameReference.push(char.name);
+            if (char.aliases && Array.isArray(char.aliases)) {
+              characterNameReference.push(...char.aliases);
+            }
+          }
+        } catch (e) {
+          console.error('Could not load character reference data:', e);
+          // Proceed with default character name detection
+        }
+
         for (const regionUrl of nameRegions) {
           try {
             // Preprocess the region specifically for character names
             const processedRegion = await preprocessCharacterNameRegion(regionUrl);
 
-            // Try Chinese-focused OCR first
+            // Try multiple OCR strategies to maximize character name recognition
             const tesseract = await import('tesseract.js');
             const { createWorker } = tesseract;
 
-            // Create worker focused specifically on Chinese characters
-            const worker = await createWorker('chi_sim');
+            // Strategy 1: Focus specifically on Chinese character names
+            let bestResult = '';
 
-            // Set parameters optimized for Chinese character recognition
-            await worker.setParameters({
-              tessedit_pageseg_mode: '6' as any, // Single block of text
+            // First, try with Chinese character model focusing on character names
+            const worker1 = await createWorker('chi_sim');
+            await worker1.setParameters({
+              tessedit_pageseg_mode: '8' as any, // Treat as single word/line for names
               tessedit_ocr_engine_mode: '1' as any, // LSTM only
-              // Focus specifically on Chinese characters
-              'tessedit_char_whitelist': '\u4e00-\u9fff',
+              // Focus on Chinese characters that are common in character names
+              'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789·・—-',
               'preserve_interword_spaces': '1',
-              // Improve segmentation for Chinese characters
-              'textord_heavy_nr': '1',
-              'textord_heavy_nr_fragments': '1',
+              // Improve accuracy for small text
+              'chop_enable': '1',
+              'tessedit_char_blacklist': '`~!@#$%^&*()_+=[]{}|;:,.<>?/',
             });
 
-            const result = await worker.recognize(processedRegion);
-            const regionText = result.data.text.trim();
+            const result1 = await worker1.recognize(processedRegion);
+            await worker1.terminate();
 
-            // If Chinese-focused OCR didn't work well, try combined approach
-            let finalText = regionText;
-            if (!regionText || regionText.trim().length < 2) {
-              // Terminate first worker and try with combined languages
-              await worker.terminate();
-
-              const combinedWorker = await createWorker('chi_sim+eng');
-              await combinedWorker.setParameters({
-                tessedit_pageseg_mode: '6' as any,
-                tessedit_ocr_engine_mode: '1' as any,
-                'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
-                'preserve_interword_spaces': '1',
-              });
-
-              const combinedResult = await combinedWorker.recognize(processedRegion);
-              finalText = combinedResult.data.text.trim();
-              await combinedWorker.terminate();
-            } else {
-              await worker.terminate();
+            if (result1.data.text && result1.data.text.trim().length > bestResult.length) {
+              bestResult = result1.data.text.trim();
             }
 
-            // Split potential names and clean them
-            if (finalText) {
-              const potentialNames = finalText
+            // If first attempt wasn't good enough, try with additional parameters
+            if (bestResult.length < 2) {
+              const worker2 = await createWorker('chi_sim+eng');
+              await worker2.setParameters({
+                tessedit_pageseg_mode: '6' as any, // Single block
+                tessedit_ocr_engine_mode: '1' as any, // LSTM only
+                'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789·・—-',
+                'preserve_interword_spaces': '1',
+                // Focus on character name patterns
+                'textord_heavy_nr': '1',
+                'textord_heavy_nr_fragments': '1',
+                'textord_balance_factors': '1',
+              });
+
+              const result2 = await worker2.recognize(processedRegion);
+              await worker2.terminate();
+
+              if (result2.data.text && result2.data.text.trim().length > bestResult.length) {
+                bestResult = result2.data.text.trim();
+              }
+            }
+
+            // If we have a reasonable result, split and clean it
+            if (bestResult) {
+              const potentialNames = bestResult
                 .split(/[\s\n\r\t,，、；;：:，。！？【】「」『』（）]/)
                 .map(name => name.trim())
-                .filter(name => name.length >= 1 && name.length <= 12); // Allow single Chinese characters
+                .filter(name => name.length >= 1 && name.length <= 15); // Allow character names up to 15 chars
 
               allPotentialNames = allPotentialNames.concat(potentialNames);
             }
@@ -579,7 +664,7 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
         }
 
         // Process all extracted names
-        const ocrResults = await processRecognizedText(allPotentialNames.join('\n'));
+        const ocrResults = await processRecognizedText(allPotentialNames.join('\n'), characterNameReference);
         resolve(ocrResults);
       } catch (error) {
         reject(error);
@@ -594,9 +679,10 @@ export async function detectCharacterNamesFromGrid(imageUrl: string): Promise<Oc
 /**
  * Process the raw OCR text to extract character names
  * @param text Raw text from OCR
+ * @param characterNameReference Optional reference list of known character names for better matching
  * @returns Promise with processed OCR results
  */
-async function processRecognizedText(text: string): Promise<OcrResult> {
+async function processRecognizedText(text: string, characterNameReference: string[] = []): Promise<OcrResult> {
   // Clean up the text
   const lines = text.split(/[\n\r]+/)
     .map(line => line.trim())
@@ -615,15 +701,16 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
     for (const segment of segments) {
       // Enhanced cleaning - remove common non-name characters but keep alphabets and Chinese characters
       let cleanSegment = segment
-        .replace(/[!@#$%^&*+_=\-|\\<>?\/0-9]/g, '') // Remove special chars but keep Chinese/English
+        .replace(/[!@#$%^&*+_=\-|\\<>?\/]/g, '') // Remove special chars but keep numbers and dots
         .replace(/\s+/g, '') // Remove any remaining whitespace
         .trim();
 
       // Only consider strings that have some alphabetic or Chinese characters
-      if (cleanSegment.match(/[\u4e00-\u9fa5a-zA-Z]/) && cleanSegment.length >= 1 && cleanSegment.length <= 12) {
+      if (cleanSegment.match(/[\u4e00-\u9fa5a-zA-Z]/) && cleanSegment.length >= 1 && cleanSegment.length <= 15) {
         // Additional validation: check if it looks like a name
         // Skip very common non-name words
         const skipWords = ['level', 'lv', 'rank', 'ship', 'shipgirl', 'navy', 'stage', 'battle', 'expedition', 'all', 'off', 'the', 'and', 'for', 'are', 'but', 'not', 'you', 'get', 'had', 'him', 'his', 'her', 'has', 'was', 'one', 'out', 'day', 'by', 'etc', 'art', 'gif', 'yes', 'no', 'ok', 'hp', 'atk', 'def', 'acc', 'eva', 'spd', 'luck', 'crit', 'pen', 'res', 'rarity', 'type', 'faction', 'pos', 'owned', 'have', 'main', 'sub', 'skill', 'equip', 'equipped', 'status', 'stats', 'info', 'detail', 'details', 'data', 'value', 'cost', 'oil', 'ammo', 'steel', 'bauxite', 'time', 'build', 'repair', 'modernize', 'retrofit', 'upgrade', 'enhance', 'improve', 'develop', 'research', 'mission', 'quest', 'event', 'activity', 'campaign', 'operation', 'combat', 'fight', 'war', 'peace', 'alliance', 'enemy', 'formation', 'position', 'location', 'area', 'zone', 'map', 'route', 'path', 'way', 'method', 'strategy', 'tactic', 'technique', 'ability', 'power', 'strength', 'force', 'energy', 'mana', 'stamina', 'health', 'life', 'death', 'alive', 'dead', 'live', 'survive', 'win', 'lose', 'victory', 'defeat', 'success', 'failure', 'progress', 'complete', 'finish', 'done', 'ready', 'start', 'begin', 'end', 'stop', 'continue', 'pause', 'resume', 'restart', 'reload', 'refresh', 'update', 'change', 'modify', 'adjust', 'control', 'manage', 'lead', 'follow', 'guide', 'direct', 'assist', 'help', 'support', 'protect', 'defend', 'attack', 'damage', 'hurt', 'injure', 'heal', 'cure', 'recover', 'restore', 'repair', 'fix', 'solve', 'find', 'search', 'explore', 'discover', 'learn', 'study', 'teach', 'train', 'practice', 'exercise', 'work', 'job', 'task', 'duty', 'responsibility', 'role', 'purpose', 'goal', 'objective', 'target', 'aim', 'intention', 'plan', 'idea', 'thought', 'mind', 'brain', 'intellect', 'wisdom', 'knowledge', 'truth', 'false', 'real', 'fake', 'true', 'false', 'good', 'bad', 'better', 'worse', 'best', 'worst', 'nice', 'mean', 'kind', 'cruel', 'fair', 'unfair', 'just', 'unjust', 'right', 'wrong', 'correct', 'incorrect', 'accurate', 'inaccurate', 'precise', 'imprecise', 'exact', 'inexact', 'close', 'near', 'far', 'distant', 'remote', 'nearby', 'adjacent', 'next', 'previous', 'first', 'last', 'middle', 'center', 'central', 'side', 'edge', 'border', 'boundary', 'limit', 'extent', 'range', 'scope', 'scale', 'size', 'dimension', 'magnitude', 'measure', 'quantity', 'amount', 'number', 'count', 'total', 'sum', 'difference', 'increase', 'decrease', 'multiply', 'divide', 'add', 'subtract', 'calculate', 'compute', 'figure', 'determine', 'decide', 'choose', 'select', 'pick', 'grab', 'take', 'grab', 'catch', 'seize', 'hold', 'grasp', 'grip', 'clutch', 'cling', 'stick', 'attach', 'connect', 'link', 'tie', 'bind', 'fasten', 'secure', 'lock', 'close', 'shut', 'open', 'unlock', 'release', 'free', 'liberate', 'escape', 'flee', 'run', 'walk', 'move', 'travel', 'go', 'come', 'arrive', 'depart', 'leave', 'stay', 'remain', 'continue', 'persist', 'last', 'endure', 'tolerate', 'bear', 'stand', 'support', 'carry', 'transport', 'deliver', 'send', 'receive', 'accept', 'give', 'offer', 'present', 'provide', 'supply', 'furnish', 'equip', 'arm', 'weapon', 'armor', 'shield', 'helmet', 'coat', 'suit', 'uniform', 'clothes', 'clothing', 'garment', 'apparel', 'dress', 'robe', 'gown', 'skirt', 'pants', 'shirt', 'blouse', 'jacket', 'coat', 'shoes', 'boots', 'sandals', 'slippers', 'socks', 'hat', 'cap', 'scarf', 'gloves', 'belt', 'tie', 'necktie', 'bow', 'bowtie', 'pin', 'brooch', 'jewelry', 'ring', 'necklace', 'earrings', 'bracelet', 'watch', 'clock', 'time', 'hour', 'minute', 'second', 'day', 'night', 'morning', 'afternoon', 'evening', 'dawn', 'dusk', 'sunrise', 'sunset', 'season', 'spring', 'summer', 'autumn', 'winter', 'weather', 'rain', 'snow', 'sun', 'cloud', 'wind', 'storm', 'lightning', 'thunder', 'earthquake', 'flood', 'fire', 'water', 'air', 'earth', 'fire', 'metal', 'wood', 'nature', 'animal', 'bird', 'fish', 'insect', 'plant', 'tree', 'flower', 'grass', 'leaf', 'root', 'seed', 'fruit', 'vegetable', 'food', 'drink', 'beverage', 'water', 'juice', 'milk', 'tea', 'coffee', 'wine', 'beer', 'alcohol', 'bread', 'rice', 'meat', 'vegetable', 'soup', 'salad', 'dessert', 'sweet', 'sour', 'bitter', 'spicy', 'hot', 'cold', 'warm', 'cool', 'temperature', 'heat', 'coldness', 'color', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'white', 'gray', 'silver', 'gold', 'shape', 'round', 'square', 'triangle', 'circle', 'rectangle', 'oval', 'diamond', 'star', 'heart', 'spade', 'club'];
+
         if (!skipWords.some(skipWord => cleanSegment.toLowerCase().includes(skipWord) || skipWord.includes(cleanSegment.toLowerCase()))) {
           potentialNames.push(cleanSegment);
         }
@@ -656,7 +743,7 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
   const unrecognized: string[] = [];
 
   for (const potentialName of potentialNames) {
-    // Find character by multiple matching strategies
+    // Find character by multiple matching strategies, prioritizing the character name reference
     let matchedChar = characters.find(
       char =>
         // Exact match first
@@ -665,7 +752,26 @@ async function processRecognizedText(text: string): Promise<OcrResult> {
         (char.aliases && char.aliases.some((alias: string) => alias.toLowerCase() === potentialName.toLowerCase()))
     );
 
-    // If no exact match, try partial/fuzzy matching
+    // If no exact match and we have a character name reference, try to match against it
+    if (!matchedChar && characterNameReference.length > 0) {
+      // Check if potential name is in our reference list
+      const referenceMatch = characterNameReference.find(refName =>
+        refName.toLowerCase() === potentialName.toLowerCase() ||
+        refName.toLowerCase().includes(potentialName.toLowerCase()) ||
+        potentialName.toLowerCase().includes(refName.toLowerCase())
+      );
+
+      if (referenceMatch) {
+        // Find the character that corresponds to this reference match
+        matchedChar = characters.find(char =>
+          char.name === referenceMatch ||
+          char.nameCn === referenceMatch ||
+          (char.aliases && char.aliases.includes(referenceMatch))
+        );
+      }
+    }
+
+    // If no match yet, try partial/fuzzy matching with higher priority for character names
     if (!matchedChar) {
       matchedChar = characters.find(
         char =>
@@ -736,13 +842,58 @@ export async function processPositionScreenshot(imageFile: File): Promise<OcrRes
   const imageUrl = URL.createObjectURL(imageFile);
 
   try {
-    // Use grid-based detection for better results
-    const results = await detectCharacterNamesFromGrid(imageUrl);
+    // First, try the grid-based detection (for Azur Lane-style UIs)
+    let results = await detectCharacterNamesFromGrid(imageUrl);
+
+    // If grid-based detection didn't find good results (low confidence or no matches)
+    // fall back to general OCR approach
+    if (results.confidence < 30 || results.matchedCharacters.length === 0) {
+      console.log("Grid-based detection had low confidence, trying general OCR...");
+
+      // Fallback to general OCR processing that doesn't assume specific layout
+      results = await detectCharactersFromImageGeneral(imageUrl);
+    }
 
     return results;
   } finally {
     // Clean up the object URL
     URL.revokeObjectURL(imageUrl);
+  }
+}
+
+/**
+ * General OCR function that works with any image without assuming specific layout
+ * @param imageUrl URL of the image to process
+ * @returns Promise with OCR results
+ */
+export async function detectCharactersFromImageGeneral(imageUrl: string): Promise<OcrResult> {
+  // Dynamically import Tesseract (to avoid bundling it unless needed)
+  const tesseract = await import('tesseract.js');
+  const { createWorker } = tesseract;
+
+  // Create worker with English and Chinese language support
+  const worker = await createWorker('chi_sim+eng');
+
+  try {
+    // Set parameters optimized for general text detection in games
+    await worker.setParameters({
+      tessedit_pageseg_mode: '13' as any, // OSD and sparse text
+      tessedit_ocr_engine_mode: '1' as any, // LSTM only
+      'tessedit_char_whitelist': '\u4e00-\u9fff\u3400-\u4dbf\u20000-\u2a6df\u2a700-\u2b73f\u2b740-\u2b81f\u2b820-\u2ceaf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff\u2f800-\u2fa1fABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789·・—-',
+      'preserve_interword_spaces': '1',
+    });
+
+    // Perform OCR on the full image
+    const ret = await worker.recognize(imageUrl);
+    const text = ret.data.text;
+
+    // Process the recognized text
+    const ocrResults = await processRecognizedText(text);
+
+    return ocrResults;
+  } finally {
+    // Ensure worker is terminated
+    await worker.terminate();
   }
 }
 
@@ -769,8 +920,17 @@ export async function processWithOnlineOcr(_imageFile: File): Promise<OcrResult>
  * This is mainly for loading the provided screenshot file in development
  */
 export async function processPositionScreenshotFromUrl(imageUrl: string): Promise<OcrResult> {
-  // Use grid-based detection for better results
-  const results = await detectCharacterNamesFromGrid(imageUrl);
+  // First, try the grid-based detection (for Azur Lane-style UIs)
+  let results = await detectCharacterNamesFromGrid(imageUrl);
+
+  // If grid-based detection didn't find good results (low confidence or no matches)
+  // fall back to general OCR approach
+  if (results.confidence < 30 || results.matchedCharacters.length === 0) {
+    console.log("Grid-based detection had low confidence, trying general OCR...");
+
+    // Fallback to general OCR processing that doesn't assume specific layout
+    results = await detectCharactersFromImageGeneral(imageUrl);
+  }
 
   return results;
 }

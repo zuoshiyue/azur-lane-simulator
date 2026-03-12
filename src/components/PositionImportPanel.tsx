@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Upload, Download, AlertTriangle, CheckCircle, X, Image as ImageIcon, Target, RotateCcw } from 'lucide-react';
-import { processPositionScreenshot, OcrResult, processPositionScreenshotFromUrl } from '../utils/ocrHandler';
+import { Upload, Download, AlertTriangle, CheckCircle, X } from 'lucide-react';
+import { processPositionScreenshot, OcrResult } from '../utils/ocrHandler';
 import dataManager from '../data/dataManager';
 import { CharacterCard } from './CharacterCard';
-import { getExistingPositionScreenshot, getTestScreenshotPath, getPossessionScreenshotPath, getSpecificTestImagePath } from '../utils/devUtils';
 
 interface PositionImportPanelProps {
   onClose: () => void;
@@ -35,81 +34,6 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
     } catch (error) {
       console.error('OCR processing failed:', error);
       setUploadError('处理图片时发生错误，请稍后重试');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const handleProcessExistingScreenshot = async () => {
-    setIsProcessing(true);
-    setUploadError(null);
-
-    try {
-      const screenshotPath = await getExistingPositionScreenshot();
-      const result = await processPositionScreenshotFromUrl(screenshotPath);
-      setOcrResult(result);
-    } catch (error) {
-      console.error('Failed to process existing screenshot:', error);
-      setUploadError('处理现有截图时发生错误，请确保文件存在');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const handleProcessTestScreenshot = async () => {
-    setIsProcessing(true);
-    setUploadError(null);
-
-    try {
-      const screenshotPath = await getTestScreenshotPath();
-      const result = await processPositionScreenshotFromUrl(screenshotPath);
-      setOcrResult(result);
-    } catch (error) {
-      console.error('Failed to process test screenshot (ScreenShot.png):', error);
-      setUploadError('处理测试截图(ScreenShot.png)时发生错误，请确保文件存在');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  const handleProcessPossessionScreenshot = async () => {
-    setIsProcessing(true);
-    setUploadError(null);
-
-    try {
-      const screenshotPath = await getPossessionScreenshotPath();
-      const result = await processPositionScreenshotFromUrl(screenshotPath);
-      setOcrResult(result);
-    } catch (error) {
-      console.error('Failed to process possession screenshot (持仓截图.jpg):', error);
-      setUploadError('处理持仓截图(持仓截图.jpg)时发生错误，请确保文件存在');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  // Handle cycling through test images
-  const [currentTestImageIndex, setCurrentTestImageIndex] = useState(0);
-
-  const handleCycleTestImage = async () => {
-    setIsProcessing(true);
-    setUploadError(null);
-
-    try {
-      const imagePath = await getSpecificTestImagePath(currentTestImageIndex);
-      const result = await processPositionScreenshotFromUrl(imagePath);
-
-      // Update to show the image being tested
-      console.log(`Processing test image ${currentTestImageIndex + 1}: ${await getSpecificTestImagePath(currentTestImageIndex)}`);
-      setOcrResult(result);
-
-      // Cycle to next image (loop back to 0 when reaching end)
-      setCurrentTestImageIndex((prevIndex) =>
-        prevIndex >= 9 ? 0 : prevIndex + 1
-      );
-    } catch (error) {
-      console.error('Failed to process test image:', error);
-      setUploadError('处理测试图片时发生错误，请确保文件存在');
     } finally {
       setIsProcessing(false);
     }
@@ -168,7 +92,7 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-white flex items-center gap-2">
               <Upload className="w-6 h-6" />
-              识别持仓截图
+              识别舰舱截图
             </h2>
             <button
               onClick={onClose}
@@ -193,66 +117,24 @@ export const PositionImportPanel: React.FC<PositionImportPanelProps> = ({
             >
               <Upload className="w-12 h-12 text-navy-gold mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-white mb-2">
-                上传持仓截图
+                上传舰舱截图
               </h3>
               <p className="text-gray-400 mb-4">
-                拖拽图片至此或点击上传您的持仓截图，系统将自动识别其中的角色
+                拖拽图片至此或点击上传您的舰舱截图，系统将自动识别其中的角色
               </p>
               <p className="text-sm text-gray-500">
                 支持 JPG、PNG 等常见图片格式
               </p>
 
-              {/* Button to process existing screenshot if available */}
+              {/* Button to upload screenshot */}
               <div className="mt-4 flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleProcessExistingScreenshot();
-                  }}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-navy-gold hover:bg-opacity-80 text-white rounded-lg transition-colors"
                 >
-                  <ImageIcon className="w-4 h-4" />
-                  处理现有截图
-                </button>
-
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleProcessTestScreenshot();
-                  }}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
-                  title="测试专用截图，包含'确捷'等特定角色"
-                >
-                  <Target className="w-4 h-4" />
-                  测试截图(ScreenShot.png)
-                </button>
-
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleProcessPossessionScreenshot();
-                  }}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
-                  title="持仓截图，用于批量识别角色"
-                >
-                  <Target className="w-4 h-4" />
-                  持仓截图(持仓截图.jpg)
-                </button>
-
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCycleTestImage();
-                  }}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors"
-                  title={`循环测试图片 ${currentTestImageIndex + 1}/10`}
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  循环测试图片 ({currentTestImageIndex + 1}/10)
+                  <Upload className="w-4 h-4" />
+                  上传截图
                 </button>
               </div>
 

@@ -6,7 +6,7 @@
 // Define the path to the existing screenshot
 export const EXISTING_SCREENSHOT_PATH = '/position_screenshot.jpg';
 export const SCREENSHOT_PNG_PATH = '/ScreenShot.png';
-export const POSSESSION_JPG_PATH = '/持仓截图.jpg';
+export const POSSESSION_JPG_PATH = '/舰舱截图.jpg';
 
 // 新增：测试图片路径
 export const TEST_IMAGE_DIR = '/test_images/';
@@ -44,7 +44,7 @@ export async function getTestScreenshotPath(): Promise<string> {
  * Get the possession screenshot for bulk character recognition
  */
 export async function getPossessionScreenshotPath(): Promise<string> {
-  // Return path to 持仓截图.jpg in public folder
+  // Return path to 舰舱截图.jpg in public folder
   return POSSESSION_JPG_PATH;
 }
 

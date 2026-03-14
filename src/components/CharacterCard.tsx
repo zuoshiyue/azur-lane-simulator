@@ -64,8 +64,11 @@ export const CharacterCard = memo<CharacterCardProps>(function CharacterCard({
       <div
         draggable={draggable}
         onDragStart={(e) => onDragStart?.(e, character)}
-        onClick={() => {
-          if (!selectable && !showOwnedToggle) {
+        onClick={(e) => {
+          e.stopPropagation();
+          if (onShowDetails) {
+            onShowDetails(character);
+          } else if (!selectable && !showOwnedToggle) {
             onClick?.(character);
           }
         }}

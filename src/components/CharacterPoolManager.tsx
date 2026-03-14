@@ -6,10 +6,10 @@ import { CharacterForm } from './CharacterForm';
 import { Character, ShipType } from '../types';
 import {
   Plus, Search, Filter, Trash2, Edit2, Download, Upload,
-  Grid, List, Database, Star, X, CheckCircle, AlertTriangle, PlusCircle, Eye, Camera
+  Grid, List, Database, Star, X, CheckCircle, AlertTriangle, PlusCircle, Eye, FileText
 } from 'lucide-react';
 import { CharacterDetailModal } from './CharacterDetailModal';
-import { PositionImportPanel } from './PositionImportPanel';
+import { TextImportPanel } from './TextImportPanel';
 
 export const CharacterPoolManager: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,8 +24,8 @@ export const CharacterPoolManager: React.FC = () => {
   const [showImportExport, setShowImportExport] = useState(false);
   const [importText, setImportText] = useState('');
   const [showOwnedOnly, setShowOwnedOnly] = useState(false);
-  // OCR识别相关
-  const [showPositionImportPanel, setShowPositionImportPanel] = useState(false);
+  // 文本导入相关
+  const [showTextImportPanel, setShowTextImportPanel] = useState(false);
   // 虚拟滚动相关
   const [visibleItemCount, setVisibleItemCount] = useState(50); // 初始显示 50 个
   const parentRef = useRef<HTMLDivElement>(null);
@@ -256,8 +256,8 @@ export const CharacterPoolManager: React.FC = () => {
     }
   };
 
-  // OCR识别完成后处理
-  const handlePositionImportComplete = (_characterIds: string[]) => {
+  // 文本导入完成后处理
+  const handleTextImportComplete = (_characterIds: string[]) => {
     // 刷新页面以显示更新的角色列表
     window.location.reload();
   };
@@ -359,13 +359,13 @@ export const CharacterPoolManager: React.FC = () => {
               </button>
 
               <button
-                onClick={() => setShowPositionImportPanel(true)}
+                onClick={() => setShowTextImportPanel(true)}
                 className="flex items-center gap-1 sm:gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
-                title="通过截图识别角色，自动添加到已拥有列表"
+                title="通过文本导入角色，自动添加到已拥有列表"
               >
-                <Camera className="w-4 h-4" />
-                <span className="hidden xs:inline">OCR识别</span>
-                <span className="xs:hidden">OCR</span>
+                <FileText className="w-4 h-4" />
+                <span className="hidden xs:inline">文本导入</span>
+                <span className="xs:hidden">导入</span>
               </button>
 
               <button
@@ -908,11 +908,11 @@ export const CharacterPoolManager: React.FC = () => {
         </div>
       )}
 
-      {/* OCR舰舱识别面板 */}
-      {showPositionImportPanel && (
-        <PositionImportPanel
-          onClose={() => setShowPositionImportPanel(false)}
-          onImportComplete={handlePositionImportComplete}
+      // 文本导入面板
+      {showTextImportPanel && (
+        <TextImportPanel
+          onClose={() => setShowTextImportPanel(false)}
+          onImportComplete={handleTextImportComplete}
         />
       )}
 
